@@ -1,6 +1,6 @@
 {
-    "name": "highwire/scolaris-site-tms",
-    "description": "Site specific repository for TMS",
+    "name": "highwire/scolaris-site-hwjma",
+    "description": "Site specific repository for HWJMA",
     "type": "project",
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -8,7 +8,7 @@
         "discard-changes": true,
         "process-timeout": 0,
         "theme-directories": [
-            "web/themes/highwire/tms_theme"
+            "web/themes/highwire/hwjma_theme"
         ]
     },
     "require": {
