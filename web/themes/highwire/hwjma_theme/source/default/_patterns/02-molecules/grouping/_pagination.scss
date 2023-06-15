@@ -1,7 +1,6 @@
 .pagination {  
   @extend .d-flex;
   @include list-unstyled();
-  margin: 0;
   &__page-link {
     @extend .position-relative;
     @extend .d-block;
@@ -18,12 +17,14 @@
       z-index: 2;
       color: $primary;
       text-decoration: if($link-hover-decoration == underline, none, null);
-      background-color: $secondary-light;
+      background-color: $secondary;
     }
     &:focus {
       z-index: 3;
       color: $white !important;
       background-color: $danger;
+      outline: $pagination-focus-outline;
+      box-shadow: $pagination-focus-box-shadow;
     }
   }
   &__page-item {    

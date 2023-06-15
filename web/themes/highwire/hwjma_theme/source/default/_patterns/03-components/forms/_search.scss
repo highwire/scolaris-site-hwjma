@@ -1,7 +1,7 @@
 $component: ".search";
 #{$component} {     
     @extend .py-4;
-    background: $secondary-light;
+    background: $light-yellow;
     &__row{
         @extend .row;
         @extend .justify-content-center;  
@@ -9,11 +9,11 @@ $component: ".search";
     &__formcontrol{
         @extend .form-control;
         @extend .form-control-large-tablet;
-        max-height: 3.275rem;
-        min-height: 3.275rem;
+        max-height: 3.75rem;
+        min-height: 3.75rem;
         margin: 0;
         background-image: none !important;
-        border-color: $secondary-dark;
+        border-color: $primary-dark;
         padding-right: 45px;
         @include media-breakpoint-down(medium-tablet) {
             padding-right: 60px;
@@ -22,16 +22,16 @@ $component: ".search";
             color: $primary-light;
         }
     } 
-    &__icon:after {
+    &__icon:after{
         font-size: 1.5rem;
         top: 50%;
-        margin-top: -12px;
+        margin-top: -18px;
         color: $primary-light;
         right: 15px;
         content: "\e9c1";
         font-family: "feather";
         @extend .align-middle;
-        @extend .position-absolute;
+        @extend .position-absolute;         
     } 
     &__position{      
          @extend .d-flex;    
@@ -66,35 +66,12 @@ $component: ".search";
                 margin-left: 0 !important;
                 margin-top: 0;
                 font-size: 0;
-                padding: 11px 24px 12px;
+                padding: 11px 24px 12px;           
             }
             &:hover,
             &:focus {
-                opacity: 0.8;
+                background-color: $danger-dark;
             }
         }
     } 
-     // Spin icon rotate animation
-     .search-loading::after {
-        animation: rotate-animation 1.5s infinite linear;
-        -webkit-animation: rotate-animation 1.5s infinite linear;
-    }
-    @keyframes rotate-animation {
-        0% {
-            transform: rotate(0deg);
-            -webkit-transform: rotate(0deg);
-        }
-        50% {
-            transform: rotate(180deg);
-            -webkit-transform: rotate(180deg);
-        }
-        100% {
-            transform: rotate(360deg);
-            -webkit-transform: rotate(360deg);
-        }
-
-    }
-    .search__icon:after {
-        content: "\e9b9" !important;
-    }
 }

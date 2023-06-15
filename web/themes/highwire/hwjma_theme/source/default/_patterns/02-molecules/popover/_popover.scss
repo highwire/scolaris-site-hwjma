@@ -4,23 +4,27 @@
   position: absolute;
   top: 0;
   left: 0 #{"/* rtl:ignore */"};
-  z-index: 999;
+  z-index: $zindex-popover;
   display: block;
-  max-width: 300px;
+  max-width: $popover-max-width;
+  // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
+  // So reset our font and text properties to avoid inheriting weird values.
   @include reset-text();
-  font-size: 16px;
+  @include font-size($popover-font-size);
+  // Allow breaking very long words so they don't overflow the popover's bounds
   word-wrap: break-word;
   background-color: $popover-bg;
   background-clip: padding-box;
   border: $popover-border-width solid $popover-border-color;
-  border-radius: 2px;
-  box-shadow: 0 15px 45px -10px rgba(0, 0, 0, 0.3);
-  overflow-wrap: break-word;
+  @include border-radius($popover-border-radius);
+  @include box-shadow($popover-box-shadow);
+
   .popover-arrow {
     position: absolute;
     display: block;
     width: $popover-arrow-width;
     height: $popover-arrow-height;
+
     &::before,
     &::after {
       position: absolute;
@@ -31,14 +35,17 @@
     }
   }
 }
+
 .bs-popover-top {
   > .popover-arrow {
     bottom: subtract(-$popover-arrow-height, $popover-border-width);
+
     &::before {
       bottom: 0;
       border-width: $popover-arrow-height math.div($popover-arrow-width, 2) 0;
       border-top-color: $popover-arrow-outer-color;
     }
+
     &::after {
       bottom: $popover-border-width;
       border-width: $popover-arrow-height math.div($popover-arrow-width, 2) 0;
@@ -46,16 +53,19 @@
     }
   }
 }
+
 .bs-popover-end {
   > .popover-arrow {
     left: subtract(-$popover-arrow-height, $popover-border-width);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
+
     &::before {
       left: 0;
       border-width: math.div($popover-arrow-width, 2) $popover-arrow-height math.div($popover-arrow-width, 2) 0;
       border-right-color: $popover-arrow-outer-color;
     }
+
     &::after {
       left: $popover-border-width;
       border-width: math.div($popover-arrow-width, 2) $popover-arrow-height math.div($popover-arrow-width, 2) 0;
@@ -63,14 +73,17 @@
     }
   }
 }
+
 .bs-popover-bottom {
   > .popover-arrow {
     top: subtract(-$popover-arrow-height, $popover-border-width);
+
     &::before {
       top: 0;
       border-width: 0 math.div($popover-arrow-width, 2) $popover-arrow-height math.div($popover-arrow-width, 2);
       border-bottom-color: $popover-arrow-outer-color;
     }
+
     &::after {
       top: $popover-border-width;
       border-width: 0 math.div($popover-arrow-width, 2) $popover-arrow-height math.div($popover-arrow-width, 2);
@@ -96,11 +109,13 @@
     right: subtract(-$popover-arrow-height, $popover-border-width);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
+
     &::before {
       right: 0;
       border-width: math.div($popover-arrow-width, 2) 0 math.div($popover-arrow-width, 2) $popover-arrow-height;
       border-left-color: $popover-arrow-outer-color;
     }
+
     &::after {
       right: $popover-border-width;
       border-width: math.div($popover-arrow-width, 2) 0 math.div($popover-arrow-width, 2) $popover-arrow-height;
@@ -126,47 +141,20 @@
 
 // Offset the popover to account for the popover arrow
 .popover-header {
+  padding: $popover-header-padding-y $popover-header-padding-x;
+  margin-bottom: 0; // Reset the default from Reboot
+  @include font-size($font-size-base);
   color: $popover-header-color;
-  position: absolute;
-  font-size: 24px;
-  margin: 0;
-  cursor: pointer;
-  position: absolute;
-  right: 12px;
-  top: 0;
-  background: none;
-  padding: 0;
-  z-index: 10;
-  @include media-breakpoint-up(small-tablet) {
-    display: none;
-  }
+  background-color: $popover-header-bg;
+  border-bottom: $popover-border-width solid shade-color($popover-header-bg, 10%);
+  @include border-top-radius($popover-inner-border-radius);
+
   &:empty {
     display: none;
   }
 }
 
 .popover-body {
-  padding: 20px;
+  padding: $popover-body-padding-y $popover-body-padding-x;
   color: $popover-body-color;
-  .ref-content {
-    h2 {
-      font-size: 15px;
-      margin-bottom: 15px;
-    }
-    p:last-child {
-      margin: 0;
-    }
-    ul {
-      padding: 0;
-      list-style-position: inside;
-      margin: 10px 0 0;
-    }
-    a {
-      color: $danger;
-      font-weight: 600;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
 }

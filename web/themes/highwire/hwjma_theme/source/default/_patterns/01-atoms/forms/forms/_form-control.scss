@@ -9,7 +9,7 @@
   color: $input-color;
   background-color: $input-bg;
   background-clip: padding-box;
-  border: 1px solid $secondary-medium;
+  border: 1px solid $primary-dark;
   border-radius: 0.35rem;
   appearance: none; // Fix appearance for date inputs in Safari
   @include box-shadow($input-box-shadow);
@@ -26,7 +26,7 @@
   &:focus {
     color: $input-focus-color;
     background-color: $input-focus-bg;
-    border-color: $primary;
+    border-color: $primary-dark;
     outline: 0;
     box-shadow: none;
   }

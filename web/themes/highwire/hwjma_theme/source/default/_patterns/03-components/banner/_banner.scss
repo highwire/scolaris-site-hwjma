@@ -1,7 +1,7 @@
 $component: ".banner";
 #{$component} {     
     @extend .mw-100;
-    background-color: transparent;
+    background-color: $light-orange;
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,11 +15,13 @@ $component: ".banner";
         padding-left: 10px;
     }
     h1 {
+        color: $primary-dark;
         margin-top: 0.5rem;
         margin-bottom: 0.75rem;
     }
     p {        
         font-size: 1rem;
+        color: $primary-dark;
         margin-bottom: 6rem;
         line-height: 24px;
     }

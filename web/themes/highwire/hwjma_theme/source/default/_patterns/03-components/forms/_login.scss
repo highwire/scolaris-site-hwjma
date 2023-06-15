@@ -1,11 +1,10 @@
 $component: ".user-login-form";
 #{$component} {
-    @extend .container;
     .form-item {
         margin-bottom: 20px;
         label {
             display: block;
-            font-weight: 700;
+            font-weight: 500;
         }
         .form-text {
             margin-top: 0.25rem;
@@ -19,47 +18,14 @@ $component: ".user-login-form";
         .description {
             margin-top: 5px;
             font-size: 14px;
-            color: $secondary;
+            color: $secondary-dark;
         }
     }
     .form-actions {
         margin: 0 !important;
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-        color: $white;
         .form-submit {
             @extend .btn;
             @extend .btn-danger;
-        }
-        &::after {
-            content: "\e912";
-            font-family: 'feather';
-            top: 6px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-transition: all 0.3s ease 0.2s;
-            -moz-transition: all 0.3s ease 0.2s;
-            -ms-transition: all 0.3s ease 0.2s;
-            -o-transition: all 0.3s ease 0.2s;
-            transition: all 0.3s ease 0.1s;
-            display: inline-block;
-            position: absolute;
-            right: -50px;
-            line-height: 2.5;
-            pointer-events: none;
-        }  
-        &:hover,
-        &:focus,
-        &.active {
-            &::after {
-                right: 10px;
-                -webkit-transition: right .3s .2s;
-                -moz-transition: right .3s .2s;
-                -ms-transition: right .3s .2s;
-                -o-transition: right .3s .2s;
-                transition: right .3s .2s;
-            }
         }
     }
 }

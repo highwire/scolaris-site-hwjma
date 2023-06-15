@@ -8,28 +8,8 @@
 .dropdown-toggle {
   white-space: nowrap;  
 }
-.menu_arrow{
-  @include caret();
-  display: none;
-  cursor: pointer;
-  color: $white;
-  @include media-breakpoint-down(medium-tablet) {
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    &.show {
-      &::after {
-        color: $white;
-        transform: rotate(180deg);
-        margin-top: 13px;
-      }
-      &~.dropdown-toggle {
-        background-color: $danger;
-        color: $black;
-      }
-    }
-  }
+.menu_arrow{    
+  @include caret(); 
 }
 
 // The dropdown menu
@@ -48,8 +28,9 @@
   background-color: $dropdown-bg;
   background-clip: padding-box;
   border: $dropdown-border-width solid $dropdown-border-color;
-  border-radius: 0 !important;
+  @include border-radius($dropdown-border-radius);
   @include box-shadow($dropdown-box-shadow);
+
   &[data-bs-popper] {
     left: 0;
   }
@@ -154,6 +135,18 @@
   background-color: transparent; // For `<button>`s
   border: 0; // For `<button>`s
   line-height: $line-height-desktop;
+
+  // Prevent dropdown overflow if there's no padding
+  @if $dropdown-padding-y == 0 {
+    &:first-child {
+      @include border-top-radius($dropdown-inner-border-radius);
+    }
+
+    &:last-child {
+      @include border-bottom-radius($dropdown-inner-border-radius);
+    }
+  }
+
   &:hover,
   &:focus {
     color: $dropdown-link-hover-color;
@@ -196,8 +189,8 @@
 
 .dropdown-menu-dark {
   color: $white;
-  background-color: $primary;
-  border-color: transparent;
+  background-color: $danger;
+  border-color: $danger;
   @include box-shadow($dropdown-dark-box-shadow);
   .dropdown-item {
     color: $white;
@@ -207,7 +200,7 @@
     &.active,
     &:active {
       color: $white !important;
-      background-color: $danger;
+      background-color: $danger-dark;
     }
     &.disabled,
     &:disabled {

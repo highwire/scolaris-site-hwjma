@@ -3,7 +3,8 @@
 .btn {
     display: inline-block;
     font-family: $btn-font-family;
-    font-weight: 500 !important;
+    font-weight: $btn-font-weight;
+    line-height: 1.5rem;
     color: $body-color;
     text-align: center;
     text-decoration: none;
@@ -11,47 +12,24 @@
     vertical-align: middle;
     cursor: pointer;
     user-select: none;
-    border: none;
-    padding: 6px 30px;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    line-height: 2.5;
-    border-radius: 5px !important;
-    font-size: 15px;
-    overflow: hidden;
+    border: 1px solid transparent;
+    padding: 0.688rem 1.125rem;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    background: linear-gradient(to right, transparent 50%, white 50%);
+    background-size: 200% 98%;
+    background-position: right bottom;
     transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
     -o-transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    position: relative;
-    &::after {
-        content: "\e912";
-        font-family: 'feather';
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-transition: all 0.3s ease 0.2s;
-        -moz-transition: all 0.3s ease 0.2s;
-        -ms-transition: all 0.3s ease 0.2s;
-        -o-transition: all 0.3s ease 0.2s;
-        transition: all 0.3s ease 0.1s;
-        display: inline-block;
-        position: absolute;
-        right: -50px;
-        line-height: 2.5;
-        pointer-events: none;
-    }  
+    -webkit-transition: all .3s ease-out;  
     &:hover,
     &:focus,
     &.active {
-        opacity: 0.8;
-        &::after {
-            right: 10px;
-            -webkit-transition: right .3s .2s;
-            -moz-transition: right .3s .2s;
-            -ms-transition: right .3s .2s;
-            -o-transition: right .3s .2s;
-            transition: right .3s .2s;
-        }
+        color: $body-color;
+        text-decoration: none;
+        background-position: left bottom;
+        box-shadow: none !important;
     }  
     .btn-check:focus + &,
     &:focus {

@@ -57,8 +57,8 @@
 }
 .page-node-type-page {
     #block-particle-content {
-        .header,
-        .search,
+        .header, 
+        .search, 
         .footer {
             display: none;
         }
@@ -69,7 +69,7 @@
     &.path-frontpage {
         .banner {
             display: block;
-        }
+        }  
         #block-particle-content {
             .banner {
                 display: none;
@@ -83,13 +83,13 @@
     }
 }
 /* Fixing Dummy Code need to remove once drupal dev End */
-.main-container{
+.main-container{    
     padding-top: 3rem;
     padding-bottom: 3rem;
     @include media-breakpoint-down(medium-tablet) {
         padding-top: 1.875rem;
         padding-bottom: 1.875rem;
-    }
+    } 
 }
 .path-frontpage {
     .main-container {
@@ -118,6 +118,22 @@
         @extend .pb-4;
         &:last-child {
             border-bottom: none;
+        }
+    }
+}
+.btn {
+    &.btn-large {
+        font-size: 1.313rem;
+        line-height: 1.875rem;
+        padding: 0.888rem 1.5rem;
+        font-weight: 500;
+        &.btn-primary-dark {
+            .stack-back {
+                color: $primary-dark;
+            }
+            .stack-front {
+                color: $info;
+            }
         }
     }
 }
@@ -258,6 +274,7 @@ picture img {
     @extend .mb-2;
     @extend .text-decoration-none;
     @extend .text-primary;
+    @extend .fs-small;
     .img-overlay {
         @extend .w-100;
         background-color: $secondary;
@@ -369,8 +386,14 @@ input[list]+ul[list] {
         }
     }
 }
+.banner-section {
+    background-color: #e2e2e2;
+    background-position: top right;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 .border-bottom {
-    border-bottom: 1px solid $secondary;
+    border-bottom: 1px solid $secondary-dark;
 }
 .breadcrumb {
     a {
@@ -454,7 +477,7 @@ input[list]+ul[list] {
     &:first-child {
         padding-left: calc(var(--bs-gutter-x) );
     }
-}
+} 
 @include media-breakpoint-down(desktop) {
     .order_2_1,
     .order_2_2,
@@ -464,7 +487,7 @@ input[list]+ul[list] {
         padding-left: calc(var(--bs-gutter-x));
         padding-right: calc(var(--bs-gutter-x));
     }
-}
+} 
 @include media-breakpoint-down(medium-tablet) {
     .journals-step {
         position: static;
@@ -492,11 +515,96 @@ input[list]+ul[list] {
         padding-right: 10%;
     }
 }
+@include media-breakpoint-up(medium-tablet) {
+    .btn-large-tablet,
+    .btn-group-large-tablet>.btn {
+        padding: 0.938rem 1.5rem;
+    }
+}
+.btn-danger {
+    background: linear-gradient(to right, $danger-dark 50%, $danger 50%);
+    background-size: 200% 97%;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    &:hover,
+    &:focus {
+        background-position: left bottom;
+    }
+}
+.btn-info {
+    background: linear-gradient(to right, $info 50%, transparent 50%);
+    background-size: 200% 97%;
+    border-color: $info;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    color: $info;
+    &::before {
+        color: $info;
+    }
+    &:hover,
+    &:focus {
+        background-position: left bottom;
+        color: $white;
+        &::before {
+            color: $white;
+        }
+    }
+}
+.btn-primary {
+    background: linear-gradient(to right, $primary 50%, transparent 50%);
+    background-size: 200% 97%;
+    border-color: $primary;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    color: $primary;
+    &::before {
+        color: $primary;
+    }
+    &:hover,
+    &:focus {
+        background-position: left bottom;
+        color: $white;
+        &::before {
+            color: $white;
+        }
+    }
+}
+.btn-primary-dark {
+    background: linear-gradient(to right, $primary-dark 50%, transparent 50%);
+    background-size: 200% 97%;
+    border-color: $primary-dark;
+    background-position: right bottom;
+    transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    color: $primary-dark;
+    &::before {
+        color: $primary-dark;
+    }
+    &:hover,
+    &:focus {
+        background-position: left bottom;
+        color: $white;
+        &::before {
+            color: $white;
+        }
+    }
+}
 .block-region-bottom-left{
     position: relative;
 }
-.page-node-type-journal-issue .item-list__title {
-    display: none;
+.page-node-type-journal-issue .item-list__toc .toc-expanded .item-list__title { 
+    display: none; 
 }
 .page-node-type-item-monograph {
   .tab-content {
@@ -544,7 +652,7 @@ input[list]+ul[list] {
                 border-bottom: 1px solid $secondary;
                 margin-bottom: 20px;
             }
-            .tms-purchase-offer {
+            .bps-purchase-offer {
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
@@ -579,10 +687,10 @@ input[list]+ul[list] {
                             max-width: 200px;
                             position: absolute;
                             display: none;
-                            background: $light-blue;
+                            background: $light-orange;
                             min-width: 200px;
                             right: -75px;
-                            border: 1px solid $primary;
+                            border: 1px solid $primary-dark;
                             border-radius: 5px;
                             box-shadow: 0 2px 3px $secondary-dark;
                             padding: 10px 15px;
@@ -649,7 +757,7 @@ input[list]+ul[list] {
     border: none;
     margin: 0;
     background: none;
-}
+}      
 ul.unorder-listing {
   list-style: none;
   padding-left: 0;
@@ -752,110 +860,7 @@ ol.order-listing {
 .view-all-issues .item-list:first-child:last-child h3 {
     display: none;
 }
-.resource-item {
-    .content > div > div {
-        margin-bottom: 20px;
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-    .resource-item {
-        .content > div > div {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid $secondary-light;
-            &:last-child {
-                margin-bottom: 0;
-                padding-bottom: 0;
-                border-bottom: none;
-            }
-        }        
-        > h2 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            background: $secondary-light;
-            padding: 10px 15px;
-        }
-        .res-link-desc {
-            padding: 0 15px;
-        }
-        .resource-item {
-            > h2 {
-                font-size: 16px;
-                margin-bottom: 5px;
-                background: none;
-                color: inherit;
-                padding: 0;
-            }
-            .content {
-                a {
-                    color: $danger;
-                    font-weight: 600;
-                    display: block;
-                    margin-bottom: 5px;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            } 
-        }
-    }
-}
-.reference-info {
-    .content {
-        div[data-quickedit-field-id] {
-            margin-top: 15px!important;
-            display: inline-block;
-            margin-right: 5px;
-            &:first-child {
-                font-weight: 600;
-                margin: 0 !important;
-                display: block;
-            }
-            &:nth-child(4) {
-                font-size: 14px;
-                color: $secondary;
-            }
-            & + p {
-                margin-top: 15px !important;
-                margin-bottom: 0 !important;
-            }
-        }
-    }
-}
-.highwire-toggle {
-    ol, ul {
-        padding-left: 0;
-        margin-left: 0;
-        list-style-position: inside;
-    }
-}
-.table-wrap {
-    .label {
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-    .caption, 
-    img {
-        margin-bottom: 10px;
-    }
-    .ref-popover {
-        font-weight: 600;
-    }
-}
-.page-node-type-product-basic-page {
-    .block-region-right {
-        img {
-            margin-right: 10px;
-        }
-        a {
-            color: $danger;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-        ul {
-            margin-bottom: 24px;
-        }
-    }
+.block-bps-pdf-only-message {
+    background-color: $light-blue;
+    color: $black;
 }

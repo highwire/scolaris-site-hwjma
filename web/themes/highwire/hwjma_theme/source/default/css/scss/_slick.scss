@@ -5,7 +5,7 @@
 
 .slick-slider {
 	position: relative;
-	margin: 0 -12px;
+	margin: 0 -5px;
 	padding-bottom: 0rem;
 	display: block;
 	box-sizing: border-box;
@@ -158,7 +158,7 @@
 		opacity: 0.3;
 	}
 	&:hover {
-		background: $primary;
+		background: $primary-dark;
 		color: $white;
 	}
 }

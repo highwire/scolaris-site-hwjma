@@ -102,7 +102,6 @@
                 flex-shrink: 0;
                 flex-direction: row-reverse;
                 padding: 0.75rem 0 0;
-                justify-content: space-between;
                 border-top: 1px solid $secondary;
                 input[data-drupal-selector=edit-submit] {
                     @extend .btn;

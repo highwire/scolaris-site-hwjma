@@ -18,6 +18,7 @@
 // these borders do not have the same color or if they are semi-transparent.
 // Therefor we add top and border bottoms to the `tr`s and left and right borders
 // to the `td`s or `th`s
+
 .table-bordered {
   > :not(caption) > * {
     border-width: $table-border-width 0;
@@ -79,8 +80,4 @@
       -webkit-overflow-scrolling: touch;
     }
   }
-}
-
-table tbody tr:nth-child(even) {
-  background-color: $secondary-lighter;
 }

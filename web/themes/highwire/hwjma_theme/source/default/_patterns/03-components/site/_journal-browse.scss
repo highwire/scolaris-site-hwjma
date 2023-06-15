@@ -50,7 +50,7 @@
     }
   }
 }
-.journal-browse-content {
+.path-periodicals {  
   .article {
     .card-container {
       border-top: 1px solid $secondary;
@@ -76,19 +76,26 @@
       @extend h4;
       margin-bottom: 20px;
       a {
-        color: $primary;
+        color: $primary-dark;
       }
+    }
+    &__authorname {
+      font-size: 1rem;
+      display: inline-block;
+      margin-bottom: 5px;
     }
     &__author-info {
       @extend .d-inline-block;
-      color: $primary;
+      color: $primary-dark;
       @extend .mb-0;
     }
     &__author-description {
       margin-bottom: 1.125rem;
     }
     &__btn {
+      border-right: 1px solid $secondary-dark;
       padding-right: 30px;
+      margin-right: 10px;
       line-height: normal;    
       display: inline-block;
       color: $danger;
@@ -109,8 +116,7 @@
     }
     &__btn-calender-icon {
       @extend .latest__article-btn;
-      border-left: 1px solid $secondary;
-      padding-left: 10px;
+      border-right: none;
       line-height: normal;
       color: $danger;
       @extend .d-inline-block;
@@ -136,7 +142,6 @@
     ul {
       list-style: none;
       padding: 0;
-      margin-left: 0;
       li {
         border-top: 1px solid $secondary-dark;
         @extend .pt-4;
@@ -150,7 +155,7 @@
   font-weight: 600;
 }
 .card-status {
-  color: $primary;
+  color: $primary-dark;
   margin-left: 5px;
   display: inline-block;
 }

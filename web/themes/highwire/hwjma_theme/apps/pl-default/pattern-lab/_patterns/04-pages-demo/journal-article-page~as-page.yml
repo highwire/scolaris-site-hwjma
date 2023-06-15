@@ -56,35 +56,32 @@ journals_articles_top:
   card_link:
   - button:
       href: "#"
-      class: article__social_btn article__social_btn__favorites
+      class: action-favorites
       title: Add to favorites
       text: Add to favorites      
   - button:
       href: "#"
-      class: article__social_btn article__social_btn__share
+      class: action-share
       title: Share
       text: Share
       lefticon: true     
   - button:
       href: "#"
-      class: article__social_btn article__social_btn__alerts
+      class: action-alerts
       title: Alerts
       text: Alerts    
   - button:
       href: "#"
-      class: article__social_btn
       title: Sample issue
       text: Sample issue
       lefticon: false
   - button:
       href: "#"
-      class: article__social_btn
       title: Latest issue
       text: Latest issue
       lefticon: false
   - button:
       href: "#"
-      class: article__social_btn
       title: Early view
       text: Early view
       lefticon: false

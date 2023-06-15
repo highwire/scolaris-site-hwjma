@@ -1,4 +1,4 @@
-{% if href or authorinfo %}
+{% if text %}
   <a
     {% if authorinfo %}
       href="javascript://"
@@ -13,9 +13,6 @@
     {% endif %}
     {% if class %}
       class="{{ class }}"
-    {% endif %}
-    {% if id %}
-      id="{{ id }}"
     {% endif %}
     {% if modalPopuptarget %}
       data-bs-toggle="modal"
@@ -50,7 +47,7 @@
       },
       closeButton: {
         text: 'Close',
-        classes: "btn-primary",
+        classes: "btn-outline-primary",
         closemodal: "modal"
       }
     }

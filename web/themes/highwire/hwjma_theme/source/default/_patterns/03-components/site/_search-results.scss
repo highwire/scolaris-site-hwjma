@@ -6,7 +6,7 @@
       }
     }
     &-filter {
-      border-top: 1px solid $secondary;
+      border-top: 1px solid $info-light;
       padding: 12px 0;
     }
 
@@ -120,7 +120,7 @@
   &-middle {
     &-container {
       @extend .d-block;
-      border-top: 1px solid $secondary;
+      border-top: 1px solid $info-light;
       padding: 1rem 0;
     }
 
@@ -161,10 +161,11 @@
       }
 
       h6 {
-        font-size: 0.875rem;
-        margin-bottom: 3px;
+        font-size: 1rem;
+        margin-bottom: 5px;
         font-weight: 600;
-        color: $secondary-dark;
+        color: $danger;
+        font-family: $font-family-sans-serif;
         &::first-letter {
           text-transform: capitalize;
         }
@@ -215,28 +216,28 @@
   }
   &-bottom {
     padding-top: 0.75rem;
-    border-top: 1px solid $secondary;
+    border-top: 1px solid $info-light;
   }
 
   .facet-sidebar {
     >h6 {
-      @extend .h4;
-      margin-bottom: 15px;
       margin-top: 10px;
+      margin-bottom: 10px;
     }
   }
 
-  .facets-widget-tmscheckbox_content_type,.facets-widget-tmscheckbox {
+  .facets-widget-bpscheckbox_content_type {
     & {
-      border-bottom: 1px solid $secondary;
+      border-bottom: 1px solid $info-light;
       padding-bottom: 5px;
       margin-bottom: 40px;
     }
+
     ul {
       list-style: none;
       padding-left: 0;
-      margin: 0;
     }
+
     .facet-item {
       @extend .form-check;
       line-height: 1.5;
@@ -273,7 +274,7 @@
 
           &::before {
             content: "";
-            border-top: 1px solid $secondary;
+            border-top: 1px solid $info-light;
             height: 1px;
             width: calc(100% + 23px);
             position: absolute;
@@ -283,7 +284,7 @@
 
           &::after {
             content: "";
-            border-bottom: 1px solid $secondary;
+            border-bottom: 1px solid $info-light;
             height: 1px;
             width: calc(100% + 23px);
             position: absolute;
@@ -296,7 +297,7 @@
       &__count {
         font-weight: 600;
         border-radius: 4px;
-        background: $light-blue;
+        background: $light-yellow;
         min-width: 50px;
         color: $danger;
         align-self: flex-start;
@@ -310,18 +311,18 @@
     }
 
     &+h6 {
-      border-bottom: 1px solid $secondary;
+      border-bottom: 1px solid $info-light;
       margin-bottom: 0;
       padding-bottom: 0.5rem;
     }
   }
 
-  .facets-widget-tms_include_all_checkbox_multiple {
-    border-bottom: 1px solid $secondary;
-    &+.facets-widget-tmscheckbox_content_type,.facets-widget-tmscheckbox {
+  .facets-widget-bps_include_all_checkbox_multiple {
+    border-bottom: 1px solid $info-light;
+    &+.facets-widget-bpscheckbox_content_type {
       margin-bottom: 0;
       padding: 0;
-      .item-list__tmscheckbox_content_type {
+      .item-list__bpscheckbox_content_type {
         margin-bottom: 0;
       }
     }
@@ -350,14 +351,18 @@
     }
 
     .modal-content {
-      padding-bottom: 2.5rem;
+      padding-bottom: 0.875rem;
     }
 
     .modal-body {
-      max-height: 60vh;
       padding: 0 !important;
-
-      .tms-checkbox-multiple-facet {
+      overflow: visible;
+      .bps-checkbox-multiple-group {
+        overflow: auto;
+        max-height: 54vh;
+        padding-left: 0;
+      }
+      .bps-checkbox-multiple-facet {
         list-style: none;
         padding: 0;
         margin: 0;
@@ -386,7 +391,7 @@
 
             &::after {
               content: "";
-              border-bottom: 1px solid $secondary;
+              border-bottom: 1px solid $info-light;
               height: 1px;
               width: calc(100% + 23px);
               position: absolute;
@@ -405,7 +410,7 @@
           &__count {
             font-weight: 600;
             border-radius: 4px;
-            background: $light-blue;
+            background: $light-yellow;
             min-width: 50px;
             color: $danger;
             align-self: flex-start;
@@ -422,9 +427,9 @@
                 display: none;
               }
             }
-            .tms-checkbox-multiple-facet {
+            .bps-checkbox-multiple-facet {
               padding-left: 25px;
-              border-bottom: 1px solid $secondary;
+              border-bottom: 1px solid $info-light;
               padding-top: 5px;
               padding-bottom: 5px;
               .facets-checkbox {
@@ -444,7 +449,7 @@
           }
         }
 
-        .tms-facets-form-actions {
+        .bps-facets-form-actions {
           @extend .modal-footer;
           padding-bottom: 0;
 
@@ -484,8 +489,8 @@
   content: '\e931';
 }
 
-.facets-widget-tms-search-facets-daterange {
-  border-bottom: 1px solid $secondary;
+.facets-widget-bps-search-facets-daterange {
+  border-bottom: 1px solid $info-light;
 
   &.active {
     .facet-modal-click {
@@ -525,7 +530,7 @@
   .facets-date-range {
     display: none;
     padding: 0.75rem 0 1.25rem;
-    border-top: 1px solid $secondary;
+    border-top: 1px solid $info-light;
 
     .js-form-type-radio {
       @extend .form-check;
@@ -613,7 +618,7 @@
       }
 
       &:hover {
-        background-color: $danger;
+        background-color: $danger-dark;
       }
     }
   }
@@ -634,7 +639,7 @@
   .results-item,
   .highwire-personalization-manage-marker-panel {
     @extend .d-block;
-    border-top: 1px solid $secondary;
+    border-top: 1px solid $info-light;
     padding: 1rem 0;
   }
   .favorite-left {
@@ -670,6 +675,9 @@
     .favorite-action {
       display: flex;
       justify-content: space-between;
+      @include media-breakpoint-up(large-tablet) {
+        margin-bottom: -15px;
+      }
       .item-date {
         color: $secondary-dark;
         font-size: 0.875rem;
@@ -678,25 +686,19 @@
         position: absolute;
         bottom: 10px;
         left: 110px;
-        background: none;
-        border: none;
         @include media-breakpoint-up(large-tablet) {
           position: static;
           left: auto;
           bottom: auto;
         }
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-          color: $danger;
-        }
       }
     }
     h6 {
-      font-size: 0.875rem;
-      margin-bottom: 3px;
+      font-size: 1rem;
+      margin-bottom: 5px;
       font-weight: 600;
-      color: $secondary-dark;
+      color: $danger;
+      font-family: $font-family-sans-serif;
       &::first-letter {
         text-transform: capitalize;
       }
@@ -718,6 +720,10 @@
       }
     }
     .search-description-truncate {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;  
+      overflow: hidden;
       p {
         margin: 0;
       }

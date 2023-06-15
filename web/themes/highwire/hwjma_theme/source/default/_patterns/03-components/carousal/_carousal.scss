@@ -8,6 +8,7 @@
     padding-left: 10px;
   }
   h1 {
+    color: $primary-dark;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     display: -webkit-box;
@@ -16,24 +17,22 @@
     overflow: hidden;
   }
   p {
+    color: $primary-dark;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 }
-
 .carousel.pointer-event {
   touch-action: pan-y;
 }
-
 .carousel-inner {
   position: relative;
   width: 100%;
   overflow: hidden;
   @include clearfix();
 }
-
 .carousel-item {
   position: relative;
   display: none;
@@ -43,43 +42,33 @@
   background-size: cover;
   backface-visibility: hidden;
   background-position: top right;
-  height: 350px;
   @include transition($carousel-transition);
-  @include media-breakpoint-down(large-tablet) {
-    height: auto;
-  }
 }
-
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev {
   display: block;
 }
-
 .carousel-item-next:not(.carousel-item-start),
 .active.carousel-item-end {
   transform: translateX(100%);
 }
-
 .carousel-item-prev:not(.carousel-item-end),
 .active.carousel-item-start {
   transform: translateX(-100%);
 }
-
 .carousel-fade {
   .carousel-item {
     opacity: 0;
     transition-property: opacity;
     transform: none;
   }
-
   .carousel-item.active,
   .carousel-item-next.carousel-item-start,
   .carousel-item-prev.carousel-item-end {
     z-index: 1;
     opacity: 1;
   }
-
   .active.carousel-item-start,
   .active.carousel-item-end {
     z-index: 0;
@@ -87,16 +76,15 @@
     @include transition(opacity 0s $carousel-transition-duration);
   }
 }
-
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;
   top: 0;
   bottom: 0;
   z-index: 1;
-  display: flex; // 1. allow flex styles
-  align-items: center; // 2. vertically center contents
-  justify-content: center; // 3. horizontally center contents
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: $carousel-control-width;
   padding: 0;
   color: $carousel-control-color;
@@ -105,8 +93,6 @@
   border: 0;
   opacity: $carousel-control-opacity;
   @include transition($carousel-control-transition);
-
-  // Hover/focus state
   &:hover,
   &:focus {
     color: $carousel-control-color;
@@ -134,55 +120,76 @@
   background-position: 50%;
   background-size: 100% 100%;
 }
-
 .carousel-control-prev-icon {
   background-image: escape-svg($carousel-control-prev-icon-bg);
 }
 .carousel-control-next-icon {
   background-image: escape-svg($carousel-control-next-icon-bg);
 }
-
 .carousel-indicators {
   position: absolute;
-  right: 0;
+  right: auto;
   bottom: 0;
   left: 0;
   z-index: 2;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0;
-  margin-right: $carousel-control-width;
+  margin-right: 0;
   margin-bottom: 1rem;
-  margin-left: $carousel-control-width;
+  margin-left: 1.5rem;
   list-style: none;
-  [data-bs-target] {
+  @include media-breakpoint-down(medium-tablet) {
+    right: 0;
+    left: auto;
+    margin: 0;
+    bottom: -35px;
+  }
+  [data-bs-slide-to] {
     box-sizing: content-box;
     flex: 0 1 auto;
-    width: 10px;
-    height: 10px;
-    margin-right: 3px;
-    margin-left: 3px;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    margin-left: 8px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: $white;
+    background-color: $danger;
     transition: opacity .6s ease;
-    border-radius: 10px;
-    border: 1px solid $white;
+    border-radius: 100%;
+    border: none;
     padding: 0;
-    opacity: 1;
+    opacity: 0.1;
+    &.active,
+    &:hover {
+      opacity: 1;
+      background-color: $primary;
+    }
   }
-
-  .active {
+  &-next[data-bs-target] {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    margin: -14px 8px 0;
+    align-items: center;
+    justify-content: center;
+    background-color: $danger;
     opacity: 1;
-    width: 22px;
+    border-radius: 100%;
+    border: none;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, transform 0.3s ease-out 0s;
+    &:hover {
+      background-color: $primary;
+    }
+    svg {
+      fill: $white;
+      width: 18px;
+      margin-left: 2px;
+      transition: transform 0.3s ease-out 0s;
+    }
   }
-}
-
-.carousel-container {
-  @extend .container;
-  display: flex;
-  align-items: center;
-  height: 100%;
 }
 
 // Optional captions
@@ -217,11 +224,9 @@
   .carousel-control-next-icon {
     filter: $carousel-dark-control-icon-filter;
   }
-
   .carousel-indicators [data-bs-target] {
     background-color: $carousel-dark-indicator-active-bg;
   }
-
   .carousel-caption {
     color: $carousel-dark-caption-color;
   }

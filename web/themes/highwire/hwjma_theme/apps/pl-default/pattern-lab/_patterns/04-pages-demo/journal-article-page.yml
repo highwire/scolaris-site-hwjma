@@ -73,37 +73,37 @@ journals_articles_top:
   card_link:
   - button:
       href: "#"
-      class: article__social_btn article__download
+      class: action-download
       title: Download PDF
       text: Download PDF
       lefticon: true      
   - button:
       href: "#"
-      class: article__social_btn article__favorites
+      class: action-favorites
       title: Add to favorites
       text: Add to favorites
       lefticon: true
   - button:
       href: "#"
-      class: article__social_btn article__cite
+      class: action-cite
       title: Cite
       text: Cite
       lefticon: true
   - button:
       href: "#"
-      class: article__social_btn article__permissions
+      class: action-permissions
       title: Permissions
       text: Permissions
       lefticon: true
   - button:
       href: "#"
-      class: article__social_btn article__share
+      class: action-share
       title: Share
       text: Share
       lefticon: true
   - button:
       href: "#"
-      class: article__social_btn article__alerts
+      class: action-alerts
       title: Alerts
       text: Alerts
       lefticon: true

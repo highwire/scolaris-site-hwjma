@@ -5,56 +5,24 @@ jQuery(document).ready(function ($) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
   });
 
-  // Bootstrap popover customization
-  $('[data-bs-toggle="popover"]').each(function () {
-    $(this).popover({
-      trigger: "manual click",
-      placement: 'top',
-      html: true,
-      sanitize: false,
-      title: '<span class="close" data-dismiss="alert">&times;</span>',
-      content: function () {
-        return $("#" + $(this).attr('target-id')).html();
-      },
-      animation: false
-    }).on("mouseenter", function () {
-      var _this = this;
-      $(this).popover("show");
-      $(".popover").on("mouseleave", function () {
-        $(_this).popover('hide');
-      });
-      $(".close").on("mousedown", function () {
-        $(_this).popover('hide');
-      });
-    }).on("mouseleave", function () {
-      var _this = this;
-      setTimeout(function () {
-        if (!$(".popover:hover").length) {
-          $(_this).popover("hide");
-        }
-      }, 100);
-    });
+  // Popover
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    trigger: 'focus'
+    return new bootstrap.Popover(popoverTriggerEl)
   });
 
-  // Inline popover content for ref block element from Drupal side
-  if ($('.ref-wrapper').length > 0) {
-    $('.ref-wrapper').each(function (i, v) {
-      if($(v).prev('p').length > 0) {
-          $(v).prev('p').css('display', 'inline');
-      }
-    });
-  }
-
-  if ($('.def-ref-content').length > 0) {
-    $('.def-ref-content').each(function (i, v) {
-      if ($(v).prev('p').length > 0) {
-        $(v).prev('p').css('display', 'inline');
-      }
-    });
-  }
+  // Scroll to Top
+  $(".scroll-top-content a").on('click', function (event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({ scrollTop: $(hash).offset().top }, 800, function () { window.location.hash = hash; });
+    }
+  });
 
   // Toggle Description
-  $('.show-click-toggle').on('click', function (e) {
+  $(document).on("click",".show-click-toggle",function(e) {
     e.preventDefault();
     $(this).toggleClass('active');
     if ($(this).is('.active')) {
@@ -70,14 +38,13 @@ jQuery(document).ready(function ($) {
   var count=5;
   if($(".slick-slider").hasClass("six")){
       count=6;
-  }
+  }		
   var createSlick = ()=>{
       let slider = $(".slider");
       slider.not('.slick-initialized').slick({
           autoplay: false,
           infinite: false,
           dots: false,
-          autoplay: false,
           autoplaySpeed: 3000,
           slidesToShow: count,
           slidesToScroll: 1,
@@ -107,11 +74,17 @@ jQuery(document).ready(function ($) {
                   slidesToScroll: 1,
               }
           }]
-      });
+      });	
   }
   createSlick();
   $(window).on( 'resize orientationchange', createSlick );
-
+  
+  // Search Result Date Range Toggle
+  $('.facets-widget-bps-search-facets-daterange .facet-modal-click').on('click', function (event) {
+    event.preventDefault();
+    $(this).toggleClass('open');
+    $(this).next('.facets-date-range').slideToggle();
+  });
 
   // Disable Logout after single Click in MyAccount Dropdown to prevent multiple calls to sp
   $("ul.menu--user-account li:last-child a").on("click", function(event) {
@@ -140,69 +113,9 @@ jQuery(document).ready(function ($) {
     $('.dropdown .dropdown-menu').removeClass('show');
   });
 
-  // Journal Page Search Toggle
-  $('.action_tools a').on('click', function () {
-    if ($(this).hasClass('close-search')) {
-      $(this).attr('title', 'Search').text('Search').removeClass('close-search').addClass('open-search');
-      $('.journal-article-search').slideUp();
-    } else if ($(this).hasClass('open-search')) {
-      $(this).attr('title', 'Close search').text('Close search').removeClass('open-search').addClass('close-search');
-      $('.journal-article-search').slideDown();
-    }
+  // Search result popup filter wrap item
+  $('.bps-checkbox-multiple-facet').each(function() {
+    $(this).find('li.facet-item').wrapAll("<li><ul class='bps-checkbox-multiple-group' /></li>");
   });
 
-  // Search result short description
-  var minimized_elements = $('p.search-result__description');
-  minimized_elements.each(function () {
-    var t = $(this).text();
-    if (t.length < 350) return;
-    $(this).html(
-      t.slice(0, 350) + '<span>...</br> </span><a href="#" class="show_full_description highwire-toggle__trigger">Show full description  </a>' +
-      '<span style="display:none;">' + t.slice(350, t.length) + ' </br><a href="#" class="hide_full_description highwire-toggle__trigger"> Hide full description</a></span>'
-    );
-  });
-
-  $('a.show_full_description', minimized_elements).click(function (event) {
-    event.preventDefault();
-    $(this).hide().prev().hide();
-    $(this).next().show();
-  });
-
-  $('a.hide_full_description', minimized_elements).click(function (event) {
-    event.preventDefault();
-    $(this).parent().hide().prev().show().prev().show();
-  });
-
-  // Search rotating arrows rotate functionality
-  const targetNode = document.querySelector(".search__formcontrol");
-  if (targetNode) {
-    function callback(mutationList, observer) {
-      mutationList.forEach((mutation) => {
-        let className = mutation.target.className;
-        switch (mutation.type) {
-          case "childList":
-            break;
-
-          case "attributes":
-            if (className.includes('ui-autocomplete-loading')) {
-              $(".form-item-query").addClass('search-loading')
-            } else {
-              $(".form-item-query").removeClass('search-loading')
-            }
-            break;
-        }
-      });
-    }
-
-    const observerOptions = {
-      childList: true,
-      attributes: true,
-
-      // Omit (or set to false) to observe only changes to the parent node
-      subtree: true,
-    };
-
-    const observer = new MutationObserver(callback);
-    observer.observe(targetNode, observerOptions);
-  }
 });

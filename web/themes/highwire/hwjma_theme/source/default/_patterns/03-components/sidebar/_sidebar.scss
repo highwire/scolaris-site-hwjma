@@ -1,7 +1,7 @@
 .sidebar {
     &__heading, h5 {
         margin-bottom: 1rem;
-        color: $primary;
+        color: $primary-dark;
     }
     ul {
         position: static;
@@ -39,7 +39,7 @@
     }
     &__logout {
         @extend .btn;
-        @extend .btn-primary;
+        @extend .btn-primary-dark;
         @extend .btn-small-tablet;
         color: $white !important;
     }

@@ -14,10 +14,10 @@
 body {
   margin: 0; // 1
   font-family: $font-family-base;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.55em;
-  color: $primary;
+  font-size: 1rem;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  color: $primary-dark;
   text-align: $body-text-align;
   background-color: $body-bg; // 2
   -webkit-text-size-adjust: 100%; // 3
@@ -34,27 +34,29 @@ address {
   font-style: normal;
   line-height: inherit;
 }
+ol,
 ul {
-	list-style-type: circle;
-  margin: 10px 0 10px 20px;
-  list-style-type: disc;
-	ul, ol {
-		margin: 10px 0 10px 20px;
-	}
+  padding-left: 2rem;
 }
-ol {
-  list-style-type: decimal;
-  margin: 10px 0 10px 30px;
-  list-style-type: decimal;
-	ul, ol {
-		margin: 10px 0 10px 20px;
-	}
-}
+ol,
+ul,
 dl {
-    margin: 10px 0;
-	dt {
-		font-weight: 700;
-	}
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 15px;
+}
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+dt {
+  font-weight: $dt-font-weight;
+}
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0; // 1
 }
 blockquote {
   margin: 0 0 1rem;
@@ -80,14 +82,14 @@ sup {
 sub { bottom: -.25em; }
 sup { top: -.5em; }
 a {
-  color: $primary;
+  color: $primary-dark;
   text-decoration: none;
   &:hover,
   &:focus,
   &.active,
   &.is-active {
-    color: $danger;
-    text-decoration: none;
+    color: inherit;
+    text-decoration: underline;
   }
   &:visited {
     color: inherit;
@@ -102,12 +104,27 @@ a:not([href]):not([class]) {
     color: inherit;
   }
 }
+.fs-0 {
+	font-size: 0;
+}
+.fs-small {
+	font-size: $font-size-small-tablet;
+}
+.text-info-light {
+	color: $info;
+}
+.btn-secondary-light {
+	border: 1px solid $secondary;
+	&:hover {
+		border: 1px solid $secondary;
+	}
+}
 pre,
 code,
 kbd,
 samp {
   font-family: $font-family-code;
-  @include font-size(1em);
+  @include font-size(1em); // Correct the odd `em` font sizing in all browsers.
   direction: ltr #{"/* rtl:ignore */"};
   unicode-bidi: bidi-override;
 }
@@ -162,10 +179,9 @@ caption {
   text-align: left;
 }
 th {
-  font-weight: 600;
-  text-align: inherit;
-  text-align: -webkit-match-parent;
-  background-color: $light-blue;
+  font-weight: $table-th-font-weight; // 1
+  text-align: inherit; // 2
+  text-align: -webkit-match-parent; // 3
 }
 thead,
 tbody,

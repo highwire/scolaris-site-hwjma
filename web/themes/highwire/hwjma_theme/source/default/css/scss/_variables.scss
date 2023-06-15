@@ -1,21 +1,28 @@
 @use "sass:math";
 
 // scss-docs-start theme-color-variables
-$primary:          #333333;
-$primary-light:    #484848;
-$secondary-lighter:#f7f6f2;  
-$secondary-light:  #e6e6e6;
-$secondary-medium: #AAAAAA;
-$secondary:        #999999;
-$secondary-dark:   #696666;
-$info-dark:        #0062cc;
-$info:             #2d6ca2;
-$danger:           #AC281C;
-$danger-light:     #F23827;
-$light-blue:       #D9EDF7;
-$black:            #000000;
-$white:            #FFFFFF;
-$success:          #A6CE39;
+$primary-dark:    #06020F;
+$primary:         #2B2733;
+$primary-light:   #666666;
+$secondary:       #e3e3e3;
+$secondary-dark:  #85a6ad;
+$info-light:      #c6d5d8;
+$info:            #2f63ab;
+$danger:          #D4431C;
+$danger-dark:     #AB2805;
+$light-blue:      #F5F5F6;
+$light-yellow:    #FBF7E6;
+$light-orange:    #FFF3F3;
+$black:           #000000;
+$white:           #FFFFFF;
+$success:         #A6CE39;
+
+
+// Social Icon Color
+$social-youtube: #c4302b;
+$social-linkedin: #0e76a8;
+$social-facebook: #3b5998;
+$social-twitter: #00acee;
 
 // scss-docs-start colors-map
 $colors: (
@@ -24,16 +31,18 @@ $colors: (
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
+  "primary-dark":   $primary-dark,
   "primary":        $primary,
-  "primary-light":  $primary-light,
-  "secondary":      $secondary,
-  "info-dark":      $info-dark,
+  "secondary":      $secondary,  
   "info":           $info,
   "danger":         $danger,
   "light-blue":     $light-blue,
+  "light-yellow":   $light-yellow,
+  "light-orange":   $light-orange,
   "success":        $success
 );
 // scss-docs-end theme-colors-map
+
 
 $min-contrast-ratio:   4.5;
 
@@ -94,6 +103,12 @@ $variable-prefix:             bs-;
 // Gradient
 $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0));
 
+// W: White, O: Orange, Y: Yellow
+$gradient-wo: linear-gradient(to left, #fffcfc , $light-orange);
+$gradient-ow: linear-gradient(to right, #fffcfc , $light-orange);
+$gradient-wy: linear-gradient(to left, #fffaf9 , $light-yellow);
+$gradient-yw: linear-gradient(to right, #fffaf9 , $light-yellow);
+
 // Spacing
 $spacer: 1rem;
 $spacers: (
@@ -141,7 +156,7 @@ $grid-breakpoints: (
   medium-tablet: 768px,
   large-tablet: 1024px,
   desktop: 1140px,
-  large-desktop: 1396px
+  large-desktop: 1296px
 );
 // scss-docs-end grid-breakpoints
 
@@ -155,7 +170,7 @@ $container-max-widths: (
   small-tablet: 767.98px,
   medium-tablet: 1023.98px,
   large-tablet: 1139.98px,
-  desktop: 1396px
+  desktop: 1296px
 );
 // scss-docs-end container-max-widths
 
@@ -225,11 +240,13 @@ $aspect-ratios: (
   "21x9": calc(9 / 21 * 100%)
 );
 // scss-docs-end aspect-ratios
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 
 // scss-docs-start font-variables
-$font-family-monospace:       'Lato', sans-serif;
-$font-family-sans-serif:      'Lato', sans-serif;
+$font-family-monospace:       'DM Serif Display';
+$font-family-sans-serif:      'Karla', Helvetica, Arial, sans-serif;
 
 // stylelint-enable value-keyword-case
 $font-family-base:            $font-family-sans-serif;
@@ -240,7 +257,7 @@ $font-family-code:            $font-family-sans-serif;
 $font-size-root:              null;
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
 $font-size-small-tablet:      $font-size-base * .875;
-$font-size-large-tablet:      $font-size-base * 1.125;
+$font-size-large-tablet:      $font-size-base * 1.313;
 
 $font-weight-lighter:         lighter;
 $font-weight-normal:          400;
@@ -280,7 +297,7 @@ $headings-font-family:        $font-family-monospace;
 $headings-font-style:         null;
 $headings-font-weight:        500;
 $headings-line-height:        1.5;
-$headings-color:              $primary;
+$headings-color:              $primary-dark;
 // scss-docs-end headings-variables
 
 // scss-docs-start display-headings
@@ -348,19 +365,20 @@ $table-cell-padding-x-small-tablet:     .25rem;
 
 $table-cell-vertical-align:   top;
 
+$table-color:                 $body-color;
 $table-bg:                    transparent;
 
 $table-th-font-weight:        null;
 
-$table-striped-color:         $secondary-lighter;
+$table-striped-color:         $table-color;
 $table-striped-bg-factor:     .05;
 $table-striped-bg:            rgba($primary, $table-striped-bg-factor);
 
-$table-active-color:          $secondary-lighter;
+$table-active-color:          $table-color;
 $table-active-bg-factor:      .1;
 $table-active-bg:             rgba($primary, $table-active-bg-factor);
 
-$table-hover-color:           $secondary-lighter;
+$table-hover-color:           $table-color;
 $table-hover-bg-factor:       .075;
 $table-hover-bg:              rgba($primary, $table-hover-bg-factor);
 
@@ -407,8 +425,8 @@ $input-btn-padding-y-small-tablet:      .25rem;
 $input-btn-padding-x-small-tablet:      1rem;
 $input-btn-font-size-small-tablet:      $font-size-small-tablet;
 
-$input-btn-padding-y-large-tablet:      0.75rem; 
-$input-btn-padding-x-large-tablet:      1.25rem;
+$input-btn-padding-y-large-tablet:      0.828rem; 
+$input-btn-padding-x-large-tablet:      1.5rem;
 $input-btn-font-size-large-tablet:      $font-size-large-tablet;
 
 $input-btn-border-width:      $border-width;

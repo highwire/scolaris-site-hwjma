@@ -6,8 +6,7 @@
 img {
 	max-width: 100%;
 }
-.journal-article__tabwrap,
-.page-node-type-item-standard-chapter {
+.journal-article__tabwrap {
 	.highwire-tabs {
 		.highwire-tabs__tab {
 			padding: 30px 0;
@@ -15,11 +14,6 @@ img {
 	}
 	.floats {
 		@extend .clearfix;
-	}
-	.MJXc-display {
-		display: inline-block;
-		vertical-align: middle;
-		padding-left: 10px;
 	}
 	p {
 		font-size: 1rem;
@@ -143,6 +137,50 @@ img {
 		.references,
 		.main-title {
 			margin-top: 30px !important;
+		}
+	}
+	table {
+		width: 100%;
+		overflow-y: auto;
+		border-collapse: collapse;
+		tbody, 
+		thead {
+			font-size: 16px;
+			line-height: 1.5;
+			letter-spacing: -0.22px;
+		}
+		th {
+			padding: 12px;
+			border-right: 1px solid $primary;
+			border-bottom: 1px solid $primary;
+			font-weight: 600;
+			&:last-child {
+				border-right: unset;
+			}
+			a {
+				word-break: break-all;
+			}
+			p {
+				margin: 0;
+			}
+		}
+		td {
+			padding: 12px;
+			border-right: 1px solid $primary;
+			border-bottom: 1px solid $primary;
+			&:last-child {
+				border-right: unset;
+			}
+			p {
+				margin: 0;
+			}
+			a {
+				word-break: break-all;
+				word-break: break-word;
+			}
+			strong {
+				font-weight: 600;
+			}
 		}
 	}
 	.ref-list {		
@@ -1736,15 +1774,65 @@ span:empty:first-child+.subsection-title {
 				inset: -1px;
 				display: block;
 				background: rgb(6, 2, 15);
+				border-radius: 100%;
 				z-index: 1;
+				transform: scale(0);
+				-moz-transform: scale(0);
+				-webkit-transform: scale(0);
+				-o-transform: scale(0);
+				transition: transform 0.3s ease-out 0s;
+				-o-transition: transform 0.3s ease-out 0s;
+				-moz-transition: transform 0.3s ease-out 0s;
+				-webkit-transition: transform 0.3s ease-out 0s;
 			}			 
 		}
 		&:hover {
 			.a2a_s__default {
-				border-color: $primary;
+				&::before {
+					transform: scale(1);
+					-moz-transform: scale(1);
+					-webkit-transform: scale(1);
+					-o-transform: scale(1);
+				}
 				svg path {
 					fill: $white;
 				}
+			}
+		}
+		.a2a_s_facebook {
+			border-color: $social-facebook;
+			svg path {
+				fill: $social-facebook;
+			}
+			&::before {
+				background-color: $social-facebook;
+			}
+		}
+		.a2a_s_twitter {
+			border-color: $social-twitter;
+			svg path {
+				fill: $social-twitter;
+			}
+			&::before {
+					background-color: $social-twitter;
+			}
+		}
+		.a2a_s_google_plus {
+			border-color: $social-youtube;
+			svg path {
+				fill: $social-youtube;
+			}
+			&::before {
+				background-color: $social-youtube;
+			}
+		}
+		.a2a_s_linkedin {
+			border-color: $social-linkedin;
+			svg path {
+				fill: $social-linkedin;
+			}
+			&::before {
+				background-color: $social-linkedin;
 			}
 		}
 	}
@@ -1796,72 +1884,18 @@ img[alt^="papi_fig"] {
 		margin-right: 10px;
 	}
 }
-.footnote {
-	margin-top: 15px;
-}
-a.ref-popover {
-	cursor: pointer;
-	color: $primary !important;
-	position: relative;
-	&[aria-describedby] {
-		z-index: 1000;
-	}
-}
-.path-highwire-display {
-	margin-top: 20px;
-}
-table {
-	width: 100%;
-	overflow-y: auto;
-	border-collapse: collapse;
-	border-width: 1px;
-	border-style: solid;
-	tbody, 
-	thead {
-		font-size: 16px;
-		line-height: 1.5;
-		letter-spacing: -0.22px;
-	}
-	th {
-		padding: 12px;
-		border-right: 1px solid $primary;
-		border-bottom: 1px solid $primary;
-		font-weight: 600;
-		a {
-			word-break: break-all;
-		}
-		p {
-			margin: 0;
-		}
-	}
-	td {
-		padding: 12px;
-		border-right: 1px solid $primary;
-		border-bottom: 1px solid $primary;
-		p {
-			margin: 0;
-		}
-		a {
-			word-break: break-all;
-			word-break: break-word;
-		}
-		strong {
-			font-weight: 600;
+.item-list__most-read-cited {
+	@extend .latest-articles;
+	margin: 0 !important;
+	li {
+		border-bottom: 1px solid $secondary-dark;
+		margin: 0 !important;
+		&::before {
+			content: "" !important;
 		}
 	}
 }
-.ref-wrapper {
-	display: inline;
-}
-.def-ref-content {
-	display: none;
-}
-.page-node-type-item-standard-chapter,
-.path-highwire-display {
-	.toc-content {
-		ul, ol {
-			margin-left: 13px;
-			padding-left: 0;
-		}
-	}
+#edit-group-latest-articles,
+#most-read {
+	padding: 0 !important;
 }

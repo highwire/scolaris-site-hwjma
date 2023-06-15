@@ -25,7 +25,7 @@
       padding: 20px 15px;
       border: none;
       line-height: 24px;
-      background: $light-blue;
+      background: $light-yellow;
       font-weight: normal;
       margin: -24px -16px 15px -16px;
       &__name {
@@ -39,11 +39,7 @@
         a {
           @extend .btn;
           @extend .btn-small-tablet;
-          @extend .btn-primary;
-          text-transform: inherit;
-          &:after {
-            content: "";
-          }
+          @extend .btn-primary-dark;
         }
       }
     }
@@ -54,10 +50,10 @@
     }
   }
   .list-group {
-    margin: 0;
+    margin-bottom: -1px;
     li {
       list-style: none;
-      border-bottom: 1px solid $secondary;
+      border-bottom: 1px solid $info-light;
       a {
         padding: 10px 0;
         display: block;
@@ -109,16 +105,11 @@
         margin: 0 !important;
       }
     }
-    &-tag-panel {
-      padding: 15px 0;
-      border-bottom: 1px solid $secondary-medium;
-    }
     &-tag-panel__title {
       @extend .h4;
       font-family: $font-family-monospace;
-      font-weight: 700;
-      width: calc(100% - 280px);
-      margin: 0;
+      width: 100%;
+      margin-bottom: 1rem;
     }    
     &-tag-panel__links,
     &-alert-panel__links,
@@ -126,7 +117,6 @@
       .item-list__highwire_personalization_manage_links {
         list-style: none;
         padding: 0;
-        margin: 0;
         li {
           display: inline-block;
           a {
@@ -140,14 +130,9 @@
     margin-top: 1rem;
   }
   .highwire-modal-trigger {
-    color: $info;
+    @extend .btn;
     @extend .btn-small-tablet;
-    &.btn-primary {
-      @extend .btn-info;
-    }
-    &::after {
-      content: "";
-    }
+    @extend .btn-danger;
   }
   .modal-body,
   .ui-widget-content {
@@ -156,16 +141,12 @@
       max-width: 100%;
     }
   }
-  .highwire-personalization-manage-marker-panel {
-    border-top: none;
-    border-bottom: 1px solid $secondary;
-  }
   .highwire-personalization-manage-list-tools {
     display: flex;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid $secondary;
-    border-bottom: 1px solid $secondary;
+    border-top: 1px solid $info-light;
+    border-bottom: 1px solid $info-light;
     justify-content: space-between;
     margin-bottom: -1px;
     @include media-breakpoint-down(small-tablet) {
@@ -206,27 +187,26 @@
     .form-actions {
       input[data-drupal-selector=edit-submit] {
         @extend .btn;
-        @extend .btn-primary;
+        @extend .btn-primary-dark;
         @extend .btn-small-tablet;
         font-family: $font-family-sans-serif;
         margin: 5px;
       }
       input[data-drupal-selector=edit-cancel] {
         @extend .btn;
-        @extend .btn-outline-primary;
+        @extend .btn-outline-primary-dark;
         @extend .btn-small-tablet;
         font-family: $font-family-sans-serif;
       }
     }
   }
   .highwire-personalization-manage-list {
-    margin: 10px 0 30px;
     li.toc-expanded {
-      border-bottom: 1px solid $secondary;
+      border-bottom: 1px solid $info-light;
       padding: 1rem 0;
       margin: 0;
       &:first-child {
-        border-top: 1px solid $secondary;
+        border-top: 1px solid $info-light;
       }
       .highwire-personalization-manage-alert-panel {
         position: relative;
@@ -274,7 +254,7 @@
             &:last-child {
               margin-left: 0;
               a.highwire-modal-trigger {
-                @extend .btn-primary;
+                @extend .btn-primary-dark;
               }
             }
           }
@@ -326,7 +306,7 @@
           font-size: 14px;
           position: absolute;
           text-transform: capitalize;
-          background: $light-blue;
+          background: $light-yellow;
           border: 1px solid $secondary;
           border-radius: 4px;
           padding: 5px 10px;
@@ -342,24 +322,13 @@
         }
       }
     }
-    ul li {
-      a.highwire-modal-trigger {
-        padding: 0;
-        margin-left: 15px;    
-      }
-      &:first-child {
-        a {
-          margin-left: 0;
-        }
-      }
-    }
   }
   .item-list__empty {
     text-align: center;
     padding: 25px 30px;
     font-size: 1.125rem;
     color: $danger;
-    background: $light-blue;
+    background: $light-yellow;
     font-weight: 500;
     margin: 30px 0;
   }
@@ -369,24 +338,5 @@
     text-align: center;
     padding: 1rem;
     line-height: 1.8;
-  }
-}
-.annotation-page {
-  p {
-    background-color: $light-blue;
-    padding: 25px 30px;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  a {
-    color: $danger;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
