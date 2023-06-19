@@ -1,0 +1,302 @@
+blocks:
+  -
+    info: 'Footer copyright'
+    langcode: en
+    uuid: 96215266-8196-4f05-835a-d6d66929775b
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>© Copyright 2000-2023 The HWJMA</p>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'Footer data'
+    langcode: en
+    uuid: 747a7fec-5d85-413e-ba56-d70d275f1c4e
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>1801 Alexander Bell Drive</p>\r\n\r\n<p>Reston, VA 20191-4400</p>\r\n\r\n<p>703-295-6300 | 800-548-2723</p>\r\n"
+          summary: ''
+          format: basic_html
+  -
+    info: 'footer site branding'
+    langcode: en
+    uuid: a0c1212f-6316-46ea-bbd1-d94f66cdc9ae
+    bundle: logo_img
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_logo_image:
+        -
+          target_id: '162'
+          alt: 'footer site branding'
+          title: ''
+          width: '351'
+          height: '103'
+  -
+    info: 'social media icon'
+    langcode: en
+    uuid: a2eff1fa-aca8-4cfa-8133-2e125275c732
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<div class=\"flex flex-wrap\">\r\n<div class=\"flex-grow w-full social-share\"><a class=\"twitter\" href=\"#\" title=\"Follow HWJMA Publishing on Twitter\"><svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"><g id=\"twitter\"><rect height=\"20.38\" id=\"Rectangle\" width=\"22\" x=\"0\" y=\"0\"></rect><path d=\"M22,3.11658333 C21.1905833,3.47591667 20.3206667,3.71791667 19.4076667,3.827 C20.3399167,3.26875 21.0558333,2.38416667 21.39225,1.33 C20.5205,1.847 19.5543333,2.22283333 18.5258333,2.42541667 C17.7035833,1.54816667 16.5293333,1 15.2313333,1 C12.31725,1 10.1759167,3.71883333 10.8340833,6.54125 C7.084,6.35333333 3.75833333,4.55666667 1.53175,1.82591667 C0.34925,3.8545 0.9185,6.50825 2.92783333,7.85208333 C2.189,7.82825 1.49233333,7.62566667 0.884583333,7.28741667 C0.835083333,9.37833333 2.33383333,11.3345 4.5045,11.7699167 C3.86925,11.94225 3.1735,11.9825833 2.46583333,11.8469167 C3.03966667,13.6399167 4.70616667,14.9443333 6.6825,14.981 C4.785,16.46875 2.39433333,17.1333333 0,16.851 C1.99741667,18.1315833 4.37066667,18.8786667 6.919,18.8786667 C15.2991667,18.8786667 20.03375,11.8010833 19.74775,5.45316667 C20.6295833,4.81608333 21.395,4.02133333 22,3.11658333 Z\" fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Combined-Shape-Copy\"></path></g></g></svg></a><a class=\"facebook\" href=\"#\" title=\"Follow HWJMA Publishing on Facebook\"><svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"><g id=\"fb\"><rect height=\"20.38\" id=\"Rectangle-Copy-6\" width=\"22\" x=\"0\" y=\"0\"></rect><path d=\"M9.128,20.375 L9.128,11.081 L6,11.081 L6,7.459 L9.128,7.459 L9.128,4.788 C9.128,1.688 11.021,0 13.787,0 C15.112,0 16.25,0.099 16.582,0.143 L16.582,3.383 L14.664,3.384 C13.16,3.384 12.869,4.099 12.869,5.147 L12.869,7.46 L16.456,7.46 L15.989,11.082 L12.869,11.082 L12.869,20.375 L9.128,20.375 Z\" fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Path-Copy\"></path></g></g></svg></a><a class=\"youtube\" href=\"#\" title=\"Follow HWJMA Publishing on YouTube\"><svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"><g id=\"yt\"><rect height=\"20.38\" id=\"Rectangle-Copy-8\" width=\"22\" x=\"0\" y=\"0\"></rect><polygon fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Path-Copy\" points=\"3 18 3 2 19 9.986 3 18\"></polygon></g></g></svg></a><a class=\"linkedin\" href=\"#\" title=\"Follow HWJMA Publishing on LinkedIn\"><svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"><g id=\"li\"><rect height=\"20.38\" id=\"Rectangle-Copy-7\" width=\"22\" x=\"0\" y=\"0\"></rect><path d=\"M5.83606557,6.66085246 L5.83606557,19.644459 L2.29508197,19.644459 L2.29508197,6.66085246 L5.83606557,6.66085246 Z M11.7377049,6.66085246 L11.7377049,8.74413115 C13.3854426,5.69180328 20,5.46636066 20,11.666623 L20,19.644459 L16.4590164,19.644459 L16.4590164,13.0299016 C16.4590164,9.05455738 11.7377049,9.35554098 11.7377049,13.0299016 L11.7377049,19.644459 L8.19672131,19.644459 L8.19672131,6.66085246 L11.7377049,6.66085246 Z M4.06557377,1 C5.20577049,1 6.13114754,1.93245902 6.13114754,3.08209836 C6.13114754,4.2317377 5.20695082,5.16419672 4.06557377,5.16419672 C2.92537705,5.16419672 2,4.2317377 2,3.08209836 C2,1.93245902 2.92537705,1 4.06557377,1 Z\" fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Combined-Shape-Copy\"></path></g></g></svg></a></div>\r\n</div>\r\n"
+          summary: ''
+          format: full_html
+  -
+    info: 'Header right site branding'
+    langcode: en
+    uuid: 637f26f1-833d-482b-8bdd-3b27bd2d6a06
+    bundle: logo_img
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_logo_image:
+        -
+          target_id: '156'
+          alt: 'logo image'
+          title: ''
+          width: '949'
+          height: '231'
+  -
+    info: 'Header left site branding'
+    langcode: en
+    uuid: d2b4e857-7c23-48f1-bc19-2e44831f6cb2
+    bundle: logo_img
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_logo_image:
+        -
+          target_id: '161'
+          alt: 'footer site branding'
+          title: ''
+          width: '351'
+          height: '103'
+menus:
+  -
+    menu_name: legal
+    title: 'Privacy policy'
+    parent: null
+    uri: 'internal:/privacy-policy'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 6dc071ff-0755-4343-83e0-a826ad8f6ec3
+  -
+    menu_name: legal
+    title: 'Cookie information'
+    parent: null
+    uri: 'internal:/cookie-information'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: fed8574c-a557-4ccd-88d0-1c57961f6f60
+  -
+    menu_name: legal
+    title: 'Terms of use'
+    parent: null
+    uri: 'internal:/terms-of-use'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: e43342ef-65b3-4778-9815-f503271906dd
+  -
+    menu_name: legal
+    title: Accessibility
+    parent: null
+    uri: 'internal:/accessibility'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 40bd12e9-1e67-4172-8602-3ea5dd1c68ca
+  -
+    menu_name: resources
+    title: 'About us'
+    parent: null
+    uri: 'internal:/about-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 351cc615-5eda-41d0-bf68-b39f56188726
+  -
+    menu_name: resources
+    title: FAQs
+    parent: null
+    uri: 'internal:/faqs'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 0f2ae5d9-10da-40b5-96d0-e67152b80a50
+  -
+    menu_name: resources
+    title: Permissions
+    parent: null
+    uri: 'internal:/permissions'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: ec7b2049-5478-4b6a-a8c3-3070186566a8
+  -
+    menu_name: information
+    title: Members
+    parent: null
+    uri: 'internal:/members'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 15e7ce74-f02c-4a1c-8d6e-0508080e7801
+  -
+    menu_name: information
+    title: Authors
+    parent: null
+    uri: 'internal:/authors'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 741676fd-0259-4419-95ed-59e0a02df11d
+  -
+    menu_name: information
+    title: Institutions
+    parent: null
+    uri: 'internal:/institutions'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 84cc83b5-6227-4356-950a-a86639be3150
+  -
+    menu_name: information
+    title: Advertisers
+    parent: null
+    uri: 'internal:/advertisers'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 6a5d7dd2-e0bd-467b-8365-2b6f1c011d85
+  -
+    menu_name: content
+    title: Periodicals
+    parent: null
+    uri: 'internal:/periodicals'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 1ac53a4c-bfa0-4180-8a15-0e4f1df8b365
+  -
+    menu_name: content
+    title: 'Reports & Guidelines'
+    parent: null
+    uri: 'internal:/reports-guidelines'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 678d51c5-cc80-4024-b884-f12da785f1c0
+  -
+    menu_name: content
+    title: Monographs
+    parent: null
+    uri: 'internal:/monographs'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: d430f280-58cd-44aa-967e-338725f69818
+  -
+    menu_name: content
+    title: 'Test Reviews'
+    parent: null
+    uri: 'internal:/test-reviews'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 1785acce-14d0-4d84-970d-4c4acbbaa3aa
+  -
+    menu_name: main
+    title: Content
+    parent: null
+    uri: 'internal:/content'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: true
+    weight: 0
+    langcode: en
+    uuid: a3d7ecb5-4de1-447e-bbae-5e8b04c0c0d7
+  -
+    menu_name: main
+    title: Information
+    parent: null
+    uri: 'internal:/information'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: true
+    weight: 0
+    langcode: en
+    uuid: 2e9d3547-3889-4920-91d7-706ea5a1911b
+  -
+    menu_name: main
+    title: 'About Us'
+    parent: null
+    uri: 'internal:/about-us'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: true
+    weight: 0
+    langcode: en
+    uuid: 3d81dd21-1597-4a01-babd-d2c7ab2f1950

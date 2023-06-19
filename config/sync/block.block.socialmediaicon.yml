@@ -1,0 +1,25 @@
+uuid: 42724e76-303b-4481-977d-8f79c2b594f2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a2eff1fa-aca8-4cfa-8133-2e125275c732'
+  module:
+    - block_content
+  theme:
+    - hwjma
+id: socialmediaicon
+theme: hwjma
+region: footer_1
+weight: 0
+provider: null
+plugin: 'block_content:a2eff1fa-aca8-4cfa-8133-2e125275c732'
+settings:
+  id: 'block_content:a2eff1fa-aca8-4cfa-8133-2e125275c732'
+  label: 'social media icon'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

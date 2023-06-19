@@ -1,0 +1,25 @@
+uuid: fcf80a53-2a01-4773-8713-9742740dfcdd
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:96215266-8196-4f05-835a-d6d66929775b'
+  module:
+    - block_content
+  theme:
+    - hwjma
+id: footercopyright
+theme: hwjma
+region: footer_bottom_two
+weight: 0
+provider: null
+plugin: 'block_content:96215266-8196-4f05-835a-d6d66929775b'
+settings:
+  id: 'block_content:96215266-8196-4f05-835a-d6d66929775b'
+  label: 'Footer copyright'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

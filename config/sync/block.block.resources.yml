@@ -1,0 +1,25 @@
+uuid: 68403a0c-9ef9-4acd-8feb-e42fa0912719
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.resources
+  module:
+    - system
+  theme:
+    - hwjma
+id: resources
+theme: hwjma
+region: footer_4
+weight: 0
+provider: null
+plugin: 'system_menu_block:resources'
+settings:
+  id: 'system_menu_block:resources'
+  label: Resources
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

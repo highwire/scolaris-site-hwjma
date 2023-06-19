@@ -1,0 +1,25 @@
+uuid: 8218b3d6-a98a-4a75-b80d-9c697d32ba1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - hwjma
+id: mainnavigation
+theme: hwjma
+region: header_nav
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
