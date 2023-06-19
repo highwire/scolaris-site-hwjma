@@ -1,0 +1,25 @@
+uuid: c92631d7-6852-406a-af16-43d63910446d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:logo_img:d2b4e857-7c23-48f1-bc19-2e44831f6cb2'
+  module:
+    - block_content
+  theme:
+    - hwjma
+id: headerleftsitebranding
+theme: hwjma
+region: header_branding_1
+weight: 0
+provider: null
+plugin: 'block_content:d2b4e857-7c23-48f1-bc19-2e44831f6cb2'
+settings:
+  id: 'block_content:d2b4e857-7c23-48f1-bc19-2e44831f6cb2'
+  label: 'Header left site branding'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

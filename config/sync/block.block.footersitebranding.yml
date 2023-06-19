@@ -1,0 +1,25 @@
+uuid: f929b851-2b74-4499-b0fa-a92651098fa5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:logo_img:a0c1212f-6316-46ea-bbd1-d94f66cdc9ae'
+  module:
+    - block_content
+  theme:
+    - hwjma
+id: footersitebranding
+theme: hwjma
+region: footer_1
+weight: 0
+provider: null
+plugin: 'block_content:a0c1212f-6316-46ea-bbd1-d94f66cdc9ae'
+settings:
+  id: 'block_content:a0c1212f-6316-46ea-bbd1-d94f66cdc9ae'
+  label: 'footer site branding'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

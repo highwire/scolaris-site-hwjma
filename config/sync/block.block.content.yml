@@ -1,0 +1,25 @@
+uuid: 7066abe6-c2cc-4b73-b043-f6305a367880
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.content
+  module:
+    - system
+  theme:
+    - hwjma
+id: content
+theme: hwjma
+region: footer_2
+weight: 0
+provider: null
+plugin: 'system_menu_block:content'
+settings:
+  id: 'system_menu_block:content'
+  label: Content
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
