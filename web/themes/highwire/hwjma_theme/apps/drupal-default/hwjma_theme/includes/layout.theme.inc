@@ -99,6 +99,39 @@ function hwjma_get_menu_render_array($menu_name) {
   return $menu;
 }
 
+/**
+ * Implements hook_preprocess_hwjma_toc_pager().
+ */
+function hwjma_preprocess_hwjma_toc_pager(&$variables) {
+  if (!empty($variables['previous_url'])) {
+    $variables['previous'] = [
+      '#type' => 'link',
+      '#url' => $variables['previous_url'],
+      '#title' => [
+        ['#type' => 'bps_icon', '#icon' => 'arrow-circle-left', '#attributes' => ['class' => ['fa-lg']]],
+        ['#markup' => '<span>Previous</span>'],
+      ],
+      '#attributes' => ['class' => ['article__previous_link']],
+    ];
+    if ($variables['previous_url']->isRouted() && $variables['previous_url']->getRouteName() == '<nolink>') {
+      $variables['previous']['#attributes']['class'][] = 'disabled';
+    }
+  }
+  if (!empty($variables['next_url'])) {
+    $variables['next'] = [
+      '#type' => 'link',
+      '#url' => $variables['next_url'],
+      '#title' => [
+        ['#type' => 'bps_icon', '#icon' => 'arrow-circle-right', '#attributes' => ['class' => ['fa-lg']]],
+        ['#markup' => '<span>Next</span>'],
+      ],
+      '#attributes' => ['class' => ['article__next_link']],
+    ];
+    if ($variables['next_url']->isRouted() && $variables['next_url']->getRouteName() == '<nolink>') {
+      $variables['next']['#attributes']['class'][] = 'disabled';
+    }
+  }
+}
 
 
 
