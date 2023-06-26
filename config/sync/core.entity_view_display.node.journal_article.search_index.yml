@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.journal_article.article_type
     - field.field.node.journal_article.atom_type
     - field.field.node.journal_article.authors_full_name
+    - field.field.node.journal_article.authors_only_full_name
     - field.field.node.journal_article.chapter_type
     - field.field.node.journal_article.children
     - field.field.node.journal_article.col_url
@@ -48,6 +49,9 @@ dependencies:
     - field.field.node.journal_article.has_source
     - field.field.node.journal_article.has_tables
     - field.field.node.journal_article.has_videos
+    - field.field.node.journal_article.hwmd_abstract_article_
+    - field.field.node.journal_article.hwmd_abstract_article_toc_
+    - field.field.node.journal_article.hwmd_abstract_search_index_
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
     - field.field.node.journal_article.issue_is_open
@@ -123,6 +127,7 @@ hidden:
   article_type: true
   atom_type: true
   authors_full_name: true
+  authors_only_full_name: true
   chapter_type: true
   children: true
   col_url: true
@@ -164,6 +169,9 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwmd_abstract_article_: true
+  hwmd_abstract_article_toc_: true
+  hwmd_abstract_search_index_: true
   issue: true
   issue_id: true
   issue_is_open: true

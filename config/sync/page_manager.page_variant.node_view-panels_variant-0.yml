@@ -7,6 +7,7 @@ dependencies:
     - system.menu.information
   module:
     - ctools
+    - node
     - panels
     - system
 id: node_view-panels_variant-0
@@ -63,12 +64,19 @@ variant_settings:
           col-sm-6: col-sm-6
         add_region_classes: 1
         attributes: ''
-  page_title: 'CMS Pages'
+  page_title: '[node:title]'
   storage_type: page_manager
   storage_id: node_view-panels_variant-0
   builder: standard
 page: node_view
 weight: 0
-selection_criteria: {  }
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
 selection_logic: and
 static_context: {  }

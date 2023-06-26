@@ -1,6 +1,240 @@
 <?php
 
+use Drupal\node\Entity\NodeType;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\Core\Url;
+use HighWire\Utility\Str;
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\highwire_content\HighWireContent;
+use Drupal\views\Element\View;
+use Drupal\views\Views;
+use Drupal\Core\Cache\Cache;
+
+define('HW_NODE_TYPE_JOURNAL', 'journal');
+
 /**
- * @file
- * Core HWJMA Site module
- */
+* Helper function to get HighWire-managed content types for the Hwjma site.
+*
+* @return array
+*   HighWire content types
+*/
+function hwjma_core_get_hw_content_types() {
+    $types = [];
+    $lookup = Drupal::service('highwire_content.lookup');
+    if ($lookup) {
+      $types = $lookup->getHighWireContentTypes();
+    }
+    return $types;
+}
+
+/**
+* Implements hook_entity_extra_field_info().
+*/
+function hwjma_core_entity_extra_field_info() {
+    $fields = [];
+    $hw_content_types = hwjma_core_get_hw_content_types();
+    // Display-only fields for HighWire content types.
+    foreach (NodeType::loadMultiple() as $bundle) {
+      $node_type = $bundle->Id();
+      if ($node_type == HW_NODE_TYPE_JOURNAL) {
+        $fields['node'][$node_type]['display']['about'] = [
+          'label' => t('About'),
+          'description' => t('About this journal.'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+        $fields['node'][$node_type]['display']['cover_image'] = [
+          'label' => t('Cover Image'),
+          'description' => t('Cover Image of journal'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+        $fields['node'][$node_type]['display']['submit_article'] = [
+          'label' => t('Submit article'),
+          'description' => t('How to submit an article to this journal.'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+        $fields['node'][$node_type]['display']['editorial_brd'] = [
+          'label' => t('Editorial Board'),
+          'description' => t('Information about the journal\'s editorial board.'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+        $fields['node'][$node_type]['display']['latest_articles'] = [
+          'label' => t('Latest articles'),
+          'description' => t('Displays the latest journal articles.'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+        $fields['node'][$node_type]['display']['all_issues'] = [
+          'label' => t('All issues'),
+          'description' => t('Displays all journal issues.'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+        $fields['node'][$node_type]['display']['most_read'] = [
+          'label' => t('Most Read'),
+          'description' => t('Displays most read articles.'),
+          'weight' => 100,
+          'visible' => FALSE,
+        ];
+      }
+    }
+    return $fields;
+}
+
+
+/**
+* Implements hook_ENTITY_TYPE_view().
+*/
+function hwjma_core_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+    if (!HighWireContent::isHighWire($entity)) {
+      return;
+    }
+    $corpus = $entity->hasField('corpus') && !$entity->get('corpus')->isEmpty() ? $entity->get('corpus')->getString() : '';
+    $content_type = $entity->bundle();
+
+    if (!empty($corpus) && ($content_type == HW_NODE_TYPE_JOURNAL || $content_type == HW_NODE_TYPE_ISSUE)) {
+      // Get display info based on view mode.
+      $journal_info = [];
+      $journal_info_display = \Drupal::entityTypeManager()->getStorage('entity_view_display')->load('node.journal_info.' . $view_mode);
+      // Fetch the journal information based on the corpus id.
+      if (!empty($journal_info_display)) {
+        $journal_info = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'journal_info', 'corpus' => $corpus]);
+        $journal_info = array_pop($journal_info);
+      }
+      if (!empty($journal_info)) {
+        // Add cache tag for journal info node.
+        $build['#cache']['tags'][] = 'node:' . $journal_info->id();
+        // Add "Edit Info" contextual link.
+        $build['#contextual_links']['node_info'] = [
+          'route_parameters' => ['node' => $journal_info->id()],
+          'metadata' => ['changed' => time()],
+        ];
+      }
+      if (!empty($journal_info)) {
+        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+        $info_ids = ['about', 'cover_image', 'description', 'submit_article', 'society', 'editors', 'editorial_brd'];
+        foreach ($info_ids as $id) {
+          $journal_info_id = 'field_journal_' . $id;
+          // Skip if field doesn't exist or is not displayed.
+          if (!$display->getComponent($id) || !$journal_info_display->getComponent($journal_info_id) || !$journal_info->hasField($journal_info_id)) {
+            continue;
+          }
+          // Build field render array and add to journal display.
+          $field = $journal_info->get($journal_info_id);
+          $field_ele = $field->getValue();
+          $field_ele_value = $field_ele[0]['value'];
+          $field_ele_value = str_replace(['<b ','<b>','</b>'], ['<strong ','<strong>','</strong>'], $field_ele_value);
+          $field->value = $field_ele_value;
+          $field_render_ary = $view_builder->viewField($field, $journal_info_display->getComponent($journal_info_id));
+          if (!empty($field_render_ary['#items'])) {
+            $build[$id] = $field_render_ary;
+          }
+        }
+        // Add the sample-issue link
+        if ($display->getComponent('sample_issue_link') && $journal_info->hasField('field_journal_sample_issue')) {
+          $sample_issue = $journal_info->get('field_journal_sample_issue');
+          if (!$sample_issue->isEmpty()) {
+            $sample_doi = $sample_issue->getString();
+            $build['sample_issue_link'] = [
+              '#type' => 'link',
+              '#title' => 'Sample issue',
+              '#url' => Url::fromRoute('highwire_content.lookup.doi', ['doi' => $sample_doi], []),
+              '#attributes' => ['class' => ['btn', 'btn-primary', 'journal-sample-issue-link']],
+            ];
+          }
+        }
+        // Add the impact factor text
+        if ($display->getComponent('impact_factor') && $journal_info->hasField('field_journal_impact_factor')) {
+          $impact_factor = $journal_info->get('field_journal_impact_factor');
+          if (!$impact_factor->isEmpty()) {
+            $impact_text = $impact_factor->getString();
+            if ($impact_text) {
+              $build['impact_factor'] = [
+                '#type' => 'html_tag',
+                '#tag' => 'span',
+                '#value' => $impact_text,
+                '#attributes' => ['class' => ['impact-factor-text']],
+              ];
+            }
+          }
+        }
+      }
+    }
+    // Pseudo fields for journals.
+    if ($content_type == HW_NODE_TYPE_JOURNAL) {
+      // Add current issue link.
+      if ($display->getComponent('current_issue_link') && $entity->hasField('journal_current_issue')) {
+        $current_issue = $entity->get('journal_current_issue');
+        if (!$current_issue->isEmpty()) {
+          $current_issue_nid = $current_issue->getString();
+          $build['current_issue_link'] = [
+            '#type' => 'link',
+            '#title' => t('Latest issue'),
+            '#url' => Url::fromRoute('entity.node.canonical', ['node' => $current_issue_nid], []),
+            '#attributes' => ['class' => ['btn', 'btn-primary']],
+          ];
+          $build['#cache']['tags'][] = 'node:' . $entity->id();
+        }
+      }
+      // Add submit an article link.
+      if ($display->getComponent('submit_article_link') && !empty($build['submit_article'])) {
+        $build['submit_article_link'] = [
+          '#type' => 'link',
+          '#title' => t('Submit an article'),
+          '#url' => Url::fromRoute('entity.node.canonical', ['node' => $entity->id()], ['fragment' => 'submit-article']),
+          '#attributes' => ['class' => ['btn', 'btn-secondary']],
+        ];
+      }
+      // Add the most-read pseudofield
+      if ($display->getComponent('most_read')) {
+        $block_manager = \Drupal::service('plugin.manager.block');
+        $plugin_block = $block_manager->createInstance('most_read_cited_block', [
+          'read_cited' => 'most-read',
+          'view_mode' => 'toc_list',
+          'limit' => 10,
+          'label' => '',
+        ]);
+        $plugin_block->setContextValue('node', $entity);
+        $build['most_read'] = $plugin_block->build();
+      }
+      // These views depend on corpus.
+      if (!empty($corpus)) {
+        // Add each Journal view to the render array.
+        $view_ids = ['latest_articles', 'all_issues'];
+        $view_args = ['corpus' => $corpus];
+        foreach ($view_ids as $id) {
+          if ($display->getComponent($id)) {
+            $view = Views::getView($id);
+            // Set corpus as contextual filter.
+            $view->setArguments($view_args);
+            // Build render array like ViewsBlock would.
+            $output = $view->buildRenderable('block_1', array_values($view_args));
+            $output = View::preRenderViewElement($output);
+            if (empty($output['view_build'])) {
+              $output = ['#cache' => $output['#cache']];
+            }
+            //dd($output);
+            $build[$id] = $output;
+          }
+        }
+      }
+    }
+    // Add 'view [node_type]' link.
+    if ($display->getComponent('view_content_link')) {
+      $build['view_content_link'] = [
+        '#type' => 'link',
+        '#title' => \Drupal::token()->replace('View [node:type_display]', ['node' => $entity]),
+        '#url' => $entity->toUrl(),
+        '#attributes' => ['class' => ['btn', 'btn-secondary']],
+      ];
+    }
+  }
+  

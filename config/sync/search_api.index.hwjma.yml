@@ -4,9 +4,10 @@ status: true
 dependencies:
   module:
     - search_api_solr
-    - search_api
     - node
+    - search_api
   config:
+    - field.storage.node.corpus
     - search_api.server.hwjma_solr
 third_party_settings:
   search_api_solr:
@@ -34,7 +35,31 @@ id: hwjma
 name: HWJMA
 description: ''
 read_only: false
-field_settings: {  }
+field_settings:
+  corpus:
+    label: Corpus
+    datasource_id: 'entity:node'
+    property_path: corpus
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.corpus
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
 datasource_settings:
   'entity:node':
     bundles:

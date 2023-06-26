@@ -1,0 +1,121 @@
+uuid: b5aef926-0c53-451f-927f-40dbc8e398e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_view
+  module:
+    - adnuntius
+    - ctools
+    - panels
+id: node_view-panels_variant-1
+label: Journal
+variant: panels_variant
+variant_settings:
+  blocks:
+    9cbabc4e-9c85-4e61-946f-07d923631ad1:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: content_details
+      region: top
+      weight: 0
+      uuid: 9cbabc4e-9c85-4e61-946f-07d923631ad1
+      context_mapping:
+        entity: node
+    a7040583-cce9-45a3-972b-f5a8a3b7ad67:
+      id: adnuntius_block
+      label: 'Slot 7 - 300X250'
+      provider: adnuntius
+      label_display: '0'
+      region: top
+      weight: 0
+      uuid: a7040583-cce9-45a3-972b-f5a8a3b7ad67
+      auid: 000000000022158d
+      invocation_method: div
+      context_mapping: {  }
+    bd54878b-d122-4377-a7be-db725e0729c8:
+      id: adnuntius_block
+      label: 'Slot 6 - 300X250'
+      provider: adnuntius
+      label_display: '0'
+      region: right
+      weight: 0
+      uuid: bd54878b-d122-4377-a7be-db725e0729c8
+      auid: 000000000022158a
+      invocation_method: div
+      context_mapping: {  }
+    d2bbe53f-1a59-465b-9c5f-e5786f2e3a4d:
+      id: adnuntius_block
+      label: 'Slot 8 - 300X250'
+      provider: adnuntius
+      label_display: '0'
+      region: bottom
+      weight: 0
+      uuid: d2bbe53f-1a59-465b-9c5f-e5786f2e3a4d
+      auid: '0000000000221590'
+      invocation_method: div
+      context_mapping: {  }
+    e50ab973-1de7-4f06-9dab-cdd5f4fdb770:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: full
+      region: left
+      weight: 0
+      uuid: e50ab973-1de7-4f06-9dab-cdd5f4fdb770
+      context_mapping:
+        entity: node
+  id: panels_variant
+  uuid: 90deb937-8a0a-4bc4-a2b5-14a000865b4b
+  label: null
+  weight: 0
+  layout: bs_2col_stacked
+  layout_settings:
+    label: ''
+    layout:
+      wrapper: div
+      classes: {  }
+      add_layout_class: 0
+      attributes: 'class|journal-page journal-article row journals-articles-middle'
+    regions:
+      top:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+      left:
+        wrapper: div
+        classes: {  }
+        add_region_classes: 0
+        attributes: 'class|col-12 col-large-tablet-9'
+      right:
+        wrapper: div
+        classes: {  }
+        add_region_classes: 0
+        attributes: 'class|col-12 col-large-tablet-3 article__rightbar'
+      bottom:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+  page_title: '[node:title]'
+  storage_type: page_manager
+  storage_id: node_view-panels_variant-1
+  builder: standard
+page: node_view
+weight: 0
+selection_criteria:
+  -
+    id: 'entity_bundle:node'
+    bundles:
+      journal: journal
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+static_context: {  }

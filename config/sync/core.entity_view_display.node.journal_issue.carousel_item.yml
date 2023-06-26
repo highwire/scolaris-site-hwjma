@@ -48,6 +48,7 @@ dependencies:
     - field.field.node.journal_issue.has_source
     - field.field.node.journal_issue.has_tables
     - field.field.node.journal_issue.has_videos
+    - field.field.node.journal_issue.hwmd_abstract_search_index_
     - field.field.node.journal_issue.issue
     - field.field.node.journal_issue.issue_id
     - field.field.node.journal_issue.issue_is_open
@@ -174,6 +175,7 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwmd_abstract_search_index_: true
   issue: true
   issue_id: true
   issue_is_open: true

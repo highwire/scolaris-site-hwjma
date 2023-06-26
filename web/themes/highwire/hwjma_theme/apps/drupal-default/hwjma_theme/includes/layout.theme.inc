@@ -99,6 +99,18 @@ function hwjma_get_menu_render_array($menu_name) {
   return $menu;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function hwjma_theme_suggestions_highwire_tabs_alter(array &$suggestions, array $variables) {
+  switch ($variables['element']['#group_name']) {
+    // Tabs with a right-hand sidebar.
+    case 'group_journal_tabs':
+    case 'group_hw_item_tabs':
+      $suggestions[] = 'highwire_tabs__bps_tabs_rhs';
+    break;
+  }
+}
 
 
 
