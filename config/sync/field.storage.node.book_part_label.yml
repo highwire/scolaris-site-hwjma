@@ -1,0 +1,19 @@
+uuid: 01951a28-4008-4733-aea1-98facaecfa00
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.book_part_label
+field_name: book_part_label
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

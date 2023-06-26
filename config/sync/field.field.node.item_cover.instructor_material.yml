@@ -1,0 +1,21 @@
+uuid: fee5c17b-f172-4f7d-a724-7027effd3d8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.instructor_material
+    - node.type.item_cover
+id: node.item_cover.instructor_material
+field_name: instructor_material
+entity_type: node
+bundle: item_cover
+label: instructor-material
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

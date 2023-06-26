@@ -1,0 +1,21 @@
+uuid: 5885b011-7ffd-478b-9597-953054ebf495
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_ppub
+    - node.type.item_test_review
+  module:
+    - datetime_range
+id: node.item_test_review.date_ppub
+field_name: date_ppub
+entity_type: node
+bundle: item_test_review
+label: date-ppub
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

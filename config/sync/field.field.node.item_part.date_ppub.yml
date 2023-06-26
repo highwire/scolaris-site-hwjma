@@ -1,0 +1,21 @@
+uuid: 801cca94-a5dc-45a0-8f2f-194e230d60f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_ppub
+    - node.type.item_part
+  module:
+    - datetime_range
+id: node.item_part.date_ppub
+field_name: date_ppub
+entity_type: node
+bundle: item_part
+label: date-ppub
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

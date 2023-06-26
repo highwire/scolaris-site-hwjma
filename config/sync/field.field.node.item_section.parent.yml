@@ -1,0 +1,21 @@
+uuid: 12c2e6c4-620c-4ade-863b-2e868ef6d075
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.parent
+    - node.type.item_section
+id: node.item_section.parent
+field_name: parent
+entity_type: node
+bundle: item_section
+label: parent
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

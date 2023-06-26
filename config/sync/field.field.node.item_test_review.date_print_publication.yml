@@ -1,0 +1,21 @@
+uuid: baaa5a1c-a925-4b53-aad7-ca0d7bdf8b99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_print_publication
+    - node.type.item_test_review
+  module:
+    - text
+id: node.item_test_review.date_print_publication
+field_name: date_print_publication
+entity_type: node
+bundle: item_test_review
+label: date-print-publication
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 65cd1cfb-714d-44e3-9b78-a325a6061cc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.archived
+    - node.type.item_cover
+id: node.item_cover.archived
+field_name: archived
+entity_type: node
+bundle: item_cover
+label: archived
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

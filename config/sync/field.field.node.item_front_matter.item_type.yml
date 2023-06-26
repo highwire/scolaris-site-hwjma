@@ -1,0 +1,21 @@
+uuid: 8b84489c-a9ae-4099-a587-7dc6060e4df7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.item_type
+    - node.type.item_front_matter
+  module:
+    - text
+id: node.item_front_matter.item_type
+field_name: item_type
+entity_type: node
+bundle: item_front_matter
+label: item-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

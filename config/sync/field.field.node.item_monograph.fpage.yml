@@ -1,0 +1,21 @@
+uuid: 63674dd4-9583-4c88-a4e2-faaf27d9163e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.fpage
+    - node.type.item_monograph
+  module:
+    - text
+id: node.item_monograph.fpage
+field_name: fpage
+entity_type: node
+bundle: item_monograph
+label: fpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

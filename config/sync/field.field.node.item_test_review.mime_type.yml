@@ -1,0 +1,21 @@
+uuid: 04798e10-4372-42c4-a540-c22b370ca813
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.mime_type
+    - node.type.item_test_review
+  module:
+    - text
+id: node.item_test_review.mime_type
+field_name: mime_type
+entity_type: node
+bundle: item_test_review
+label: mime-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

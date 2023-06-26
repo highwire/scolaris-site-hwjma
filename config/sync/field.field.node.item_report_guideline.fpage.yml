@@ -1,0 +1,21 @@
+uuid: 1be4c0e9-992d-4db7-b4cd-8cd54a45fb0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.fpage
+    - node.type.item_report_guideline
+  module:
+    - text
+id: node.item_report_guideline.fpage
+field_name: fpage
+entity_type: node
+bundle: item_report_guideline
+label: fpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

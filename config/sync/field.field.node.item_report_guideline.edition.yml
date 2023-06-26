@@ -1,0 +1,21 @@
+uuid: 8935baab-9258-40f8-8bfc-cfc6d1eb3c7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.edition
+    - node.type.item_report_guideline
+  module:
+    - text
+id: node.item_report_guideline.edition
+field_name: edition
+entity_type: node
+bundle: item_report_guideline
+label: edition
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

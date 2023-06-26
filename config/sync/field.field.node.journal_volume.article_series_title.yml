@@ -1,0 +1,21 @@
+uuid: 4e0fddef-e991-419f-b706-6461e994a198
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.article_series_title
+    - node.type.journal_volume
+  module:
+    - text
+id: node.journal_volume.article_series_title
+field_name: article_series_title
+entity_type: node
+bundle: journal_volume
+label: article-series-title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

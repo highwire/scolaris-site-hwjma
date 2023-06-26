@@ -1,0 +1,21 @@
+uuid: 5316943c-75d0-415c-8bc7-e641ea4369e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.instructor_material
+    - node.type.item_back_matter
+id: node.item_back_matter.instructor_material
+field_name: instructor_material
+entity_type: node
+bundle: item_back_matter
+label: instructor-material
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

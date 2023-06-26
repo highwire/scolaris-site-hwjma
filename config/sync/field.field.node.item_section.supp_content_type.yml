@@ -1,0 +1,21 @@
+uuid: 86f60845-ea27-409a-971c-e570314d2af4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.supp_content_type
+    - node.type.item_section
+  module:
+    - text
+id: node.item_section.supp_content_type
+field_name: supp_content_type
+entity_type: node
+bundle: item_section
+label: supp-content-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

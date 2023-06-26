@@ -1,0 +1,19 @@
+uuid: 5517a5f7-a336-4fc8-8da8-a437b55ba27c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.contributors_xml
+field_name: contributors_xml
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

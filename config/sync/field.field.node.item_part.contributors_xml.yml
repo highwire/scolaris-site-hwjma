@@ -1,0 +1,21 @@
+uuid: 28018590-6d3b-4579-970a-733c872a75bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.contributors_xml
+    - node.type.item_part
+  module:
+    - text
+id: node.item_part.contributors_xml
+field_name: contributors_xml
+entity_type: node
+bundle: item_part
+label: contributors-xml
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

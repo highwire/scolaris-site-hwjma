@@ -1,0 +1,23 @@
+uuid: 74adf1c5-b4a8-423d-b9d9-5e7fd71b3a5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.related_objects
+    - node.type.item_monograph
+  module:
+    - link
+id: node.item_monograph.related_objects
+field_name: related_objects
+entity_type: node
+bundle: item_monograph
+label: related-objects
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

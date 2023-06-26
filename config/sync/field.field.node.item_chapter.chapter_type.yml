@@ -1,0 +1,21 @@
+uuid: ed29a28b-f342-4838-b3d6-df3ca9e546c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.chapter_type
+    - node.type.item_chapter
+  module:
+    - text
+id: node.item_chapter.chapter_type
+field_name: chapter_type
+entity_type: node
+bundle: item_chapter
+label: chapter-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

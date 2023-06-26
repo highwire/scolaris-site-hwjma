@@ -1,0 +1,11 @@
+uuid: a58c1327-9820-46db-b02b-b9924d076b5a
+langcode: en
+status: true
+dependencies: {  }
+name: item_report_guideline
+type: item_report_guideline
+description: 'Auto generated HighWire content type for item-report-guideline'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

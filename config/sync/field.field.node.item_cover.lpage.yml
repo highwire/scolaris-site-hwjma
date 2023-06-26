@@ -1,0 +1,21 @@
+uuid: b851b1fb-8db7-4f09-b24e-85011c989874
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.lpage
+    - node.type.item_cover
+  module:
+    - text
+id: node.item_cover.lpage
+field_name: lpage
+entity_type: node
+bundle: item_cover
+label: lpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 618b7d97-134f-430f-9e4b-1baa4462ecac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.children
+    - node.type.item_test_review
+id: node.item_test_review.children
+field_name: children
+entity_type: node
+bundle: item_test_review
+label: children
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,10 @@
+uuid: d88cb618-03f7-494c-b6ea-fb6ff720588b
+langcode: en
+status: true
+dependencies: {  }
+id: pdf_extract
+label: 'PDF Extract'
+profile_id: pdfextract
+configuration: {  }
+dw_logging: null
+exists_field: ''

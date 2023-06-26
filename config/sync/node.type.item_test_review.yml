@@ -1,0 +1,11 @@
+uuid: 8e21db5f-70c9-4a42-8771-e6ce9c791ad0
+langcode: en
+status: true
+dependencies: {  }
+name: item_test_review
+type: item_test_review
+description: 'Auto generated HighWire content type for item-test-review'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

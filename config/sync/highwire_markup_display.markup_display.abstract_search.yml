@@ -1,0 +1,23 @@
+uuid: 621236cb-c3a1-4941-b46d-c203326d4c36
+langcode: en
+status: true
+dependencies: {  }
+id: abstract_search
+label: 'Abstract Search'
+configurations:
+  -
+    markup_profile: abstract_search
+    field_group_settings:
+      field_group_formatter: '0'
+    weight: '1'
+    access_rule: ''
+markup_field_enabled: true
+markup_field_content_types:
+  - item_chapter
+  - item_monograph
+  - item_report_guideline
+  - item_test_review
+  - journal
+  - journal_article
+log: false
+render_placeholder: false

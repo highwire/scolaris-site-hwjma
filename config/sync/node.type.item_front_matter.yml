@@ -1,0 +1,11 @@
+uuid: 3edddb86-11b1-49f0-a3b3-9b15f94add77
+langcode: en
+status: true
+dependencies: {  }
+name: item_front_matter
+type: item_front_matter
+description: 'Auto generated HighWire content type for item-front-matter'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

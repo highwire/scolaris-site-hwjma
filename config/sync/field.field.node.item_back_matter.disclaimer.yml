@@ -1,0 +1,21 @@
+uuid: 426c57f4-6fa2-422f-bcb0-eb9ad09dc0d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.disclaimer
+    - node.type.item_back_matter
+  module:
+    - text
+id: node.item_back_matter.disclaimer
+field_name: disclaimer
+entity_type: node
+bundle: item_back_matter
+label: disclaimer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

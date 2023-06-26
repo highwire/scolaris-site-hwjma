@@ -1,0 +1,21 @@
+uuid: 7c5add8b-37ba-4536-b4f4-2121ca1b18c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.isbn_print
+    - node.type.item_test_review
+  module:
+    - text
+id: node.item_test_review.isbn_print
+field_name: isbn_print
+entity_type: node
+bundle: item_test_review
+label: isbn-print
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

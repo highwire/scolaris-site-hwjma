@@ -1,0 +1,21 @@
+uuid: bba16638-45e8-4f58-a7c6-b8b310c2ddf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.edition_id
+    - node.type.item_test_review
+  module:
+    - text
+id: node.item_test_review.edition_id
+field_name: edition_id
+entity_type: node
+bundle: item_test_review
+label: edition-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

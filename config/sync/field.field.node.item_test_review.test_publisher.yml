@@ -1,0 +1,37 @@
+uuid: a1285d83-c7d7-41f8-8cfe-aedde3838d6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.test_publisher
+    - node.type.item_test_review
+  module:
+    - double_field
+id: node.item_test_review.test_publisher
+field_name: test_publisher
+entity_type: node
+bundle: item_test_review
+label: test-publisher
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

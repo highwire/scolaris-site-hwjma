@@ -1,0 +1,21 @@
+uuid: cd60ae33-48e2-43f9-bce1-a3426c7ddab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.description
+    - node.type.item_test_review
+  module:
+    - text
+id: node.item_test_review.description
+field_name: description
+entity_type: node
+bundle: item_test_review
+label: description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

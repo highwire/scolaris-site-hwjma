@@ -1,0 +1,21 @@
+uuid: 22a1307f-550c-45a1-87e7-75f424ca752a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.mime_type
+    - node.type.item_cover
+  module:
+    - text
+id: node.item_cover.mime_type
+field_name: mime_type
+entity_type: node
+bundle: item_cover
+label: mime-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

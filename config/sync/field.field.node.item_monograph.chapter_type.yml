@@ -1,0 +1,21 @@
+uuid: c539bffc-b9ba-4491-9a12-5f38aa062081
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.chapter_type
+    - node.type.item_monograph
+  module:
+    - text
+id: node.item_monograph.chapter_type
+field_name: chapter_type
+entity_type: node
+bundle: item_monograph
+label: chapter-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

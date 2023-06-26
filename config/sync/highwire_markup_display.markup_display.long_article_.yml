@@ -1,0 +1,18 @@
+uuid: fd2d60f5-8e8d-456e-a3cc-3b0317b07f8e
+langcode: en
+status: true
+dependencies: {  }
+id: long_article_
+label: 'Long (Article)'
+configurations:
+  -
+    markup_profile: journal_full_text
+    field_group_settings:
+      field_group_formatter: '0'
+    weight: '1'
+    access_rule: ''
+markup_field_enabled: true
+markup_field_content_types:
+  - journal_article
+log: true
+render_placeholder: false

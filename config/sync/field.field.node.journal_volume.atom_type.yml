@@ -1,0 +1,21 @@
+uuid: 57c04a05-8617-42db-b4a7-78865bc73dc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.atom_type
+    - node.type.journal_volume
+  module:
+    - text
+id: node.journal_volume.atom_type
+field_name: atom_type
+entity_type: node
+bundle: journal_volume
+label: atom-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

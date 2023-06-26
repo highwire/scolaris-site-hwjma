@@ -1,0 +1,21 @@
+uuid: bafd16db-d906-4ab3-a47a-3eafd881ab16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.parent_book
+    - node.type.item_report_guideline
+id: node.item_report_guideline.parent_book
+field_name: parent_book
+entity_type: node
+bundle: item_report_guideline
+label: parent-book
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

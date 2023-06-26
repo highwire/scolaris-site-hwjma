@@ -1,0 +1,19 @@
+uuid: 51b07600-2d36-4cd4-905e-e6897466aeb7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.isbn_print_compact
+field_name: isbn_print_compact
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

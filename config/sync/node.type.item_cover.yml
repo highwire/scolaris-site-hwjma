@@ -1,0 +1,11 @@
+uuid: a9fd3db0-ad53-4590-9135-4645abf2ccb9
+langcode: en
+status: true
+dependencies: {  }
+name: item_cover
+type: item_cover
+description: 'Auto generated HighWire content type for item-cover'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

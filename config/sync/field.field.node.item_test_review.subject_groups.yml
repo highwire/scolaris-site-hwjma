@@ -1,0 +1,37 @@
+uuid: c82a7bf9-85fd-48d5-841a-1f1c94497e90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.subject_groups
+    - node.type.item_test_review
+  module:
+    - double_field
+id: node.item_test_review.subject_groups
+field_name: subject_groups
+entity_type: node
+bundle: item_test_review
+label: subject-groups
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

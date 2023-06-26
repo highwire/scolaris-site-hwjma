@@ -15,7 +15,7 @@
         "highwire/freebird": "dev-PLATFORM1-2508",
         "highwire/freebird-scaffold": "^2.1.1",
         "drupal/console": "^1.0.2",
-        "drupal/devel": "^1.0@RC",
+        "drupal/devel": "^4.2",
         "drush/drush": "^8",
         "bower-asset/jquery-ui-slider-pips": "^1.11",
         "cweagans/composer-patches": "^1.6.0",

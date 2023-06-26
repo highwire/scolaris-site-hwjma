@@ -1,0 +1,19 @@
+uuid: dfcfeb4f-bc48-423e-a198-2012c41199ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.extract_policy
+    - node.type.item_part
+id: node.item_part.extract_policy
+field_name: extract_policy
+entity_type: node
+bundle: item_part
+label: 'Extract Policy'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

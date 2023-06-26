@@ -1,0 +1,21 @@
+uuid: 2917c52e-94db-4a56-995a-6624b43d68de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.title_plain
+    - node.type.item_chapter
+  module:
+    - text
+id: node.item_chapter.title_plain
+field_name: title_plain
+entity_type: node
+bundle: item_chapter
+label: title-plain
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

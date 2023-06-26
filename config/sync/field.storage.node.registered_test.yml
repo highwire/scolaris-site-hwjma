@@ -1,0 +1,19 @@
+uuid: ee7797ad-0d58-41c2-b5a1-9b558c3cf3af
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.registered_test
+field_name: registered_test
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

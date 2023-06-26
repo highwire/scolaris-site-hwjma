@@ -1,0 +1,21 @@
+uuid: ae3822b7-1e61-4e45-beb4-b88d72fcb04e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.book_has_abstract
+    - node.type.item_cover
+id: node.item_cover.book_has_abstract
+field_name: book_has_abstract
+entity_type: node
+bundle: item_cover
+label: book-has-abstract
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

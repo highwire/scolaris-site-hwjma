@@ -1,0 +1,21 @@
+uuid: 592b42df-fe5c-4fd0-815d-980b061f52a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.parent_book
+    - node.type.item_test_review
+id: node.item_test_review.parent_book
+field_name: parent_book
+entity_type: node
+bundle: item_test_review
+label: parent-book
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

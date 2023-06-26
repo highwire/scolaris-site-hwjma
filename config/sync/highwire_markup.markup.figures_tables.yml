@@ -1,0 +1,26 @@
+uuid: bb366c7a-a8d3-4e41-81a1-474da88bf808
+langcode: en
+status: true
+dependencies: {  }
+id: figures_tables
+label: 'Figures & Tables'
+profile_id: figtable
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: binaryuri
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: mathml
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: sassuri
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: replace_tag
+    weight: '1'
+dw_logging: null
+exists_field: ''

@@ -1,0 +1,73 @@
+uuid: 2c4fd327-5589-496b-9c69-78c51588edd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_view
+  module:
+    - ctools
+    - highwire_display
+    - panels
+id: node_view-panels_variant-0
+label: Article
+variant: panels_variant
+variant_settings:
+  blocks:
+    8174b5b1-e92c-4baa-a4af-56434091c87b:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: full
+      region: bottom_left
+      weight: 0
+      uuid: 8174b5b1-e92c-4baa-a4af-56434091c87b
+      context_mapping:
+        entity: node
+    3875e7d2-371b-493d-a72d-6bf59a59794a:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: content_details
+      region: top
+      weight: 0
+      uuid: 3875e7d2-371b-493d-a72d-6bf59a59794a
+      context_mapping:
+        entity: node
+    5b18371e-7284-4b95-9eae-f168d93796d9:
+      id: highwire_content_nav_block
+      label: 'Table of contents'
+      provider: highwire_display
+      label_display: visible
+      markup: content_sections_nav
+      access_control_rule: ''
+      include_abstract: 1
+      abstract_settings:
+        markup: abstract
+        title: Abstract
+        id: abstract
+      include_content_top: 0
+      content_top_settings:
+        title: Top
+        id: content-top
+      region: bottom_right
+      weight: 0
+      uuid: 5b18371e-7284-4b95-9eae-f168d93796d9
+      context_mapping:
+        node: node
+  id: panels_variant
+  uuid: c52d1e1a-645e-4b55-bae0-f18186f763fc
+  label: null
+  weight: 0
+  layout: bs_2col_bricked
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: node_view-panels_variant-0
+  builder: standard
+page: node_view
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

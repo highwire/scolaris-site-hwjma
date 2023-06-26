@@ -1,0 +1,21 @@
+uuid: 8ab334a5-261f-4275-9c75-4b7c36d3ea77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.lpage
+    - node.type.journal_volume
+  module:
+    - text
+id: node.journal_volume.lpage
+field_name: lpage
+entity_type: node
+bundle: journal_volume
+label: lpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

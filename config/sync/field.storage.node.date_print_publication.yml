@@ -1,0 +1,19 @@
+uuid: 53ee560f-1fff-44bc-9365-e8e53839ad05
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.date_print_publication
+field_name: date_print_publication
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

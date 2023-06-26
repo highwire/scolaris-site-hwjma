@@ -1,0 +1,11 @@
+uuid: aac9bd7a-ee07-43ab-92ca-21de66a8e959
+langcode: en
+status: true
+dependencies: {  }
+name: item_monograph
+type: item_monograph
+description: 'Auto generated HighWire content type for item-monograph'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

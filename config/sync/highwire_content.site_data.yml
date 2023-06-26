@@ -1,4 +1,22 @@
 highwire_content_site_data:
+  bpsworks:
+    id: bpsworks
+    publisher-id: bps
+    status: production
+    type: scolaris
+    name: 'British Psychological Society'
+    abbrev:
+      medline: bpsworks
+      publisher: bpsworks
+    url:
+      ac_service: 'http://bpsworks-ac.highwire.org'
+      ac_service_development: 'http://bpsworks-ac-dev.highwire.org'
+      development: 'https://explore.bps.org.uk:4040'
+      legacy: 'http://hwmaint.bpsworks.bps.org.uk'
+      legacy_development: 'http://hwmaint.bpsworks.bps.org.uk:4040'
+      production: 'https://explore.bps.org.uk'
+    alert-types:
+      production: 'announcements,toc_alerts,toc_awareness_alerts'
   hwjma:
     id: hwjma
     publisher-id: djma
@@ -6,7 +24,6 @@ highwire_content_site_data:
     type: journal
     name: 'Demo Journal of Medical Association'
     abbrev:
-      medline: 'demo journal of medical association'
       publisher: hwjma
     url:
       ac_service: 'http://hwjma-ac.highwire.org'

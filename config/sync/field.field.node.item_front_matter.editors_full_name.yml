@@ -1,0 +1,21 @@
+uuid: 8d85fbbc-2980-43bd-ba31-89e4a0532828
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.editors_full_name
+    - node.type.item_front_matter
+  module:
+    - text
+id: node.item_front_matter.editors_full_name
+field_name: editors_full_name
+entity_type: node
+bundle: item_front_matter
+label: editors-full-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

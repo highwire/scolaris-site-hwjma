@@ -1,0 +1,37 @@
+uuid: bf7ac913-78ff-4624-b0c5-5598e81c4bcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.subject_groups
+    - node.type.item_report_guideline
+  module:
+    - double_field
+id: node.item_report_guideline.subject_groups
+field_name: subject_groups
+entity_type: node
+bundle: item_report_guideline
+label: subject-groups
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

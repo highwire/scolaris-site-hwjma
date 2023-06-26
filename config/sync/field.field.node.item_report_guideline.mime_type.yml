@@ -1,0 +1,21 @@
+uuid: 5d4ccb61-5442-4012-afa0-c6701e35e7fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.mime_type
+    - node.type.item_report_guideline
+  module:
+    - text
+id: node.item_report_guideline.mime_type
+field_name: mime_type
+entity_type: node
+bundle: item_report_guideline
+label: mime-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

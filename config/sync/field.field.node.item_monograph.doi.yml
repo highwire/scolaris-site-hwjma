@@ -1,0 +1,21 @@
+uuid: 94e53e71-aeda-43f4-ab7f-c0ef07e2a3d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.doi
+    - node.type.item_monograph
+  module:
+    - text
+id: node.item_monograph.doi
+field_name: doi
+entity_type: node
+bundle: item_monograph
+label: doi
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

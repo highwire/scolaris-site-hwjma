@@ -1,0 +1,21 @@
+uuid: 580fc873-8af8-47cc-ab1f-d119e62c71dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.book_has_body
+    - node.type.item_cover
+id: node.item_cover.book_has_body
+field_name: book_has_body
+entity_type: node
+bundle: item_cover
+label: book-has-body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
