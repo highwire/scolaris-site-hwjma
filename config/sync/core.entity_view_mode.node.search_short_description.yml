@@ -1,0 +1,10 @@
+uuid: 27c36ff3-3a5a-4244-8f6e-803c319ed36f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.search_short_description
+label: 'Search Short Description'
+targetEntityType: node
+cache: true

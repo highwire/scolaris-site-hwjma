@@ -1,0 +1,10 @@
+uuid: d44f4e39-82f8-4388-8f70-3226db68db78
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.abstract_search
+label: 'Abstract Search'
+targetEntityType: node
+cache: true

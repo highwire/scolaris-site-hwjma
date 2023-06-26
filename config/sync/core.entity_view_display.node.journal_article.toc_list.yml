@@ -123,6 +123,7 @@ hidden:
   article_type: true
   atom_type: true
   authors_full_name: true
+  authors_only_full_name: true
   chapter_type: true
   children: true
   col_url: true
