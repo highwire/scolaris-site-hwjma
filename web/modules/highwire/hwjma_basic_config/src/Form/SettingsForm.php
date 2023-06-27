@@ -82,7 +82,7 @@ class SettingsForm extends ConfigFormBase {
     $this->config('hwjma_basic_config.settings')
       ->set('footer_twitter', $form_state->getValue('footer_twitter'))
       ->set('footer_youtube', $form_state->getValue('footer_youtube'))
-      ->set('footer_youtube', $form_state->getValue('footer_youtube'))
+      ->set('footer_facebook', $form_state->getValue('footer_facebook'))
       ->set('footer_linkedin', $form_state->getValue('footer_linkedin'))
       ->save();
   }

@@ -32,7 +32,17 @@ class SocialMediaBlock extends BlockBase {
     <div class="flex-grow w-full social-share">';
 
     if(!empty($twitter)){
-      $output .= '<a class="twitter" href="'.$twitter.'" title="Follow on Twitter" class="fa fa-twitter"></a>';
+      $output .= '<a class="twitter" href="'.$twitter.'" title="Follow on Twitter">
+      <svg height="21px" version="1.1" viewBox="0 0 22 21" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <title></title>
+        <g fill="none" fill-rule="evenodd" id="Symbols" stroke="none" stroke-width="1">
+            <g id="twitter">
+              <rect height="20.38" id="Rectangle" width="22" x="0" y="0"></rect>
+              <path d="M22,3.11658333 C21.1905833,3.47591667 20.3206667,3.71791667 19.4076667,3.827 C20.3399167,3.26875 21.0558333,2.38416667 21.39225,1.33 C20.5205,1.847 19.5543333,2.22283333 18.5258333,2.42541667 C17.7035833,1.54816667 16.5293333,1 15.2313333,1 C12.31725,1 10.1759167,3.71883333 10.8340833,6.54125 C7.084,6.35333333 3.75833333,4.55666667 1.53175,1.82591667 C0.34925,3.8545 0.9185,6.50825 2.92783333,7.85208333 C2.189,7.82825 1.49233333,7.62566667 0.884583333,7.28741667 C0.835083333,9.37833333 2.33383333,11.3345 4.5045,11.7699167 C3.86925,11.94225 3.1735,11.9825833 2.46583333,11.8469167 C3.03966667,13.6399167 4.70616667,14.9443333 6.6825,14.981 C4.785,16.46875 2.39433333,17.1333333 0,16.851 C1.99741667,18.1315833 4.37066667,18.8786667 6.919,18.8786667 C15.2991667,18.8786667 20.03375,11.8010833 19.74775,5.45316667 C20.6295833,4.81608333 21.395,4.02133333 22,3.11658333 Z" fill="#FFFFFF" fill-rule="nonzero" id="Combined-Shape-Copy"></path>
+            </g>
+        </g>
+      </svg>
+      </a>';
     }
 
     if(!empty($facebook)){
@@ -85,10 +95,5 @@ class SocialMediaBlock extends BlockBase {
           '#theme' => 'social_media_block',
           '#social' => $output,
         ];
-  /*  return array(
-      '#type' => 'markup',
-      '#markup' => $value,
-      'ALLOWED_TAGS' => ['a', 'svg','title','g','rect','path','div','i'],
-    );  */
   }
 }
