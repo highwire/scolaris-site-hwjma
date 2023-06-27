@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - page_manager.page.node_view
+    - views.view.content_recent
   module:
     - ctools
+    - highwire_display
     - node
     - panels
+    - views
 id: node_view-panels_variant-1
 label: Article
 variant: panels_variant
@@ -24,6 +27,60 @@ variant_settings:
       uuid: 1a9a40d9-dc08-46df-ae82-a2937bc69b0a
       context_mapping:
         entity: node
+    364f319f-2a02-4c84-a28d-1fe1be11cea8:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: full
+      region: bottom_left
+      weight: 0
+      uuid: 364f319f-2a02-4c84-a28d-1fe1be11cea8
+      context_mapping:
+        entity: node
+    3edef569-512e-4425-b094-c7b6881dcb2e:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: focus_view
+      region: bottom_left
+      weight: 0
+      uuid: 3edef569-512e-4425-b094-c7b6881dcb2e
+      context_mapping:
+        entity: node
+    2ea67e84-b120-4197-81a4-93dfee23fadb:
+      id: highwire_content_nav_block
+      label: 'Table of Contents'
+      provider: highwire_display
+      label_display: visible
+      markup: content_sections_nav
+      access_control_rule: ''
+      include_abstract: 1
+      abstract_settings:
+        markup: abstract
+        title: Abstract
+        id: abstract
+      include_content_top: 0
+      content_top_settings:
+        title: Top
+        id: content-top
+      region: bottom_right
+      weight: 0
+      uuid: 2ea67e84-b120-4197-81a4-93dfee23fadb
+      context_mapping:
+        node: node
+    08c9bb9a-d56d-4bd0-a10c-617ed06b30af:
+      id: 'views_block:content_recent-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: '5'
+      region: bottom_right
+      weight: 0
+      uuid: 08c9bb9a-d56d-4bd0-a10c-617ed06b30af
+      context_mapping: {  }
   id: panels_variant
   uuid: 88cba1bf-d63e-4fd3-97d9-89669b10e916
   label: null
@@ -35,7 +92,7 @@ variant_settings:
       wrapper: div
       classes:
         row: row
-      add_layout_class: 1
+      add_layout_class: 0
       attributes: 'class| journal-page '
     regions:
       top:
@@ -67,13 +124,13 @@ variant_settings:
         classes:
           col-sm-6: col-sm-6
         add_region_classes: 0
-        attributes: ''
+        attributes: 'class|col-12 col-large-tablet-9'
       bottom_right:
         wrapper: div
         classes:
           col-sm-6: col-sm-6
         add_region_classes: 1
-        attributes: ''
+        attributes: 'class|col-12 col-large-tablet-3 article__rightbar'
       bottom:
         wrapper: div
         classes:

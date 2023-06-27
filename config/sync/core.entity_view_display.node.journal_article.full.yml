@@ -49,6 +49,15 @@ dependencies:
     - field.field.node.journal_article.has_source
     - field.field.node.journal_article.has_tables
     - field.field.node.journal_article.has_videos
+    - field.field.node.journal_article.hwmd_abstract_article_
+    - field.field.node.journal_article.hwmd_abstract_article_toc_
+    - field.field.node.journal_article.hwmd_abstract_search
+    - field.field.node.journal_article.hwmd_abstract_search_index_
+    - field.field.node.journal_article.hwmd_collection_detail
+    - field.field.node.journal_article.hwmd_contributors
+    - field.field.node.journal_article.hwmd_contributors_plain_
+    - field.field.node.journal_article.hwmd_figures_tables_article_
+    - field.field.node.journal_article.hwmd_long_article_
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
     - field.field.node.journal_article.issue_is_open
@@ -106,6 +115,7 @@ dependencies:
     - node.type.journal_article
   module:
     - field_group
+    - highwire_markup_display
     - user
 third_party_settings:
   field_group:
@@ -164,6 +174,7 @@ third_party_settings:
     group_article:
       children:
         - group_abstract
+        - hwmd_long_article_
       parent_name: group_article_tabs
       weight: 115
       format_type: highwire_tab
@@ -176,7 +187,8 @@ third_party_settings:
       label: Article
       region: content
     group_abstract:
-      children: {  }
+      children:
+        - hwmd_abstract_article_
       parent_name: group_article
       weight: 116
       format_type: html_element
@@ -192,7 +204,8 @@ third_party_settings:
       label: Abstract
       region: content
     group_figures_tables:
-      children: {  }
+      children:
+        - hwmd_figures_tables_article_
       parent_name: group_article_tabs
       weight: 116
       format_type: highwire_tab
@@ -217,6 +230,27 @@ content:
   hwjma_toc_pager:
     weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  hwmd_abstract_article_:
+    type: hwmarkup_display_formatter
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  hwmd_figures_tables_article_:
+    type: hwmarkup_display_formatter
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  hwmd_long_article_:
+    type: hwmarkup_display_formatter
+    weight: 117
+    region: content
+    label: above
     settings: {  }
     third_party_settings: {  }
 hidden:
@@ -272,6 +306,12 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwmd_abstract_article_toc_: true
+  hwmd_abstract_search: true
+  hwmd_abstract_search_index_: true
+  hwmd_collection_detail: true
+  hwmd_contributors: true
+  hwmd_contributors_plain_: true
   issue: true
   issue_id: true
   issue_is_open: true

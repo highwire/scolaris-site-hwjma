@@ -1,0 +1,24 @@
+uuid: 7ad00ec3-9b8d-4f75-bb55-e9c6b0217436
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.hwmd_collection_detail
+    - node.type.journal_article
+  module:
+    - highwire_markup_display
+third_party_settings:
+  highwire_markup_display:
+    markup_display_id: collection_detail
+id: node.journal_article.hwmd_collection_detail
+field_name: hwmd_collection_detail
+entity_type: node
+bundle: journal_article
+label: 'HighWire Markup Display - Collection Detail'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: HWMarkupDisplay

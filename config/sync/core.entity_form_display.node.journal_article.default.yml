@@ -1,9 +1,8 @@
-uuid: 81081c40-18cb-4895-ac45-57c8d457375d
+uuid: fd4d0ea3-aadf-41a5-9d51-249b765d9f00
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.content_details
     - field.field.node.journal_article.adjuncts
     - field.field.node.journal_article.apath
     - field.field.node.journal_article.article_open_access
@@ -114,119 +113,81 @@ dependencies:
     - field.field.node.journal_article.volume
     - node.type.journal_article
   module:
-    - field_group
-    - file
-    - layout_builder
-    - text
-    - user
-third_party_settings:
-  layout_builder:
-    allow_custom: false
-    enabled: false
-  field_group:
-    group_action_tools:
-      children:
-        - highwire_citations_download
-        - ccc_permissions_link
-        - hw_tag_sign_up
-        - hw_marker_sign_up
-        - hw_alerts_sign_up
-      parent_name: ''
-      weight: 7
-      format_type: highwire_html_list
-      format_settings:
-        id: ''
-        classes: ''
-        list_type: ul
-      label: 'Action Tools'
-      region: content
-id: node.journal_article.content_details
+    - path
+id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
-mode: content_details
+mode: default
 content:
-  addtoany:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
     weight: 2
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  article_type:
-    type: text_default
-    weight: 1
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  authors_full_name:
-    type: text_default
-    weight: 3
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  ccc_permissions_link:
-    weight: 46
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  doi:
-    type: text_default
-    weight: 6
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  highwire_citations_download:
-    weight: 45
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hw_alerts_sign_up:
-    weight: 49
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hw_marker_sign_up:
-    weight: 48
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hw_tag_sign_up:
-    weight: 47
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  parent_issue:
-    type: entity_reference_label
-    weight: 4
-    region: content
-    label: above
     settings:
-      link: true
+      include_locked: true
     third_party_settings: {  }
-  variant_full_text_pdf:
-    type: file_default
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
     weight: 5
-    region: content
-    label: above
     settings:
-      use_description_as_link_text: true
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
     third_party_settings: {  }
 hidden:
   adjuncts: true
   apath: true
   article_open_access: true
   article_series_title: true
+  article_type: true
   atom_type: true
+  authors_full_name: true
   authors_only_full_name: true
   chapter_type: true
   children: true
-  cited_by_block: true
   col_url: true
   contributors: true
   corpus: true
@@ -243,6 +204,7 @@ hidden:
   date_received: true
   date_released: true
   date_revision: true
+  doi: true
   early_release: true
   elocation_id: true
   enclosures: true
@@ -261,8 +223,6 @@ hidden:
   has_source: true
   has_tables: true
   has_videos: true
-  hwjma_focus_view: true
-  hwjma_toc_pager: true
   hwmd_abstract_article_: true
   hwmd_abstract_article_toc_: true
   hwmd_abstract_search: true
@@ -290,19 +250,18 @@ hidden:
   journal_publisher_id: true
   journal_title: true
   keywords: true
-  langcode: true
   lpage: true
   member_network: true
   next_atom: true
   overline: true
   page_count: true
   parent: true
+  parent_issue: true
   parent_journal: true
   parent_volume: true
   pdf_extract_img: true
   pisa_version: true
   prev_atom: true
-  prev_next_pager: true
   publisher_id: true
   publisher_unique_id: true
   pubmed_id: true
@@ -315,10 +274,10 @@ hidden:
   summary: true
   title_plain: true
   title_short: true
-  usage_stats_table_block: true
   variant_cover_image: true
   variant_cover_pdf: true
   variant_cover_source_image: true
+  variant_full_text_pdf: true
   variant_full_text_stamped_pdf: true
   variant_large_image: true
   variant_medium_image: true

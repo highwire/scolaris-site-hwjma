@@ -49,6 +49,15 @@ dependencies:
     - field.field.node.journal_article.has_source
     - field.field.node.journal_article.has_tables
     - field.field.node.journal_article.has_videos
+    - field.field.node.journal_article.hwmd_abstract_article_
+    - field.field.node.journal_article.hwmd_abstract_article_toc_
+    - field.field.node.journal_article.hwmd_abstract_search
+    - field.field.node.journal_article.hwmd_abstract_search_index_
+    - field.field.node.journal_article.hwmd_collection_detail
+    - field.field.node.journal_article.hwmd_contributors
+    - field.field.node.journal_article.hwmd_contributors_plain_
+    - field.field.node.journal_article.hwmd_figures_tables_article_
+    - field.field.node.journal_article.hwmd_long_article_
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
     - field.field.node.journal_article.issue_is_open
@@ -107,6 +116,7 @@ dependencies:
   module:
     - datetime_range
     - file
+    - highwire_markup_display
     - text
     - user
 id: node.journal_article.toc_list
@@ -144,6 +154,20 @@ content:
   fpage:
     type: text_default
     weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  hwmd_abstract_article_toc_:
+    type: hwmarkup_display_formatter
+    weight: 9
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  hwmd_contributors_plain_:
+    type: hwmarkup_display_formatter
+    weight: 10
     region: content
     label: above
     settings: {  }
@@ -233,6 +257,13 @@ hidden:
   hw_tag_sign_up: true
   hwjma_focus_view: true
   hwjma_toc_pager: true
+  hwmd_abstract_article_: true
+  hwmd_abstract_search: true
+  hwmd_abstract_search_index_: true
+  hwmd_collection_detail: true
+  hwmd_contributors: true
+  hwmd_figures_tables_article_: true
+  hwmd_long_article_: true
   issue: true
   issue_id: true
   issue_is_open: true

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.journal_article.article_type
     - field.field.node.journal_article.atom_type
     - field.field.node.journal_article.authors_full_name
+    - field.field.node.journal_article.authors_only_full_name
     - field.field.node.journal_article.chapter_type
     - field.field.node.journal_article.children
     - field.field.node.journal_article.col_url
@@ -48,6 +49,15 @@ dependencies:
     - field.field.node.journal_article.has_source
     - field.field.node.journal_article.has_tables
     - field.field.node.journal_article.has_videos
+    - field.field.node.journal_article.hwmd_abstract_article_
+    - field.field.node.journal_article.hwmd_abstract_article_toc_
+    - field.field.node.journal_article.hwmd_abstract_search
+    - field.field.node.journal_article.hwmd_abstract_search_index_
+    - field.field.node.journal_article.hwmd_collection_detail
+    - field.field.node.journal_article.hwmd_contributors
+    - field.field.node.journal_article.hwmd_contributors_plain_
+    - field.field.node.journal_article.hwmd_figures_tables_article_
+    - field.field.node.journal_article.hwmd_long_article_
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
     - field.field.node.journal_article.issue_is_open
@@ -116,6 +126,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  addtoany: true
   adjuncts: true
   apath: true
   article_open_access: true
@@ -124,8 +135,10 @@ hidden:
   atom_type: true
   authors_full_name: true
   authors_only_full_name: true
+  ccc_permissions_link: true
   chapter_type: true
   children: true
+  cited_by_block: true
   col_url: true
   contributors: true
   corpus: true
@@ -165,6 +178,17 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwjma_focus_view: true
+  hwjma_toc_pager: true
+  hwmd_abstract_article_: true
+  hwmd_abstract_article_toc_: true
+  hwmd_abstract_search: true
+  hwmd_abstract_search_index_: true
+  hwmd_collection_detail: true
+  hwmd_contributors: true
+  hwmd_contributors_plain_: true
+  hwmd_figures_tables_article_: true
+  hwmd_long_article_: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -196,6 +220,7 @@ hidden:
   pdf_extract_img: true
   pisa_version: true
   prev_atom: true
+  prev_next_pager: true
   publisher_id: true
   publisher_unique_id: true
   pubmed_id: true
@@ -208,6 +233,7 @@ hidden:
   summary: true
   title_plain: true
   title_short: true
+  usage_stats_table_block: true
   variant_cover_image: true
   variant_cover_pdf: true
   variant_cover_source_image: true
