@@ -1,0 +1,98 @@
+uuid: 37d07795-b4d1-4b74-8e8c-ae12bb095d1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_view
+  module:
+    - ctools
+    - node
+    - panels
+id: node_view-panels_variant-1
+label: Article
+variant: panels_variant
+variant_settings:
+  blocks:
+    1a9a40d9-dc08-46df-ae82-a2937bc69b0a:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: default
+      region: top
+      weight: 0
+      uuid: 1a9a40d9-dc08-46df-ae82-a2937bc69b0a
+      context_mapping:
+        entity: node
+  id: panels_variant
+  uuid: 88cba1bf-d63e-4fd3-97d9-89669b10e916
+  label: null
+  weight: 0
+  layout: bs_2col_bricked
+  layout_settings:
+    label: ''
+    layout:
+      wrapper: div
+      classes:
+        row: row
+      add_layout_class: 1
+      attributes: 'class| journal-page '
+    regions:
+      top:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 0
+        attributes: ''
+      top_left:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 0
+        attributes: ''
+      top_right:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 0
+        attributes: ''
+      middle:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+      bottom_left:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 0
+        attributes: ''
+      bottom_right:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 1
+        attributes: ''
+      bottom:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+  page_title: ''
+  storage_type: page_manager
+  storage_id: node_view-panels_variant-1
+  builder: standard
+page: node_view
+weight: 0
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      journal_article: journal_article
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+static_context: {  }

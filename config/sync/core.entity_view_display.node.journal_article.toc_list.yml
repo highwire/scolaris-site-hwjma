@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.journal_article.article_type
     - field.field.node.journal_article.atom_type
     - field.field.node.journal_article.authors_full_name
+    - field.field.node.journal_article.authors_only_full_name
     - field.field.node.journal_article.chapter_type
     - field.field.node.journal_article.children
     - field.field.node.journal_article.col_url
@@ -104,28 +105,95 @@ dependencies:
     - field.field.node.journal_article.volume
     - node.type.journal_article
   module:
+    - datetime_range
+    - file
+    - text
     - user
 id: node.journal_article.toc_list
 targetEntityType: node
 bundle: journal_article
 mode: toc_list
 content:
-  links:
-    weight: 100
+  article_open_access:
+    type: boolean
+    weight: 4
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  article_type:
+    type: text_default
+    weight: 6
+    region: content
+    label: above
     settings: {  }
     third_party_settings: {  }
+  date_ppub:
+    type: daterange_default
+    weight: 2
     region: content
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  fpage:
+    type: text_default
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  journal_title:
+    type: text_default
+    weight: 7
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  overline:
+    type: text_default
+    weight: 8
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  variant_full_text_pdf:
+    type: file_default
+    weight: 3
+    region: content
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+  volume:
+    type: text_default
+    weight: 5
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  addtoany: true
   adjuncts: true
   apath: true
-  article_open_access: true
   article_series_title: true
-  article_type: true
   atom_type: true
   authors_full_name: true
   authors_only_full_name: true
+  ccc_permissions_link: true
   chapter_type: true
   children: true
+  cited_by_block: true
   col_url: true
   contributors: true
   corpus: true
@@ -138,7 +206,6 @@ hidden:
   date_epub_original: true
   date_epub_ppub: true
   date_epub_version: true
-  date_ppub: true
   date_received: true
   date_released: true
   date_revision: true
@@ -148,7 +215,6 @@ hidden:
   enclosures: true
   extract_policy: true
   final_published: true
-  fpage: true
   georef_id: true
   has_abstract: true
   has_early_release: true
@@ -165,6 +231,8 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwjma_focus_view: true
+  hwjma_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -181,13 +249,11 @@ hidden:
   journal_pissn_compact: true
   journal_publisher: true
   journal_publisher_id: true
-  journal_title: true
   keywords: true
   langcode: true
   lpage: true
   member_network: true
   next_atom: true
-  overline: true
   page_count: true
   parent: true
   parent_issue: true
@@ -196,6 +262,7 @@ hidden:
   pdf_extract_img: true
   pisa_version: true
   prev_atom: true
+  prev_next_pager: true
   publisher_id: true
   publisher_unique_id: true
   pubmed_id: true
@@ -208,10 +275,10 @@ hidden:
   summary: true
   title_plain: true
   title_short: true
+  usage_stats_table_block: true
   variant_cover_image: true
   variant_cover_pdf: true
   variant_cover_source_image: true
-  variant_full_text_pdf: true
   variant_full_text_stamped_pdf: true
   variant_large_image: true
   variant_medium_image: true
@@ -219,4 +286,3 @@ hidden:
   variant_table_of_contents_pdf: true
   version_current: true
   video_id: true
-  volume: true

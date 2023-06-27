@@ -1,9 +1,9 @@
-uuid: 9d240e5b-b97d-4988-bc8e-b3081af9aa9b
+uuid: d89214d2-f7e8-4209-a49c-17bca61f120d
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.collection_detail_short_desc
     - field.field.node.journal_article.adjuncts
     - field.field.node.journal_article.apath
     - field.field.node.journal_article.article_open_access
@@ -105,117 +105,19 @@ dependencies:
     - field.field.node.journal_article.volume
     - node.type.journal_article
   module:
-    - field_group
+    - layout_builder
     - user
 third_party_settings:
-  field_group:
-    group_outer:
-      children:
-        - group_content_actions
-        - group_article_tabs
-      parent_name: ''
-      weight: 0
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: journal-article__tabwrap
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: Outer
-      region: content
-    group_content_actions:
-      children:
-        - hwjma_toc_pager
-        - hwjma_focus_view
-      parent_name: group_outer
-      weight: 113
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: 'journals-step top'
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: 'Content actions'
-      region: content
-    group_article_tabs:
-      children:
-        - group_article
-        - group_figures_tables
-      parent_name: group_outer
-      weight: 114
-      format_type: highwire_tabs
-      format_settings:
-        id: ''
-        classes: ''
-        direction: vertical
-        ajax_markup:
-          ajax_markup_enabled: 1
-          active_tab_ajax_enabled: 0
-      label: 'Article Tabs'
-      region: content
-    group_article:
-      children:
-        - group_abstract
-      parent_name: group_article_tabs
-      weight: 115
-      format_type: highwire_tab
-      format_settings:
-        id: ''
-        classes: 'tab-content article__tabcontent-body'
-        description: ''
-        active: 1
-        formatter: closed
-      label: Article
-      region: content
-    group_abstract:
-      children: {  }
-      parent_name: group_article
-      weight: 116
-      format_type: html_element
-      format_settings:
-        id: abstract
-        classes: abstract-wrapper
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: 'class="section-title"'
-        effect: none
-        speed: fast
-      label: Abstract
-      region: content
-    group_figures_tables:
-      children: {  }
-      parent_name: group_article_tabs
-      weight: 116
-      format_type: highwire_tab
-      format_settings:
-        id: ''
-        classes: 'tab-content article__tabcontent-body'
-        description: ''
-        active: 1
-        formatter: closed
-      label: 'Figures & Tables'
-      region: content
-id: node.journal_article.full
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.journal_article.collection_detail_short_desc
 targetEntityType: node
 bundle: journal_article
-mode: full
+mode: collection_detail_short_desc
 content:
-  hwjma_focus_view:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hwjma_toc_pager:
-    weight: 0
+  links:
+    weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -272,6 +174,8 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwjma_focus_view: true
+  hwjma_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -291,7 +195,6 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
-  links: true
   lpage: true
   member_network: true
   next_atom: true

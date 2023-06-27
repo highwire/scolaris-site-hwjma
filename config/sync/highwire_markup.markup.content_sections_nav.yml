@@ -1,0 +1,26 @@
+uuid: 6c3589eb-f1e9-4a3e-8ad5-0481e4294d85
+langcode: en
+status: true
+dependencies: {  }
+id: content_sections_nav
+label: 'Content Sections Nav'
+profile_id: fulltext
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: content_sections_nav
+      processor_config:
+        config:
+          selector_type: xpath
+          xpath: ''
+          css: ''
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: replace_tag
+      processor_config:
+        config:
+          replace_tag: b|strong
+    weight: '1'
+dw_logging: null
+exists_field: ''

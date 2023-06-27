@@ -1,0 +1,19 @@
+uuid: 86ccb2b6-8836-4a9a-9b87-759d0e77fb1d
+langcode: en
+status: true
+dependencies: {  }
+id: online
+label: Online
+description: 'Online AC rule'
+rule_type: content
+role: full-text
+scope: online
+target: variant
+language: en
+content_type: application/xhtml+xml
+file_field: ''
+file_field_bundles: {  }
+ac_denied_action: default
+ac_denied_action_conf: {  }
+ac_denied_message: ''
+concurrency_limit_message: ''

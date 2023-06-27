@@ -1,9 +1,9 @@
-uuid: 9d240e5b-b97d-4988-bc8e-b3081af9aa9b
+uuid: 81081c40-18cb-4895-ac45-57c8d457375d
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.content_details
     - field.field.node.journal_article.adjuncts
     - field.field.node.journal_article.apath
     - field.field.node.journal_article.article_open_access
@@ -106,130 +106,97 @@ dependencies:
     - node.type.journal_article
   module:
     - field_group
+    - file
+    - layout_builder
+    - text
     - user
 third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
   field_group:
-    group_outer:
+    group_action_tools:
       children:
-        - group_content_actions
-        - group_article_tabs
+        - highwire_citations_download
+        - ccc_permissions_link
       parent_name: ''
-      weight: 0
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: journal-article__tabwrap
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: Outer
-      region: content
-    group_content_actions:
-      children:
-        - hwjma_toc_pager
-        - hwjma_focus_view
-      parent_name: group_outer
-      weight: 113
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: 'journals-step top'
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: 'Content actions'
-      region: content
-    group_article_tabs:
-      children:
-        - group_article
-        - group_figures_tables
-      parent_name: group_outer
-      weight: 114
-      format_type: highwire_tabs
+      weight: 7
+      format_type: highwire_html_list
       format_settings:
         id: ''
         classes: ''
-        direction: vertical
-        ajax_markup:
-          ajax_markup_enabled: 1
-          active_tab_ajax_enabled: 0
-      label: 'Article Tabs'
+        list_type: ul
+      label: 'Action Tools'
       region: content
-    group_article:
-      children:
-        - group_abstract
-      parent_name: group_article_tabs
-      weight: 115
-      format_type: highwire_tab
-      format_settings:
-        id: ''
-        classes: 'tab-content article__tabcontent-body'
-        description: ''
-        active: 1
-        formatter: closed
-      label: Article
-      region: content
-    group_abstract:
-      children: {  }
-      parent_name: group_article
-      weight: 116
-      format_type: html_element
-      format_settings:
-        id: abstract
-        classes: abstract-wrapper
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: 'class="section-title"'
-        effect: none
-        speed: fast
-      label: Abstract
-      region: content
-    group_figures_tables:
-      children: {  }
-      parent_name: group_article_tabs
-      weight: 116
-      format_type: highwire_tab
-      format_settings:
-        id: ''
-        classes: 'tab-content article__tabcontent-body'
-        description: ''
-        active: 1
-        formatter: closed
-      label: 'Figures & Tables'
-      region: content
-id: node.journal_article.full
+id: node.journal_article.content_details
 targetEntityType: node
 bundle: journal_article
-mode: full
+mode: content_details
 content:
-  hwjma_focus_view:
-    weight: 1
+  addtoany:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-  hwjma_toc_pager:
+  article_type:
+    type: text_default
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  authors_full_name:
+    type: text_default
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  ccc_permissions_link:
+    weight: 46
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  doi:
+    type: text_default
+    weight: 6
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  highwire_citations_download:
+    weight: 45
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  links:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
+  parent_issue:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  variant_full_text_pdf:
+    type: file_default
+    weight: 5
+    region: content
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
 hidden:
-  addtoany: true
   adjuncts: true
   apath: true
   article_open_access: true
   article_series_title: true
-  article_type: true
   atom_type: true
-  authors_full_name: true
   authors_only_full_name: true
-  ccc_permissions_link: true
   chapter_type: true
   children: true
   cited_by_block: true
@@ -249,7 +216,6 @@ hidden:
   date_received: true
   date_released: true
   date_revision: true
-  doi: true
   early_release: true
   elocation_id: true
   enclosures: true
@@ -268,10 +234,11 @@ hidden:
   has_source: true
   has_tables: true
   has_videos: true
-  highwire_citations_download: true
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwjma_focus_view: true
+  hwjma_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -291,14 +258,12 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
-  links: true
   lpage: true
   member_network: true
   next_atom: true
   overline: true
   page_count: true
   parent: true
-  parent_issue: true
   parent_journal: true
   parent_volume: true
   pdf_extract_img: true
@@ -321,7 +286,6 @@ hidden:
   variant_cover_image: true
   variant_cover_pdf: true
   variant_cover_source_image: true
-  variant_full_text_pdf: true
   variant_full_text_stamped_pdf: true
   variant_large_image: true
   variant_medium_image: true

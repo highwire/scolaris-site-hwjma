@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.journal_article.article_type
     - field.field.node.journal_article.atom_type
     - field.field.node.journal_article.authors_full_name
+    - field.field.node.journal_article.authors_only_full_name
     - field.field.node.journal_article.chapter_type
     - field.field.node.journal_article.children
     - field.field.node.journal_article.col_url
@@ -104,18 +105,45 @@ dependencies:
     - field.field.node.journal_article.volume
     - node.type.journal_article
   module:
+    - field_group
     - user
+third_party_settings:
+  field_group:
+    group_content_actions:
+      children:
+        - hwjma_focus_view
+        - hwjma_toc_pager
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: journals-step
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Content actions'
+      region: content
 id: node.journal_article.focus_view
 targetEntityType: node
 bundle: journal_article
 mode: focus_view
 content:
-  links:
-    weight: 100
+  hwjma_focus_view:
+    weight: 35
+    region: content
     settings: {  }
     third_party_settings: {  }
+  hwjma_toc_pager:
+    weight: 36
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  addtoany: true
   adjuncts: true
   apath: true
   article_open_access: true
@@ -124,8 +152,10 @@ hidden:
   atom_type: true
   authors_full_name: true
   authors_only_full_name: true
+  ccc_permissions_link: true
   chapter_type: true
   children: true
+  cited_by_block: true
   col_url: true
   contributors: true
   corpus: true
@@ -184,6 +214,7 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
+  links: true
   lpage: true
   member_network: true
   next_atom: true
@@ -196,6 +227,7 @@ hidden:
   pdf_extract_img: true
   pisa_version: true
   prev_atom: true
+  prev_next_pager: true
   publisher_id: true
   publisher_unique_id: true
   pubmed_id: true
@@ -208,6 +240,7 @@ hidden:
   summary: true
   title_plain: true
   title_short: true
+  usage_stats_table_block: true
   variant_cover_image: true
   variant_cover_pdf: true
   variant_cover_source_image: true

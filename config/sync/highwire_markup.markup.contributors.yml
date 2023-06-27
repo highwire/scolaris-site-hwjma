@@ -1,0 +1,10 @@
+uuid: 7716439d-e5f0-4b22-aa57-01016036260e
+langcode: en
+status: true
+dependencies: {  }
+id: contributors
+label: Contributors
+profile_id: contribs
+configuration: {  }
+dw_logging: null
+exists_field: ''
