@@ -1,0 +1,27 @@
+uuid: fb8e1968-2a3b-40cc-8b2a-045f4025837b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.variant_full_text_stamped_pdf
+    - node.type.journal_volume
+  module:
+    - file
+id: node.journal_volume.variant_full_text_stamped_pdf
+field_name: variant_full_text_stamped_pdf
+entity_type: node
+bundle: journal_volume
+label: variant-full-text-stamped-pdf
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  file_extensions: txt
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  description_field: false
+  handler_settings: {  }
+field_type: file

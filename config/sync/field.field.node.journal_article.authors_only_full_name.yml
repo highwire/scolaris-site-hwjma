@@ -1,0 +1,21 @@
+uuid: 841eff79-251f-4214-bc61-21a3000c5286
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.authors_only_full_name
+    - node.type.journal_article
+  module:
+    - text
+id: node.journal_article.authors_only_full_name
+field_name: authors_only_full_name
+entity_type: node
+bundle: journal_article
+label: authors-only-full-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

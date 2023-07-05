@@ -6,7 +6,6 @@ highwire_content_site_data:
     type: journal
     name: 'Demo Journal of Medical Association'
     abbrev:
-      medline: 'demo journal of medical association'
       publisher: hwjma
     url:
       ac_service: 'http://hwjma-ac.highwire.org'

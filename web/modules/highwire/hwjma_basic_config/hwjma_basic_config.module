@@ -1,0 +1,17 @@
+<?php
+
+/**
+* Implements hook_theme().
+*
+* We use hook_theme to define the templates used.
+*/
+
+function hwjma_basic_config_theme($existing, $type, $theme, $path) {
+ return [
+   'social_media_block' => [
+     'variables' => [
+       'social' => NULL,
+     ],
+   ],
+ ];
+}

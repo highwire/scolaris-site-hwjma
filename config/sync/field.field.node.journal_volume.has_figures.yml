@@ -1,0 +1,21 @@
+uuid: c5f92ebd-ba24-4c77-830d-0a3e2d4647a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_figures
+    - node.type.journal_volume
+id: node.journal_volume.has_figures
+field_name: has_figures
+entity_type: node
+bundle: journal_volume
+label: has-figures
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
