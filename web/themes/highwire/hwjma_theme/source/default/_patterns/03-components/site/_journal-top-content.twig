@@ -142,12 +142,6 @@
     paragraph: journal_description.paragraph|raw
   } only %}
 {% endif %}
-{% if journal_title.text %}
-  <div class="journal-doi-info">
-    <span class="doi-label">{{ journal_title.label }}</span>
-      {{ journal_title.text | raw }}
-  </div>
-{% endif %}
 {% if journal_doi.text %}
   <div class="journal-doi-info">
     <span class="doi-label">{{ journal_doi.label }}</span>

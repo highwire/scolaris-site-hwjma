@@ -1,22 +1,10 @@
-context: hwjma
+context: ''
 saved_search_api_base_path: ''
 alert_type_config: null
-markers_content_type_filters:
-  journal: 1
-markers_admin_citations_view_mode:
-  journal: search_result
-  journal_article: search_result
-  journal_issue: search_result
+markers_content_type_filters: {  }
+markers_admin_citations_view_mode: {  }
 profile_and_privacy_form_class: ''
 profile_and_privacy_pop_welcome_message: 'You are registered for a personal account.'
-tags_admin_citations_view_mode:
-  journal_article: content_details
+tags_admin_citations_view_mode: {  }
 _core:
   default_config_hash: Pxth7sNsS5mshjiXLFyUNe2Ky1kkQd6BqF23xLmp9rI
-reports_enabled:
-  alerts: 1
-  captures: 1
-  preferences: 1
-remove_alert_tab_title: 'Saved searches'
-default_empty_alert_message: 'No alerts found.'
-empty_alert_message: 'Click <a href="/books">here </a> to create alerts for when new books are added to the site.'
