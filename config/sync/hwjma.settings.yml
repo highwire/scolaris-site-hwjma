@@ -1,17 +1,4 @@
 logo:
-  use_default: 1
-  path: 'public://MPS_LOGO_37df55fb0f6fe049cc780587d3693251-11.png'
+  use_default: true
 _core:
   default_config_hash: 2pUFopsqxNUk-9ns4cxYr9aZWmamCbaPV0QViHChkJI
-features:
-  node_user_picture: 1
-  comment_user_picture: 1
-  comment_user_verification: 1
-  favicon: 0
-favicon:
-  use_default: 0
-  path: ''
-footer_facebook: '#'
-footer_twitter: '#'
-footer_youtube: '#'
-footer_linkedin: '#'
