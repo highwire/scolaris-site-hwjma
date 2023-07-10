@@ -1,0 +1,9 @@
+name: HWJMA Ecommerce
+description: Foxycart integration for HWJMA.
+package: HWJMA
+dependencies:
+  - highwire_content
+  - highwire_ecommerce
+  - highwire_access_control
+type: module
+core: 8.x

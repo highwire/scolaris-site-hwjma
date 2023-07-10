@@ -318,7 +318,7 @@ function hwjma_core_node_view(array &$build, EntityInterface $entity, EntityView
   if ($content_type == HW_NODE_TYPE_JOURNAL) {
     // Add current issue link.
     if ($display->getComponent('current_issue_link') && $entity->hasField('journal_current_issue')) {
-      $current_issue = $entity->get('journal_current_issue');
+      $current_issue = $entity->get('journal_current_issue'); 
       if (!$current_issue->isEmpty()) {
         $current_issue_nid = $current_issue->getString();
         $build['current_issue_link'] = [
@@ -328,6 +328,7 @@ function hwjma_core_node_view(array &$build, EntityInterface $entity, EntityView
           '#attributes' => ['class' => ['btn', 'btn-primary']],
         ];
         $build['#cache']['tags'][] = 'node:' . $entity->id();
+       
       }
     }
     // Add submit an article link.

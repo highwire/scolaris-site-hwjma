@@ -322,3 +322,116 @@ function hwjma_preprocess_node(array &$variables) {
     }
   }
 }
+
+
+/*
+ * Implements hook_preprocess_node().
+*/
+function hwjma_preprocess_node__journal_issue__content_details(&$variables) {
+  $node = $variables['node'];
+
+  // code to get the  download isue pdf button link.
+  $pdf_link = $node->get('enclosures')->getValue();
+  if (basename($pdf_link[0]['uri']) == 'complete-issue.pdf') {
+    $download_pdf_links = file_create_url($pdf_link[0]['uri']);
+  }
+
+  //set variable
+  $node_title = $variables['node']->getTitle();
+  $volume = $node->get('volume')->getString();
+  $date_ppub = $node->get('date_ppub')->getValue()[0]['value'];
+  $issue = $node->get('issue')->getString();
+  $doi = $node->get('doi')->getString();
+  $imagefield = $node->get('variant_cover_image')->getValue();
+  $media_url = '/themes/highwire/hwjma_theme/dist/app-drupal/assets/images/250X350.png';
+  $media_url_alt='Card Images';
+  if (!empty($imagefield)) {
+    $img_alt = $node->variant_cover_image->alt;
+    $img_title = empty($img_alt) ? $node->variant_cover_image->title : $img_alt;
+    $fileid = $imagefield[0]['target_id'];
+    if (!empty($fileid)) {
+      $file = File::load($fileid);
+        if (!empty($file)) {
+          $path = $file->getFileUri();
+          $media_url = file_create_url($path);
+          $media_url_alt = empty($img_title) ? 'Card Images' : $img_title;
+        }
+    }
+  }
+
+  // get parent_journal value
+  $parent_journal = $node->get('parent_journal')->getValue();
+  $parent_journal = $parent_journal[0]['target_id'];
+  if (!empty( $parent_journal)) {
+    $journal_node = Node::load($parent_journal);
+    $eissn = $journal_node->get('journal_eissn')->getString();
+    $pissn = $journal_node->get('journal_pissn')->getString();
+    $node_title = $journal_node->title->value;
+    if ($journal_node->hasField('children')) {
+      $children = !$journal_node->get('children')->isEmpty() ? $journal_node->get('children')->getValue() : '';
+    }
+    // Get the total number of child volume for a Periodical
+    $num_of_children = count($children);
+
+    // Get url of parent periodical
+    $options = ['absolute' => TRUE];
+    $periodical_url_object = Url::fromRoute('entity.node.canonical', ['node' => $parent_journal], $options);
+    $periodical_url = $periodical_url_object->toString();
+  }
+  $info_nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'journal_info', 'field_journal' => $parent_journal]);
+  if (!empty($info_nodes)) {
+    $journal_info = reset($info_nodes);
+    $journal_society = $journal_info->get('field_journal_society')->getString();
+    if (!empty($journal_society)) {
+      $node_society = \Drupal::entityTypeManager()->getStorage('node')->load($journal_society);
+      $imagefield = $node_society->get('field_society_log')->getValue();
+      if (!empty($imagefield)) {
+        $img_alt = $node_society->field_society_log->alt;
+        $img_title = $node_society->field_society_log->title;
+        $fileid = $imagefield[0]['target_id'];
+        if (!empty($fileid)) {
+          $journalissue_society_imgalt = !empty($img_title) ? $img_title : $img_alt;
+          $file = File::load($fileid);
+            if (!empty($file)) {
+              $path = $file->getFileUri();
+              $societymedia_url = file_create_url($path);
+              $variables['society'] = ['src'=> $societymedia_url,
+                'alt'=> $journalissue_society_imgalt,
+                'title'=> $journalissue_society_imgalt,
+                'class'=> 'article__top_left-card-img'
+              ];
+            }
+        }
+      }
+    }
+  }
+
+  // The Periodical that have only 1 volume should not display the volume numbers
+  if ($num_of_children == 1) {
+    $vol_issue = "Issue ".$issue;
+  } else {
+    $vol_issue = "Volume ".$volume.", Issue ".$issue;
+  }
+
+   // creating variables for node template
+   $variables['node_title'] = $node_title;
+   $variables['download_pdf_links'] = $download_pdf_links;
+   $variables['Journalissue'] = [
+     'eissn'=> $eissn,
+     'pissn'=> $pissn,
+     'date_ppub'=> $date_ppub ,
+     'doi'=> $doi,
+     'variant_coverimage01'=> $media_url,
+     'variant_coverimage01_alt'=> $media_url_alt,
+     'vol_issue' => $vol_issue,
+     'periodical_url' => $periodical_url,
+   ];
+   $variables['addtoany'] = $variables['elements']['addtoany'];
+   $variables['hw_marker_sign_up'] = $variables['elements']['hw_marker_sign_up'];
+   $variables['hw_alerts_sign_up'] = $variables['elements']['hw_alerts_sign_up'];
+  $variables['main_heading_with_link'] = [
+    'title' => $node_title,
+    'href' => $periodical_url,
+    'text' => $node_title,
+  ];
+}
