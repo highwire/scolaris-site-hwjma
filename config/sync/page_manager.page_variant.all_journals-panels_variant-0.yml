@@ -1,0 +1,88 @@
+uuid: 3e70d181-b304-4aec-a20f-7190563b9ec4
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.all_journals
+    - system.menu.resources
+    - views.view.all_journals
+  content:
+    - 'block_content:basic:398ce8d1-2443-4eae-b710-5a3d9d25d57a'
+  module:
+    - block_content
+    - panels
+    - system
+    - views
+id: all_journals-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    44ab9af5-daac-47c2-ada3-825afa142a1e:
+      id: 'views_block:all_journals-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: right
+      weight: 1
+      uuid: 44ab9af5-daac-47c2-ada3-825afa142a1e
+      context_mapping: {  }
+    b5634ded-ba60-4769-874d-a4440c52b6bf:
+      id: 'block_content:398ce8d1-2443-4eae-b710-5a3d9d25d57a'
+      label: 'Journal Listing Page description'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: right
+      weight: 0
+      uuid: b5634ded-ba60-4769-874d-a4440c52b6bf
+      context_mapping: {  }
+    21f809b7-f63f-42bb-81e5-76c1388757ae:
+      id: 'system_menu_block:resources'
+      label: Resources
+      provider: system
+      label_display: '0'
+      level: 1
+      depth: 0
+      expand_all_items: false
+      region: left
+      weight: 0
+      uuid: 21f809b7-f63f-42bb-81e5-76c1388757ae
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 61c9b81f-6751-47d1-80ae-1fd3b914b194
+  label: null
+  weight: 0
+  layout: bs_2col
+  layout_settings:
+    label: ''
+    layout:
+      wrapper: div
+      classes:
+        row: row
+      add_layout_class: 1
+      attributes: ''
+    regions:
+      left:
+        wrapper: div
+        classes: {  }
+        add_region_classes: 1
+        attributes: ''
+      right:
+        wrapper: div
+        classes: {  }
+        add_region_classes: 1
+        attributes: ''
+  page_title: 'All Journals'
+  storage_type: page_manager
+  storage_id: all_journals-panels_variant-0
+  builder: standard
+page: all_journals
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

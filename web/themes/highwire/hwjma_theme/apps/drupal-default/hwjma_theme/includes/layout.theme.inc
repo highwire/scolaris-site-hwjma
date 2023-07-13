@@ -96,7 +96,7 @@ function hwjma_preprocess_page(&$variables) {
 /**
  * Implements hook_preprocess_region();
  */
-function hwjma_preprocess_region(&$variables) {
+/* function hwjma_preprocess_region(&$variables) {
   if (empty($variables['region'])) {
     return;
   }
@@ -149,6 +149,94 @@ function hwjma_preprocess_region(&$variables) {
           $variables['content']['menu'] = $menu;
         }
  
+      }
+    break;
+  }
+}
+*/
+
+function hwjma_preprocess_region(&$variables) {
+  if (empty($variables['region'])) {
+    return;
+  }
+  switch ($variables['region']) {
+    case 'header_nav':
+    case 'header_auth':
+      // Add variable and class to region if institutional access has been granted.
+      $inst_access = FALSE;
+      $datavis_settings = \Drupal::config('scolaris_hwjma_datavis.settings');
+      $is_datavis = !empty($datavis_settings->get('datavis_page_route')) && \Drupal::routeMatch()->getRouteName() == $datavis_settings->get('datavis_page_route');
+      if ($is_datavis && !empty($datavis_settings->get('datavis_content_identifiers'))) {
+        $sigma_extra_data = \Drupal::service('request_stack')->getCurrentRequest()->getSession()->get('sigma_extra_data');
+        $key = implode('_', $datavis_settings->get('datavis_content_identifiers'));
+        $inst_access = !empty($sigma_extra_data['highwire_sams_sigma']['org_licensed_profiles'][$key]);
+      } else {
+        $inst_access = \Drupal::service('highwire_user.hw_user_manager')->isInstitutionalUser();
+      }
+      if ($inst_access) {
+        $variables['attributes']['class'][] = 'is-inst-access';
+      }
+      $variables['inst_access'] = $inst_access;
+      if ($variables['region'] == 'header_auth') {
+        // Build account menu.
+        $menu = hwjma_get_menu_render_array('account');
+        $sigma_login_link = [];
+        $custom_message = '';
+        // Add message text based on whether user is logged in as
+        // in individual and/or institutional user.
+        if (!$variables['logged_in']) {
+          $variables['attributes']['class'][] = 'menu--account';
+          if (!empty($menu['#items']['openid_connect_sams_sigma.wayflesslogin'])) {
+            $sigma_login_link = &$menu['#items']['openid_connect_sams_sigma.wayflesslogin'];
+          }
+          if ($inst_access) {
+            $custom_message = t("You already have full content access to British Psychological Society through your institution. Some site functionality such as bookmarking and alerts require a personal account in addition to content access. To Sign In or Register for a personal account, select Log in via email/username.");
+          } else {
+            $custom_message = t("Registering for a Username and Password only provides access to certain functionality like bookmarking and alerts. It does NOT provide full content access. To see if your institution has a subscription to British Psychological Society, contact your librarian or check your library's database list for access instructions.");
+            $variables['content'] = array();
+            $variables['content']['login_prompt'] = ['#theme' => $is_datavis ? 'hwjma_login_prompt__datavis' : 'hwjma_login_prompt', '#weight' => -1];
+          }
+        } else {
+          if (!empty($menu['#items']['openid_connect_sams_sigma.manage_access'])) {
+            $sigma_login_link = &$menu['#items']['openid_connect_sams_sigma.manage_access'];
+          }
+          if ($inst_access) {
+            $custom_message = t("You currently have access to both British Psychological Society content and personal account features such as bookmarking and alerts.");
+          } else {
+            $custom_message = t("You are currently signed into an British Psychological Society personal account but do NOT have content access. Personal accounts only provide access to certain features such as bookmarking and alerts. To see if your institution has a subscription to AccessEngineering, contact your librarian or check your library's database list for access instructions.");
+          }
+        }
+        // Add message text to sigma login link.
+        if (!empty($sigma_login_link) && !empty($custom_message)) {
+          $link_query = $sigma_login_link['url']->getOption('query');
+          //$link_query['custom_message'] = $custom_message;
+          $sigma_login_link['url']->setOption('query', $link_query);
+        }
+        // Add login link / account menu.
+        if (!$variables['logged_in'] && !empty($sigma_login_link)) {
+          $variables['content'] = array();
+          $variables['content']['login'] = Link::fromTextAndUrl('', $sigma_login_link['url'])->toRenderable();
+          $variables['content']['login']['#title'] = [
+            ['#markup' => t('Log in')],
+          ];
+          $variables['content']['login']['#attributes']['class'][] = 'dropdown-toggle user__icon';
+        } else if ($variables['logged_in'] && !empty($menu['#items'])) {
+          $variables['content'] = array();
+          $variables['content']['menu'] = $menu;
+        }
+
+       // Add blocks. and  Add shopping cart.
+     /*   $block_manager = \Drupal::service('plugin.manager.block');
+        $current_user = \Drupal::currentUser();
+        $cart_block = $block_manager->createInstance('highwire_ecommerce_shopping_cart', []);
+        $cart_access = $cart_block->access($current_user);
+        if (!(is_object($cart_access) && $cart_access->isForbidden() || is_bool($cart_access) && !$cart_access)) {
+          $shopping_cart = $cart_block->build();
+          $shopping_cart['#cache']['contexts'] = $cart_block->getCacheContexts();
+          if (!empty($shopping_cart)) {
+            $variables['shopping_cart'] = $shopping_cart;
+          }
+        }  */
       }
     break;
   }
@@ -283,4 +371,15 @@ function hwjma_preprocess_views_view_fields__issue_archive(&$variables) {
       $variables['issue_url'] = Url::fromRoute("entity.$entity_type_id[0].canonical", [$entity_type_id[0] => $entity_type_id[1]])->toString();
     }
   }
+}
+
+/*
+* Implements hook_preprocess_THEME().
+*/
+function hwjma_preprocess_highwire_personalization_user_info(&$variables) {
+  $current_user = \Drupal::currentUser();
+  $username = $current_user->getUsername();
+  $useremail = $current_user->getEmail();
+  $variables['name'] = ucfirst($username);
+  $variables['email'] = $useremail;
 }
