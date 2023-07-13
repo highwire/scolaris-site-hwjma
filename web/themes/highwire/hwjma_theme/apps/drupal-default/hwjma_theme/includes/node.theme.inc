@@ -435,3 +435,124 @@ function hwjma_preprocess_node__journal_issue__content_details(&$variables) {
     'text' => $node_title,
   ];
 }
+
+function hwjma_preprocess_node__journal__browse_list_item(&$variables) {
+  $node = $variables['node'];
+  $type = $node->getType();
+  if ($type == 'journal') {
+    $info_nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+      'type' => 'journal_info',
+      'field_journal' => $node->id(),
+    ]);
+    if (!empty($info_nodes)) {
+      $journal_info = reset($info_nodes);
+      $variables['journal_description'] =  html_entity_decode(strip_tags($journal_info->get('field_journal_description' )->getvalue()[0]['value']));
+      $variables['journal_editors'] =  ($journal_info->get('field_journal_editors')->getvalue()[0]['value'] ) ;
+    }
+  }
+  $variables['journal'] = [];
+  $title =  !$node->get('title')->isEmpty() ? $node->get('title')->getString() : '';
+  $html_entity_decoded_title =  html_entity_decode($title);
+  $variables['html_entity_decoded_title'] = $html_entity_decoded_title;
+  $variables['journal'] += hwjma_get_node_fields($variables, ['journal_current_issue' => 'coverimg']);
+  $variables['journal'] += hwjma_get_node_pseudo_fields($variables, ['editors' => 'editors', 'group_description' => 'description', 'group_action_tools' => 'actionTools']);
+  $variables['journal'] += hwjma_get_node_fields_as_string($variables, ['journal_pissn' => 'pissn', 'journal_eissn' => 'eissn']);
+  $current_issue_link = $variables['elements']['current_issue_link'];
+  $variables['current_issue_link'] = $current_issue_link;
+  // Add placeholder cover if current issue is missing.
+  if (empty($variables['journal']['coverimg']) && !empty($variables['cover_placeholder'])) {
+    $plain_title = strip_tags($variables['node']->getTitle());
+    $variables['cover_placeholder']['#sr_text'] = t('Go to @title', ['@title' => $plain_title]);
+    $variables['journal']['coverimg'] = $variables['cover_placeholder'];
+  }
+  $cover_image = $variables['elements']['cover_image']['0']['#item'];
+  if ($cover_image != null) {
+    $image_tid = $cover_image->get('target_id')->getValue();
+    if (!empty($image_tid)) {
+      $file = File::load($image_tid);
+      $path = $file->getFileUri();
+      $cover_image_uri =  file_create_url($path);
+      $image_alt = $cover_image->alt;
+      $image_title = $cover_image->title;
+      $image_width = '150';
+      $image_height = '210';
+    } else {
+      $cover_image_uri = '/themes/highwire/hwjma_theme/dist/app-drupal/assets/images/250X350.png';
+      $image_alt = 'journal cover image';
+      $image_title = 'journal cover image';
+      $image_width = '150';
+      $image_height = '210';
+    }
+    $variables['cover_image_uri'] = $cover_image_uri;
+    $variables['cover_image_alt'] = $image_alt;
+    $variables['cover_image_title'] = $image_title;
+    $variables['cover_image_width'] = $image_width;
+    $variables['cover_image_height'] = $image_height;
+  }
+}
+
+/**
+ * Helper function to get node fields for patternlab.
+ *
+ * @param Array $variables
+ *   A variables array from a theme preprocess function.
+ * @param Array $fields
+ *   An array of patternlab fields to return, keyed by the corresponding drupal field name.
+ *
+ * @return Array
+ *   A render array
+ */
+function hwjma_get_node_fields($variables, $fields) {
+  $render = [];
+  if (empty($variables['node']) || empty($variables['content'])) {
+    return $render;
+  }
+  foreach ($fields as $drupal => $pl) {
+    if ($variables['node']->hasField($drupal) && !$variables['node']->get($drupal)->isEmpty() && !empty($variables['content'][$drupal])) {
+      $render[$pl] = $variables['content'][$drupal];
+    }
+  }
+  return $render;
+}
+
+function hwjma_get_node_pseudo_fields($variables, $fields) {
+  $render = [];
+  if (empty($variables['node']) || empty($variables['content'])) {
+    return $render;
+  }
+  foreach ($fields as $drupal => $pl) {
+    if (!empty($variables['content'][$drupal])) {
+      $render[$pl] = $variables['content'][$drupal];
+    }
+  }
+  // Make group description toggle id to unique.
+  $hw_html_toggle_id = Html::getUniqueId('description--' . $variables['node']->id());
+  $render['description']['#attributes']['id'] = $hw_html_toggle_id;
+  $render['actionTools']['group_description_toggle']['#attributes']['data-target'] = '#' . $hw_html_toggle_id;
+  $render['actionTools']['group_description_toggle']['#attributes']['aria-controls'] = $hw_html_toggle_id;
+  return $render;
+}
+
+/**
+ * Helper function to get node fields as a string for patternlab.
+ *
+ * @param Array $variables
+ *   A variables array from a theme preprocess function.
+ * @param Array $fields
+ *   An array of patternlab fields to return, keyed by the corresponding drupal field name.
+ *
+ * @return Array
+ *   An array of node field values keyed by field name.
+ */
+function hwjma_get_node_fields_as_string($variables, $fields) {
+  $return = [];
+  if (empty($variables['node'])) {
+    return $return;
+  }
+  foreach ($fields as $drupal => $pl) {
+    if ($variables['node']->hasField($drupal) && !$variables['node']->get($drupal)->isEmpty()) {
+      $return[$pl] = $variables['node']->get($drupal)->getString();
+    }
+  }
+  return $return;
+}

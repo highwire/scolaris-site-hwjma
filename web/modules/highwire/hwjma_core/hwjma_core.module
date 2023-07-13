@@ -321,6 +321,7 @@ function hwjma_core_node_view(array &$build, EntityInterface $entity, EntityView
       $current_issue = $entity->get('journal_current_issue'); 
       if (!$current_issue->isEmpty()) {
         $current_issue_nid = $current_issue->getString();
+        dd($current_issue_nid);
         $build['current_issue_link'] = [
           '#type' => 'link',
           '#title' => t('Latest issue'),

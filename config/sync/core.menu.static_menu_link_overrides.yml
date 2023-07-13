@@ -5,5 +5,35 @@ definitions:
     parent: ''
     weight: 0
     expanded: false
+  user__page:
+    enabled: false
+    menu_name: account
+    parent: ''
+    expanded: false
+    weight: -10
+  openid_connect_sams_sigma__manage_access:
+    enabled: false
+    menu_name: account
+    parent: ''
+    expanded: false
+    weight: 1
+  user__logout:
+    enabled: false
+    menu_name: account
+    parent: ''
+    weight: 10
+    expanded: false
+  openid_connect_sams_sigma__logout:
+    menu_name: account
+    parent: ''
+    weight: 3
+    expanded: false
+    enabled: true
+  openid_connect_sams_sigma__login:
+    menu_name: account
+    parent: ''
+    weight: 0
+    expanded: false
+    enabled: true
 _core:
   default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ

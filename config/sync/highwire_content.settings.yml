@@ -13,6 +13,7 @@ highwire_content_content_type_groupings: {  }
 highwire_corpus_page_redirect:
   scolaris-journal:
     hwjma: ''
+    hwcmj: ''
 highwire_content_type_policy_field_mapping:
   journal:
     -
