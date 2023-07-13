@@ -1,0 +1,29 @@
+uuid: 4efcf7da-e0f9-4ef3-b803-a9f22a2e6031
+langcode: en
+status: true
+dependencies:
+  module:
+    - highwire_personalization
+    - system
+  theme:
+    - hwjma
+id: highwirepersonalizationuserinfoadminnavigation
+theme: hwjma
+region: sidebar_first
+weight: 0
+provider: null
+plugin: highwire_p13n_admin_nav
+settings:
+  id: highwire_p13n_admin_nav
+  label: 'HighWire Personalization: User Info & Admin Navigation'
+  provider: highwire_personalization
+  label_display: '0'
+  show_user_info: 1
+  show_nav: 1
+  log_out_link_text: 'Log out'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/my-account\r\n/my-account/*"
+    negate: false
+    context_mapping: {  }

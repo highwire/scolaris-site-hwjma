@@ -1,0 +1,25 @@
+uuid: 48095e15-54d0-4006-b8c3-c9aad098586b
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.hwjma
+    - views.view.search
+  module:
+    - views
+    - search_api_autocomplete
+id: search
+label: Search
+index_id: hwjma
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:search':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

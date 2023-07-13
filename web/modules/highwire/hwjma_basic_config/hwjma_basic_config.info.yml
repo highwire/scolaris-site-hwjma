@@ -1,0 +1,5 @@
+name: HWJMA Basic Configration
+description: Basic functionality for the HWJMA site
+package: 'HWJMA'
+type: module
+core: 8.x

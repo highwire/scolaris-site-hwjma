@@ -1,0 +1,10 @@
+uuid: 3a52c9a2-66f9-44c5-bf55-c4c3a3d04bc2
+langcode: en
+status: true
+dependencies: {  }
+id: abstract_search
+label: 'Abstract Search'
+profile_id: abstract
+configuration: {  }
+dw_logging: null
+exists_field: has_abstract

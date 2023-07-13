@@ -1,0 +1,19 @@
+uuid: 9cb1a4cd-987b-4346-879b-26fc6f03bf08
+langcode: en
+status: true
+dependencies: {  }
+id: abstract_search_index_
+label: 'Abstract (Search Index)'
+configurations:
+  -
+    markup_profile: abstract_search
+    field_group_settings:
+      field_group_formatter: '0'
+    weight: '1'
+    access_rule: ''
+markup_field_enabled: true
+markup_field_content_types:
+  - journal
+  - journal_article
+log: false
+render_placeholder: false

@@ -1,0 +1,20 @@
+uuid: 154fb726-9079-407a-906e-e22a7af6f681
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hwjma
+id: mainpagecontent
+theme: hwjma
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

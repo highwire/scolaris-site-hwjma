@@ -1,0 +1,6 @@
+hwjma_basic_config.settings_form:
+  title: 'LOGO & Social Media'
+  route_name: hwjma_basic_config.settings_form
+  description: 'A description for the menu entry'
+  parent: highwire_core.admin_index
+  weight: 99
