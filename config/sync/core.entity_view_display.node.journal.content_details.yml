@@ -122,7 +122,7 @@ third_party_settings:
         - group_share_popup
         - hw_marker_sign_up
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: highwire_html_list
       format_settings:
         id: ''
@@ -171,6 +171,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  current_issue_link:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   custom_meta:
     type: double_field_unformatted_list
     weight: 3
@@ -199,7 +204,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   editorial_brd:
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
