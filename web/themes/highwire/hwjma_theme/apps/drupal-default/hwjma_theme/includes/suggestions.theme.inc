@@ -72,3 +72,23 @@ function hwjma_theme_suggestions_field_alter(array &$suggestions, array $variabl
   $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];
 }
 
+/**
+ * Implements hook_preprocess__THEME().
+ */
+function hwjma_preprocess_block__system_menu_block__sidebar(&$variables) {
+  if (empty($variables['content']['#items']) || empty($variables['content']['#theme'])) {
+    return;
+  }
+  $variables['content']['#attributes']['data-menu-title'] = $variables['label'];
+  $variables['content']['#theme'] .= '__sidebar';
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function hwjma_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  if (strpos($variables['theme_hook_original'], '__sidebar') !== FALSE) {
+    $suggestions[] = 'menu__sidebar';
+    $suggestions[] = 'menu__' . $variables['menu_name'] . '__sidebar';
+  }
+}
