@@ -383,3 +383,58 @@ function hwjma_preprocess_highwire_personalization_user_info(&$variables) {
   $variables['name'] = ucfirst($username);
   $variables['email'] = $useremail;
 }
+
+/**
+ * Implements hook_preprocess__THEME().
+ */
+function hwjma_preprocess_menu__sidebar(&$variables) {
+  if (empty($variables['items'])) {
+    return;
+  }
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $variables['current_path'] = $result;
+  $variables['affix_nav'] = TRUE;
+  $variables['show_menu'] = FALSE;
+  foreach ($variables['items'] as &$item) {
+    if (!empty($item['in_active_trail'])) {
+      // Only show sidebar menu when the current page is part of any link's active trail.
+      $variables['show_menu'] = TRUE;
+      // Check if link is active.
+      if ($item['url']->toString() == $variables['current_path']) {
+        $item['is_active'] = TRUE;
+      }
+      // Check 2 levels of children for active items.
+      if (!empty($item['below'])) {
+        foreach ($item['below'] as &$item2) {
+          if (!empty($item2['in_active_trail'])) {
+            if ($item2['url']->toString() == $variables['current_path']) {
+              $item2['is_active'] = TRUE;
+            }
+            if (!empty($item2['below'])) {
+              foreach ($item2['below'] as &$item3) {
+                if (!empty($item3['in_active_trail']) && $item3['url']->toString() == $variables['current_path']) {
+                  $item3['is_active'] = TRUE;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  if (!$variables['show_menu']) {
+		unset($variables['items']);
+  }
+}
+
+/**
+ * Implements hook_preprocess__THEME().
+ */
+function hwjma_preprocess_menu__main__sidebar(&$variables) {
+  if (empty($variables['items'])) {
+    return;
+  }
+  // Add 'is_active' flag to active links.
+  hwjma_preprocess_menu__sidebar($variables);
+}

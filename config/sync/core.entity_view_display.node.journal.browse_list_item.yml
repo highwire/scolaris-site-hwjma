@@ -117,7 +117,7 @@ third_party_settings:
     group_description:
       children: {  }
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: highwire_bootstrap_collapse
       format_settings:
         label: description
@@ -136,7 +136,7 @@ third_party_settings:
     group_action_tools:
       children: {  }
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: highwire_html_list
       format_settings:
         id: ''
@@ -151,6 +151,11 @@ mode: browse_list_item
 content:
   cover_image:
     weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  current_issue_link:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

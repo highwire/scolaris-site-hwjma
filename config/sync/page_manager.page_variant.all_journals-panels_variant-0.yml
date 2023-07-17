@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - page_manager.page.all_journals
-    - system.menu.resources
+    - system.menu.main
     - views.view.all_journals
   content:
     - 'block_content:basic:398ce8d1-2443-4eae-b710-5a3d9d25d57a'
@@ -31,9 +31,9 @@ variant_settings:
       context_mapping: {  }
     b5634ded-ba60-4769-874d-a4440c52b6bf:
       id: 'block_content:398ce8d1-2443-4eae-b710-5a3d9d25d57a'
-      label: 'Journal Listing Page description'
+      label: Journals
       provider: block_content
-      label_display: '0'
+      label_display: visible
       status: true
       info: ''
       view_mode: full
@@ -41,9 +41,9 @@ variant_settings:
       weight: 0
       uuid: b5634ded-ba60-4769-874d-a4440c52b6bf
       context_mapping: {  }
-    21f809b7-f63f-42bb-81e5-76c1388757ae:
-      id: 'system_menu_block:resources'
-      label: Resources
+    858c3a20-c032-4d15-8d40-b7e696d30f20:
+      id: 'system_menu_block:main'
+      label: 'Main navigation'
       provider: system
       label_display: '0'
       level: 1
@@ -51,7 +51,7 @@ variant_settings:
       expand_all_items: false
       region: left
       weight: 0
-      uuid: 21f809b7-f63f-42bb-81e5-76c1388757ae
+      uuid: 858c3a20-c032-4d15-8d40-b7e696d30f20
       context_mapping: {  }
   id: panels_variant
   uuid: 61c9b81f-6751-47d1-80ae-1fd3b914b194
@@ -77,7 +77,7 @@ variant_settings:
         classes: {  }
         add_region_classes: 1
         attributes: ''
-  page_title: 'All Journals'
+  page_title: Journals
   storage_type: page_manager
   storage_id: all_journals-panels_variant-0
   builder: standard
