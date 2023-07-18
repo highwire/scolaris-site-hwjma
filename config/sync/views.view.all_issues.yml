@@ -4,13 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.date_ppub
-    - field.storage.node.issue
-    - field.storage.node.volume
     - search_api.index.hwjma
   module:
     - datetime_range
     - search_api
-    - text
 id: all_issues
 label: 'All Issues'
 module: views
@@ -49,10 +46,15 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 36
+          items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -61,173 +63,30 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
           quantity: 9
       style:
-        type: html_list
+        type: default
         options:
           grouping:
             -
-              field: volume
+              field: date_ppub
               rendered: true
-              rendered_strip: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: 'list-unstyled issues-list list--no-space'
+          uses_fields: true
       row:
-        type: fields
+        type: search_api
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: true
+          view_modes:
+            'entity:node':
+              journal: default
+              journal_article: default
+              journal_fragment: default
+              journal_info: default
+              journal_issue: issue_list_item
+              journal_volume: default
       fields:
-        volume:
-          id: volume
-          table: search_api_datasource_hwjma_entity_node
-          field: volume
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: 'Volume {{ volume }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          field_rendering: true
-          fallback_handler: search_api
-          fallback_options:
-            link_to_item: false
-            use_highlighting: false
-            multi_type: separator
-            multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
-        issue:
-          id: issue
-          table: search_api_datasource_hwjma_entity_node
-          field: issue
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: 'Issue {{ issue__value }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: '0'
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: '0'
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          field_rendering: true
-          fallback_handler: search_api
-          fallback_options:
-            link_to_item: false
-            use_highlighting: false
-            multi_type: separator
-            multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
         date_ppub:
           id: date_ppub
           table: search_api_datasource_hwjma_entity_node
@@ -343,7 +202,57 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: search_api_options
+        status:
+          id: status
+          table: search_api_index_hwjma
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_boolean
       sorts:
+        date_ppub:
+          id: date_ppub
+          table: search_api_index_hwjma
+          field: date_ppub
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
         volume:
           id: volume
           table: search_api_index_hwjma
@@ -371,7 +280,20 @@ display:
       title: 'All Issues'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<p>No articles currently available.</p>'
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments:
         corpus:
@@ -416,8 +338,6 @@ display:
         - url.query_args
       tags:
         - 'config:field.storage.node.date_ppub'
-        - 'config:field.storage.node.issue'
-        - 'config:field.storage.node.volume'
   block_1:
     display_plugin: block
     id: block_1
@@ -435,5 +355,3 @@ display:
         - url.query_args
       tags:
         - 'config:field.storage.node.date_ppub'
-        - 'config:field.storage.node.issue'
-        - 'config:field.storage.node.volume'

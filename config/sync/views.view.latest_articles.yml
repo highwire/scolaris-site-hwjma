@@ -3,8 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.date_ppub
     - search_api.index.hwjma
   module:
+    - datetime_range
     - search_api
 id: latest_articles
 label: 'Latest articles'
@@ -64,8 +66,12 @@ display:
         options:
           view_modes:
             'entity:node':
+              journal: default
               journal_article: toc_list
+              journal_fragment: default
+              journal_info: default
               journal_issue: default
+              journal_volume: default
       fields:
         search_api_id:
           table: search_api_index_hwjma
@@ -118,6 +124,12 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+        date_ppub:
+          id: date_ppub
+          table: search_api_datasource_hwjma_entity_node
+          field: date_ppub
+          entity_type: node
+          plugin_id: search_api_field
       filters:
         type:
           id: type
@@ -240,9 +252,11 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.date_ppub'
   block_1:
     display_plugin: block
     id: block_1
@@ -254,6 +268,8 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.date_ppub'
