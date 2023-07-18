@@ -556,3 +556,11 @@ function hwjma_get_node_fields_as_string($variables, $fields) {
   }
   return $return;
 }
+
+function hwjma_preprocess_node__journal_issue__issue_list_item(&$variables) {
+  $entity = $variables['node'];
+  // Use lookup to check if the issue has a cover date.
+  //$hwjma_lookup = \Drupal::service('hwjma_content_display.lookup');
+  $cover_date = '';//$hwjma_lookup->getIssueCoverDate($entity);
+  $variables['cover_date'] = $cover_date;
+}

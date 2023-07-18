@@ -50,6 +50,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.corpus
+  date_ppub:
+    label: PPub
+    datasource_id: 'entity:node'
+    property_path: date_ppub
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.date_ppub
   date_ppub_facet:
     label: 'Published Date (Facets)'
     datasource_id: 'entity:node'
