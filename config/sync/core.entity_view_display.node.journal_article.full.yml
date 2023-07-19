@@ -159,6 +159,7 @@ third_party_settings:
       children:
         - group_article
         - group_figures_tables
+        - group_metrics
       parent_name: group_outer
       weight: 115
       format_type: highwire_tabs
@@ -217,18 +218,49 @@ third_party_settings:
         formatter: closed
       label: 'Figures & Tables'
       region: content
+    group_metrics:
+      children:
+        - hwjma_info_metrics_tab
+        - hwjma_altmetrics
+        - hwjma_usage_stats
+      parent_name: group_article_tabs
+      weight: 118
+      format_type: highwire_tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        active: 0
+        formatter: closed
+      label: Metrics
+      region: content
 id: node.journal_article.full
 targetEntityType: node
 bundle: journal_article
 mode: full
 content:
+  hwjma_altmetrics:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   hwjma_focus_view:
     weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
+  hwjma_info_metrics_tab:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   hwjma_toc_pager:
     weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  hwjma_usage_stats:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,7 @@
+journal_article_detail.content:
+  path: '/journal_article_detail' 
+  defaults: 
+    _controller: '\Drupal\journal_article_detail\Controller\JournalArticleDetailController::content' 
+    _title: 'Hello World'
+  requirements: 
+    _permission: 'access content' 

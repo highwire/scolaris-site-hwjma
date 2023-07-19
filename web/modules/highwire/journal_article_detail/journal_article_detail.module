@@ -1,0 +1,141 @@
+<?php
+
+/**
+ * @file
+ * Core HWJMA Site module
+ */
+use Drupal\node\Entity\NodeType;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\Core\Url;
+use HighWire\Utility\Str;
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\highwire_content\HighWireContent;
+use Drupal\views\Element\View;
+use Drupal\views\Views;
+use Drupal\Core\Cache\Cache;
+
+define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
+
+/**
+* Implements hook_entity_extra_field_info().
+*/
+function journal_article_detail_entity_extra_field_info() {
+  $fields = [];
+  // Display-only fields for HighWire content types.
+  foreach (NodeType::loadMultiple() as $bundle) {
+    $node_type = $bundle->Id();
+    if ($node_type == HW_NODE_TYPE_JOURNAL_ARTICLE) {
+    // JCOREX-101 Info and Metrics tab  
+    $fields['node'][$node_type]['display']['hwjma_info_metrics_tab'] = [
+      'label' => t('Info & Metrics'),
+       'description' => t('Info & Metrics tab'),
+       'visible' => FALSE,
+     ];
+	  // Add Altmetrics.
+	  $fields['node'][$node_type]['display']['hwjma_altmetrics'] = [
+		'label' => t('Altmetrics'),
+		'description' => t('Show / altmetrics.'),
+		'visible' => FALSE,
+	  ];
+    //Usage Stats
+    $fields['node'][$node_type]['display']['hwjma_usage_stats'] = [
+      'label' => t('HWJMA Usage Stats'),
+      'description' => t('Usage Statistics Table'),
+      'weight' => 100,
+      'visible' => FALSE,
+    ];
+  }
+ }
+ return $fields;
+}
+
+/**
+* Implements hook_ENTITY_TYPE_view().
+*/
+function journal_article_detail_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if (!HighWireContent::isHighWire($entity)) {
+    return;
+  }
+  $corpus = $entity->hasField('corpus') && !$entity->get('corpus')->isEmpty() ? $entity->get('corpus')->getString() : '';
+  $content_type = $entity->bundle();
+  if ($content_type == HW_NODE_TYPE_JOURNAL_ARTICLE) {
+	  // Add Info & Metrics.
+	  if ($display->getComponent('hwjma_info_metrics_tab')) {
+		$block_manager = \Drupal::service('plugin.manager.block');
+		$plugin_block = $block_manager->createInstance('hwjma_info_metrics_tab', []);
+		$plugin_block->setContextValue('node', $entity);
+		$render = $plugin_block->build();
+		if (!empty($render)) {
+		  $build['hwjma_info_metrics_tab'] = $render;
+		}
+	  }  
+	  // Add the Altmetrics field
+    if ($display->getComponent('hwjma_altmetrics')) {
+      $block_manager = \Drupal::service('plugin.manager.block');
+      $plugin_block = $block_manager->createInstance('hwjma_altmetrics', []);
+      $plugin_block->setContextValue('node', $entity);
+      $render = $plugin_block->build();
+      if (!empty($render)) {
+        $build['hwjma_altmetrics'] = $render;
+      }
+    }
+    // Add the usage-stats pseudofield
+    if ($display->getComponent('hwjma_usage_stats')) {
+      $filter_tabs = '<a href="/aa">ADD</a>';
+       $block_manager = \Drupal::service('plugin.manager.block');
+      $plugin_block = $block_manager->createInstance('hwjma_usage_stats', [
+        'query_type' => 'monthly',
+        'views' => ['abstract', 'full', 'pdf', 'total'],
+        'date_format' => 'custom',
+        'custom_date_format' => 'M Y',
+        'limit' => '',
+      ]);
+      $plugin_block->setContextValue('node', $entity);
+      $render = $plugin_block->build();
+     if (!empty($render)) {
+        $build['hwjma_usage_stats'] = $render;
+      } 
+   /*   $block['hwjma_usage_stats'] = [
+        '#theme' => 'hwjma_usage_stats_data',
+        '#filter_tabs' => $filter_tabs,
+        '#usage_stats_data' => $render,
+      ];
+      
+      $build['hwjma_usage_stats'] = [
+        '#type' => 'fieldset',
+        '#attributes' => ['class' => ['usage-stats-container']],
+        'usage_stats' => $plugin_block->build()
+      ];*/
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function journal_article_detail_theme() {
+  return [
+		'hwjma_info_metrics_tab' => [
+		  'variables' => ['journal_title' => NULL, 'authors_name' => NULL, 
+                      'doi' => NULL, 
+                      'doi_link' => NULL,
+                      'date_released' => NULL,
+                      'eissn' => NULL,
+                      'pissn' => NULL,
+                      'issue' => NULL,
+                      'volume' => NULL
+                    ],
+		],
+    'hwjma_alt_metrics' => [
+		  'variables' => ['altmetrics_data' => NULL],
+		],
+    'hwjma_usage_stats_data' => [
+      'variables' => ['filter_tabs' => NULL, 'usage_stats_data' => NULL]
+    ]
+	];
+}

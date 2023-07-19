@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <h2>Article Information</h2>
+        <div>
+            <p>
+                DOI: {{ doi }}<br/>
+                Journal Title: {{ journal_title }}<br/>
+                DOI Link: {{ doi_link }}<br/>
+                Issue: {{ issue }}<br/>
+                Volume: {{ volume }}<br/>
+                EPUB Date: {{ date_released }}
+            </p>
+        </div>
+    </div>
+    <hr class="solid">
+    <div>
+        <h2>Author Information</h2>
+        <div>
+            {% if authors_name %}
+                {% for item in authors_name %}
+                    {{ item }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <hr class="solid">
+</div>
+<a href="/journal_article_detail?type=monthly&nid=102" class="use-ajax">Monthly</a>
+<a href="/journal_article_detail?type=daily&nid=102" class="use-ajax">Daily</a>
