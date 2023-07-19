@@ -1,0 +1,5 @@
+name: JOURNAL ARTICLE DETAIL
+description: All article detail page functionality
+package: 'JCOREX'
+type: module
+core: 8.x
