@@ -864,3 +864,179 @@ ol.order-listing {
     background-color: $light-blue;
     color: $black;
 }
+
+.path-all-journals .article__btn-calender-icon:before,
+.path-all-journals .article__btn:after,
+.path-all-journals .subject-browse .article__btn-calender-icon:after{
+    vertical-align:middle
+}
+
+.path-all-journals .article__author-info,
+.path-all-journals .article__btn-calender-icon{
+    display:inline-block
+}
+.path-all-journals .article__btn-calender-icon:before{
+    position:relative
+}
+.path-all-journals .subject-browse .article__btn-calender-icon{
+    border-right:1px solid #e3e3e3
+}
+.path-all-journals .article .card-container,
+.path-all-journals .item-list ul li,
+.path-all-journals .pagination,
+.path-all-journals .pagination-large-tablet,
+.path-all-journals .pagination-small-tablet{
+    margin-top:1.5rem
+}
+.path-all-journals .article__author-info{
+    margin-bottom:0
+}
+.path-all-journals .article .card-container,
+.path-all-journals .item-list ul li{
+    padding-top:1.5rem
+}
+.path-all-journals .article__card-image{
+    padding-right:0
+}
+.path-all-journals .article__heading{
+    margin-top:0;
+    margin-bottom:.5rem;
+    font-family:"DM Serif Display";
+    font-weight:500;
+    color:#06020f
+}
+
+.path-all-journals .article__heading{
+    font-size:24px;
+    line-height:32px
+}
+@media (max-width:1023.98px){
+    .path-all-journals .article__heading{
+        font-size:20px;
+        line-height:28px
+    }
+}
+
+.path-all-journals .modal-header .article__heading{
+    margin-bottom:0!important;
+    line-height:1.5
+}
+.path-all-journals .modal-header .article__heading::first-letter{
+    text-transform:capitalize
+}
+.path-all-journals .subject-browse .article__btn-calender-icon{
+    padding-right:.313rem;
+    margin-right:.313rem
+}
+.path-all-journals .subject-browse .article__btn-calender-icon:after{
+    content:"\e92e";
+    font-family:feather;
+    font-size:1.5rem;
+    top:-1px
+}
+.path-all-journals .article .card-container{
+    border-top:1px solid #e3e3e3
+}
+.path-all-journals .article__card-image{
+    max-width:174px
+}
+@media (max-width:575.98px){
+    .path-all-journals .article__card-image{
+        padding-right:1.5rem!important;
+        max-width:100%
+    }
+}
+.path-all-journals .article__card-content{
+    max-width:calc(100% - 174px)
+}
+@media (max-width:575.98px){
+    .path-all-journals .article__card-content{
+        max-width:100%;
+        margin-top:1.5rem
+    }
+}
+.path-all-journals .article__heading{
+    margin-bottom:20px
+}
+.path-all-journals .article__heading .banner__button,.path-all-journals .article__heading a{
+    color:#06020f
+}
+.path-all-journals .article__authorname{
+    font-size:1rem;
+    display:inline-block;
+    margin-bottom:5px
+}
+.path-all-journals .article__author-info{
+    color:#06020f
+}
+.path-all-journals .article__author-description{
+    margin-bottom:1.125rem
+}
+.path-all-journals .article__btn{
+    border-right:1px solid #85a6ad;
+    padding-right:30px;
+    margin-right:10px;
+    line-height:normal;
+    display:inline-block;
+    color:#d4431c;
+    position:relative
+}
+.path-all-journals .article__btn:after{
+    content:"\e92e";
+    font-family:feather;
+    font-size:1.5rem;
+    position:absolute;
+    top:-1px
+}
+.path-all-journals .article__btn.active:after{
+    content:"\e931"
+}
+.path-all-journals .article__btn-calender-icon{
+    border-right:none;
+    line-height:normal;
+    color:#d4431c
+}
+.path-all-journals .article__btn-calender-icon:after{
+    content:none
+}
+.path-all-journals .article__btn-calender-icon:before{
+    content:"\e927";
+    font-family:feather;
+    font-size:1.5rem;
+    top:-2px
+}
+.path-all-journals .pagination,.path-all-journals .pagination-large-tablet,.path-all-journals .pagination-small-tablet{
+    border-top:1px solid #85a6ad;
+    padding-top:.75rem
+}
+.path-all-journals .item-list ul{
+    list-style:none;
+    padding:0
+}
+.path-all-journals .item-list ul li{
+    border-top:1px solid #85a6ad
+}
+.path-all-journals .search-results-middle .search-middle-right .article__heading{
+    margin-bottom:15px
+}
+
+@media (min-width:576px){
+    .path-all-journals .block-adnuntius{
+        width:49%
+    }
+}
+@media (min-width:768px){
+	.path-all-journals .block-adnuntius{
+        width:100%
+    }
+}
+.path-all-journals .article .card-container,
+.path-all-journals .item-list ul li,
+.path-all-journals .pagination,
+.path-all-journals .pagination-large-tablet,
+.path-all-journals .pagination-small-tablet{
+    margin-top:1.5rem
+}
+.path-all-journals .favorite-section .favorite-right .article__heading{
+    margin-bottom:15px
+}

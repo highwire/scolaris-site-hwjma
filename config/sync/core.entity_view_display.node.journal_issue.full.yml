@@ -121,15 +121,16 @@ third_party_settings:
       weight: 0
       format_type: html_element
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Table of Contents'
         element: div
         show_label: true
         label_element: h2
         attributes: 'class="tab-content__main-heading latest-articles"'
         effect: none
         speed: fast
-      label: 'Articles in this issue'
+        id: ''
+        classes: ''
+      label: 'Table of Contents'
       region: content
 id: node.journal_issue.full
 targetEntityType: node
@@ -140,7 +141,7 @@ content:
     type: hwmarkup_display_formatter
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
