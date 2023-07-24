@@ -124,11 +124,27 @@ class TOCPager extends BlockBase implements ContainerFactoryPluginInterface
 
     $children = [];
 
-    foreach ($parent_node->get('children')->getValue() as $child) {
-      // SF01154128 - do not include covers in pagination
-      $type = $this->hwContentLookup->getTypeFromNID($child['target_id']);
-      if ($type !== 'item_cover') {
-        $children[] = $child['apath'];
+    if($node->bundle() == 'journal_issue'){
+      $journal_nid = $parent_node->get('parent')->getString();
+      $journal_node = \Drupal::entityTypeManager()->getStorage('node')->load($journal_nid);
+      foreach ($journal_node->get('children')->getValue() as $childval) {
+        
+        $volume_node = \Drupal::entityTypeManager()->getStorage('node')->load($childval['target_id']);
+        foreach ($volume_node->get('children')->getValue() as $child) {
+          $type = $this->hwContentLookup->getTypeFromNID($child['target_id']);
+          if ($type !== 'item_cover') {
+            $children[] = $child['apath'];
+          }
+        }
+      }
+    }
+    else{
+      foreach ($parent_node->get('children')->getValue() as $child) {
+        // SF01154128 - do not include covers in pagination
+        $type = $this->hwContentLookup->getTypeFromNID($child['target_id']);
+        if ($type !== 'item_cover') {
+          $children[] = $child['apath'];
+        }
       }
     }
 
@@ -158,8 +174,8 @@ class TOCPager extends BlockBase implements ContainerFactoryPluginInterface
     // Build render array with empty links as default values.
     $build += [
       '#theme' => 'hwjma_toc_pager',
-      '#previous_url' => Url::fromRoute('<nolink>'),
-      '#next_url' => Url::fromRoute('<nolink>'),
+      '#previous_url' => '',//Url::fromRoute('<nolink>'),
+      '#next_url' => '',//Url::fromRoute('<nolink>'),
     ];
 
     // Add url for previous node.

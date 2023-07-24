@@ -117,6 +117,7 @@ third_party_settings:
     group_articles_in_this_issue:
       children:
         - hwmd_table_of_contents_journals_
+        - hwjma_toc_pager
       parent_name: ''
       weight: 0
       format_type: html_element
@@ -137,6 +138,11 @@ targetEntityType: node
 bundle: journal_issue
 mode: full
 content:
+  hwjma_toc_pager:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   hwmd_table_of_contents_journals_:
     type: hwmarkup_display_formatter
     weight: 0
@@ -196,7 +202,6 @@ hidden:
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
