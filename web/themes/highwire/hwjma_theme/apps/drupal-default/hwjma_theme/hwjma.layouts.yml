@@ -184,6 +184,18 @@ hwjma_layout__front:
       label: Main content
       class: main-container home
       row: main
+    about_journal_section:
+      label: About Journal Section 
+      class: about_journal_section aj_section
+      row: about_journal_section
+    feeds:
+      label: Feeds Section
+      class: feeds_section aj_section
+      row: feeds_section
+    news_blogs:
+      label: News Blog Section
+      class: feeds_section aj_section
+      row: news_blog_section
     content_bottom:
       label: Tools Grid
       row: bottom

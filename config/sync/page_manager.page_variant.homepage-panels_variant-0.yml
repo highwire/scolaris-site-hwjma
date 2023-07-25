@@ -6,7 +6,10 @@ dependencies:
     - page_manager.page.homepage
     - system.menu.browse-content
     - views.view.homepage_highlights_carousel
+  content:
+    - 'block_content:basic:a60dcac5-a904-4f62-bc50-023efeed4036'
   module:
+    - block_content
     - panels
     - system
     - views
@@ -37,6 +40,42 @@ variant_settings:
       region: content_bottom
       weight: -1
       uuid: 471e12e4-ae64-463a-9533-e0608fbb29ab
+      context_mapping: {  }
+    031c65f5-3370-4f4f-a4d1-9f01d229d89b:
+      id: 'block_content:a60dcac5-a904-4f62-bc50-023efeed4036'
+      label: 'About Journal Section'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: about_journal_section
+      weight: 0
+      uuid: 031c65f5-3370-4f4f-a4d1-9f01d229d89b
+      context_mapping: {  }
+    5d39389d-d6ea-45a9-9bfb-10e9af3ab989:
+      id: 'block_content:a60dcac5-a904-4f62-bc50-023efeed4036'
+      label: 'About Journal Section'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: feeds
+      weight: 0
+      uuid: 5d39389d-d6ea-45a9-9bfb-10e9af3ab989
+      context_mapping: {  }
+    cc0ec279-c793-4083-87db-906c2b9d15fa:
+      id: 'block_content:a60dcac5-a904-4f62-bc50-023efeed4036'
+      label: 'About Journal Section'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: news_blogs
+      weight: 0
+      uuid: cc0ec279-c793-4083-87db-906c2b9d15fa
       context_mapping: {  }
   id: panels_variant
   uuid: 61258e05-3ba6-4019-be28-bc2b42b2717d
