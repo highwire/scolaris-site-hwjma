@@ -1040,3 +1040,12 @@ ol.order-listing {
 .path-all-journals .favorite-section .favorite-right .article__heading{
     margin-bottom:15px
 }
+
+
+.page-wrapper--about-journal-section, .page-wrapper--feeds-section, .page-wrapper--news-blog-section {
+    width: 32%;
+    margin-left: 1%;
+    float: left;
+    position: relative;
+    z-index: 99;
+}
