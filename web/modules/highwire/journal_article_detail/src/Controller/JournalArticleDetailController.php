@@ -29,6 +29,11 @@ class JournalArticleDetailController extends ControllerBase {
 
     $type = \Drupal::request()->query->get('type');
     $nid =  \Drupal::request()->query->get('nid');
+    if ($type == 'daily') {
+      $custom_date_format = 'd M Y';
+    } else {
+      $custom_date_format = 'M Y';
+    }
 
     $build = [];
     $block_manager = \Drupal::service('plugin.manager.block');
@@ -36,7 +41,7 @@ class JournalArticleDetailController extends ControllerBase {
       'query_type' => $type,
       'views' => ['abstract', 'full', 'pdf', 'total'],
       'date_format' => 'custom',
-      'custom_date_format' => 'M Y',
+      'custom_date_format' => $custom_date_format,
       'limit' => '',
     ]);
     $plugin_block->setContextValue('node', $nid);
