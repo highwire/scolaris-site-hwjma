@@ -136,6 +136,9 @@ function journal_article_detail_theme() {
 		],
     'hwjma_usage_stats_data' => [
       'variables' => ['filter_tabs' => NULL, 'usage_stats_data' => NULL]
+    ],
+    'altmetrics_data' => [
+      'variables' => ['altmetrics_data' => NULL, 'altmetrice_setting' => NULL, 'pager' => NULL]
     ]
 	];
 }

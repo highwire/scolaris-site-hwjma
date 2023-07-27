@@ -1,0 +1,34 @@
+{{ altmetrice_setting.description }}
+
+{% if altmetrics_data is not empty %}
+    <ul>
+        {% for row in altmetrics_data %}
+            <li>
+                <div class="donut">
+                    <a href="{{ row.details_url }}">
+                        <div data-badge-type="donut" data-doi="{{ row.doi }}" class="altmetric-embed"></div>
+                    </a>
+                </div>
+                <div class="altmetric-info">
+                    <div class="altmetric-data-title">
+                        <a href="{{ row.url }}">   
+                            {{ row.title }}
+                        </a>
+                    </div>
+                    <div class="last_mentioned">
+                        Last mentioned on {{ row.last_updated|date("D M d Y") }}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    {{ altmetrics_data.msg_no_data }}
+{% endif %}
+
+{% if altmetrice_setting.more_link == 1 %}
+    <a href="{{ altmetrice_setting.more_link_url }}">{{ altmetrice_setting.more_link_label }}</a>
+{% endif %}
+{% if altmetrice_setting.show_pager == 1 %}
+    {{ pager }}
+{% endif %}
