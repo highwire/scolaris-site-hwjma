@@ -41,16 +41,12 @@ class AltmetricsData extends BlockBase {
     $url = $api_url . $config['month'] . '?' . $query;
     
     $ch = curl_init();
-    // Set url.
     curl_setopt($ch, CURLOPT_URL, $url);
-    // Return the transfer as a string.
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-    // Execute curl and get the info.
     $json_string = curl_exec($ch);
     $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    // Close curl resource to free up system resources.
     curl_close($ch);
  
     $results = [];
@@ -83,7 +79,6 @@ class AltmetricsData extends BlockBase {
     
     $build['#attached']['library'][] = 'journal_article_detail/altmetrics';
 
-    //dd($altmetrics_data);
     return $build;
   }
 
