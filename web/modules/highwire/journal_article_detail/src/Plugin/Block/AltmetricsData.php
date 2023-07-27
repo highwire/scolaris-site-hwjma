@@ -53,6 +53,10 @@ class AltmetricsData extends BlockBase {
     if ($response_code == 200 && !empty($json_string)) {
       $altmetrics_data = json_decode($json_string, TRUE);
       if(!empty($altmetrics_data)){
+        $domain = \Drupal::request()->getHost();
+        foreach ($altmetrics_data['results'] as $key => $result) {
+          $altmetrics_data['results'][$key]['details_url'] = $result['details_url'].'&domain=' . $domain;
+        }
         $results = $altmetrics_data['results'];
       }
     }
@@ -77,7 +81,7 @@ class AltmetricsData extends BlockBase {
       ];
     }
     
-    $build['#attached']['library'][] = 'journal_article_detail/altmetrics';
+    $build['#attached']['library'][] = 'journal_article_detail/altmetrics_style';
 
     return $build;
   }

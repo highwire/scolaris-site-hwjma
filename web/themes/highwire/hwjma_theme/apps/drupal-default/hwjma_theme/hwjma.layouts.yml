@@ -184,6 +184,10 @@ hwjma_layout__front:
       label: Main content
       class: main-container home
       row: main
+    content_bottom:
+      label: Tools Grid
+      row: bottom
+      class: col-xs-12 homepage__tools
     about_journal_section:
       label: About Journal Section 
       class: about_journal_section aj_section
@@ -196,10 +200,6 @@ hwjma_layout__front:
       label: News Blog Section
       class: feeds_section aj_section
       row: news_blog_section
-    content_bottom:
-      label: Tools Grid
-      row: bottom
-      class: col-xs-12 homepage__tools
 hwjma_layout:
   label: HWJMA Single Column
   category: HWJMA Layouts

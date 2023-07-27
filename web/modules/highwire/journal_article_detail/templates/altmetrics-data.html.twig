@@ -7,7 +7,11 @@
                 <li class="altmetrics-li">
                     <div class="donut">
                         <a href="{{ row.details_url }}">
-                            <div data-badge-type="donut" data-doi="{{ row.doi }}" class="altmetric-embed"></div>
+                            <div data-badge-type="donut" data-doi="{{ row.doi }}" class="altmetric-embed">
+                                <a href="{{ row.details_url }}">
+                                    <img alt="Article has an altmetric score of {{ row.score }}" src="{{row.images.small }}">
+                                </a>
+                            </div>
                         </a>
                     </div>
                     <div class="altmetric-info">
