@@ -16,10 +16,8 @@ class MostSharedAltmetric extends ControllerBase {
    *   Return markup array.
    */
   public function content($corpus) {
-    $build = [];
-     
+    $build = []; 
     return $build;
-
   }
 
 }
