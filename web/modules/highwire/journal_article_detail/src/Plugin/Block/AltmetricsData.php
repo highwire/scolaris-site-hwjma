@@ -32,7 +32,7 @@ class AltmetricsData extends BlockBase {
       // You can get nid and anything else you need from the node object.
       $issns = $node->get('journal_eissn')->getString();
       $corpus = $node->get('corpus')->getString();
-      if (empty($issns)){
+      if (empty($issns)) {
         $issns = $config['issns'];
       }
     }
@@ -40,7 +40,7 @@ class AltmetricsData extends BlockBase {
       $issns = $config['issns'];
     }
 
-    if (empty($issns)){
+    if (empty($issns)) {
         return[
           '#type' => 'markup',
           '#markup' => 'No ISSNs code available.',
@@ -72,7 +72,7 @@ class AltmetricsData extends BlockBase {
       $results = [];
       if ($response_code == 200 && !empty($json_string)) {
         $altmetrics_data = json_decode($json_string, TRUE);
-        if (!empty($altmetrics_data)){
+        if (!empty($altmetrics_data)) {
           $domain = \Drupal::request()->getHost();
           foreach ($altmetrics_data['results'] as $key => $result) {
             $altmetrics_data['results'][$key]['details_url'] = $result['details_url'].'&domain=' . $domain;
@@ -81,11 +81,11 @@ class AltmetricsData extends BlockBase {
         }
       }
 
-      if ($config['more_link'] == 1){
+      if ($config['more_link'] == 1) {
           $config['more_url'] = '/content/'.$corpus.'/most-shared-altmetrics';
       }
 
-      if ($config['show_pager'] == 1){
+      if ($config['show_pager'] == 1) {
         $offset = $num_per_page * $page;
         pager_default_initialize($altmetrics_data['query']['total'], $num_per_page);
         $build = [
