@@ -7,11 +7,7 @@
                 <li class="altmetrics-li">
                     <div class="donut">
                         <a href="{{ row.details_url }}">
-                            <div data-badge-type="donut" data-doi="{{ row.doi }}" class="altmetric-embed">
-                                <a href="{{ row.details_url }}">
-                                    <img alt="Article has an altmetric score of {{ row.score }}" src="{{row.images.small }}">
-                                </a>
-                            </div>
+                            <img alt="Article has an altmetric score of {{ row.score }}" src="{{row.images.small }}">
                         </a>
                     </div>
                     <div class="altmetric-info">
@@ -34,7 +30,7 @@
 
 {% if altmetrice_setting.more_link == 1 %}
     <div class="altmetrics-more">
-        <a class="test-right see-more-link" href="{{ altmetrice_setting.more_link_url }}">{{ altmetrice_setting.more_link_label }}</a>
+        <a class="test-right see-more-link" href="{{ altmetrice_setting.more_url }}">{{ altmetrice_setting.more_link_label }}</a>
     </div>
 {% endif %}
 {% if altmetrice_setting.show_pager == 1 %}
