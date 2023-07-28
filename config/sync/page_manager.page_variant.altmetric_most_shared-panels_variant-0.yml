@@ -1,25 +1,25 @@
-uuid: c1f558a4-4ff1-4b01-a895-8245ba5daae3
+uuid: d7058e55-dd18-4d5e-b9ac-18caf985b00a
 langcode: en
 status: true
 dependencies:
   config:
-    - page_manager.page.highwire_altmetric_most_shared
+    - page_manager.page.altmetric_most_shared
   module:
     - journal_article_detail
     - panels
-id: highwire_altmetric_most_shared-panels_variant-0
+id: altmetric_most_shared-panels_variant-0
 label: Panels
 variant: panels_variant
 variant_settings:
   blocks:
-    32c956f3-55c3-433e-ac95-697e63d52a58:
+    b3745632-67a9-4bd7-9305-8f18e0b247ad:
       id: hwjma_altmetrics_data
       label: 'Altmetrics Data'
       provider: journal_article_detail
       label_display: visible
       region: main
       weight: 0
-      uuid: 32c956f3-55c3-433e-ac95-697e63d52a58
+      uuid: b3745632-67a9-4bd7-9305-8f18e0b247ad
       description: 'Altmetric tracks attention and engagement of scholarly articles.'
       month: 3m
       issns: 1488-2329
@@ -28,11 +28,10 @@ variant_settings:
       show_pager: 1
       more_link: 0
       more_link_label: 'See more'
-      more_link_url: /most-shared-altmetric
       msg_no_data: 'No Altmetric data available.'
       context_mapping: {  }
   id: panels_variant
-  uuid: 0e84d9c3-fa2a-43c1-8683-a51a5e167bf3
+  uuid: 7176d852-a9c6-473b-99f8-c98df4ae2b5e
   label: null
   weight: 0
   layout: bs_1col
@@ -53,9 +52,9 @@ variant_settings:
         attributes: ''
   page_title: 'Altmetric Data'
   storage_type: page_manager
-  storage_id: highwire_altmetric_most_shared-panels_variant-0
+  storage_id: altmetric_most_shared-panels_variant-0
   builder: standard
-page: highwire_altmetric_most_shared
+page: altmetric_most_shared
 weight: 0
 selection_criteria: {  }
 selection_logic: and

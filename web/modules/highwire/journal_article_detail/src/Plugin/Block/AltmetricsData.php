@@ -24,65 +24,90 @@ class AltmetricsData extends BlockBase {
    */
   public function build() {
     $build = [];
-    $altmetrics_data = '';
+    $issns = $altmetrics_data = '';
+    $corpus = 'corpus';
     $config = $this->getConfiguration();
-    
-    $page = pager_find_page();
-    $num_per_page = $config['number_per_page'];
-
-    $parameters = array(
-      'issns' => $config['issns'],
-      'page' => !empty($page) ? $page + 1 : 1,
-      'num_results' => $config['number_per_page'],
-    );
-    $query = http_build_query($parameters, '', '&');
-    
-    $api_url = isset($config['api_url']) && !empty($config['api_url']) ? $config['api_url'] : 'https://api.altmetric.com/v1/citations/';
-    $url = $api_url . $config['month'] . '?' . $query;
-    
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-    $json_string = curl_exec($ch);
-    $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
- 
-    $results = [];
-    if ($response_code == 200 && !empty($json_string)) {
-      $altmetrics_data = json_decode($json_string, TRUE);
-      if(!empty($altmetrics_data)){
-        $domain = \Drupal::request()->getHost();
-        foreach ($altmetrics_data['results'] as $key => $result) {
-          $altmetrics_data['results'][$key]['details_url'] = $result['details_url'].'&domain=' . $domain;
-        }
-        $results = $altmetrics_data['results'];
+    $node = \Drupal::routeMatch()->getParameter('node'); 
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      // You can get nid and anything else you need from the node object.
+      $issns = $node->get('journal_eissn')->getString();
+      $corpus = $node->get('corpus')->getString();
+      if(empty($issns)){
+        $issns = $config['issns'];
       }
     }
+    else{
+      $issns = $config['issns'];
+    }
 
-    if($config['show_pager'] == 1){
-      $offset = $num_per_page * $page;
-      pager_default_initialize($altmetrics_data['query']['total'], $num_per_page);
-      $build = [
-        '#theme' => 'altmetrics_data',
-        '#altmetrics_data' => $results,
-        '#altmetrice_setting' => $config,
-        '#pager' => [
-          '#type' => 'pager',
-        ],
-      ];
+    if(empty($issns)){
+        return[
+          '#type' => 'markup',
+          '#markup' => 'No ISSNs code available.',
+        ];
     }
     else{
-      $build = [
-        '#theme' => 'altmetrics_data',
-        '#altmetrics_data' => $results,
-        '#altmetrice_setting' => $config,
-      ];
-    }
     
-    $build['#attached']['library'][] = 'journal_article_detail/altmetrics_style';
+      $page = pager_find_page();
+      $num_per_page = $config['number_per_page'];
 
+      $parameters = array(
+        'issns' => $issns,
+        'page' => !empty($page) ? $page + 1 : 1,
+        'num_results' => $config['number_per_page'],
+      );
+      $query = http_build_query($parameters, '', '&');
+      
+      $api_url = isset($config['api_url']) && !empty($config['api_url']) ? $config['api_url'] : 'https://api.altmetric.com/v1/citations/';
+      $url = $api_url . $config['month'] . '?' . $query;
+      
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+      $json_string = curl_exec($ch);
+      $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+      curl_close($ch);
+  
+      $results = [];
+      if ($response_code == 200 && !empty($json_string)) {
+        $altmetrics_data = json_decode($json_string, TRUE);
+        if(!empty($altmetrics_data)){
+          $domain = \Drupal::request()->getHost();
+          foreach ($altmetrics_data['results'] as $key => $result) {
+            $altmetrics_data['results'][$key]['details_url'] = $result['details_url'].'&domain=' . $domain;
+          }
+          $results = $altmetrics_data['results'];
+        }
+      }
+
+      if($config['more_link'] == 1){
+          $config['more_url'] = '/content/'.$corpus.'/most-shared-altmetrics';
+      }
+
+      if($config['show_pager'] == 1){
+        $offset = $num_per_page * $page;
+        pager_default_initialize($altmetrics_data['query']['total'], $num_per_page);
+        $build = [
+          '#theme' => 'altmetrics_data',
+          '#altmetrics_data' => $results,
+          '#altmetrice_setting' => $config,
+          '#pager' => [
+            '#type' => 'pager',
+          ],
+        ];
+      }
+      else{
+        $build = [
+          '#theme' => 'altmetrics_data',
+          '#altmetrics_data' => $results,
+          '#altmetrice_setting' => $config,
+        ];
+      }
+      
+      $build['#attached']['library'][] = 'journal_article_detail/altmetrics_style';
+    }
     return $build;
   }
 
@@ -107,18 +132,10 @@ class AltmetricsData extends BlockBase {
       '#default_value' => isset($config['month']) ? $config['month'] : '6m',
     ];
 
-    $form['issns'] = [
-      '#type' => 'textfield',
-      '#title' => t('Enter ISSNs'),
-      '#description' => t('ISSNs for a Journal site.'),
-      '#default_value' => !empty($config['issns']) ? $config['issns'] : '',
-      '#required' => TRUE,
-    ];
-
     $form['number_per_page'] = [
       '#type' => 'textfield',
       '#title' => t('Results per page'),
-      '#default_value' => !empty($config['number_per_page']) ? $config['number_per_page'] : 25,
+      '#default_value' => !empty($config['number_per_page']) ? $config['number_per_page'] : 5,
       '#size' => '10',
       '#prefix' => '<div class="clear-block no-float">',
       '#suffix' => '</div>',
@@ -159,15 +176,11 @@ class AltmetricsData extends BlockBase {
       ),
     ];
 
-    $form['more_link_url'] = [
+    $form['issns'] = [
       '#type' => 'textfield',
-      '#title' => t('More Link URL'),
-      '#default_value' => isset($config['more_link_url']) ? $config['more_link_url'] : '',
-      '#states' => array(
-        'visible' => array(
-          ':input[name="settings[more_link]"]' => array('checked' => TRUE),
-        ),
-      ),
+      '#title' => t('Optional: Enter ISSNs'),
+      '#description' => t('If no node context is provided, you may instead manually provide a ISSNs code. You must either supply a node context or a ISSNs code. If both are supplied, the node-context takes precedence.'),
+      '#default_value' => !empty($config['issns']) ? $config['issns'] : '',
     ];
 
     $form['msg_no_data'] = [
@@ -186,7 +199,7 @@ class AltmetricsData extends BlockBase {
   public function blockSubmit($form, FormStateInterface $form_state) {
     parent::blockSubmit($form, $form_state);
     $values = $form_state->getValues();
-    $data = ['label', 'label_display', 'description', 'month', 'issns', 'number_per_page', 'api_url', 'show_pager', 'more_link', 'more_link_label', 'more_link_url', 'msg_no_data'];
+    $data = ['label', 'label_display', 'description', 'month', 'issns', 'number_per_page', 'api_url', 'show_pager', 'more_link', 'more_link_label', 'msg_no_data'];
     foreach ($data as $option) {
       $this->configuration[$option] = $values[$option];
     }

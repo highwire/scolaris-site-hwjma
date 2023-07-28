@@ -4,4 +4,12 @@ journal_article_detail.content:
     _controller: '\Drupal\journal_article_detail\Controller\JournalArticleDetailController::content' 
     _title: 'Hello World'
   requirements: 
-    _permission: 'access content' 
+    _permission: 'access content'
+journal_article_detail.altmetrics_data:
+  path: '/content/{corpus}/most-shared-altmetrics' 
+  defaults: 
+    _controller: '\Drupal\journal_article_detail\Controller\MostSharedAltmetric::content' 
+    _title: 'Altmetric Data'
+  requirements: 
+    _permission: 'access content'
+
