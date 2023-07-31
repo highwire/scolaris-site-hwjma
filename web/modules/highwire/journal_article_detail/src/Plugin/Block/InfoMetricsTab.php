@@ -109,7 +109,6 @@ class InfoMetricsTab extends BlockBase implements ContainerFactoryPluginInterfac
     $issue = $issue[0]['value'];
     $volume = !$node->get('volume')->isEmpty() ? $node->get('volume')->getString() : '';
     $date_released = $node->get('date_epub_original')->getValue()['0']['original'];
-    
     $build = [
         '#theme' => 'hwjma_info_metrics_tab',
         '#journal_title' => $journal_title,

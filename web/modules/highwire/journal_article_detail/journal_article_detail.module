@@ -86,31 +86,42 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
     }
     // Add the usage-stats pseudofield
     if ($display->getComponent('hwjma_usage_stats')) {
-      $filter_tabs = '<a href="/aa">ADD</a>';
-       $block_manager = \Drupal::service('plugin.manager.block');
+      $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
+      $usageStatsDefaultView = $usageStatsConfig->get('default_view');
+      $usageStatsDateFilter = $usageStatsConfig->get('date_filters');
+      $filterTabData = '';
+      $filterTabValues = [
+        'ArticleLifetime' => 'Article Lifetime',
+        'LastSixMonths' => 'Last 6 Months',
+        'ThisMonth' => 'This Month'
+      ];
+      foreach ($usageStatsDateFilter as $key => $value) {
+          if (!empty($value)) {
+              $filterTabData .= '<a href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn button js-form-submit form-submit use-ajax">'.$filterTabValues[$value].'</a>'; 
+          }
+      }
+      $filter_tabs = '<div><h2>Usage statistics:</h2><p>'.$filterTabData.'</p></div>';
+      $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\UsageStatsDateRangeForm');
+      $build['hwjma_usage_stats']['custom_tabs'] = [
+          '#type' => 'markup',
+          '#markup' => $filter_tabs,
+      ];
+      $build['hwjma_usage_stats']['custom_form'] = $form;
+      $block_manager = \Drupal::service('plugin.manager.block');
       $plugin_block = $block_manager->createInstance('hwjma_usage_stats', [
-        'query_type' => 'monthly',
+        'query_type' => 'ArticleLifetime',
         'views' => ['abstract', 'full', 'pdf', 'total'],
         'date_format' => 'custom',
         'custom_date_format' => 'M Y',
         'limit' => '',
+        'fromDate' => '',
+        'toDate' => '',
       ]);
       $plugin_block->setContextValue('node', $entity);
       $render = $plugin_block->build();
-     if (!empty($render)) {
-        $build['hwjma_usage_stats'] = $render;
-      } 
-   /*   $block['hwjma_usage_stats'] = [
-        '#theme' => 'hwjma_usage_stats_data',
-        '#filter_tabs' => $filter_tabs,
-        '#usage_stats_data' => $render,
-      ];
-      
-      $build['hwjma_usage_stats'] = [
-        '#type' => 'fieldset',
-        '#attributes' => ['class' => ['usage-stats-container']],
-        'usage_stats' => $plugin_block->build()
-      ];*/
+      if (!empty($render)) {
+       $build['hwjma_usage_stats']['data'] = $render;
+      }
     }
   }
 }

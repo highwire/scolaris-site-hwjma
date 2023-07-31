@@ -74,7 +74,6 @@ class Altmetrics extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function build() {
     $build = [];
-
     try {
       $node = $this->getContextValue('node');
     }
@@ -82,16 +81,14 @@ class Altmetrics extends BlockBase implements ContainerFactoryPluginInterface {
       return $build;
     }
     // Get the node from context data.
-    $doi = $node->get('doi')->getString(); //  dd($doi);
+    $doi = '10.1503/cmaj.220966';//$node->get('doi')->getString(); //  dd($doi);
     $altmetrics_data = '<div data-badge-details="right" data-badge-type="medium-donut" data-doi="'.$doi.'" data-hide-no-mentions="true" class="altmetric-embed"></div>';
     //$aa = '<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1038/nature.2012.9872"></div>';
-
     $build = [
       '#theme' => 'hwjma_alt_metrics',
       '#altmetrics_data' => $altmetrics_data
-  ];
+    ];
     $build['#attached']['library'][] = 'journal_article_detail/altmetrics';
-
     return $build;
   }
 

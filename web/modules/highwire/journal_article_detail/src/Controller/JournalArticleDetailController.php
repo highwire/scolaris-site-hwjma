@@ -24,31 +24,38 @@ class JournalArticleDetailController extends ControllerBase {
     if (!$request->isXmlHttpRequest()) {
       throw new NotFoundHttpException();
     }
-
     $response = new AjaxResponse();
-
     $type = \Drupal::request()->query->get('type');
     $nid =  \Drupal::request()->query->get('nid');
-
+    $fromDate = '';
+    $toDate = '';
+    if ($type == 'LastSixMonths') {
+        $fromDate = date("Y-m-d", mktime(0, 0, 0, date("m")-6, date("d"), date("Y")));
+        $toDate = date("Y-m-d");
+    } elseif ($type == 'ThisMonth') {
+        $fromDate = date("Y-m-01");
+        $toDate = date("Y-m-d");
+    }
     $build = [];
     $block_manager = \Drupal::service('plugin.manager.block');
     $plugin_block = $block_manager->createInstance('hwjma_usage_stats', [
       'query_type' => $type,
-      'views' => ['abstract', 'full', 'pdf', 'total'],
+      'views' => ['abstract', 'full','pdf', 'total'],
       'date_format' => 'custom',
       'custom_date_format' => 'M Y',
       'limit' => '',
+      'fromDate' => $fromDate,
+      'toDate' => $toDate,
     ]);
     $plugin_block->setContextValue('node', $nid);
     $render = $plugin_block->build();
     if (!empty($render)) {
       $build = $render;
     } 
-
-    $Selector = '.ajax-wrapper'; //See: https://www.w3schools.com/cssref/css_selectors.asp
-    $content = '<p>Changed !!!</p>'; /*The content that will be replace the matched element(s), either a render array or an HTML string.*/
-    $settings = ['my-setting' => 'setting',]; /*An array of JavaScript settings to be passed to any attached behaviors.*/
-    $response->addCommand(new ReplaceCommand($Selector, $build, $settings));
+    $Selector = '.ajax-wrapper';
+    $content = '<p>Changed !!!</p>';
+    $settings = ['my-setting' => 'setting',];
+    $response->addCommand(new ReplaceCommand($Selector, $build, $settings));     
     return $response;
   }
 
