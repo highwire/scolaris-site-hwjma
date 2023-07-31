@@ -41,10 +41,7 @@ class AltmetricsData extends BlockBase {
     }
 
     if (empty($issns)) {
-        return[
-          '#type' => 'markup',
-          '#markup' => 'No ISSNs code available.',
-        ];
+        return $build;
     }
     else {
       $page = pager_find_page();
@@ -59,7 +56,7 @@ class AltmetricsData extends BlockBase {
       
       $api_url = isset($config['api_url']) && !empty($config['api_url']) ? $config['api_url'] : 'https://api.altmetric.com/v1/citations/';
       $url = $api_url . $config['month'] . '?' . $query;
-      
+
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -68,7 +65,7 @@ class AltmetricsData extends BlockBase {
       $json_string = curl_exec($ch);
       $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
       curl_close($ch);
-  
+
       $results = [];
       if ($response_code == 200 && !empty($json_string)) {
         $altmetrics_data = json_decode($json_string, TRUE);
@@ -79,32 +76,33 @@ class AltmetricsData extends BlockBase {
           }
           $results = $altmetrics_data['results'];
         }
-      }
 
-      if ($config['more_link'] == 1) {
+        if ($config['more_link'] == 1) {
           $config['more_url'] = '/content/'.$corpus.'/most-shared-altmetrics';
+        }
+
+        if ($config['show_pager'] == 1) {
+          $offset = $num_per_page * $page;
+          pager_default_initialize($altmetrics_data['query']['total'], $num_per_page);
+          $build = [
+            '#theme' => 'altmetrics_data',
+            '#altmetrics_data' => $results,
+            '#altmetrice_setting' => $config,
+            '#pager' => [
+              '#type' => 'pager',
+            ],
+          ];
+        }
+        else {
+          $build = [
+            '#theme' => 'altmetrics_data',
+            '#altmetrics_data' => $results,
+            '#altmetrice_setting' => $config,
+          ];
+        }
+        
       }
 
-      if ($config['show_pager'] == 1) {
-        $offset = $num_per_page * $page;
-        pager_default_initialize($altmetrics_data['query']['total'], $num_per_page);
-        $build = [
-          '#theme' => 'altmetrics_data',
-          '#altmetrics_data' => $results,
-          '#altmetrice_setting' => $config,
-          '#pager' => [
-            '#type' => 'pager',
-          ],
-        ];
-      }
-      else {
-        $build = [
-          '#theme' => 'altmetrics_data',
-          '#altmetrics_data' => $results,
-          '#altmetrice_setting' => $config,
-        ];
-      }
-      
       $build['#attached']['library'][] = 'journal_article_detail/altmetrics_style';
     }
     return $build;
