@@ -1,0 +1,38 @@
+<p class="altmetrics-description">{{ altmetrice_setting.description }}</p>
+
+<div class="altmetrics-section-list">
+    {% if altmetrics_data is not empty %}
+        <ul class="altmetrics-list">
+            {% for row in altmetrics_data %}
+                <li class="altmetrics-li">
+                    <div class="donut">
+                        <a href="{{ row.details_url }}">
+                            <img alt="Article has an altmetric score of {{ row.score }}" src="{{row.images.small }}">
+                        </a>
+                    </div>
+                    <div class="altmetric-info">
+                        <div class="altmetric-data-title">
+                            <a href="{{ row.url }}">   
+                                {{ row.title }}
+                            </a>
+                        </div>
+                        <div class="last_mentioned">
+                            Last mentioned on {{ row.last_updated|date("D M d Y") }}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {{ altmetrics_data.msg_no_data }}
+    {% endif %}
+</div>
+
+{% if altmetrice_setting.more_link == 1 %}
+    <div class="altmetrics-more">
+        <a class="test-right see-more-link" href="{{ altmetrice_setting.more_url }}">{{ altmetrice_setting.more_link_label }}</a>
+    </div>
+{% endif %}
+{% if altmetrice_setting.show_pager == 1 %}
+   <div class="text-center altmetrics-pager">{{ pager }}</a>
+{% endif %}

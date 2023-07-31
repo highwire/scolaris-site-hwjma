@@ -3,6 +3,7 @@ altmetrics:
   js:
     https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js:
       { type: external, minified: true, attributes: { type: text/javascript } }
+
 highchartjs:
   version: VERSION
   js:
@@ -13,4 +14,12 @@ usagestatsdata:
   version: VERSION
   js:
     js/highchartbar.js: {}
+
+altmetrics_style:
+  css:
+    theme:
+      css/altmetrics-style.css: {}
+
+
+
     

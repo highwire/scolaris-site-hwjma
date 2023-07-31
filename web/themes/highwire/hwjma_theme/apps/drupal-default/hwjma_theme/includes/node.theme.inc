@@ -13,6 +13,7 @@ use Drupal\Node\NodeInterface;
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\highwire_content\HighWireContent;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * @file
@@ -75,7 +76,7 @@ function hwjma_preprocess_node__journal_article__content_details(array &$variabl
 /**
  * Implements hook_preprocess_node().
  */
-function hwjma_preprocess_node__journal_article__toc_list_(array &$variables) {
+function hwjma_preprocess_node__journal_article__toc_list(array &$variables) {
   // Default to turning off byline/submitted.
   $variables['display_submitted'] = FALSE;
   $node = $variables['node'];
@@ -86,13 +87,23 @@ function hwjma_preprocess_node__journal_article__toc_list_(array &$variables) {
   $issue_number = !$node->get('issue')->isEmpty() ? $node->get('issue')->getString() : '';
   $first_page = !$node->get('fpage')->isEmpty() ? $node->get('fpage')->getString() : '';
   $last_page = !$node->get('lpage')->isEmpty() ? $node->get('lpage')->getString() : '';
-  $journal_article_citation = $journal_title . ' ' . $volume . '(' . $issue_number . '): ' . $first_page . '-' . $last_page;
+  $doi = !$node->get('doi')->isEmpty() ? 'https://doi.org/' .$node->get('doi')->getString() : '';
+  if (!empty($node->date_ppub->getValue())) {
+    $date_published = $node->date_ppub->getValue()[0]['original'];     
+  } 
+  else {
+   $date_published = $node->date_epub_version->getValue()[0]['original'];     
+  }
+  $date_time = new \DateTime($date_published);
+  $drupal_date_time = DrupalDateTime::createFromDateTime($date_time);
+  $pub_date = $drupal_date_time->format('M d, Y');
+  $journal_article_citation = $journal_title .' '. $pub_date.' ' . $volume . '(' . $issue_number . '): ' . $first_page . '-' . $last_page.'; DOI: '.$doi;
   $node_journal = \Drupal::routeMatch()->getParameter('node');
   if (!empty($node_journal)) {
     if ($node_journal->hasField('children') && $node_journal->bundle() == "journal") {
       $children = !$node_journal->get('children')->isEmpty() ? $node_journal->get('children')->getValue() : '';
       if (isset($children) && count($children) == 1) {
-        $journal_article_citation = $journal_title . ' ' . $issue_number . ': ' . $first_page . '-' . $last_page;
+        $journal_article_citation = $journal_title .' '. $pub_date. ' ' . $issue_number . ': ' . $first_page . '-' . $last_page.'; DOI: '.$doi;
       }
     }
     elseif ($node_journal->bundle() == "journal_issue") {
@@ -104,7 +115,7 @@ function hwjma_preprocess_node__journal_article__toc_list_(array &$variables) {
             $children =  !$node_issue->get('children')->isEmpty() ? $node_issue->get('children')->getValue() : '';
             // Get the total number of child volume for a Periodical
             if (isset($children) && count($children) == 1) {
-              $journal_article_citation = $journal_title . ' ' . $issue_number . ': ' . $first_page . '-' . $last_page;
+              $journal_article_citation = $journal_title .' '. $pub_date. ' ' . $issue_number . ': ' . $first_page . '-' . $last_page.'; DOI: '.$doi;
             }
           }
         }
@@ -120,7 +131,7 @@ function hwjma_preprocess_node__journal_article__toc_list_(array &$variables) {
         $children = !$node_issue->get('children')->isEmpty() ? $node_issue->get('children')->getValue() : '';
         // Get the total number of child volume for a Periodical
         if (isset($children) && count($children) == 1) {
-          $journal_article_citation = $journal_title . ' ' . $issue_number . ': ' . $first_page . '-' . $last_page;
+          $journal_article_citation = $journal_title .' '. $pub_date.' ' . $issue_number . ': ' . $first_page . '-' . $last_page.'; DOI: '.$doi;
         }
       }
     }
@@ -149,10 +160,8 @@ function hwjma_preprocess_node__journal_article__toc_list_(array &$variables) {
     $variables['content']['article_abstract'] = $abstract_markup;
   }
 
-  // Fetching view content links according to pattern lab array
-  $view_content_link = $variables['content']['view_content_link'];
-  $view_content_link_url = $view_content_link['#url'];
-  array_push($action_links, ['href' => $view_content_link_url->toString(),'class' => 'article-section__view-article-btn','text' => $view_content_link['#title']]);
+  $view_content_link_url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$node->id());;
+  array_push($action_links, ['href' => $view_content_link_url,'class' => 'article-section__view-article-btn','text' => 'View Article']);
   if (!empty($variables['elements']['variant_full_text_pdf']['#items']) && count($variables['elements']['variant_full_text_pdf']['#items']) > 0) {
     $variant_full_text_pdf = $variables['elements']['variant_full_text_pdf']['#items']->getValue('uri');
   } else {
@@ -406,12 +415,26 @@ function hwjma_preprocess_node__journal_issue__content_details(&$variables) {
     }
   }
 
-  // The Periodical that have only 1 volume should not display the volume numbers
-  if ($num_of_children == 1) {
-    $vol_issue = "Issue ".$issue;
-  } else {
-    $vol_issue = "Volume ".$volume.", Issue ".$issue;
+  $custom_datetime = '';
+  if(!empty($date_ppub)){
+    $date_time = new \DateTime($date_ppub);
+    $drupal_date_time = DrupalDateTime::createFromDateTime($date_time);
+    $custom_datetime = $drupal_date_time->format('F, Y');
   }
+
+  if (!$node->hasField('custom_meta') || $node->get('custom_meta')->isEmpty()) {
+    $custom_meta_items = $node->get('custom_meta')->getValue();
+
+    // Get the custom meta value by name.
+    foreach ($custom_meta_items as $item) {
+      if ($item['first'] == 'cover-date') {
+        $custom_datetime = $item['second'];
+      }
+    }
+  }
+  
+  // The Periodical that have only 1 volume should not display the volume numbers
+  $vol_issue = "Volume ".$volume.", Issue ".$issue." - ".$custom_datetime; 
 
    // creating variables for node template
    $variables['node_title'] = $node_title;
@@ -559,8 +582,19 @@ function hwjma_get_node_fields_as_string($variables, $fields) {
 
 function hwjma_preprocess_node__journal_issue__issue_list_item(&$variables) {
   $entity = $variables['node'];
-  // Use lookup to check if the issue has a cover date.
-  //$hwjma_lookup = \Drupal::service('hwjma_content_display.lookup');
-  $cover_date = '';//$hwjma_lookup->getIssueCoverDate($entity);
-  $variables['cover_date'] = $cover_date;
+  $custom_meta = '';
+
+  if (!$entity->hasField('custom_meta') || $entity->get('custom_meta')->isEmpty()) {
+    $variables['cover_date'] = $custom_meta;
+  }
+  $custom_meta_items = $entity->get('custom_meta')->getValue();
+
+  // Get the custom meta value by name.
+  foreach ($custom_meta_items as $item) {
+    if ($item['first'] == 'cover-date') {
+      $custom_meta = $item['second'];
+    }
+  }
+
+  $variables['cover_date'] = $custom_meta;
 }
