@@ -1,7 +1,7 @@
 name: HWJMA Site Theme
 type: theme
 description: Custom HWJMA theme that will be serve as the base theme for all the scolaris ste
-base theme: scolaris_base
+base theme: jcorex_base
 core_version_requirement: ^8.8 || ^9
 libraries:
   - hwjma/core
@@ -38,53 +38,3 @@ regions:
   footer_social: Footer Social
   footer_bottom_one: Footer Bottom One
   footer_bottom_two: Footer Bottom Two
-# The paths below are set to default DRUPAL_DIST variable.
-# If you change DRUPAL_DIST path, update here.
-# component-libraries:
-#   app-drupal:
-#      assets:
-#        css:
-#           paths:
-#             - ../../../dist/app-drupal/assets/css
-#        js:
-#           paths:
-#             - ../../../dist/app-drupal/assets/js
-#        images:
-#           paths:
-#             - ../../../dist/app-drupal/assets/images
-  # protons:
-  #   paths: []
-  # atoms:
-  #   paths:
-  #     - ../../../dist/app-drupal/assets/atomic/_patterns/01-atoms
-  # molecules:
-  #   paths:
-  #     - ../../../dist/app-drupal/assets/atomic/_patterns/02-molecules
-  # components:
-  #   paths:
-  #     - ../../../dist/app-drupal/assets/atomic/_patterns/03-components
-  # pages:
-  #   paths:
-  #     - ../../../source/default/assets/_patterns/04-pages
-
-component-libraries:
-  protons:
-    paths:
-      - ../../../source/default/_patterns/00-protons
-  atoms:
-    paths:
-      - ../../../source/default/_patterns/01-atoms
-      - ../../../source/default/_patterns/01-atoms/button
-      - ../../../source/default/_patterns/01-atoms/forms
-      - ../../../source/default/_patterns/01-atoms/images
-      - ../../../source/default/_patterns/01-atoms/media
-      - ../../../source/default/_patterns/01-atoms/text
-  molecules:
-    paths:
-      - ../../../source/default/_patterns/02-molecules
-  components:
-    paths:
-      - ../../../source/default/_patterns/03-components
-  pages:
-    paths:
-      - ../../../source/default/_patterns/04-pages

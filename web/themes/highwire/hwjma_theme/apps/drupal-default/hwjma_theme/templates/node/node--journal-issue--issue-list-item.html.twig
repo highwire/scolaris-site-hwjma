@@ -1,6 +1,0 @@
-{% if node.issue.value %}
-  <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
-  <time datetime="{{ node.date_ppub.0.value }}">{{ cover_date ? cover_date : node.date_ppub.0.value|date("F Y") }}</time> :
-    Vol. {{ node.volume.value }}, Issue {{ node.issue.value }}
-  </a>
-{% endif %}
