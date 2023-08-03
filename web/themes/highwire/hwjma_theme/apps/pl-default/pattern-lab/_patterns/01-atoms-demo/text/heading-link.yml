@@ -1,8 +1,0 @@
----
-anchorHead:
-  level: '5'
-  class: mb-0
-  button:
-    href: "#"
-    title: Heading Link
-    text: Heading Link

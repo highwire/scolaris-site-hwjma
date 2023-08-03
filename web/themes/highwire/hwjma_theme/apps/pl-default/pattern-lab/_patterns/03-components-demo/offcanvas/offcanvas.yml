@@ -1,6 +1,0 @@
----
-offcanvas:
-  targetid: offcanvas-id
-  position: start
-  head: Offcanvas Heading
-  body: Offcanvas Body
