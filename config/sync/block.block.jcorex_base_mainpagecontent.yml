@@ -1,0 +1,20 @@
+uuid: a2128b4b-c6e8-4b7c-8807-16f9351e28cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - jcorex_base
+id: jcorex_base_mainpagecontent
+theme: jcorex_base
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
