@@ -1,29 +1,43 @@
 <div>
-    <div>
-        <h2>Article Information</h2>
-        <div>
+    <div class="article-info-secction">
+        <div class="article-info-title">
+            <h2>Article Information</h2>
+        </div>
+        <div class="article-info-data">
             <p>
-                DOI: {{ doi }}<br/>
-                Journal Title: {{ journal_title }}<br/>
-                DOI Link: {{ doi_link }}<br/>
-                Issue: {{ issue }}<br/>
-                Volume: {{ volume }}<br/>
-                EPUB Date: {{ date_released }}
+                {% if doi %}
+                    DOI: {{ doi }}<br/>
+                {% endif %}
+                {% if journal_title %}
+                    Journal Title: {{ journal_title }}<br/>
+                {% endif %}
+                {% if doi_link %}
+                    DOI Link: {{ doi_link }}<br/>
+                {% endif %}
+                {% if issue %}
+                    Issue: {{ issue }}<br/>
+                {% endif %}
+                {% if volume %}
+                    Volume: {{ volume }}<br/>
+                {% endif %}
+                {% if date_released %}
+                    EPUB Date: {{ date_released }}
+                {% endif %}
             </p>
         </div>
     </div>
     <hr class="solid">
-    <div>
-        <h2>Author Information</h2>
-        <div>
+    <div class="author-info-section">
+        <div class="author-info-title">
+            <h2>Author Information</h2>
+        </div>
+        <div class="author-info-data">
             {% if authors_name %}
                 {% for item in authors_name %}
-                    {{ item }}
+                    <div class="author-name"> {{ item }} </div>
                 {% endfor %}
             {% endif %}
         </div>
     </div>
     <hr class="solid">
 </div>
-<a href="/journal_article_detail?type=monthly&nid=102" class="use-ajax">Monthly</a>
-<a href="/journal_article_detail?type=daily&nid=102" class="use-ajax">Daily</a>
