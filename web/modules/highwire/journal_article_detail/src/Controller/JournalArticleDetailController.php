@@ -21,6 +21,7 @@ class JournalArticleDetailController extends ControllerBase {
    * @return \Drupal\Core\Ajax\AjaxResponse
    */
   public function content(Request $request) {
+    dump('test');
     if (!$request->isXmlHttpRequest()) {
       throw new NotFoundHttpException();
     }
