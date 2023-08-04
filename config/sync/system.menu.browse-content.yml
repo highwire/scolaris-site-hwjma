@@ -1,8 +1,0 @@
-uuid: 38878345-bdc0-4f30-a30a-d99fa9cb6d5d
-langcode: en
-status: true
-dependencies: {  }
-id: browse-content
-label: 'Browse Content'
-description: ''
-locked: false
