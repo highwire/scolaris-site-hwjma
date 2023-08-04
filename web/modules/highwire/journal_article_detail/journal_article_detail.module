@@ -86,6 +86,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
     }
     // Add the usage-stats pseudofield
     if ($display->getComponent('hwjma_usage_stats')) {
+      // Get backend configurations for usage stats
       $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
       $usageStatsDefaultView = $usageStatsConfig->get('default_view');
       $usageStatsDateFilter = $usageStatsConfig->get('date_filters');
@@ -100,7 +101,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
         }
       }
       $filterTabData = '';
-      // Frontend tab filter values
+      // Frontend tab filter values: Article lifetime, Last 6 Months, This Month
       $filterTabValues = [
         'ArticleLifetime' => 'Article Lifetime',
         'LastSixMonths' => 'Last 6 Months',
@@ -108,7 +109,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
       ];
       $fromDate = '';
       $toDate = '';
-      // Set date according to tab filter
+      // Set from and to date according to tab filter (tab Article lifetime, Last 6 Months, This Month)
       if ($defaultViewFilter == 'LastSixMonths') {
         $fromDate = date("Y-m-d", mktime(0, 0, 0, date("m")-6, date("d"), date("Y")));
         $toDate = date("Y-m-d");
@@ -117,7 +118,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
         $toDate = date("Y-m-d");
       }
       $nid = $entity->get('nid')->getString();
-      // Prepare a tab/button/link for frontend
+      // Prepare a tab/button/link for frontend (tab Article lifetime, Last 6 Months, This Month)
       foreach ($usageStatsDateFilter as $key => $value) {
           if (!empty($value)) {
               $filterTabData .= '<div class="usage-stats-tab"><a id="'.$value.'" href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn button usagestatstab js-form-submit form-submit use-ajax'. ($defaultViewFilter == $value ? " active" : "") .'">'.$filterTabValues[$value].'</a></div>';
@@ -128,7 +129,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
           '#type' => 'markup',
           '#markup' => $filter_tabs,
       ];
-      // Prepare a custom date range form
+      // Prepare a custom date range form with date calender
       if (isset($usageStatsDateFilter['ViewRange']) &&!empty($usageStatsDateFilter['ViewRange'])) {
           $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\UsageStatsDateRangeForm', $nid);
           $build['hwjma_usage_stats']['custom_form'] = $form;

@@ -139,7 +139,7 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
       '#prefix' => '<div class="ajax-wrapper error-msg">',
       '#suffix' => '</div>',
     ];
-    // Date format
+    // Get date format from config
     if ($config['date_format'] == 'custom') {
       $date_format = $config['custom_date_format'];
     }
@@ -147,15 +147,14 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
       $format_entity = $this->dateFormatStorage->load($config['date_format']);
       $date_format = $format_entity->getPattern();
     }
-    // Apath
+    // Get Apath
     $apath = $node && $node->hasField('apath') && !$node->get('apath')->isEmpty() ? $node->get('apath')->first()->getString() : '';
     if (empty($apath)) {
       return $errorDisplay;
     }
-    // Get usage Stats
     $stats = [];
     $options = [];
-    // Check date fromat 
+    // Check date fromat is valid or not
     if (!empty($config['fromDate']) && preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$config['fromDate'])) {
       $options['from-date'] = $config['fromDate'];
     }
@@ -172,7 +171,7 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
     if (empty($stats)) {
       return $errorDisplay;
     }
-    // Render table
+    // Render usage stats data table
     $build['usage_stats_data'] = [
       '#type' => 'table',
       '#prefix' => '<div class="ajax-wrapper usage-stats-data-table">',
@@ -182,12 +181,12 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
       'date' => 'Period',
     ];
     $counter = 0;
-    // Prepare header for table view
+    // Prepare header for table view : Abstract, PDF, Full
     foreach ($config['views'] as $view) {
       $build['usage_stats_data']['#header'][$view] = $this->view_labels[$view];
     }
     $grand_total = [];
-    // Prepare data
+    // Prepare data for table view : Abstract, PDF, Full
     foreach ($stats as $i => $row) {
       $build['usage_stats_data'][$i] = [];
       $date = $this->renderDate($date_format, $row['year'], $row['month'], $row['day'] ?? NULL);
@@ -204,9 +203,9 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
         $build['usage_stats_data'][$i]['total']['#markup'] = $total;
         $addColTotal += $total;
       }
-      // Add source if required.
+      // Add source header and value in usage stats data table  if required.
       if (!empty($usageMetricTypesFilter['source']) && in_array('source', $config['views'])) {
-        // Override default source if set.
+        // Get default source if set.
         if ($row['platform'] == 'highwire' && !empty($defaultSourceName)) {
           $build['usage_stats_data'][$i]['source']['#markup'] = $defaultSourceName;
         }
@@ -216,7 +215,7 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
       }
       $counter = $i;
     }
-    // Add grand total row if required
+    // Add grand total row in usage stats data table if required
     if ($displayGrandTotal == 1) {
       $build['usage_stats_data'][$counter+1]['date']['#markup'] = 'Grand Total';
       $innerCounter = 0;

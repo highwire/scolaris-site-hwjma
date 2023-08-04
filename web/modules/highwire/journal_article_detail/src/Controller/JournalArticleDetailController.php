@@ -22,6 +22,7 @@ class JournalArticleDetailController extends ControllerBase {
    * @return \Drupal\Core\Ajax\AjaxResponse
    */
   public function content(Request $request) {
+    // Check this is ajax call or not
     if (!$request->isXmlHttpRequest()) {
       throw new NotFoundHttpException();
     }
@@ -32,7 +33,7 @@ class JournalArticleDetailController extends ControllerBase {
     $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
     $fromDate = '';
     $toDate = '';
-    // Set date according to tab filter
+    // Set date according to tab filter within Metric tab Article lifetime, Last 6 Months, This Month
     if ($type == 'LastSixMonths') {
         $fromDate = date("Y-m-d", mktime(0, 0, 0, date("m")-6, date("d"), date("Y")));
         $toDate = date("Y-m-d");
@@ -43,7 +44,7 @@ class JournalArticleDetailController extends ControllerBase {
     $build = [];
     $usageMetricTypesFilter = $usageStatsConfig->get('metric_types');
     $usageMetricTypesArray = [];
-    // Prepare table views header
+    // Prepare usage stats data table views header: Abstract, FULL, PDF
     foreach ($usageMetricTypesFilter as $key => $value) {
       if (!empty($value)) {
         $usageMetricTypesArray[] = $value;  

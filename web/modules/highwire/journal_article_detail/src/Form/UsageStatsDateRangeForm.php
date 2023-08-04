@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class UsageStatsDateRangeForm.
  *
  * @package Drupal\journal_article_detail\Form
- * Use for Usage Stats date range filter form : JCOREX-102
+ * Use for Usage Stats date range filter form which is configure base : JCOREX-102
  */
 class UsageStatsDateRangeForm extends FormBase {
 

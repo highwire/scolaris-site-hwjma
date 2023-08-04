@@ -14,7 +14,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Class UsageStatsSettingsForm.
  *
  * @package Drupal\journal_article_detail\Form
- * Use for Altmetric and Usage Stats backend configuration : JCOREX-102
+ * Use for Altmetric and Usage Stats backend configuration form : JCOREX-102
  */
 class UsageStatsSettingsForm extends ConfigFormBase {
 
