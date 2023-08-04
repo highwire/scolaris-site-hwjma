@@ -162,6 +162,7 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
     if (!empty($config['toDate']) && preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$config['toDate'])) {
       $options['to-date'] = $config['toDate'];
     }
+    // Call singleArticle() for get stats data
     try {
         $stats = $this->usageStats->singleArticle($apath, 'true', $options)->getData();
     }
@@ -181,10 +182,12 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
       'date' => 'Period',
     ];
     $counter = 0;
+    // Prepare header for table view
     foreach ($config['views'] as $view) {
       $build['usage_stats_data']['#header'][$view] = $this->view_labels[$view];
     }
     $grand_total = [];
+    // Prepare data
     foreach ($stats as $i => $row) {
       $build['usage_stats_data'][$i] = [];
       $date = $this->renderDate($date_format, $row['year'], $row['month'], $row['day'] ?? NULL);

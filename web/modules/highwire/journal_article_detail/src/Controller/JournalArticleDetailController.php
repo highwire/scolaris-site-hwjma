@@ -32,6 +32,7 @@ class JournalArticleDetailController extends ControllerBase {
     $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
     $fromDate = '';
     $toDate = '';
+    // Set date according to tab filter
     if ($type == 'LastSixMonths') {
         $fromDate = date("Y-m-d", mktime(0, 0, 0, date("m")-6, date("d"), date("Y")));
         $toDate = date("Y-m-d");
@@ -42,6 +43,7 @@ class JournalArticleDetailController extends ControllerBase {
     $build = [];
     $usageMetricTypesFilter = $usageStatsConfig->get('metric_types');
     $usageMetricTypesArray = [];
+    // Prepare table views header
     foreach ($usageMetricTypesFilter as $key => $value) {
       if (!empty($value)) {
         $usageMetricTypesArray[] = $value;  
