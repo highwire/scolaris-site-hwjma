@@ -9,7 +9,7 @@ use Drupal\node\Entity\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a block to display the pager for a chapter/section.
+ * Provides a block to display the statics for a Altmetric section: JCOREX-102
  *
  * @Block(
  *   id = "hwjma_altmetrics",
@@ -74,7 +74,6 @@ class Altmetrics extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function build() {
     $build = [];
-
     try {
       $node = $this->getContextValue('node');
     }
@@ -82,17 +81,18 @@ class Altmetrics extends BlockBase implements ContainerFactoryPluginInterface {
       return $build;
     }
     // Get the node from context data.
-    $doi = $node->get('doi')->getString(); //  dd($doi);
-    $altmetrics_data = '<div data-badge-details="right" data-badge-type="medium-donut" data-doi="'.$doi.'" data-hide-no-mentions="true" class="altmetric-embed"></div>';
-    //$aa = '<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1038/nature.2012.9872"></div>';
-
+    $doi = $node->get('doi')->getString();
+    // Get backend altmetric configuration settings
+    $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
+    $altMetricTagSetting = $usageStatsConfig->get('altmetric_statistics_tag');
+    $altmetric_title = $usageStatsConfig->get('altmetric_override_title');
+    $altmetrics_data = str_replace('[PUBCODE]', 'data-doi='.$doi, $altMetricTagSetting);
     $build = [
       '#theme' => 'hwjma_alt_metrics',
-      '#altmetrics_data' => $altmetrics_data
-  ];
+      '#altmetrics_data' => $altmetrics_data,
+      '#altmetric_title' => $altmetric_title
+    ];
     $build['#attached']['library'][] = 'journal_article_detail/altmetrics';
-
     return $build;
   }
-
 }

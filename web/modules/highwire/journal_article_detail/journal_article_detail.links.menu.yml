@@ -1,0 +1,7 @@
+journal_article_detail.usage_stats_settings_form:
+  title: 'Article Usage Stats Config'
+  route_name: journal_article_detail.usage_stats_settings_form
+  description: 'A description for the menu entry'
+  parent: highwire_core.admin_index
+  weight: 100
+  

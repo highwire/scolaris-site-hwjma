@@ -66,14 +66,14 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
   if ($content_type == HW_NODE_TYPE_JOURNAL_ARTICLE) {
 	  // Add Info & Metrics.
 	  if ($display->getComponent('hwjma_info_metrics_tab')) {
-		$block_manager = \Drupal::service('plugin.manager.block');
-		$plugin_block = $block_manager->createInstance('hwjma_info_metrics_tab', []);
-		$plugin_block->setContextValue('node', $entity);
-		$render = $plugin_block->build();
-		if (!empty($render)) {
-		  $build['hwjma_info_metrics_tab'] = $render;
-		}
-	  }  
+      $block_manager = \Drupal::service('plugin.manager.block');
+      $plugin_block = $block_manager->createInstance('hwjma_info_metrics_tab', []);
+      $plugin_block->setContextValue('node', $entity);
+      $render = $plugin_block->build();
+      if (!empty($render)) {
+        $build['hwjma_info_metrics_tab'] = $render;
+      }
+    }
 	  // Add the Altmetrics field
     if ($display->getComponent('hwjma_altmetrics')) {
       $block_manager = \Drupal::service('plugin.manager.block');
@@ -86,31 +86,69 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
     }
     // Add the usage-stats pseudofield
     if ($display->getComponent('hwjma_usage_stats')) {
-      $filter_tabs = '<a href="/aa">ADD</a>';
-       $block_manager = \Drupal::service('plugin.manager.block');
+      // Get backend configurations for usage stats
+      $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
+      $usageStatsDefaultView = $usageStatsConfig->get('default_view');
+      $usageStatsDateFilter = $usageStatsConfig->get('date_filters');
+      $override_title = $usageStatsConfig->get('override_title');
+      $usageMetricTypesFilter = $usageStatsConfig->get('metric_types');
+      $defaultViewFilter = $usageStatsConfig->get('default_view');
+      // Get avtive usage metric types
+      $usageMetricTypesArray = [];
+      foreach ($usageMetricTypesFilter as $key => $value) {
+        if (!empty($value)) {
+          $usageMetricTypesArray[] = $value;  
+        }
+      }
+      $filterTabData = '';
+      // Frontend tab filter values: Article lifetime, Last 6 Months, This Month
+      $filterTabValues = [
+        'ArticleLifetime' => 'Article Lifetime',
+        'LastSixMonths' => 'Last 6 Months',
+        'ThisMonth' => 'This Month'
+      ];
+      $fromDate = '';
+      $toDate = '';
+      // Set from and to date according to tab filter (tab Article lifetime, Last 6 Months, This Month)
+      if ($defaultViewFilter == 'LastSixMonths') {
+        $fromDate = date("Y-m-d", mktime(0, 0, 0, date("m")-6, date("d"), date("Y")));
+        $toDate = date("Y-m-d");
+      } elseif ($defaultViewFilter == 'ThisMonth') {
+        $fromDate = date("Y-m-01");
+        $toDate = date("Y-m-d");
+      }
+      $nid = $entity->get('nid')->getString();
+      // Prepare a tab/button/link for frontend (tab Article lifetime, Last 6 Months, This Month)
+      foreach ($usageStatsDateFilter as $key => $value) {
+          if (!empty($value)) {
+              $filterTabData .= '<div class="usage-stats-tab"><a id="'.$value.'" href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn button usagestatstab js-form-submit form-submit use-ajax'. ($defaultViewFilter == $value ? " active" : "") .'">'.$filterTabValues[$value].'</a></div>';
+          }
+      }
+      $filter_tabs = '<div class="usage-stats-section"><div class="Usage-stats-title"><h2>'.$override_title.':</h2></div><div class="usage-stats-tabs"><p>'.$filterTabData.'</p></div></div>';
+      $build['hwjma_usage_stats']['custom_tabs'] = [
+          '#type' => 'markup',
+          '#markup' => $filter_tabs,
+      ];
+      // Prepare a custom date range form with date calender
+      if (isset($usageStatsDateFilter['ViewRange']) &&!empty($usageStatsDateFilter['ViewRange'])) {
+          $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\UsageStatsDateRangeForm', $nid);
+          $build['hwjma_usage_stats']['custom_form'] = $form;
+      }
+      $block_manager = \Drupal::service('plugin.manager.block');
       $plugin_block = $block_manager->createInstance('hwjma_usage_stats', [
-        'query_type' => 'monthly',
-        'views' => ['abstract', 'full', 'pdf', 'total'],
+        'query_type' => 'ArticleLifetime',
+        'views' => $usageMetricTypesArray,
         'date_format' => 'custom',
         'custom_date_format' => 'M Y',
         'limit' => '',
+        'fromDate' => $fromDate,
+        'toDate' => $toDate,
       ]);
       $plugin_block->setContextValue('node', $entity);
       $render = $plugin_block->build();
-     if (!empty($render)) {
-        $build['hwjma_usage_stats'] = $render;
-      } 
-   /*   $block['hwjma_usage_stats'] = [
-        '#theme' => 'hwjma_usage_stats_data',
-        '#filter_tabs' => $filter_tabs,
-        '#usage_stats_data' => $render,
-      ];
-      
-      $build['hwjma_usage_stats'] = [
-        '#type' => 'fieldset',
-        '#attributes' => ['class' => ['usage-stats-container']],
-        'usage_stats' => $plugin_block->build()
-      ];*/
+      if (!empty($render)) {
+       $build['hwjma_usage_stats']['data'] = $render;
+      }
     }
   }
 }
@@ -132,10 +170,10 @@ function journal_article_detail_theme() {
                     ],
 		],
     'hwjma_alt_metrics' => [
-		  'variables' => ['altmetrics_data' => NULL],
+		  'variables' => ['altmetrics_data' => NULL, 'altmetric_title' => NULL],
 		],
     'hwjma_usage_stats_data' => [
-      'variables' => ['filter_tabs' => NULL, 'usage_stats_data' => NULL]
+      'variables' => ['filter_tabs' => NULL, 'usage_stats_data' => NULL, 'form_range' => NULL]
     ],
     'altmetrics_data' => [
       'variables' => ['altmetrics_data' => NULL, 'altmetrice_setting' => NULL, 'pager' => NULL]

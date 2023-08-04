@@ -12,7 +12,7 @@ use Drupal\node\Entity\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a block that displays Info & Metrics tab.
+ * Provides a block that displays Info & Metrics tab: JCOREX-102
  *
  * @Block(
  *  id = "hwjma_info_metrics_tab",
@@ -80,14 +80,12 @@ class InfoMetricsTab extends BlockBase implements ContainerFactoryPluginInterfac
    */
   public function build() {
     $build = [];
-
     try {
       $node = $this->getContextValue('node');
     }
     catch (\Exception $e) {
       return $build;
     }
-    
     // Journal author variables
     $authors = $node->get('authors_full_name')->getValue();
     $author_names = [];
@@ -95,7 +93,6 @@ class InfoMetricsTab extends BlockBase implements ContainerFactoryPluginInterfac
         $author_names[$key] = $value['value'];
     }
     $authors_name = $author_names;
-    
     // Journal description variables
     $journal_doi = $node->get('doi')->getString();
     //New way to display DOI
@@ -109,7 +106,6 @@ class InfoMetricsTab extends BlockBase implements ContainerFactoryPluginInterfac
     $issue = $issue[0]['value'];
     $volume = !$node->get('volume')->isEmpty() ? $node->get('volume')->getString() : '';
     $date_released = $node->get('date_epub_original')->getValue()['0']['original'];
-    
     $build = [
         '#theme' => 'hwjma_info_metrics_tab',
         '#journal_title' => $journal_title,
@@ -124,5 +120,4 @@ class InfoMetricsTab extends BlockBase implements ContainerFactoryPluginInterfac
     ];
     return $build;
   }
-    
 }
