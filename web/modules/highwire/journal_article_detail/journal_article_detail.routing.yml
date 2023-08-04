@@ -12,4 +12,12 @@ journal_article_detail.altmetrics_data:
     _title: 'Altmetric Data'
   requirements: 
     _permission: 'access content'
-
+journal_article_detail.usage_stats_settings_form:
+  path: '/admin/config/highware/usage_stats_settings'
+  defaults:
+    _form: '\Drupal\journal_article_detail\Form\UsageStatsSettingsForm'
+    _title: 'UsageStatsSettingsForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
