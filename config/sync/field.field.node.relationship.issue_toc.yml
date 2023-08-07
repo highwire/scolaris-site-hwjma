@@ -1,0 +1,21 @@
+uuid: c7a023bb-4f02-4936-9c45-455d82f7d593
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_toc
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.issue_toc
+field_name: issue_toc
+entity_type: node
+bundle: relationship
+label: issue-toc
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

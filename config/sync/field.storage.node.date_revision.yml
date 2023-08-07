@@ -1,0 +1,20 @@
+uuid: ee54d104-1c7a-4333-9709-824e8844fb04
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime_range
+    - node
+id: node.date_revision
+field_name: date_revision
+entity_type: node
+type: daterange
+settings:
+  datetime_type: datetime
+module: datetime_range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

@@ -1,0 +1,21 @@
+uuid: 808b2ef8-7313-4d26-bffe-da36dbdec334
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.issue
+field_name: issue
+entity_type: node
+bundle: relationship
+label: issue
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

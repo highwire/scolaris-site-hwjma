@@ -1,0 +1,14 @@
+enabled: false
+settings:
+  client_id: null
+  client_secret: null
+  sams_sigma_base_url: null
+  sigma_sp_base_url: null
+dependencies:
+  module:
+    - openid_connect_sams_sigma
+  enforced:
+    module:
+      - openid_connect_sams_sigma
+_core:
+  default_config_hash: qjs10KxUt5WtNGjQdJlFeeFbErAou2IeglF86jWeIKw

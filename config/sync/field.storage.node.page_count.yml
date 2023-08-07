@@ -1,0 +1,19 @@
+uuid: d98f0dc5-538c-4cb8-a1df-fcc855cf1e3c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.page_count
+field_name: page_count
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

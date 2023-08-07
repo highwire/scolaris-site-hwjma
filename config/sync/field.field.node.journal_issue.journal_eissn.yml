@@ -1,0 +1,21 @@
+uuid: fe7e5783-6b0e-48b9-97e9-9dcfc1c9e292
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.journal_eissn
+    - node.type.journal_issue
+  module:
+    - text
+id: node.journal_issue.journal_eissn
+field_name: journal_eissn
+entity_type: node
+bundle: journal_issue
+label: journal-eissn
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

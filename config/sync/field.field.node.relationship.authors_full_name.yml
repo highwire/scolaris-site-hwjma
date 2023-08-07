@@ -1,0 +1,21 @@
+uuid: c759e2a4-03c8-41c9-9c97-990aecb1eb1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.authors_full_name
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.authors_full_name
+field_name: authors_full_name
+entity_type: node
+bundle: relationship
+label: authors-full-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

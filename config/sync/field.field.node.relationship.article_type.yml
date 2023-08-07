@@ -1,0 +1,21 @@
+uuid: f6be7309-17ef-40e9-9681-097b68166efe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.article_type
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.article_type
+field_name: article_type
+entity_type: node
+bundle: relationship
+label: article-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

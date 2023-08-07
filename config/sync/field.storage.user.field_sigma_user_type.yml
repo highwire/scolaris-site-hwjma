@@ -1,0 +1,24 @@
+uuid: 12bb70df-6729-4ac1-bf39-19ef1242ee64
+langcode: en
+status: true
+dependencies:
+  module:
+    - openid_connect_sams_sigma
+    - user
+_core:
+  default_config_hash: xVprYnSG33i4sNSeQQY0Kzbr8HDOmt1BLZIb-_EiDic
+id: user.field_sigma_user_type
+field_name: field_sigma_user_type
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: openid_connect_sams_sigma
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

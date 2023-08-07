@@ -1,0 +1,21 @@
+uuid: 868e2de6-6d49-4c68-9bfb-d3f1c5443a94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.member_network
+    - node.type.journal_issue
+  module:
+    - text
+id: node.journal_issue.member_network
+field_name: member_network
+entity_type: node
+bundle: journal_issue
+label: member-network
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

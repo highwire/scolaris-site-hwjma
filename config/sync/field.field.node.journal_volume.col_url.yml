@@ -1,0 +1,21 @@
+uuid: 9a799608-b110-453f-92de-e23bd0b7631c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.col_url
+    - node.type.journal_volume
+  module:
+    - text
+id: node.journal_volume.col_url
+field_name: col_url
+entity_type: node
+bundle: journal_volume
+label: col-url
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

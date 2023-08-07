@@ -1,0 +1,10 @@
+uuid: ba3d3fe4-00b3-4be5-a915-a62e52144585
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.browse_list_item
+label: 'Browse list item'
+targetEntityType: node
+cache: true

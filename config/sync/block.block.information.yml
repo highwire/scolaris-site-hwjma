@@ -1,0 +1,25 @@
+uuid: e79fd24d-2710-4bad-9491-7f5ed8139d0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.information
+  module:
+    - system
+  theme:
+    - hwjma
+id: information
+theme: hwjma
+region: footer_3
+weight: -2
+provider: null
+plugin: 'system_menu_block:information'
+settings:
+  id: 'system_menu_block:information'
+  label: Information
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

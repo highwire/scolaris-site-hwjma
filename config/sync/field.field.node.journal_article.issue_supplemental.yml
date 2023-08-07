@@ -1,0 +1,21 @@
+uuid: 5cfc06d1-d929-4d4d-8f56-662ae8cafc79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_supplemental
+    - node.type.journal_article
+id: node.journal_article.issue_supplemental
+field_name: issue_supplemental
+entity_type: node
+bundle: journal_article
+label: issue-supplemental
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,21 @@
+uuid: 2b0ad594-3dde-41ee-a973-a031dc416f81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_epreprint
+    - node.type.relationship
+  module:
+    - datetime_range
+id: node.relationship.date_epreprint
+field_name: date_epreprint
+entity_type: node
+bundle: relationship
+label: date-epreprint
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

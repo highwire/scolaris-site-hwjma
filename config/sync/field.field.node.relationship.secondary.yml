@@ -1,0 +1,21 @@
+uuid: cb36db44-f6af-4826-a367-7db9bb95b37c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.secondary
+    - node.type.relationship
+id: node.relationship.secondary
+field_name: secondary
+entity_type: node
+bundle: relationship
+label: secondary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

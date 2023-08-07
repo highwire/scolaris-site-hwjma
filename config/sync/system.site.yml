@@ -1,0 +1,14 @@
+uuid: ae3e9c2d-093e-4fee-84b1-bb553d0dbf9b
+name: 'Demo Journal of Medical Association'
+mail: rsatija@highwirepress.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /home
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE

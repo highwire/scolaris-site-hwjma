@@ -1,0 +1,21 @@
+uuid: c679ff9f-9c0c-40a7-9011-93a26e96b5d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.publisher_id
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.publisher_id
+field_name: publisher_id
+entity_type: node
+bundle: relationship
+label: publisher-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

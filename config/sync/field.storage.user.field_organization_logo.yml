@@ -1,0 +1,32 @@
+uuid: ae8b9946-4e99-4f30-a39e-d6a1d42c7ff4
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - user
+_core:
+  default_config_hash: LrkG_dBq12K8pG6d2abyeTiT9xwjXm0CJ4JKWm3fsvg
+id: user.field_organization_logo
+field_name: field_organization_logo
+entity_type: user
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: 'Authenticating Organization Logo'
+    title: 'Authenticating Organization'
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

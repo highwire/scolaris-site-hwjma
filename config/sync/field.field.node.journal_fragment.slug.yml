@@ -1,0 +1,21 @@
+uuid: 4a0a0e08-3ee6-40dc-89c7-6a4ef119e3c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.slug
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.slug
+field_name: slug
+entity_type: node
+bundle: journal_fragment
+label: slug
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

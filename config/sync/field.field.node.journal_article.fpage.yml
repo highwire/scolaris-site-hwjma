@@ -1,0 +1,21 @@
+uuid: c5380a17-6e56-43db-b44d-01bd652eec37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.fpage
+    - node.type.journal_article
+  module:
+    - text
+id: node.journal_article.fpage
+field_name: fpage
+entity_type: node
+bundle: journal_article
+label: fpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

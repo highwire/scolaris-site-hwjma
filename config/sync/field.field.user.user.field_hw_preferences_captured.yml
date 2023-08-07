@@ -1,0 +1,26 @@
+uuid: c955e196-16f7-4f30-8220-23d2cf82beb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_hw_preferences_captured
+  module:
+    - user
+_core:
+  default_config_hash: zeWPA05iZJq7jyC9k73CcT7W8rr8PNtjY8aYFl4o_Vg
+id: user.user.field_hw_preferences_captured
+field_name: field_hw_preferences_captured
+entity_type: user
+bundle: user
+label: 'HighWire Preferences Captured'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean

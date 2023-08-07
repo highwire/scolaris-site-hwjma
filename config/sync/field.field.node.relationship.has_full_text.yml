@@ -1,0 +1,21 @@
+uuid: e62baa7c-3a4c-43bb-b05a-16aa53884152
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_full_text
+    - node.type.relationship
+id: node.relationship.has_full_text
+field_name: has_full_text
+entity_type: node
+bundle: relationship
+label: has-full-text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
