@@ -3,6 +3,10 @@ type: theme
 description: Custom HWJMA theme that will be serve as the base theme for all the scolaris ste
 base theme: jcorex_base
 core_version_requirement: ^8.8 || ^9
+
+libraries:
+  - hwjma/global-styles
+
 regions:
   header_top_ads: Header Top Ad's
   header_branding_1: Header Branding 1
