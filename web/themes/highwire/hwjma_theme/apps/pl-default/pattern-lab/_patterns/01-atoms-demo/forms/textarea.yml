@@ -1,5 +1,0 @@
----
-textarea:
-  class: form-control
-  placeholder: Textarea Placeholder
-  name: Textarea Name

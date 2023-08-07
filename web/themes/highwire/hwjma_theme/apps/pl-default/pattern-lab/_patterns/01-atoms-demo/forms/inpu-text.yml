@@ -1,7 +1,0 @@
----
-field:
-  type: text
-  name: name
-  id: id
-  placeholder: Placeholder
-  style: ''

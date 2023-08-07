@@ -1,2 +1,0 @@
-commands:
-  - "npm install -f --unsafe-perm=true --allow-root --no-optional && npm run build:drupal && gulp"

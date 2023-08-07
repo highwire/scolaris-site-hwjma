@@ -1,8 +1,0 @@
----
-radiobox:
-  name: radio
-  value: radio
-  label: Radio Text
-  index: 2
-  count: 10
-  color: primary
