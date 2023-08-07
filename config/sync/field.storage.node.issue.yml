@@ -1,0 +1,19 @@
+uuid: 8376c4c7-3726-4b33-b9ad-15e5048ea4c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.issue
+field_name: issue
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

@@ -1,0 +1,21 @@
+uuid: def149f7-005e-4fa0-96d2-97ac32de8f9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_title
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.issue_title
+field_name: issue_title
+entity_type: node
+bundle: relationship
+label: issue-title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

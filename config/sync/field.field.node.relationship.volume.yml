@@ -1,0 +1,21 @@
+uuid: b685e4b4-a0af-4983-9d66-cea68a96ee4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.volume
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.volume
+field_name: volume
+entity_type: node
+bundle: relationship
+label: volume
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

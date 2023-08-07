@@ -1,0 +1,55 @@
+uuid: 4af2ba7f-ba9b-4ea0-b8f4-84bd2eda6d14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_hw_preferences_captured
+    - field.field.user.user.field_organization_logo
+    - field.field.user.user.field_sigma_license_data
+    - field.field.user.user.field_sigma_organization_name
+    - field.field.user.user.field_sigma_user_type
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: P7sBtbDqpN2_NQWAghPlwwBgUiRdt08Y0bv6bMTjERs
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: -10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  contact:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_hw_preferences_captured:
+    weight: 31
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  language:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  timezone:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_hw_preferences_captured: true
+  field_organization_logo: true
+  field_sigma_license_data: true
+  field_sigma_organization_name: true
+  field_sigma_user_type: true
+  langcode: true
+  user_picture: true

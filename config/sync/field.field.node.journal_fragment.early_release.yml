@@ -1,0 +1,21 @@
+uuid: 61070c00-f1da-4679-8238-504a4af305e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.early_release
+    - node.type.journal_fragment
+id: node.journal_fragment.early_release
+field_name: early_release
+entity_type: node
+bundle: journal_fragment
+label: early-release
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

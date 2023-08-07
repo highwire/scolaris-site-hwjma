@@ -1,0 +1,21 @@
+uuid: d562530a-43f2-45da-b275-9aea9eb9c981
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.slug
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.slug
+field_name: slug
+entity_type: node
+bundle: relationship
+label: slug
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

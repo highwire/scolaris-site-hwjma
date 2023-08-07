@@ -1,0 +1,21 @@
+uuid: 08dd9713-76bd-4d89-a1ee-14a870eabd4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.publisher_id
+    - node.type.journal_article
+  module:
+    - text
+id: node.journal_article.publisher_id
+field_name: publisher_id
+entity_type: node
+bundle: journal_article
+label: publisher-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

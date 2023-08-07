@@ -1,0 +1,21 @@
+uuid: 87db7c08-744d-4fe3-9d23-01fbfd50ba3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.volume
+    - node.type.journal_volume
+  module:
+    - text
+id: node.journal_volume.volume
+field_name: volume
+entity_type: node
+bundle: journal_volume
+label: volume
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

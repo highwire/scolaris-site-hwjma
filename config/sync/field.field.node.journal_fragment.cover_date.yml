@@ -1,0 +1,21 @@
+uuid: 3653d7ee-9472-4c22-bdd7-451752532802
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.cover_date
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.cover_date
+field_name: cover_date
+entity_type: node
+bundle: journal_fragment
+label: cover-date
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

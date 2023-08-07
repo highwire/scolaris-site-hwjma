@@ -1,0 +1,21 @@
+uuid: faf16ca0-ab1a-4f4a-a720-5407d138edeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.col_url
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.col_url
+field_name: col_url
+entity_type: node
+bundle: relationship
+label: col-url
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

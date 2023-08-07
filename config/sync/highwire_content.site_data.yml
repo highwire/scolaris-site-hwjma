@@ -1,0 +1,18 @@
+highwire_content_site_data:
+  hwjma:
+    id: hwjma
+    publisher-id: djma
+    status: development
+    type: journal
+    name: 'Demo Journal of Medical Association'
+    abbrev:
+      publisher: hwjma
+    url:
+      ac_service: 'http://hwjma-ac.highwire.org'
+      ac_service_development: 'http://hwjma-ac-dev.highwire.org'
+      development: 'http://highwirestaging.com/hwjma:4040'
+      legacy: 'http://hwmaint.hwjma.highwirestaging.com'
+      legacy_development: 'http://hwmaint.hwjma.highwirestaging.com:4040'
+      production: 'http://highwirestaging.com/hwjma'
+    alert-types:
+      production: 'announcements,toc_alerts,toc_awareness_alerts'

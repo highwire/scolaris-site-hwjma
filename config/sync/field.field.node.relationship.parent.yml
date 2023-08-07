@@ -1,0 +1,21 @@
+uuid: a77c2c33-bbd6-4217-8554-2dc9759a8bff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.parent
+    - node.type.relationship
+id: node.relationship.parent
+field_name: parent
+entity_type: node
+bundle: relationship
+label: parent
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

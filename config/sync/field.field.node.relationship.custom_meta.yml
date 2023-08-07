@@ -1,0 +1,37 @@
+uuid: 3626fea3-6cee-4c65-b8ea-af930de8c313
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.custom_meta
+    - node.type.relationship
+  module:
+    - double_field
+id: node.relationship.custom_meta
+field_name: custom_meta
+entity_type: node
+bundle: relationship
+label: custom-meta
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

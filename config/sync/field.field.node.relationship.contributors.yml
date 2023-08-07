@@ -1,0 +1,21 @@
+uuid: 0413eaff-2bc0-43ce-90f9-6ad0b350f1e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.contributors
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.contributors
+field_name: contributors
+entity_type: node
+bundle: relationship
+label: contributors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

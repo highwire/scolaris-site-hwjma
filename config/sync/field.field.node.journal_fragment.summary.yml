@@ -1,0 +1,21 @@
+uuid: 3ee589c1-7ca5-456c-a9df-0ca4649f836d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.summary
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.summary
+field_name: summary
+entity_type: node
+bundle: journal_fragment
+label: summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

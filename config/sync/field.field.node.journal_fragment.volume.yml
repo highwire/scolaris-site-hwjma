@@ -1,0 +1,21 @@
+uuid: 57155c4a-5a92-4bca-8b30-efb7489ceba5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.volume
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.volume
+field_name: volume
+entity_type: node
+bundle: journal_fragment
+label: volume
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,19 @@
+uuid: 26b4f439-245c-413a-bbfb-d2dd3b2adf73
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.contributors
+field_name: contributors
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

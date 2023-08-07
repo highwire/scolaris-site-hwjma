@@ -1,0 +1,27 @@
+uuid: 37225355-d872-4de1-bb8f-d6264a4e73bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.variant_cover_pdf
+    - node.type.journal
+  module:
+    - file
+id: node.journal.variant_cover_pdf
+field_name: variant_cover_pdf
+entity_type: node
+bundle: journal
+label: variant-cover-pdf
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  file_extensions: txt
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  description_field: false
+  handler_settings: {  }
+field_type: file

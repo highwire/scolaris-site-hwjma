@@ -1,0 +1,11 @@
+uuid: 228746d4-35a0-45e4-b0a9-4fb357646fc6
+langcode: en
+status: true
+dependencies: {  }
+name: relationship
+type: relationship
+description: 'Auto generated HighWire content type for relationship'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

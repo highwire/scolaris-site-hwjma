@@ -1,0 +1,30 @@
+uuid: 3e8bbc68-2983-44cc-ab57-a4897ba446b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - node
+id: node.variant_medium_image
+field_name: variant_medium_image
+entity_type: node
+type: image
+settings:
+  target_type: file
+  default_image:
+    uuid: null
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

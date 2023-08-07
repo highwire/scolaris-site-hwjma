@@ -1,0 +1,20 @@
+uuid: 2c091036-b289-4df2-abec-b28dbd6268dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.sibling_order
+field_name: sibling_order
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

@@ -1,0 +1,23 @@
+uuid: 043e3f43-8d24-421c-8d63-e5d53b6c4fe3
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: gp6uExL-jQ637r4JorVJQ6NQaie8tLAy1gR9pEtJ8Yo
+id: media.field_apath
+field_name: field_apath
+entity_type: media
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

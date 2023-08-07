@@ -1,0 +1,37 @@
+uuid: 5a837aca-5fcf-4067-b894-d6be6610a220
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.keywords
+    - node.type.journal_issue
+  module:
+    - double_field
+id: node.journal_issue.keywords
+field_name: keywords
+entity_type: node
+bundle: journal_issue
+label: keywords
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

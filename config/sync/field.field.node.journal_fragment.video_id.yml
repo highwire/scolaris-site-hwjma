@@ -1,0 +1,21 @@
+uuid: 2d7dae23-a7f2-4741-8cca-415431e41336
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.video_id
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.video_id
+field_name: video_id
+entity_type: node
+bundle: journal_fragment
+label: video-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

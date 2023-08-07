@@ -1,0 +1,102 @@
+uuid: 235c017f-1e4b-49ac-a721-194de9502705
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.homepage
+    - system.menu.browse-content
+    - views.view.homepage_highlights_carousel
+  content:
+    - 'block_content:basic:a60dcac5-a904-4f62-bc50-023efeed4036'
+  module:
+    - block_content
+    - journal_article_detail
+    - panels
+    - system
+    - views
+id: homepage-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    0cc071b0-f63a-4465-8b23-b88c273b1cfd:
+      id: 'system_menu_block:browse-content'
+      label: 'Browse Content'
+      provider: system
+      label_display: '0'
+      level: 1
+      depth: 0
+      expand_all_items: false
+      region: main
+      weight: 0
+      uuid: 0cc071b0-f63a-4465-8b23-b88c273b1cfd
+      context_mapping: {  }
+    471e12e4-ae64-463a-9533-e0608fbb29ab:
+      id: 'views_block:homepage_highlights_carousel-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content_bottom
+      weight: -1
+      uuid: 471e12e4-ae64-463a-9533-e0608fbb29ab
+      context_mapping: {  }
+    031c65f5-3370-4f4f-a4d1-9f01d229d89b:
+      id: 'block_content:a60dcac5-a904-4f62-bc50-023efeed4036'
+      label: 'About Journal Section'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: about_journal_section
+      weight: 0
+      uuid: 031c65f5-3370-4f4f-a4d1-9f01d229d89b
+      context_mapping: {  }
+    5d39389d-d6ea-45a9-9bfb-10e9af3ab989:
+      id: 'block_content:a60dcac5-a904-4f62-bc50-023efeed4036'
+      label: 'About Journal Section'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: feeds
+      weight: 0
+      uuid: 5d39389d-d6ea-45a9-9bfb-10e9af3ab989
+      context_mapping: {  }
+    b7019423-ba7b-40d0-9c7b-ad4f7ba3fbd0:
+      id: hwjma_altmetrics_data
+      label: 'Altmetrics Data'
+      provider: journal_article_detail
+      label_display: visible
+      region: news_blogs
+      weight: 0
+      uuid: b7019423-ba7b-40d0-9c7b-ad4f7ba3fbd0
+      description: 'Altmetric tracks attention and engagement of scholarly articles.'
+      month: 3m
+      issns: 1488-2329
+      number_per_page: '3'
+      api_url: 'https://api.altmetric.com/v1/citations/'
+      show_pager: 0
+      more_link: 1
+      more_link_label: More
+      msg_no_data: 'No Altmetric data available.'
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 61258e05-3ba6-4019-be28-bc2b42b2717d
+  label: null
+  weight: 0
+  layout: hwjma_layout__front
+  layout_settings:
+    label: Homepage
+  page_title: Homepage
+  storage_type: page_manager
+  storage_id: homepage-panels_variant-0
+  builder: standard
+page: homepage
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

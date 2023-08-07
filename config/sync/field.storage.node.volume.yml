@@ -1,0 +1,19 @@
+uuid: 3cb18157-2903-483e-ab32-4c308e5cc7a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.volume
+field_name: volume
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

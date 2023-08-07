@@ -1,0 +1,21 @@
+uuid: ea052533-be6b-47a4-b118-fb6e458e6c52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.col_url
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.col_url
+field_name: col_url
+entity_type: node
+bundle: journal_fragment
+label: col-url
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

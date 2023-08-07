@@ -1,0 +1,21 @@
+uuid: 5bec68f7-d5f0-4051-a2c9-8f48e5c94af4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_accepted
+    - node.type.relationship
+  module:
+    - datetime_range
+id: node.relationship.date_accepted
+field_name: date_accepted
+entity_type: node
+bundle: relationship
+label: date-accepted
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

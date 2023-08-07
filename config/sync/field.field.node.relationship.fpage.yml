@@ -1,0 +1,21 @@
+uuid: a950c7ee-3dfc-4c74-a149-6b305e9b8e66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.fpage
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.fpage
+field_name: fpage
+entity_type: node
+bundle: relationship
+label: fpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

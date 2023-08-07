@@ -1,0 +1,21 @@
+uuid: 28393a64-2741-4e55-935b-285e22032d18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.article_open_access
+    - node.type.journal
+id: node.journal.article_open_access
+field_name: article_open_access
+entity_type: node
+bundle: journal
+label: article-open-access
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
