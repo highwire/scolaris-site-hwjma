@@ -148,8 +148,7 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
       $date_format = $format_entity->getPattern();
     }
     // Get Apath
-    // $apath = $node && $node->hasField('apath') && !$node->get('apath')->isEmpty() ? $node->get('apath')->first()->getString() : '';
-    $apath = '/cmaj/195/21/E748.atom';
+    $apath = $node && $node->hasField('apath') && !$node->get('apath')->isEmpty() ? $node->get('apath')->first()->getString() : '';
     if (empty($apath)) {
       return $errorDisplay;
     }
