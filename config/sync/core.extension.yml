@@ -55,6 +55,7 @@ module:
   highwire_markup_display: 0
   highwire_metatag: 0
   highwire_openurl: 0
+  highwire_pap: 0
   highwire_personalization: 0
   highwire_sams_sigma: 0
   highwire_search: 0

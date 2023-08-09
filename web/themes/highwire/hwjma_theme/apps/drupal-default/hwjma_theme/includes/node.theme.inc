@@ -14,6 +14,7 @@ use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\highwire_content\HighWireContent;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\highwire_pap\Form\PapConfigForm;
 
 /**
  * @file
@@ -199,6 +200,15 @@ function hwjma_preprocess_node__journal__content_details(&$variables) {
   }
   $current_issue_link = $variables['elements']['current_issue_link'];
   $title = $variables['elements']['title'];
+
+  $corpus = $node->get('corpus')->getString();
+  $pab_path = \Drupal::config('highwire_pap.config')->get('landing_page_path');
+  // Add PAP button in journal page
+  if (!empty($pab_path)) {
+    $pab_path = str_replace("{corpus_node}", $corpus, $pab_path );
+    $variables['pap_tabs']['#text'] = $variables['elements']['pap_alias']['#value'];
+    $variables['pap_tabs']['#url'] = $pab_path;
+  }
 
   // creating variables for node template
   $variables['addtoany'] = $addtoany;

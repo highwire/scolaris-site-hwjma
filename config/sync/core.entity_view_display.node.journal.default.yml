@@ -135,6 +135,7 @@ hidden:
   corpus: true
   cover_date: true
   cover_image: true
+  current_issue_link: true
   custom_meta: true
   date_accepted: true
   date_epreprint: true
@@ -201,6 +202,10 @@ hidden:
   next_atom: true
   overline: true
   page_count: true
+  pap_alias: true
+  pap_article_view: true
+  pap_landing_page_text: true
+  pap_page_link: true
   parent: true
   parent_issue: true
   parent_journal: true

@@ -1050,3 +1050,17 @@ ol.order-listing {
     z-index: 99;
 }
 
+.view-published-ahead-of-print .pap-articles ul{
+    list-style: none;
+    padding-left: 0;
+}
+.header-published-ahead-of-print .content>span{
+  font-weight: 600;
+      font-size: 1rem;
+   line-height: 3;
+}
+.view-id-published_ahead_of_print{
+    margin-top: 25px;
+    border-top: 3px solid #d4431c;
+    width: 96%;
+}
