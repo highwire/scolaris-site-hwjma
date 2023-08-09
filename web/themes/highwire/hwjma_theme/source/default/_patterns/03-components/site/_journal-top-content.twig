@@ -19,11 +19,7 @@
   } only %}
 {% endif %}
 {% if authors %}
-  {% for item in authors %}
-    {% include "@atoms/text/_heading-6.twig" with {
-      heading: item
-    } only %}
-  {% endfor %}
+  <div class="article__fullname"> {{ authors }} </div>
 {% endif %}
 {% if author_link %}
   <div class="article__authorname">
@@ -142,14 +138,9 @@
     paragraph: journal_description.paragraph|raw
   } only %}
 {% endif %}
-{% if journal_title.text %}
-  <div class="journal-doi-info">
-    <span class="doi-label">{{ journal_title.label }}</span>
-      {{ journal_title.text | raw }}
-  </div>
-{% endif %}
 {% if journal_doi.text %}
   <div class="journal-doi-info">
+    {% if journal_title.text %} {{ journal_title.text | raw }}, {% endif %}
     <span class="doi-label">{{ journal_doi.label }}</span>
       {% include "@atoms/button/_anchor-link.twig" with {
         href: journal_doi.href,

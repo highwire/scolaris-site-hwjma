@@ -36,7 +36,6 @@ class UsageStatsDateRangeForm extends FormBase {
     $form['filter_by_date'] = array(
       '#type' => 'fieldset',
       '#title' => 'Select a custom date range',
-      '#title' => 'Select a custom date range for the past year',
       '#collapsible' => TRUE,
       '#prefix' => '<dic class="date-range-heading">',
       '#suffix' => '</div>',
@@ -48,16 +47,16 @@ class UsageStatsDateRangeForm extends FormBase {
       '#prefix' => '<div class="filter-by-date">',
     );
 
-    $form['filter_by_date']['nid'] = array(
-      '#type' => 'hidden',
-      '#value' => $nid,
-    );
-
     $form['filter_by_date']['end_date']  = array(
       '#type' => 'date',
       '#date_format' => 'Y-m-d',
       '#prefix' => '<span class="date-spacer"> to </span>',
       '#suffix' => '</div>',
+    );
+
+    $form['filter_by_date']['nid'] = array(
+      '#type' => 'hidden',
+      '#value' => $nid,
     );
 
     $form['actions'] = [
@@ -66,7 +65,7 @@ class UsageStatsDateRangeForm extends FormBase {
       '#ajax' => [
         'callback' => '::setMessage',
       ],
-      '#attributes' => ['class' => ['usagestatstab daterangebutton']],
+      '#attributes' => ['class' => ['btn btn-primary usagestatstab daterangebutton']],
       '#prefix' => '<div class="date-range-submit">',
       '#suffix' => '</div>',
     ];

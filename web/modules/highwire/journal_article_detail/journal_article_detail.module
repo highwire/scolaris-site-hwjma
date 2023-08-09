@@ -120,8 +120,8 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
       $nid = $entity->get('nid')->getString();
       // Prepare a tab/button/link for frontend (tab Article lifetime, Last 6 Months, This Month)
       foreach ($usageStatsDateFilter as $key => $value) {
-          if (!empty($value)) {
-              $filterTabData .= '<div class="usage-stats-tab"><a id="'.$value.'" href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn button usagestatstab js-form-submit form-submit use-ajax'. ($defaultViewFilter == $value ? " active" : "") .'">'.$filterTabValues[$value].'</a></div>';
+          if (!empty($value) && !empty($filterTabValues[$value])) {
+            $filterTabData .= '<a id="'.$value.'" href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn-primary usagestatstab js-form-submit form-submit use-ajax'. ($defaultViewFilter == $value ? " active" : "") .'">'.$filterTabValues[$value].'</a>';
           }
       }
       $filter_tabs = '<div class="usage-stats-section"><div class="Usage-stats-title"><h2>'.$override_title.':</h2></div><div class="usage-stats-tabs"><p>'.$filterTabData.'</p></div></div>';

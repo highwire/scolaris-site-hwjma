@@ -2,6 +2,7 @@
     <div class="article-info-secction">
         <div class="article-info-title">
             <h2>Article Information</h2>
+            <p>{% if volume %} vol. {{ volume }} {% endif %} {% if issue %} no. {{ issue }} {% endif %} </p>
         </div>
         <div class="article-info-data">
             <p>
@@ -13,9 +14,6 @@
                 {% endif %}
                 {% if doi_link %}
                     DOI Link: {{ doi_link }}<br/>
-                {% endif %}
-                {% if issue %}
-                    Issue: {{ issue }}<br/>
                 {% endif %}
                 {% if volume %}
                     Volume: {{ volume }}<br/>
@@ -33,9 +31,7 @@
         </div>
         <div class="author-info-data">
             {% if authors_name %}
-                {% for item in authors_name %}
-                    <div class="author-name"> {{ item }} </div>
-                {% endfor %}
+                <div class="author-name"> {{ authors_name }} </div>
             {% endif %}
         </div>
     </div>

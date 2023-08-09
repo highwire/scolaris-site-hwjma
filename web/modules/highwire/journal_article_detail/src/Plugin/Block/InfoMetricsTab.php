@@ -92,7 +92,7 @@ class InfoMetricsTab extends BlockBase implements ContainerFactoryPluginInterfac
     foreach ($authors as $key => $value) {
         $author_names[$key] = $value['value'];
     }
-    $authors_name = $author_names;
+    $authors_name = implode(', ', $author_names);
     // Journal description variables
     $journal_doi = $node->get('doi')->getString();
     //New way to display DOI
