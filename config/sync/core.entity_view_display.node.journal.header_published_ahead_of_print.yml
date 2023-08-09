@@ -1,9 +1,9 @@
-uuid: 1fa03011-d752-4ffd-9819-cf4a906ee789
+uuid: 1223bb08-4e29-4c51-bd89-a03b8fb7c7d8
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.content_details
+    - core.entity_view_mode.node.header_published_ahead_of_print
     - field.field.node.journal.adjuncts
     - field.field.node.journal.apath
     - field.field.node.journal.article_open_access
@@ -106,156 +106,35 @@ dependencies:
     - field.field.node.journal.volume
     - node.type.journal
   module:
-    - double_field
-    - field_group
     - layout_builder
-    - text
     - user
 third_party_settings:
   layout_builder:
     allow_custom: false
     enabled: false
-  field_group:
-    group_action_tools:
-      children:
-        - hw_alerts_sign_up
-        - group_share_popup
-        - hw_marker_sign_up
-      parent_name: ''
-      weight: 10
-      format_type: highwire_html_list
-      format_settings:
-        id: ''
-        classes: ''
-        list_type: ul
-      label: 'Action Tools'
-      region: content
-    group_share_popup:
-      children:
-        - addtoany
-      parent_name: group_action_tools
-      weight: 1
-      format_type: highwire_bootstrap_modal_popup
-      format_settings:
-        id: ''
-        classes: modal--height-auto
-        trigger_options:
-          trigger_type: button
-          title: ' Share'
-          classes: 'btn btn-tertiary content-action-button'
-          icon: share
-        modal_options:
-          title: 'Share this [node:type_display]'
-          height: ''
-          width: ''
-          hide_field_display: 1
-          footer: 1
-        separate_toggle_button: 0
-        separate_toggle_button_settings:
-          button_weight: ''
-          button_parent: default
-      label: 'share popup'
-      region: content
-id: node.journal.content_details
+id: node.journal.header_published_ahead_of_print
 targetEntityType: node
 bundle: journal
-mode: content_details
+mode: header_published_ahead_of_print
 content:
-  about:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  addtoany:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  current_issue_link:
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  custom_meta:
-    type: double_field_unformatted_list
-    weight: 3
-    region: content
-    label: above
-    settings:
-      inline: true
-      first:
-        hidden: false
-        prefix: ''
-        suffix: ''
-        link: false
-        format_type: medium
-      second:
-        hidden: false
-        prefix: ''
-        suffix: ''
-        link: false
-        format_type: medium
-    third_party_settings: {  }
-  doi:
-    type: text_default
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  editorial_brd:
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hw_alerts_sign_up:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hw_marker_sign_up:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  journal_current_issue:
-    type: entity_reference_label
-    weight: 0
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-  journal_eissn:
-    type: text_default
-    weight: 1
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  journal_pissn:
-    type: text_default
-    weight: 5
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
   pap_alias:
-    weight: 7
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  pap_article_view:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   pap_landing_page_text:
-    weight: 40
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  submit_article:
-    weight: 4
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  about: true
+  addtoany: true
   adjuncts: true
   all_issues: true
   apath: true
@@ -272,6 +151,8 @@ hidden:
   corpus: true
   cover_date: true
   cover_image: true
+  current_issue_link: true
+  custom_meta: true
   date_accepted: true
   date_epreprint: true
   date_epub: true
@@ -283,7 +164,9 @@ hidden:
   date_received: true
   date_released: true
   date_revision: true
+  doi: true
   early_release: true
+  editorial_brd: true
   elocation_id: true
   enclosures: true
   extract_policy: true
@@ -302,6 +185,8 @@ hidden:
   has_tables: true
   has_videos: true
   highwire_citations_download: true
+  hw_alerts_sign_up: true
+  hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
   hwjma_toc_pager: true
@@ -315,8 +200,11 @@ hidden:
   issue_title: true
   issue_toc: true
   journal_abbrv_title: true
+  journal_current_issue: true
+  journal_eissn: true
   journal_eissn_compact: true
   journal_first_issue: true
+  journal_pissn: true
   journal_pissn_compact: true
   journal_publisher: true
   journal_publisher_id: true
@@ -331,7 +219,6 @@ hidden:
   next_atom: true
   overline: true
   page_count: true
-  pap_article_view: true
   pap_page_link: true
   parent: true
   parent_issue: true
@@ -348,6 +235,7 @@ hidden:
   secondary: true
   sibling_order: true
   slug: true
+  submit_article: true
   subtitle: true
   subtype: true
   summary: true
