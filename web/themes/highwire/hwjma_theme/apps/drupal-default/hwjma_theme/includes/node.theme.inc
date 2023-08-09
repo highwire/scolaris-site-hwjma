@@ -204,6 +204,7 @@ function hwjma_preprocess_node__journal__content_details(&$variables) {
 
   $corpus = $node->get('corpus')->getString();
   $pab_path = \Drupal::config('highwire_pap.config')->get('landing_page_path');
+  // Add PAP button in journal page
   if (!empty($pab_path)) {
     $pab_path = str_replace("{corpus_node}", $corpus, $pab_path );
     $variables['pap_tabs']['#text'] = $variables['elements']['pap_alias']['#value'];
