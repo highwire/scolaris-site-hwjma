@@ -75,11 +75,11 @@
   ]
 %}
 <div class="journal-page journal-article journals-articles-middle">
-<article{{ attributes|without('class') }} class="{{ attributes.class }} {{ classes|join(' ') }} {{ addClass }}">
-  {% block node_content %}
-    <div{{ content_attributes|without('class') }} class="{{ content_attributes.class }} content">
-      {{ content }}
-    </div>
-  {% endblock %}
-</article>
+  <article{{ attributes|without('class') }} class="{{ attributes.class }} {{ classes|join(' ') }} {{ addClass }}">
+    {% block node_content %}
+      <div{{ content_attributes|without('class') }} class="{{ content_attributes.class }} content">
+        {{ content }}
+      </div>
+    {% endblock %}
+  </article>
 </div>
