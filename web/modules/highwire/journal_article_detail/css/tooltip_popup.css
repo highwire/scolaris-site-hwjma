@@ -35,6 +35,11 @@
   visibility: visible;
   opacity: 1;
 }
+
 .tooltip-author:hover {
   border-bottom: 1px dotted black;
+}
+
+.tab-margin {
+  margin: 10px;
 }
