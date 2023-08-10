@@ -520,6 +520,13 @@ function hwjma_preprocess_node__journal__browse_list_item(&$variables) {
     $variables['cover_image_title'] = $image_title;
     $variables['cover_image_width'] = $image_width;
     $variables['cover_image_height'] = $image_height;
+    $corpus = $node->get('corpus')->getString();
+    $pab_path = \Drupal::config('highwire_pap.config')->get('landing_page_path');
+    // Add PAP button in journal List page
+    if (!empty($pab_path)) {
+      $pab_path = str_replace("{corpus_node}", $corpus, $pab_path );
+      $variables['pap_tabs_link'] = $pab_path;
+    }
   }
 }
 
