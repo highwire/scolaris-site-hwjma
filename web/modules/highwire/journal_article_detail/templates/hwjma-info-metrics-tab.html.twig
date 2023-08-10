@@ -31,7 +31,9 @@
         </div>
         <div class="author-info-data">
             {% if authors_name %}
-                <div class="author-name"> {{ authors_name }} </div>
+                {% for item in authors_name %}
+                    <div class="tooltip-author">{{ item }}<span class="tooltiptext-author">{{ item }}</span></div>
+                {% endfor %}
             {% endif %}
         </div>
     </div>

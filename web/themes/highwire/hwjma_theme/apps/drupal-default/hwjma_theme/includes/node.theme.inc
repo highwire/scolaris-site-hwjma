@@ -41,7 +41,8 @@ function hwjma_preprocess_node__journal_article__content_details(array &$variabl
 	foreach ($authors as $key => $value) {
 		$author_names[$key] = $value['value'];
 	}
-	$variables['authors'] = implode(', ', $author_names);
+  $variables['authors'] = $author_names;
+	// $variables['authors'] = implode(', ', $author_names);
   // Journal description variables
   $doi = $node->get('doi')->getString();
   //New way to display DOI

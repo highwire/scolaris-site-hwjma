@@ -4,7 +4,7 @@
   } only %}
 {% endif %}
 {% if main_title %}
-  {% include "@atoms/text/_heading-1.twig" with {
+  {% include "@atoms/text/_heading-3.twig" with {
     heading: main_title
   } only %}
 {% endif %}
@@ -19,7 +19,9 @@
   } only %}
 {% endif %}
 {% if authors %}
-  <div class="article__fullname"> {{ authors }} </div>
+  {% for item in authors %}
+      <div class="tooltip-author">{{ item }}<span class="tooltiptext-author">{{ item }}</span></div>
+  {% endfor %}
 {% endif %}
 {% if author_link %}
   <div class="article__authorname">
