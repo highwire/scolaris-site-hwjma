@@ -81,7 +81,8 @@ class Altmetrics extends BlockBase implements ContainerFactoryPluginInterface {
       return $build;
     }
     // Get the node from context data.
-    $doi = $node->get('doi')->getString();
+    // HWJMA altmetric data not available so that use other hardcode doi when data available then remove hardcoded value
+    $doi = '10.1503/cmaj.220966'; //$node->get('doi')->getString();
     // Get backend altmetric configuration settings
     $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
     $altMetricTagSetting = $usageStatsConfig->get('altmetric_statistics_tag');

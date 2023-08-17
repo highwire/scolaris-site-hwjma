@@ -37,8 +37,6 @@ class UsageStatsDateRangeForm extends FormBase {
       '#type' => 'fieldset',
       '#title' => 'Select a custom date range',
       '#collapsible' => TRUE,
-      '#prefix' => '<dic class="date-range-heading">',
-      '#suffix' => '</div>',
     );
 
     $form['filter_by_date']['start_date'] = array(
@@ -66,8 +64,6 @@ class UsageStatsDateRangeForm extends FormBase {
         'callback' => '::setMessage',
       ],
       '#attributes' => ['class' => ['btn btn-primary usagestatstab daterangebutton']],
-      '#prefix' => '<div class="date-range-submit">',
-      '#suffix' => '</div>',
     ];
 
     return $form;
@@ -94,9 +90,19 @@ class UsageStatsDateRangeForm extends FormBase {
     $response = new AjaxResponse();
     $build = [];
     $block_manager = \Drupal::service('plugin.manager.block');
+    // Get backend configurations for usage stats
+    $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
+    $usageMetricTypesFilter = $usageStatsConfig->get('metric_types');
+    // Get avtive usage metric types
+    $usageMetricTypesArray = [];
+    foreach ($usageMetricTypesFilter as $key => $value) {
+      if (!empty($value)) {
+        $usageMetricTypesArray[] = $value;  
+      }
+    }
     $plugin_block = $block_manager->createInstance('hwjma_usage_stats', [
       'query_type' => $type,
-      'views' => ['abstract', 'full', 'pdf', 'total'],
+      'views' => $usageMetricTypesArray,
       'date_format' => 'custom',
       'custom_date_format' => 'M Y',
       'limit' => '',

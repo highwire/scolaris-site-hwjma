@@ -148,7 +148,9 @@ class UsageStatsData extends BlockBase implements ContainerFactoryPluginInterfac
       $date_format = $format_entity->getPattern();
     }
     // Get Apath
-    $apath = $node && $node->hasField('apath') && !$node->get('apath')->isEmpty() ? $node->get('apath')->first()->getString() : '';
+    // HWJMA Usage stats data not available so that use other hardcoded apath when data available then remove hardcoded value
+    //$apath = $node && $node->hasField('apath') && !$node->get('apath')->isEmpty() ? $node->get('apath')->first()->getString() : '';
+    $apath = '/cmaj/195/21/E748.atom';
     if (empty($apath)) {
       return $errorDisplay;
     }

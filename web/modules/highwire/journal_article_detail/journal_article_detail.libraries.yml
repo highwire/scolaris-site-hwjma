@@ -19,3 +19,8 @@ altmetrics_style:
   css:
     theme:
       css/altmetrics-style.css: {}
+
+tooltip_popup:
+  css:
+    theme:
+      css/tooltip_popup.css: {}
