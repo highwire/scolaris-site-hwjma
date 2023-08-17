@@ -118,7 +118,6 @@ class InfoMetricsTab extends BlockBase implements ContainerFactoryPluginInterfac
         '#issue' => $issue,
         '#volume' => $volume
     ];
-    // $build['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
     return $build;
   }
 }
