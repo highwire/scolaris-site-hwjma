@@ -178,19 +178,6 @@
           </div>
         {% endif %}
         </div>
-        {% if society %}
-          <div class="society-logo">
-            <picture>
-              {% include "@atoms/images/_image.twig" with {
-                image: {
-                  src: society.src,
-                  alt: society.alt,
-                  title: society.title
-                }
-              } only %}
-            </picture>
-          </div>
-        {% endif %}
       </div>
     </div>
   </div>
