@@ -4,14 +4,12 @@ status: true
 dependencies:
   config:
     - page_manager.page.all_journals
-    - system.menu.main
     - views.view.all_journals
   content:
     - 'block_content:basic:398ce8d1-2443-4eae-b710-5a3d9d25d57a'
   module:
     - block_content
     - panels
-    - system
     - views
 id: all_journals-panels_variant-0
 label: Panels
@@ -25,7 +23,7 @@ variant_settings:
       label_display: '0'
       views_label: ''
       items_per_page: none
-      region: right
+      region: main
       weight: 1
       uuid: 44ab9af5-daac-47c2-ada3-825afa142a1e
       context_mapping: {  }
@@ -37,46 +35,16 @@ variant_settings:
       status: true
       info: ''
       view_mode: full
-      region: right
+      region: main
       weight: 0
       uuid: b5634ded-ba60-4769-874d-a4440c52b6bf
-      context_mapping: {  }
-    858c3a20-c032-4d15-8d40-b7e696d30f20:
-      id: 'system_menu_block:main'
-      label: 'Main navigation'
-      provider: system
-      label_display: '0'
-      level: 1
-      depth: 0
-      expand_all_items: false
-      region: left
-      weight: 0
-      uuid: 858c3a20-c032-4d15-8d40-b7e696d30f20
       context_mapping: {  }
   id: panels_variant
   uuid: 61c9b81f-6751-47d1-80ae-1fd3b914b194
   label: null
   weight: 0
-  layout: bs_2col
-  layout_settings:
-    label: ''
-    layout:
-      wrapper: div
-      classes:
-        row: row
-      add_layout_class: 1
-      attributes: ''
-    regions:
-      left:
-        wrapper: div
-        classes: {  }
-        add_region_classes: 1
-        attributes: ''
-      right:
-        wrapper: div
-        classes: {  }
-        add_region_classes: 1
-        attributes: ''
+  layout: bs_1col
+  layout_settings: {  }
   page_title: Journals
   storage_type: page_manager
   storage_id: all_journals-panels_variant-0
