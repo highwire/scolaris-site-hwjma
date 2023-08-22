@@ -1073,3 +1073,36 @@ a.article__btn-early {
     color: #d4431c;
     position: relative;
 }
+.view-all-journals.view-id-all_journals.view-display-id-block_1 {
+    padding-top: 2.5rem;
+}
+.view-all-journals .views-col.col-1 .card-container{
+	border-top: 1px solid #d4431c;
+    padding: 1.5rem 0;
+    margin-right: 2%;
+}
+.view-all-journals .views-col.col-2 .card-container{
+    border-top: 1px solid #d4431c;
+    padding: 1.5rem 0;
+    margin-left: 2%;
+}
+.journal-page .article-middle-panel {
+    width: 55.333333% !important;
+}
+
+.journal-page .article-right-panel {
+    width: 28% !important;
+}
+.article-right-panel .journal-detail-image {
+    width: 40%;
+    float: left;
+    padding: 0 10px;
+}
+.article-right-panel .journal-detail-desc {
+    width: 60%;
+    padding-left: 5px;
+}
+.journal-issuepdf a.downlaod-action::before{
+    content: "\e961";
+    font-family: feather;
+}

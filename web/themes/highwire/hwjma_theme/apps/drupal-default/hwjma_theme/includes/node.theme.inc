@@ -236,6 +236,70 @@ function hwjma_preprocess_node__journal__content_details(&$variables) {
         $variables['journal_coverimage'] = file_create_url($path);
       }
     }
+
+   //JCOREX-96:Latest issue details add Journal page 
+    $journal_current_issue = $node->get('journal_current_issue')->getValue()[0]['target_id'];
+    if (!empty($journal_current_issue)) {
+    $latest_issue_node = Node::load($journal_current_issue);
+    $volume_no = $latest_issue_node->get('volume')->getString();
+    $issue_no = $latest_issue_node->get('issue')->getString();
+    $imagefield = $latest_issue_node->get('variant_cover_image')->getValue();
+    $media_url = '';
+    if (!empty($imagefield)) {
+      $fileid = $imagefield[0]['target_id'];
+      if (!empty($fileid)) {
+        $file_issue = File::load($fileid);
+        if (!empty($file)) {
+          $path = $file_issue->getFileUri();
+          $media_url = file_create_url($path);
+        }
+      }
+    }
+
+    $date_ppub = $latest_issue_node->get('date_ppub')->getValue()[0]['value'];
+    $custom_datetime = '';
+    if(!empty($date_ppub)){
+      $date_time = new \DateTime($date_ppub);
+      $drupal_date_time = DrupalDateTime::createFromDateTime($date_time);
+      $custom_datetime = $drupal_date_time->format('F, d M Y');
+    }
+    $download_pdf_links = $issue_pdf_access = '';
+    $apath = $node->hasField('apath') && !$node->get('apath')->isEmpty() ? $node->get('apath')->getString() : '';
+    if (!empty($apath)) {
+    	$ac_rule_fulltext_pdf = \Drupal::entityTypeManager()->getStorage('access_control_rule')->load('variant_full_text_pdf');
+    	$user_access_issue_pdf = $ac_rule_fulltext_pdf->userHasAccess($apath);
+    	$issue_pdf_access = $user_access_issue_pdf[$apath];
+	$pdf_link = $latest_issue_node->get('enclosures')->getValue();
+  	if (basename($pdf_link[0]['uri']) == 'complete-issue.pdf') {
+    		$download_pdf_links = file_create_url($pdf_link[0]['uri']);
+  	}
+        if (!$issue_pdf_access) {
+            $variables['issue_pdf_popover_link'] = [
+        	'#type' => 'highwire_popover',
+        	'#trigger_type' => 'link',
+        	'#trigger_attributes' => ['class' => ['inaccessible-pdf-issue downlaod-action']],
+        	'#trigger_title' => "Download issue PDF",
+        	'#popover_options' => [
+         		'placement' => 'bottom',
+          		'trigger' => ['mouseenter', 'focus'],
+          		'interactive' => TRUE,
+          		'allowHTML' => TRUE,
+        	],
+        	'content' => ['#markup' => "To download content, you need to upgrade your trial to full subscription. Please contact your account manager to do this."],
+      	    ];
+        }
+    }
+    $variables['latest_issue_detail'] = [
+       'img_src'=> $media_url,
+       'volume'=> $volume_no,
+       'issue_no'=> $issue_no,
+       'date'=> $custom_datetime,
+       'download_link'=> $download_link,
+       'issue_pdf_access'=> $issue_pdf_access,
+       'download_pdf_links' => $download_pdf_links,
+    ];
+    }
+
     //load society field and check if the journal_society is not empty
     $journal_society = $journal_info->get('field_journal_society')->getString();
     if (!empty($journal_society)) {

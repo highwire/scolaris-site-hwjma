@@ -129,19 +129,56 @@
           }]
         } only %}
       </div>
-      {% if society %}
-        <div class="article-right-panel society-logo">
-          <picture>
-            {% include "@atoms/images/_image.twig" with {
-              image: {
-                src: society.src,
-                alt: society.alt,
-                title: society.title
-              }
-            } only %}
-          </picture>
+      <div class="article-right-panel">
+        <div class="row">
+        {% if latest_issue_detail.img_src is not empty %}
+          <div class="journal-detail-image">
+          <div class="cover-image">
+            <a href="{{ current_issue_link['#url'] }}">
+            <picture>
+              {% include "@atoms/images/_image.twig" with {
+                image: {
+                  src: latest_issue_detail.img_src,
+                  alt: 'Card Image',
+                  title: 'Card Image'
+                }
+              } only %}
+            </picture>
+            </a>
+          </div>
+          </div>
+        {% endif %}
+        {% if (latest_issue_detail.volume is not empty) or (latest_issue_detail.issue_no is not empty) %}
+          <div class="journal-detail-desc">
+          <div class="journal-detail-info">
+            <a href="{{ current_issue_link['#url'] }}">
+            <h4>{{ "Latest issue"|t }}</h4>
+            </a>
+            <div class="journal-issuedate gb-issue-date">
+              <div class="vol_iss">
+                <a href="{{ current_issue_link['#url'] }}">
+                  <span class="volume-no">{{ 'Volume'|t }}
+                  {{ latest_issue_detail.volume }},
+                  {{ 'Issue'|t }}
+                  {{ latest_issue_detail.issue_no }}</span>
+                </a>
+              </div>
+              <span class="date">{{ latest_issue_detail.date }}</span>
+            </div>
+            <div class="journal-issuepdf gb-issue-pdf">
+              {% if latest_issue_detail.issue_pdf_access %}
+                <a target="_blank" href="{{ latest_issue_detail.download_pdf_links }}"  class="downlaod-action">
+                  {{ "Download issue PDF"|t }}
+                </a>
+              {% else %}
+                {{ issue_pdf_popover_link }}
+              {% endif %}
+            </div>
+            </div>
+          </div>
+        {% endif %}
         </div>
-      {% endif %}
+      </div>
     </div>
   </div>
 </div>
