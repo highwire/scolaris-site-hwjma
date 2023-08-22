@@ -244,7 +244,7 @@ function hwjma_preprocess_node__journal__content_details(&$variables) {
     $volume_no = $latest_issue_node->get('volume')->getString();
     $issue_no = $latest_issue_node->get('issue')->getString();
     $imagefield = $latest_issue_node->get('variant_cover_image')->getValue();
-    $media_url = '/themes/highwire/hwjma_theme/dist/app-drupal/assets/images/250X350.png';
+    $media_url = '';
     if (!empty($imagefield)) {
       $fileid = $imagefield[0]['target_id'];
       if (!empty($fileid)) {
