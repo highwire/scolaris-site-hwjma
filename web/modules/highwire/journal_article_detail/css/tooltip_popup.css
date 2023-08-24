@@ -1,3 +1,4 @@
+/* ---------------- Author Tooltip : JCOREX-338 ---------------- */
 .tooltip-author {
   position: relative;
   display: inline-block;
@@ -43,3 +44,65 @@
 .tab-margin {
   margin: 10px;
 }
+/* ---------------- Author Tooltip : JCOREX-338 End ---------------- */
+
+/* ----------------JUMP TO SECTION : JCOREX-101 ---------------- */
+.tab-margin-30 {
+  margin-left: 30px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.tab-margin-30 li {
+  line-height: 1.5em;
+  margin-bottom: 6px;
+  list-style: none;
+}
+
+.tab-margin-30 li:before {
+  content: "\f10c";
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: .85em;
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  line-height: normal;
+  position: relative;
+  left: -1.5em;
+  text-decoration: inherit;
+  width: 0;
+  z-index: 5;
+  -webkit-font-smoothing: antialiased;
+  color: #b6ced6;
+}
+
+.tab-margin-30 li:after {
+  content: ".";
+  display: block;
+  height: 100%;
+  margin-left: 1px;
+  position: absolute;
+  left: -1em;
+  top: 1em;
+  text-indent: -999em;
+  width: 1px;
+  z-index: 3;
+  background-color: #b6ced6;
+}
+
+.tab-margin-30 li>a:before {
+  content: "\f111";
+  z-index: 4;
+  color: #f0f0f0;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: .85em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+/* ----------------JUMP TO SECTION : JCOREX-101 End ---------------- */

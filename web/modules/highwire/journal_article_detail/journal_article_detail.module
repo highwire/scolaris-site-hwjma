@@ -183,4 +183,5 @@ function journal_article_detail_theme() {
 
 function journal_article_detail_page_attachments_alter(array &$page) {
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
+  $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
 }

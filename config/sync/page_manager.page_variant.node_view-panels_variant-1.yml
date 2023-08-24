@@ -4,13 +4,11 @@ status: true
 dependencies:
   config:
     - page_manager.page.node_view
-    - views.view.content_recent
   module:
     - ctools
-    - highwire_display
+    - journal_article_detail
     - node
     - panels
-    - views
 id: node_view-panels_variant-1
 label: Article
 variant: panels_variant
@@ -49,38 +47,27 @@ variant_settings:
       uuid: 60499b3b-a317-4a2a-bc0e-0795495b43f8
       context_mapping:
         entity: node
-    1852e18f-fea2-4304-9dda-f8a7c4f53273:
-      id: highwire_content_nav_block
-      label: 'Table of Contents'
-      provider: highwire_display
+    9ff1ea9a-2136-477e-b469-c26513339ddb:
+      id: jump_to_section
+      label: 'Jump to Section'
+      provider: journal_article_detail
       label_display: visible
       markup: content_sections_nav
       access_control_rule: ''
+      region: bottom_right
+      weight: 0
+      uuid: 9ff1ea9a-2136-477e-b469-c26513339ddb
       include_abstract: 1
+      include_content_top: 0
       abstract_settings:
         markup: abstract_search
         title: Abstract
         id: abstract
-      include_content_top: 0
       content_top_settings:
-        title: Top
-        id: content-top
-      region: bottom_right
-      weight: 0
-      uuid: 1852e18f-fea2-4304-9dda-f8a7c4f53273
+        title: ''
+        id: ''
       context_mapping:
         node: node
-    aa849171-bad2-440c-8b0c-6f5f9fe81c37:
-      id: 'views_block:content_recent-block_1'
-      label: ''
-      provider: views
-      label_display: visible
-      views_label: ''
-      items_per_page: '5'
-      region: bottom_right
-      weight: 0
-      uuid: aa849171-bad2-440c-8b0c-6f5f9fe81c37
-      context_mapping: {  }
   id: panels_variant
   uuid: 913cdc11-eec4-463b-af89-51b8f40e5a98
   label: null

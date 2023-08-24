@@ -24,3 +24,9 @@ tooltip_popup:
   css:
     theme:
       css/tooltip_popup.css: {}
+
+jumptosection:
+  version: VERSION
+  js:
+    js/jumptosection.js: {}
+    
