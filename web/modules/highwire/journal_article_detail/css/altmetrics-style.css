@@ -1,0 +1,48 @@
+.altmetrics-section-list .donut {
+    float: left;
+    margin-right: 1rem;
+}
+
+.altmetrics-section-list li {
+    margin-bottom: 1.4rem
+}
+
+.altmetrics-section-list li.last {
+    text-align: right
+}
+
+.altmetrics-section-list li {
+    list-style-type: none;
+    text-align: left
+}
+
+.altmetrics-section-list li.altmetrics-li {
+    border-bottom: 1px dotted #dadada;
+    margin-bottom: 1.4rem;
+    padding-bottom: 20px;
+    line-height: 1.5em;
+    margin-left: 0;
+    overflow: hidden;
+}
+
+.altmetrics-section-list a{
+    color: #006a8a;
+    text-decoration: none;
+}
+
+.altmetrics-section-list a:hover{
+    color: #3d90b7;
+}
+
+p.altmetrics-description {
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+.altmetrics-more{
+    text-align: right;
+    color: #006a8a;
+    padding: 5px 20px 5px 0;
+}
+
+

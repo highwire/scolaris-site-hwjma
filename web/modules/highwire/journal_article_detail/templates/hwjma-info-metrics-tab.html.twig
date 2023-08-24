@@ -1,0 +1,41 @@
+<div>
+    <div class="article-info-secction">
+        <div class="article-info-title">
+            <h2>Article Information</h2>
+            <p>{% if volume %} vol. {{ volume }} {% endif %} {% if issue %} no. {{ issue }} {% endif %} </p>
+        </div>
+        <div class="article-info-data">
+            <p>
+                {% if doi %}
+                    DOI: {{ doi }}<br/>
+                {% endif %}
+                {% if journal_title %}
+                    Journal Title: {{ journal_title }}<br/>
+                {% endif %}
+                {% if doi_link %}
+                    DOI Link: {{ doi_link }}<br/>
+                {% endif %}
+                {% if volume %}
+                    Volume: {{ volume }}<br/>
+                {% endif %}
+                {% if date_released %}
+                    EPUB Date: {{ date_released }}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <hr class="solid">
+    <div class="author-info-section">
+        <div class="author-info-title">
+            <h2>Author Information</h2>
+        </div>
+        <div class="author-info-data">
+            {% if authors_name %}
+                {% for item in authors_name %}
+                    <div class="tooltip-author">{{ item }}<span class="tooltiptext-author">{{ item }}</span></div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <hr class="solid">
+</div>

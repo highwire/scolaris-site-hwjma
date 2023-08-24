@@ -1,0 +1,12 @@
+<div>
+    <div class="altmetrics-title">
+        <h2>{{ altmetric_title }}</h2>
+    </div>
+    <br>
+    <div class="altmetrics-section">
+    {% if altmetrics_data is not empty %}
+        {{ altmetrics_data|raw }}
+    {% endif %}
+    </div>
+<div>
+<hr class="solid">

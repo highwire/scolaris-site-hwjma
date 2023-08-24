@@ -1,0 +1,19 @@
+default_view: LastSixMonths
+date_filters:
+  ArticleLifetime: ArticleLifetime
+  LastSixMonths: LastSixMonths
+  ThisMonth: ThisMonth
+  ViewRange: ViewRange
+display_settings: '1'
+metric_types:
+  abstract: abstract
+  full: full
+  pdf: pdf
+  source: source
+  total: 0
+override_title: 'Usage statistics'
+altmetric_statistics_tag: '<div data-badge-details="right" data-badge-type="medium-donut" [PUBCODE] data-hide-no-mentions="true" class="altmetric-embed"></div>'
+altmetric_override_title: 'Statistics from Altmetric.com'
+empty_text: 'No statistics are available.'
+default_source_name: Highwire
+display_grand_total: 1

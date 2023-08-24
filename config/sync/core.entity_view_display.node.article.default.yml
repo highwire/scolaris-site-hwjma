@@ -22,6 +22,11 @@ targetEntityType: node
 bundle: article
 mode: default
 content:
+  addtoany:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   body:
     type: text_default
     weight: 0
@@ -60,4 +65,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  ccc_permissions_link: true
+  hwjma_focus_view: true
+  hwjma_toc_pager: true
+  langcode: true
+  prev_next_pager: true

@@ -1,0 +1,23 @@
+journal_article_detail.content:
+  path: '/journal_article_detail' 
+  defaults: 
+    _controller: '\Drupal\journal_article_detail\Controller\JournalArticleDetailController::content' 
+    _title: 'Hello World'
+  requirements: 
+    _permission: 'access content'
+journal_article_detail.altmetrics_data:
+  path: '/content/{corpus}/most-shared-altmetrics' 
+  defaults: 
+    _controller: '\Drupal\journal_article_detail\Controller\MostSharedAltmetric::content' 
+    _title: 'Altmetric Data'
+  requirements: 
+    _permission: 'access content'
+journal_article_detail.usage_stats_settings_form:
+  path: '/admin/config/highware/usage_stats_settings'
+  defaults:
+    _form: '\Drupal\journal_article_detail\Form\UsageStatsSettingsForm'
+    _title: 'UsageStatsSettingsForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

@@ -1,0 +1,26 @@
+altmetrics:
+  version: VERSION
+  js:
+    https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js:
+      { type: external, minified: true, attributes: { type: text/javascript } }
+
+highchartjs:
+  version: VERSION
+  js:
+    https://code.highcharts.com/highcharts.js:
+      { type: external, attributes: { type: text/javascript } }
+
+usagestatsdata:
+  version: VERSION
+  js:
+    js/highchartbar.js: {}
+
+altmetrics_style:
+  css:
+    theme:
+      css/altmetrics-style.css: {}
+
+tooltip_popup:
+  css:
+    theme:
+      css/tooltip_popup.css: {}

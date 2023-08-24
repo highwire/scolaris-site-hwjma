@@ -39,4 +39,5 @@ hidden:
   field_sigma_license_data: true
   field_sigma_organization_name: true
   field_sigma_user_type: true
+  langcode: true
   user_picture: true

@@ -1,0 +1,25 @@
+uuid: ac40cdea-65ca-4384-9059-f102e191dba2
+langcode: en
+status: true
+dependencies: {  }
+id: variant_full_text_pdf
+label: 'Variant Full Text PDF'
+description: 'Access to full text PDF for scolaris-journal content'
+rule_type: file
+role: full-text
+scope: download
+target: variant
+language: en
+content_type: application/pdf
+file_field: variant_full_text_pdf
+file_field_bundles:
+  journal: journal
+  journal_article: journal_article
+  journal_fragment: journal_fragment
+  journal_issue: journal_issue
+  journal_volume: journal_volume
+  relationship: relationship
+ac_denied_action: source_redirect
+ac_denied_action_conf: {  }
+ac_denied_message: ''
+concurrency_limit_message: ''

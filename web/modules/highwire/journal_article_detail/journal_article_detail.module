@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * @file
+ * Core HWJMA Site module
+ */
+use Drupal\node\Entity\NodeType;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\Core\Url;
+use HighWire\Utility\Str;
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\highwire_content\HighWireContent;
+use Drupal\views\Element\View;
+use Drupal\views\Views;
+use Drupal\Core\Cache\Cache;
+
+define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
+
+/**
+* Implements hook_entity_extra_field_info().
+*/
+function journal_article_detail_entity_extra_field_info() {
+  $fields = [];
+  // Display-only fields for HighWire content types.
+  foreach (NodeType::loadMultiple() as $bundle) {
+    $node_type = $bundle->Id();
+    if ($node_type == HW_NODE_TYPE_JOURNAL_ARTICLE) {
+    // JCOREX-101 Info and Metrics tab  
+    $fields['node'][$node_type]['display']['hwjma_info_metrics_tab'] = [
+      'label' => t('Info & Metrics'),
+       'description' => t('Info & Metrics tab'),
+       'visible' => FALSE,
+     ];
+	  // Add Altmetrics.
+	  $fields['node'][$node_type]['display']['hwjma_altmetrics'] = [
+		'label' => t('Altmetrics'),
+		'description' => t('Show / altmetrics.'),
+		'visible' => FALSE,
+	  ];
+    //Usage Stats
+    $fields['node'][$node_type]['display']['hwjma_usage_stats'] = [
+      'label' => t('HWJMA Usage Stats'),
+      'description' => t('Usage Statistics Table'),
+      'weight' => 100,
+      'visible' => FALSE,
+    ];
+  }
+ }
+ return $fields;
+}
+
+/**
+* Implements hook_ENTITY_TYPE_view().
+*/
+function journal_article_detail_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if (!HighWireContent::isHighWire($entity)) {
+    return;
+  }
+  $corpus = $entity->hasField('corpus') && !$entity->get('corpus')->isEmpty() ? $entity->get('corpus')->getString() : '';
+  $content_type = $entity->bundle();
+  if ($content_type == HW_NODE_TYPE_JOURNAL_ARTICLE) {
+	  // Add Info & Metrics.
+	  if ($display->getComponent('hwjma_info_metrics_tab')) {
+      $block_manager = \Drupal::service('plugin.manager.block');
+      $plugin_block = $block_manager->createInstance('hwjma_info_metrics_tab', []);
+      $plugin_block->setContextValue('node', $entity);
+      $render = $plugin_block->build();
+      if (!empty($render)) {
+        $build['hwjma_info_metrics_tab'] = $render;
+      }
+    }
+	  // Add the Altmetrics field
+    if ($display->getComponent('hwjma_altmetrics')) {
+      $block_manager = \Drupal::service('plugin.manager.block');
+      $plugin_block = $block_manager->createInstance('hwjma_altmetrics', []);
+      $plugin_block->setContextValue('node', $entity);
+      $render = $plugin_block->build();
+      if (!empty($render)) {
+        $build['hwjma_altmetrics'] = $render;
+      }
+    }
+    // Add the usage-stats pseudofield
+    if ($display->getComponent('hwjma_usage_stats')) {
+      // Get backend configurations for usage stats
+      $usageStatsConfig = \Drupal::config('journal_article_detail.settings');
+      $usageStatsDefaultView = $usageStatsConfig->get('default_view');
+      $usageStatsDateFilter = $usageStatsConfig->get('date_filters');
+      $override_title = $usageStatsConfig->get('override_title');
+      $usageMetricTypesFilter = $usageStatsConfig->get('metric_types');
+      $defaultViewFilter = $usageStatsConfig->get('default_view');
+      // Get avtive usage metric types
+      $usageMetricTypesArray = [];
+      foreach ($usageMetricTypesFilter as $key => $value) {
+        if (!empty($value)) {
+          $usageMetricTypesArray[] = $value;  
+        }
+      }
+      $filterTabData = '';
+      // Frontend tab filter values: Article lifetime, Last 6 Months, This Month
+      $filterTabValues = [
+        'ArticleLifetime' => 'Article Lifetime',
+        'LastSixMonths' => 'Last 6 Months',
+        'ThisMonth' => 'This Month'
+      ];
+      $fromDate = '';
+      $toDate = '';
+      // Set from and to date according to tab filter (tab Article lifetime, Last 6 Months, This Month)
+      if ($defaultViewFilter == 'LastSixMonths') {
+        $fromDate = date("Y-m-d", mktime(0, 0, 0, date("m")-6, date("d"), date("Y")));
+        $toDate = date("Y-m-d");
+      } elseif ($defaultViewFilter == 'ThisMonth') {
+        $fromDate = date("Y-m-01");
+        $toDate = date("Y-m-d");
+      }
+      $nid = $entity->get('nid')->getString();
+      // Prepare a tab/button/link for frontend (tab Article lifetime, Last 6 Months, This Month)
+      foreach ($usageStatsDateFilter as $key => $value) {
+          if (!empty($value) && !empty($filterTabValues[$value])) {
+            $filterTabData .= '<a id="'.$value.'" href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn-primary tab-margin usagestatstab js-form-submit form-submit use-ajax'. ($defaultViewFilter == $value ? " active" : "") .'">'.$filterTabValues[$value].'</a>';
+          }
+      }
+      $filter_tabs = '<div class="usage-stats-section"><div class="Usage-stats-title"><h2>'.$override_title.':</h2></div><div class="usage-stats-tabs"><p>'.$filterTabData.'</p></div></div>';
+      $build['hwjma_usage_stats']['custom_tabs'] = [
+          '#type' => 'markup',
+          '#markup' => $filter_tabs,
+      ];
+      // Prepare a custom date range form with date calender
+      if (isset($usageStatsDateFilter['ViewRange']) &&!empty($usageStatsDateFilter['ViewRange'])) {
+          $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\UsageStatsDateRangeForm', $nid);
+          $build['hwjma_usage_stats']['custom_form'] = $form;
+      }
+      $block_manager = \Drupal::service('plugin.manager.block');
+      $plugin_block = $block_manager->createInstance('hwjma_usage_stats', [
+        'query_type' => 'ArticleLifetime',
+        'views' => $usageMetricTypesArray,
+        'date_format' => 'custom',
+        'custom_date_format' => 'M Y',
+        'limit' => '',
+        'fromDate' => $fromDate,
+        'toDate' => $toDate,
+      ]);
+      $plugin_block->setContextValue('node', $entity);
+      $render = $plugin_block->build();
+      if (!empty($render)) {
+       $build['hwjma_usage_stats']['data'] = $render;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function journal_article_detail_theme() {
+  return [
+		'hwjma_info_metrics_tab' => [
+		  'variables' => ['journal_title' => NULL, 'authors_name' => NULL, 
+                      'doi' => NULL, 
+                      'doi_link' => NULL,
+                      'date_released' => NULL,
+                      'eissn' => NULL,
+                      'pissn' => NULL,
+                      'issue' => NULL,
+                      'volume' => NULL
+                    ],
+		],
+    'hwjma_alt_metrics' => [
+		  'variables' => ['altmetrics_data' => NULL, 'altmetric_title' => NULL],
+		],
+    'hwjma_usage_stats_data' => [
+      'variables' => ['filter_tabs' => NULL, 'usage_stats_data' => NULL, 'form_range' => NULL]
+    ],
+    'altmetrics_data' => [
+      'variables' => ['altmetrics_data' => NULL, 'altmetrice_setting' => NULL, 'pager' => NULL]
+    ]
+	];
+}
+
+function journal_article_detail_page_attachments_alter(array &$page) {
+  $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
+}
