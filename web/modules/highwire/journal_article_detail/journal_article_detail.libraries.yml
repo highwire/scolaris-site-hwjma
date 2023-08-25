@@ -29,4 +29,3 @@ jumptosection:
   version: VERSION
   js:
     js/jumptosection.js: {}
-    
