@@ -160,7 +160,6 @@ class JumpToSection extends Markup {
       '#title' => t('Abstract Link ID'),
       '#default_value' => $this->configuration['abstract_settings']['id'],
     ];
-    
     return $form;
   }
 
