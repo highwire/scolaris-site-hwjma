@@ -48,16 +48,10 @@ class JumpToSection extends Markup {
     $add_tab_items = [];
     $add_default_tab_items = [];
 
-    // Add content top link if select in UI backend configuration
-    if (!empty($config['include_content_top']) && !empty($config['content_top_settings']['title']) && !empty($config['content_top_settings']['id'])) {
-      $content_top_link = new Link(CoreMarkup::create($config['content_top_settings']['title']), Url::fromUserInput('#' . $config['content_top_settings']['id']));
-      $add_items['content_top'] = $content_top_link->toRenderable();
-    }
-
     // Add Article tab as a parent default tab
     $add_default_tab_items['article'] = [
       "#type" => "link",
-      "#title" => "Article",
+      "#title" => "Articles",
       "#url" => Url::fromUserInput('#edit-group-article-label'),
       "#attributes" => ['id'=> 'jump-article-label', 'data-jump-parent' => 'true', 'class' => 'edit-group-article-label'],
     ];
@@ -92,25 +86,37 @@ class JumpToSection extends Markup {
       "#url" => Url::fromUserInput('#edit-group-metrics-label'),
       "#attributes" => ['id'=> 'jump-metrics-label', 'data-jump-parent' => 'true', 'class' => 'edit-group-metrics-label'],
     ];
+
+    // Test sample tab after testing its remove
+    $add_tab_items['testdata'] = [
+      "#type" => "link",
+      "#title" => "testdata",
+      "#url" => Url::fromUserInput('#edit-group-testdata-label'),
+      "#attributes" => ['id'=> 'jump-testdata-label', 'data-jump-parent' => 'true', 'class' => 'edit-group-testdata-label'],
+    ];
     
+    // Prepare Article abstract sub items.
+    if (!empty($add_items) ) {
+      array_unshift(
+        $block[$apath]['#items'],
+        $add_items
+      );
+    }
+
     // Add class for Article sub heading links
     foreach ($block as $key => $value) {
+      
       $block[$key]['#attributes'] = ['class' => 'tab-margin-30'];
     }
-    
-    // Prepare Article link and Add sub items.
-    if (!empty($add_items)) {
+
+    // Prepare Article link
+    if (!empty($add_default_tab_items) ) {
       array_unshift(
         $block,
         [
           '#theme' => 'item_list',
           '#items' => $add_default_tab_items,
           '#context' => ['list_style' => 'highwire_content_nav'],
-        ],
-        [
-          '#theme' => 'item_list',
-          '#items' => $add_items,
-          '#attributes' => ['class' => 'tab-margin-30']
         ]
       );
     }
@@ -126,7 +132,6 @@ class JumpToSection extends Markup {
         ]
       );
     }
-
     return $block;
   }
 
@@ -164,33 +169,7 @@ class JumpToSection extends Markup {
       '#title' => t('Abstract Link ID'),
       '#default_value' => $this->configuration['abstract_settings']['id'],
     ];
-
-    // Content Top link settings.
-    $form['include_content_top'] = [
-      '#type' => 'checkbox',
-      '#title' => t('Include content top link'),
-      '#default_value' => $this->configuration['include_content_top'],
-    ];
-    $form['content_top_settings'] = [
-      '#type' => 'container',
-      '#tree' => TRUE,
-      '#states' => [
-        'visible' => [
-          ':input[name="settings[include_content_top]"]' => ['checked' => TRUE],
-        ],
-      ],
-    ];
-    $form['content_top_settings']['title'] = [
-      '#type' => 'textfield',
-      '#title' => t('Content Top Link Title'),
-      '#default_value' => $this->configuration['content_top_settings']['title'],
-    ];
-    $form['content_top_settings']['id'] = [
-      '#type' => 'textfield',
-      '#title' => t('Content Top Link ID'),
-      '#default_value' => $this->configuration['content_top_settings']['id'],
-    ];
-
+    
     return $form;
   }
 
@@ -199,7 +178,7 @@ class JumpToSection extends Markup {
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     parent::blockSubmit($form, $form_state);
-    foreach (['include_abstract', 'include_content_top', 'abstract_settings', 'content_top_settings'] as $field) {
+    foreach (['include_abstract', 'abstract_settings'] as $field) {
       $this->setConfigurationValue($field, $form_state->getValue($field));
     }
   }
