@@ -182,5 +182,4 @@ class JumpToSection extends Markup {
       $this->setConfigurationValue($field, $form_state->getValue($field));
     }
   }
-
 }
