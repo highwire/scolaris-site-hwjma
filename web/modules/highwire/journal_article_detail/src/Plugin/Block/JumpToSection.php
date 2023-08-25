@@ -86,14 +86,6 @@ class JumpToSection extends Markup {
       "#url" => Url::fromUserInput('#edit-group-metrics-label'),
       "#attributes" => ['id'=> 'jump-metrics-label', 'data-jump-parent' => 'true', 'class' => 'edit-group-metrics-label'],
     ];
-
-    // Test sample tab after testing its remove
-    $add_tab_items['testdata'] = [
-      "#type" => "link",
-      "#title" => "testdata",
-      "#url" => Url::fromUserInput('#edit-group-testdata-label'),
-      "#attributes" => ['id'=> 'jump-testdata-label', 'data-jump-parent' => 'true', 'class' => 'edit-group-testdata-label'],
-    ];
     
     // Prepare Article abstract sub items.
     if (!empty($add_items) ) {
