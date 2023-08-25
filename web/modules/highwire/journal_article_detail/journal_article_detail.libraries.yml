@@ -29,4 +29,6 @@ jumptosection:
   version: VERSION
   js:
     js/jumptosection.js: {}
-    
+  css:
+    theme:
+      css/jumptosection.css: {}   
