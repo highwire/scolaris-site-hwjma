@@ -105,7 +105,6 @@ class JumpToSection extends Markup {
 
     // Add class for Article sub heading links
     foreach ($block as $key => $value) {
-      
       $block[$key]['#attributes'] = ['class' => 'tab-margin-30'];
     }
 
@@ -182,5 +181,4 @@ class JumpToSection extends Markup {
       $this->setConfigurationValue($field, $form_state->getValue($field));
     }
   }
-
 }

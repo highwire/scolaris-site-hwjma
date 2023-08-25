@@ -31,4 +31,4 @@ jumptosection:
     js/jumptosection.js: {}
   css:
     theme:
-      css/jumptosection.css: {}   
+      css/jumptosection.css: {}
