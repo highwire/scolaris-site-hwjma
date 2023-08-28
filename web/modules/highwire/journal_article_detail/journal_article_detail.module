@@ -182,6 +182,8 @@ function journal_article_detail_theme() {
 }
 
 function journal_article_detail_page_attachments_alter(array &$page) {
+  // JCOREX-338: Author tooltip web/modules/highwire/journal_article_detail/css/tooltip_popup.css
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
+  // JOCREX-101: Jump to Section web/modules/highwire/journal_article_detail/css/jumptosection.css web/modules/highwire/journal_article_detail/js/jumptosection.js
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
 }
