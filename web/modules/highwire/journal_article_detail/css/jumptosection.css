@@ -1,4 +1,8 @@
 /* ----------------JUMP TO SECTION : JCOREX-101 ---------------- */
+.item-list__highwire_content_nav {
+    margin-bottom: auto !important;
+}
+
 .item-list__highwire_content_nav li {
     position: relative;
     padding: 10px;
