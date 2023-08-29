@@ -1,0 +1,74 @@
+/* ----------------JUMP TO SECTION : JCOREX-101 ---------------- */
+.item-list__highwire_content_nav {
+    margin-bottom: auto !important;
+}
+
+.item-list__highwire_content_nav li {
+    position: relative;
+    padding: 10px;
+    list-style-type: none;
+  }
+  
+  .item-list__highwire_content_nav li a {
+    color: gray;
+  }
+  
+  .item-list__highwire_content_nav li:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #D8D8D8;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-40%);
+  }
+  
+  .item-list__highwire_content_nav li:not(:last-child):after {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background: #D8D8D8;
+    position: absolute;
+    left: -8px;
+    top: 50%;
+  }
+  
+  .tab-margin-30 {
+    margin-left: 30px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  
+  .tab-margin-30 li {
+    position: relative;
+    padding: 10px;
+    list-style-type: none;
+  }
+  .tab-margin-30 li a {
+    color: gray;
+  }
+  
+  .tab-margin-30 li:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #D8D8D8;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-40%);
+  }
+  
+  .tab-margin-30 li:not(:last-child):after {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background: #D8D8D8;
+    position: absolute;
+    left: -8px;
+    top: 50%;
+  }
+  /* ----------------JUMP TO SECTION : JCOREX-101 End ---------------- */

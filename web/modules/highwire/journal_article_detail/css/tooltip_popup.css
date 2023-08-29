@@ -1,3 +1,4 @@
+/* ---------------- Author Tooltip : JCOREX-338 ---------------- */
 .tooltip-author {
   position: relative;
   display: inline-block;
@@ -43,3 +44,4 @@
 .tab-margin {
   margin: 10px;
 }
+/* ---------------- Author Tooltip : JCOREX-338 End ---------------- */
