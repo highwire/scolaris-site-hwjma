@@ -18,6 +18,9 @@ use Drupal\highwire_content\HighWireContent;
 use Drupal\views\Element\View;
 use Drupal\views\Views;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Component\Utility\Html;
 
 define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
 
@@ -46,6 +49,13 @@ function journal_article_detail_entity_extra_field_info() {
     $fields['node'][$node_type]['display']['hwjma_usage_stats'] = [
       'label' => t('HWJMA Usage Stats'),
       'description' => t('Usage Statistics Table'),
+      'weight' => 100,
+      'visible' => FALSE,
+    ];
+    //Email Article
+    $fields['node'][$node_type]['display']['email_article'] = [
+      'label' => t('Email Article'),
+      'description' => t('Email Article For Send Mail'),
       'weight' => 100,
       'visible' => FALSE,
     ];
@@ -150,6 +160,24 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
        $build['hwjma_usage_stats']['data'] = $render;
       }
     }
+    // Add Email Article
+    if ($display->getComponent('email_article')) {
+      $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
+      $emailArticleDisplay = $journalArticleDetailConfig->get('email_article_display');
+      $article_title = $entity->get('title')->getString();
+      // Prepare a custom date range form with date calender
+      if (isset($emailArticleDisplay) && !empty($emailArticleDisplay)) {
+        $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $article_title);
+        $build['email_article']['custom_form'] = $form;
+      }
+      $block_manager = \Drupal::service('plugin.manager.block');
+      $plugin_block = $block_manager->createInstance('email_article', []);
+      $plugin_block->setContextValue('node', $entity);
+      $render = $plugin_block->build();
+      if (!empty($render)) {
+        $build['email_article'] = $render;
+      }
+    }
   }
 }
 
@@ -177,6 +205,9 @@ function journal_article_detail_theme() {
     ],
     'altmetrics_data' => [
       'variables' => ['altmetrics_data' => NULL, 'altmetrice_setting' => NULL, 'pager' => NULL]
+    ],
+    'email_article' => [
+      'variables' => ['article_title' => NULL, 'article_title_link' => NULL, 'email_article_display' => NULL, 'custom_form' => NULL]
     ]
 	];
 }
@@ -184,4 +215,17 @@ function journal_article_detail_theme() {
 function journal_article_detail_page_attachments_alter(array &$page) {
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
+}
+
+function journal_article_detail_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+  switch ($key) {
+    case 'email_article':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('@title', array('@title' => $params['title']), $options);
+      $message['body'][] = Html::escape($params['message']);
+      break;
+  }
 }

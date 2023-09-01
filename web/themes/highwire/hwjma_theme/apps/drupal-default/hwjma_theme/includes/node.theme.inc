@@ -54,19 +54,20 @@ function hwjma_preprocess_node__journal_article__content_details(array &$variabl
 	$highwire_citations_download = $variables['elements']['highwire_citations_download'];
   $addtoany = $variables['elements']['addtoany'];
   $ccc_permissions_link = $variables['elements']['ccc_permissions_link'];
-  
   $hw_marker_sign_up = $variables['elements']['hw_marker_sign_up'];
   $hw_tag_sign_up = $variables['elements']['hw_tag_sign_up'];
   $hw_alerts_sign_up = $variables['elements']['hw_alerts_sign_up'];
   if (!empty($variables['elements']['variant_full_text_pdf']['#items']) && count($variables['elements']['variant_full_text_pdf']['#items']) > 0) {
     $pdf_summary = $variables['elements']['variant_full_text_pdf']['#items']->getValue('uri');
   }
+  $emailArticle = $variables['elements']['email_article'];
   $variables['hwjma_citations_download'] = $highwire_citations_download;
   $variables['addtoany'] = $addtoany;
 	$variables['ccc_permissions_link'] = $ccc_permissions_link;
   $variables['hw_marker_sign_up'] = $hw_marker_sign_up;
   $variables['hw_alerts_sign_up'] = $hw_alerts_sign_up;
   $variables['hw_tag_sign_up'] = $hw_tag_sign_up;
+  $variables['emailArticle'] = $emailArticle;
   if (!empty($pdf_summary[0]['uri'])) {
     $variables['variant_full_text_pdf'] = '/' . str_replace('sass://', 'content/', $pdf_summary[0]['uri']);
   }
