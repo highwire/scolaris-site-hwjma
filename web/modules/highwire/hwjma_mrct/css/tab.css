@@ -1,0 +1,15 @@
+/* Style the tab */
+.highwire-tabs-links ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.article__rightbar ul.highwire-tabs-links li a.is-active {
+  background-color: #1e5c80 !important;
+  color: #fff !important;
+}
+
+.article__rightbar ul.highwire-tabs-links li a {
+  text-decoration: none;
+}
+

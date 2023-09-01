@@ -1,0 +1,5 @@
+name: HWJMA MRCT
+description: Basic functionality for the HWJMA Most Read, Most Cited and Top Topics
+package: 'HWJMA'
+type: module
+core: 8.x
