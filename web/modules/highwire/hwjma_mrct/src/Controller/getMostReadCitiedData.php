@@ -14,42 +14,40 @@ class getMostReadCitiedData extends ControllerBase  {
   function getData ($corpus,$tab) {
     $build = [];
     $block_manager = \Drupal::service('plugin.manager.block');
-    $mostCited =  $block_manager->createInstance('highwire_most_cited_block', [
+    $mostCitedtotal =  $block_manager->createInstance('most_read_cited_block', [
       'read_cited' => $tab,
       'view_mode' => 'default',
       'label' => '',
       'corpus' => $corpus,
     ]);
     $reqpage = \Drupal::request()->query->get('page');
+    $page = pager_find_page();
     if(isset($reqpage)) {
-      $page = $reqpage;
+      $querypage = $page;
     } else {
-      $page = "";
+      $querypage = "";
     }
-    $citedData = $mostCited->build();
+    $citedData = $mostCitedtotal->build();
+    
     foreach($citedData['#items'] as $rows) {
       $node = $rows['#node'];
       $title = $node->get('title')->value;
       $nid = $node->get('nid')->value;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
-      $most_cited[$alias] =  $title;
+      $most_citedTotal[$alias] =  $title;
     }
-    $page = pager_find_page();
-    $num_per_page = 1;
-    pager_default_initialize(count($most_cited), $num_per_page);
+    $num_per_page = 3;
+    pager_default_initialize(count($most_citedTotal), $num_per_page);
     $mostCited1 =  $block_manager->createInstance('highwire_most_cited_block', [
       'read_cited' => $tab,
       'view_mode' => 'default',    
-      'limit' => 1,
-      'page' => $page,
+      'limit' => 3,
+      'page' => $querypage ,
       'label' => '',
       'corpus' => $corpus,
     ]);
     $citedData1 = $mostCited1->build();
-   // $service = \Drupal::service('hwjma_mrct.mostcitedread');
-   // echo $service->get_number(); 
-   // dump($service);
-   // echo $service->fetchmostcitedread();   
+   
     foreach($citedData1['#items'] as $rows) {
       $node = $rows['#node'];
       $title = $node->get('title')->value;
@@ -67,7 +65,7 @@ class getMostReadCitiedData extends ControllerBase  {
       $authors = $node->get('authors_full_name')->getValue();
       $author_names = [];
       foreach ($authors as $key => $value) {
-          $author_names[$key] = $value['value'];
+        $author_names[$key] = $value['value'];
       }
       $authors_name = $author_names;
       $authors=implode(' ',$authors_name);
@@ -81,7 +79,6 @@ class getMostReadCitiedData extends ControllerBase  {
                          'issue' => $issue , 'journal_title' => $journal_title , 'authors_full_name' => $authors
                         ];
     }
-   
     $build = [
       '#theme' => 'mostreadcited',
       '#mostreadcited' => $most_cited1,
