@@ -38,7 +38,7 @@ class getMostReadCitiedData extends ControllerBase  {
     }
     $num_per_page = 3;
     pager_default_initialize(count($most_citedTotal), $num_per_page);
-    $mostCited1 =  $block_manager->createInstance('highwire_most_cited_block', [
+    $mostCited1 =  $block_manager->createInstance('most_read_cited_block', [
       'read_cited' => $tab,
       'view_mode' => 'default',    
       'limit' => 3,

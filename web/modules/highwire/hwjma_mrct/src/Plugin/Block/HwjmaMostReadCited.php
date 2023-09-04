@@ -189,6 +189,8 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
    */
   public function build() {
     $config = $this->configuration;
+    $querypage = $config['page'];
+    
     $corpus = '';
     try {
       $node = $this->getContextValue('node');
@@ -212,7 +214,6 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
     else {
       
       if ($config['read_cited'] == 'most-cited') {
-
         try {
           $apaths = $this->staticfs->mostCited($corpus)->getData();
         }
@@ -221,7 +222,7 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
           return [];
         }
       }
-     
+
       if ($config['read_cited'] == 'most-read') {
         try {
           $apaths = $this->staticfs->mostRead($corpus)->getData();
@@ -236,7 +237,13 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
     }
 
     if (!empty($apaths) && $config['limit']) {
-      $apaths = array_slice($apaths, 0, $config['limit']);
+      if(empty($querypage)) {  
+        $apaths = array_slice($apaths, 0, $config['limit']);
+      } else {
+        $startp = $querypage*$config['limit'];
+        $apaths = array_slice($apaths, $startp, $config['limit']);
+      }
+      
     }
     if (empty($apaths)) {
       return [];
@@ -249,6 +256,7 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
       $this->logger->warning($e->getMessage());
       return [];
     }
+
     $nodes = Node::loadMultiple($nids);
     $pre_markup_cache = [];
     foreach ($nodes as $node) {
@@ -276,7 +284,6 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
     }
 
     highwire_markup_pre_fetch_markup($pre_markup_cache);
-
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
     $build_items = [];
     $cache_tags = [];
