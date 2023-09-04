@@ -1,0 +1,115 @@
+uuid: 65e90893-7d6a-4b54-90ca-639e1314393f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+    - core.entity_view_mode.block_content.most_features_highwire_tabs
+    - field.field.block_content.highwire_features_tabs.body
+    - field.field.block_content.highwire_features_tabs.field_most_citied
+    - field.field.block_content.highwire_features_tabs.field_most_read
+    - field.field.block_content.highwire_features_tabs.field_top_topics
+  module:
+    - block_field
+    - field_group
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+  field_group:
+    group_most_read_cited_topics:
+      children:
+        - group_most_read
+        - group_most_cited
+        - group_top_topics
+      parent_name: ''
+      weight: 0
+      format_type: highwire_tabs
+      format_settings:
+        id: most-read-cited
+        classes: most-read-cited-tabs
+        direction: vertical
+        ajax_markup:
+          ajax_markup_enabled: 1
+          active_tab_ajax_enabled: 0
+      label: 'Most Read Cited Topics'
+      region: content
+    group_most_cited:
+      children:
+        - field_most_citied
+      parent_name: group_most_read_cited_topics
+      weight: 21
+      format_type: highwire_tab
+      format_settings:
+        id: most-cited
+        classes: mainpanel
+        description: ''
+        active: 0
+        formatter: closed
+      label: 'Most Cited'
+      region: content
+    group_most_read:
+      children:
+        - field_most_read
+      parent_name: group_most_read_cited_topics
+      weight: 20
+      format_type: highwire_tab
+      format_settings:
+        id: most-read
+        classes: 'mainpanel '
+        description: ''
+        active: 1
+        formatter: closed
+      label: 'Most Read'
+      region: content
+    group_top_topics:
+      children:
+        - field_top_topics
+      parent_name: group_most_read_cited_topics
+      weight: 22
+      format_type: highwire_tab
+      format_settings:
+        id: most-top-topics
+        classes: most-top-topics-tabs
+        description: ''
+        active: 0
+        formatter: closed
+      label: 'Top Topics'
+      region: hidden
+id: block_content.highwire_features_tabs.most_features_highwire_tabs
+targetEntityType: block_content
+bundle: highwire_features_tabs
+mode: most_features_highwire_tabs
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_most_citied:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+  field_most_read:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+  field_top_topics:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+hidden:
+  langcode: true

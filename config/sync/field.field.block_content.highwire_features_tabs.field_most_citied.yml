@@ -1,0 +1,22 @@
+uuid: 79ebd3fb-1ee5-4953-8576-d8fd5e79a1e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+    - field.storage.block_content.field_most_citied
+  module:
+    - block_field
+id: block_content.highwire_features_tabs.field_most_citied
+field_name: field_most_citied
+entity_type: block_content
+bundle: highwire_features_tabs
+label: 'Most Cited'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  plugin_ids: {  }
+field_type: block_field

@@ -1,0 +1,23 @@
+uuid: acc7d251-6266-4bf1-acd7-a3e8c4c61179
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.highwire_features_tabs.body
+field_name: body
+entity_type: block_content
+bundle: highwire_features_tabs
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

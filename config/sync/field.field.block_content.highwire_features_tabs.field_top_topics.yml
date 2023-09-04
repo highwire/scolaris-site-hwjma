@@ -1,0 +1,22 @@
+uuid: f7d8d3e9-f6b4-4d75-b169-702e3d8a5671
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+    - field.storage.block_content.field_top_topics
+  module:
+    - block_field
+id: block_content.highwire_features_tabs.field_top_topics
+field_name: field_top_topics
+entity_type: block_content
+bundle: highwire_features_tabs
+label: 'Top Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  plugin_ids: {  }
+field_type: block_field
