@@ -77,7 +77,7 @@ third_party_settings:
         active: 0
         formatter: closed
       label: 'Top Topics'
-      region: hidden
+      region: content
 id: block_content.highwire_features_tabs.most_features_highwire_tabs
 targetEntityType: block_content
 bundle: highwire_features_tabs

@@ -2,4 +2,8 @@ name: HWJMA MRCT
 description: Basic functionality for the HWJMA Most Read, Most Cited and Top Topics
 package: 'HWJMA'
 type: module
-core: 8.x
+core_version_requirement: ^8.9 || ^9 || ^10
+package: Custom
+version: 1.0
+dependencies:
+  - drupal:block_field
