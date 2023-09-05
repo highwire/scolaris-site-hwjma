@@ -193,10 +193,6 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
     
     $corpus = '';
     try {
-      $node = $this->getContextValue('node');
-     /* if ($node->hasField('corpus') && !$node->get('corpus')->isEmpty()) {
-        $corpus = $node->get('corpus')->getString();
-      } */
       $corpus = $config['corpus'];
     }
     catch (\Exception $e) {

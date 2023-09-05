@@ -52,11 +52,11 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
    */
   protected $staticfs;
 
-  /**
-   * Drupal default cache bin
-   *
-   * @var \Drupal\Core\Cache\CacheBackendInterface
-   */
+    /**
+     * Drupal default cache bin
+     *
+     * @var \Drupal\Core\Cache\CacheBackendInterface
+     */
   protected $cacheDefault;
 
   /**
@@ -128,8 +128,9 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
       '#default_value' => isset($config['corpus']) ? $config['corpus'] : '',
     ];
 
-      return $form;
+    return $form;
   }
+
   /**
    * {@inheritdoc}
    */
@@ -157,39 +158,35 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
     }
   }
 
- /**
- * {@inheritdoc}
- */
+  /**
+   * {@inheritdoc}
+   */
   public function build() {
     $config = $this->getConfiguration();
-    //dump($config);  
     $block_manager = \Drupal::service('plugin.manager.block');
     $plugin_block = $block_manager->createInstance('most_read_cited_block', [
       'read_cited' => 'most-read',
       'view_mode' => 'default',
       'limit' => $config['limit'],
-      'label' => '',
       'corpus' => $config['corpus'],
       ]);
     
-    $data = $plugin_block->build();
-    //dump($data);  
-      foreach($data['#items'] as $rows) {
-        $node = $rows['#node'];
-        $title = $node->get('title')->value;
-        $nid = $node->get('nid')->value;
-        $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
-        $most_read[$alias] =  $title;
-     }
-     $build = [];
-     $build = [
-       '#theme' => 'mostread',
-       '#most_read' => $most_read,
-     ];
-     $build['#attached']['library'][] = 'hwjma_mrct/mostread';
-     return $build;  
-   }
-   
+    $data = $plugin_block->build(); 
+    foreach($data['#items'] as $rows) {
+      $node = $rows['#node'];
+      $title = $node->get('title')->value;
+      $nid = $node->get('nid')->value;
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
+      $most_read[$alias] =  $title;
+    }
+    $build = [];
+    $build = [
+      '#theme' => 'mostread',
+      '#most_read' => $most_read,
+      '#corpus' => $config['corpus']
+    ];
+    $build['#attached']['library'][] = 'hwjma_mrct/mostread';
+    return $build;  
+    }   
 }
-
 

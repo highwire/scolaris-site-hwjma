@@ -12,20 +12,21 @@ function hwjma_mrct_theme($existing, $type, $theme, $path) {
     'mostread' => [
       'variables' => [
         'most_read' => NULL,
+        'corpus' => NULL
       ],
     ],
     'mostcitied' => [
       'variables' => [
         'most_cited' => NULL,
+        'corpus' => NULL,
       ],
     ],   
-     'mostreadcited' => [
+    'mostreadcited' => [
       'variables' => [
         'mostreadcited' => NULL,
-        'fpage' => NULL,
-        'lpage' => NULL,
         'pager' => NULL,
       ],
     ], 
   ];
  }
+
