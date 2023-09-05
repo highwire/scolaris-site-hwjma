@@ -1,4 +1,0 @@
-services:
-  hwjma_mrct.mostcitedread:
-    class: Drupal\hwjma_mrct\Mostcitedread
- 
