@@ -5,7 +5,7 @@ dependencies:
   config:
     - page_manager.page.node_view
   content:
-    - 'block_content:highwire_features_tabs:b260b3be-f9c3-44dd-be40-767ec91a8bdf'
+    - 'block_content:highwire_features_tabs:278c1f73-b912-41f6-837f-9347b5c6b363'
   module:
     - block_content
     - ctools
@@ -67,8 +67,8 @@ variant_settings:
       more_link_url: ''
       msg_no_data: 'No Altmetric data available.'
       context_mapping: {  }
-    56181926-5107-43e0-8b03-cb84e8f4032d:
-      id: 'block_content:b260b3be-f9c3-44dd-be40-767ec91a8bdf'
+    0513689c-0219-4fb9-a95d-98d8a72d60c8:
+      id: 'block_content:278c1f73-b912-41f6-837f-9347b5c6b363'
       label: 'Most Read Citied Topics'
       provider: block_content
       label_display: '0'
@@ -77,7 +77,7 @@ variant_settings:
       view_mode: most_features_highwire_tabs
       region: right
       weight: -2
-      uuid: 56181926-5107-43e0-8b03-cb84e8f4032d
+      uuid: 0513689c-0219-4fb9-a95d-98d8a72d60c8
       context_mapping: {  }
   id: panels_variant
   uuid: 9959ed8c-0ea0-4063-8de1-e06f7b1a5780
