@@ -18,6 +18,9 @@ use Drupal\highwire_content\HighWireContent;
 use Drupal\views\Element\View;
 use Drupal\views\Views;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Component\Utility\Html;
 
 define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
 
@@ -196,6 +199,9 @@ function journal_article_detail_theme() {
     ],
     'altmetrics_data' => [
       'variables' => ['altmetrics_data' => NULL, 'altmetrice_setting' => NULL, 'pager' => NULL]
+    ],
+    'email_article' => [
+      'variables' => ['article_title' => NULL, 'article_title_link' => NULL, 'email_article_display' => NULL, 'custom_form' => NULL]
     ]
 	];
 }
