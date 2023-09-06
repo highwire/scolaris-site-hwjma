@@ -12,7 +12,7 @@ use Drupal\node\Entity\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a block that displays Info & Metrics tab: JCOREX-102
+ * Provides a block that displays email article in form: JCOREX-343
  *
  * @Block(
  *  id = "email_article",
