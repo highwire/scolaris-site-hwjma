@@ -14,7 +14,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Class EmailArticleConfigForm.
  *
  * @package Drupal\journal_article_detail\Form
- * Use for Email Article backend configuration form : JCOREX-102
+ * Use for Email Article backend configuration form : JCOREX-343
  */
 class EmailArticleConfigForm extends ConfigFormBase {
 
@@ -46,10 +46,22 @@ class EmailArticleConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('email_article_display')) ? $config->get('email_article_display') : 0,
     );
 
+    $form['thanks_msg_display'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display Thanks Message'),
+      '#default_value' => !empty($config->get('thanks_msg_display')) ? $config->get('thanks_msg_display') : 0,
+    );
+
     $form['thanks_msg'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('thanks Message'),
+      '#title' => $this->t('Thanks Message'),
       '#default_value' => !empty($config->get('thanks_msg')) ? $config->get('thanks_msg') : '<p>Thank you for your interest in spreading the word on HWJMA.</p>',
+    );
+
+    $form['email_article_note_display'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display Email Article Note'),
+      '#default_value' => !empty($config->get('email_article_note_display')) ? $config->get('email_article_note_display') : 0,
     );
 
     $form['email_article_note'] = array(
@@ -58,10 +70,22 @@ class EmailArticleConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('email_article_note')) ? $config->get('email_article_note') : '<p>NOTE: We only request your email address so that the person you are recommending the page to knows that you wanted them to see it, and that it is not junk mail. We do not capture any email address.</p>',
     );
 
+    $form['message_subject_display'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display Message Subject'),
+      '#default_value' => !empty($config->get('message_subject_display')) ? $config->get('message_subject_display') : 0,
+    );
+
     $form['message_subject'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Message Subject'),
       '#default_value' => !empty($config->get('message_subject')) ? $config->get('message_subject') : '(Your Name) has sent you a message from HWJMA',
+    );
+
+    $form['message_body_display'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display Message Body'),
+      '#default_value' => !empty($config->get('message_body_display')) ? $config->get('message_body_display') : 0,
     );
 
     $form['message_body'] = array(
@@ -91,6 +115,10 @@ class EmailArticleConfigForm extends ConfigFormBase {
       ->set('email_article_note', $form_state->getValue('email_article_note'))
       ->set('message_subject', $form_state->getValue('message_subject'))
       ->set('message_body', $form_state->getValue('message_body'))
+      ->set('thanks_msg_display', $form_state->getValue('thanks_msg_display'))
+      ->set('email_article_note_display', $form_state->getValue('email_article_note_display'))
+      ->set('message_subject_display', $form_state->getValue('message_subject_display'))
+      ->set('message_body_display', $form_state->getValue('message_body_display'))
       ->save();
   }
 }

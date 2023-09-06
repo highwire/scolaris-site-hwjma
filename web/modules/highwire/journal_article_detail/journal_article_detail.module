@@ -167,15 +167,9 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
       $article_title = $entity->get('title')->getString();
       // Prepare a custom date range form with date calender
       if (isset($emailArticleDisplay) && !empty($emailArticleDisplay)) {
-        $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $article_title);
-        $build['email_article']['custom_form'] = $form;
-      }
-      $block_manager = \Drupal::service('plugin.manager.block');
-      $plugin_block = $block_manager->createInstance('email_article', []);
-      $plugin_block->setContextValue('node', $entity);
-      $render = $plugin_block->build();
-      if (!empty($render)) {
-        $build['email_article'] = $render;
+        $nid = $entity->get('nid')->getString();
+        $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $entity);
+        $build['email_article'] = $form;
       }
     }
   }
@@ -217,9 +211,12 @@ function journal_article_detail_page_attachments_alter(array &$page) {
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
   // JOCREX-101: Jump to Section web/modules/highwire/journal_article_detail/css/jumptosection.css web/modules/highwire/journal_article_detail/js/jumptosection.js
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
+  // JCOREX-343 Email Article web/modules/highwire/journal_article_detail/css/emailarticle.css
+  $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
 }
 
 function journal_article_detail_mail($key, &$message, $params) {
+  // Bind a mail params with message
   $options = array(
     'langcode' => $message['langcode'],
   );

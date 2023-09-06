@@ -11,6 +11,7 @@ use Drupal\Core\Ajax\HtmlCommand;
 
 /**
  * Provides the form for adding countries.
+ * Use for Email Article frontend form : JCOREX-343
  */
 class EmailArticleForm extends FormBase {
 
@@ -24,70 +25,92 @@ class EmailArticleForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $get_article_title = NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $node = NULL) {
+    $article_title = '';
+    $alias = '';
+    if (is_object($node)) {
+      $article_title = $node->get('title')->getString();
+      $nid = $node->id();
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
+    }
 
+    // Get email article configuration data
     $emailArticleConfig = \Drupal::config('journal_article_detail.settings');
+    $thanksMsgDisplay = $emailArticleConfig->get('thanks_msg_display');
     $thanksMsg = $emailArticleConfig->get('thanks_msg');
+    $emailArticleNoteDisplay = $emailArticleConfig->get('email_article_note_display');
     $emailArticleNote = $emailArticleConfig->get('email_article_note');
+    $messageSubjectDisplay = $emailArticleConfig->get('message_subject_display');
     $messageSubject = $emailArticleConfig->get('message_subject');
+    $messageBodyDisplay = $emailArticleConfig->get('message_body_display');
     $messageBody = $emailArticleConfig->get('message_body');
     
-    $form['thanksMsg'] = [
-      '#type' => 'markup',
-      '#markup' => $thanksMsg
-    ];
+    if ($thanksMsgDisplay) {
+      $form['thanksMsg'] = [
+        '#type' => 'markup',
+        '#markup' => $thanksMsg
+      ];
+    }
 
-    $form['emailArticleNote'] = [
-      '#type' => 'markup',
-      '#markup' => $emailArticleNote
-    ];
+    if ($emailArticleNoteDisplay) {
+      $form['emailArticleNote'] = [
+        '#type' => 'markup',
+        '#markup' => $emailArticleNote
+      ];
+    }
 
     $form['email'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Your Email*'),
+      '#title' => $this->t('Your Email <span class="form-item-required" title="This field is required.">*</span>'),
       '#required' => TRUE,
       '#maxlength' => 50,
-      '#default_value' =>  '',
     ];
 
     $form['name'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Your Name*'),
+      '#title' => $this->t('Your Name <span class="form-item-required" title="This field is required.">*</span>'),
       '#required' => TRUE,
       '#maxlength' => 20,
-      '#default_value' =>  '',
     ];
 
-	  $form['sendto'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Send To*'),
+    $form['sendto'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Send To <span class="form-item-required" title="This field is required.">*</span>'),
       '#required' => TRUE,
-      '#maxlength' => 50,
-      '#default_value' => '',
+      '#cols' => 50,
+      '#rows' => 5
     ];
 
-    $form['articleLink'] = [
+    $form['articleTitleDiv'] = [
       '#type' => 'markup',
-      '#markup' => '<div> You are going to email the following </div>' . $get_article_title
+      '#markup' => '<div class="div-text"> <span> You are going to email the following </span><p><a href="'.$alias.'">' .  $article_title . '</a></p></div>'
     ];
 
-    $form['messageSubject'] = [
-      '#type' => 'markup',
-      '#markup' => '<div> Message Subject </div>' . $messageSubject
-    ];
+    if ($messageSubjectDisplay) {
+      $form['messageSubject'] = [
+        '#type' => 'markup',
+        '#markup' => '<div class="div-text"> <span>  Message Subject </span> <p>' . $messageSubject .' </p> </div>'
+      ];
+    }
 
-    $form['messageBody'] = [
-      '#type' => 'markup',
-      '#markup' => '<div> Message Body </div>' . $messageBody
-    ];
+    if ($messageBodyDisplay) {
+      $form['messageBody'] = [
+        '#type' => 'markup',
+        '#markup' => '<div class="div-text"> <span> Message Body </span> <p>' . $messageBody . '</p> </div>'
+      ];
+    }
 
 	$form['messageText'] = array(
         '#type' => 'textarea',
         '#title' => $this->t('Your Personal Message'),
-        // '#default_value' => '',
         '#cols' => 50,
         '#rows' => 5
     );
+
+    $form['captchaLabel'] = [
+      '#type' => 'markup',
+      '#markup' => '<div class="div-text"> <span> CAPTCHA </span> <p> This question is for testing whether or not you are a human visitor and to prevent automated spam submissions. </p> </div>'
+    ];
 	
     $form['captcha'] = array(
       '#type' => 'captcha',
@@ -98,7 +121,8 @@ class EmailArticleForm extends FormBase {
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#button_type' => 'primary',
-      '#default_value' => $this->t('Send Message') ,
+      '#default_value' => $this->t('Send Message'),
+      '#attributes' => ['class' => ['btn btn-primary']],
     ];
 
     return $form;
@@ -108,47 +132,49 @@ class EmailArticleForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array & $form, FormStateInterface $form_state) {
-       $field = $form_state->getValues();
-	   
+    // Validation on required fields
+    $field = $form_state->getValues();
 		$fields["email"] = $field['email'];
 		if (!$form_state->getValue('email') || empty($form_state->getValue('email'))) {
-            $form_state->setErrorByName('email', $this->t('Provide Email'));
-        }
+        $form_state->setErrorByName('email', $this->t('Provide Email'));
+    }
   }
 
   /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Geting form data values
     $field = $form_state->getValues();
 		$fields["email"] = [$field['name'] => 'drupal-admin@highwire.org'];
 		$fields["name"] = $field['name'];
 		$fields["sendto"] = $field['sendto'];
 		$fields["message"] = $field['messageText'];
 
-        $mail_manager = \Drupal::service('plugin.manager.mail');
-        $params = [
-            'title' => $fields["name"] . ' has sent you a message from HWJMA',
-            'message' => $fields["message"],
-            'from' => $fields["email"]
-          ];
-        $result = $mail_manager->mail('journal_article_detail',
-            'email_article',
-            $fields["sendto"],
-            \Drupal::currentUser()->getPreferredLangcode(),
-            $params,
-            NULL,
-            TRUE);
-            drupal_set_message('Success');
-
-        if ($result['result'] != true) {
-            $message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
-            drupal_set_message($message, 'error');
-            \Drupal::logger('mail-log')->error($message);
-            return;
-        }
-        $message = t('An email notification has been sent to @email ', array('@email' => $fields["sendto"]));
-        drupal_set_message($message);
-        \Drupal::logger('mail-log')->notice($message);
+    // Get a drupal mail service
+    $mail_manager = \Drupal::service('plugin.manager.mail');
+    // Prepare mail params
+    $params = [
+        'title' => $fields["name"] . ' has sent you a message from HWJMA',
+        'message' => $fields["message"],
+        'from' => $fields["email"]
+    ];
+    // Send a mail
+    $result = $mail_manager->mail('journal_article_detail',
+        'email_article',
+        $fields["sendto"],
+        \Drupal::currentUser()->getPreferredLangcode(),
+        $params,
+        NULL,
+        TRUE);
+    // If mail not send then set error message
+    if ($result['result'] != true) {
+        $message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
+        drupal_set_message($message, 'error');
+        return;
+    }
+    // If mail send then set success message
+    $message = t('An email notification has been sent to @email ', array('@email' => $fields["sendto"]));
+    drupal_set_message($message);
   }
 }
