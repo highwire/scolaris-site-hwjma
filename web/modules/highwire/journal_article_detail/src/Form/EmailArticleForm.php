@@ -100,7 +100,7 @@ class EmailArticleForm extends FormBase {
       ];
     }
 
-	$form['messageText'] = array(
+    $form['messageText'] = array(
         '#type' => 'textarea',
         '#title' => $this->t('Your Personal Message'),
         '#cols' => 50,
