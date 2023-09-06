@@ -165,7 +165,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
       $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
       $emailArticleDisplay = $journalArticleDetailConfig->get('email_article_display');
       $article_title = $entity->get('title')->getString();
-      // Prepare a custom date range form with date calender
+      // Check email article display configuration is true then get a from
       if (isset($emailArticleDisplay) && !empty($emailArticleDisplay)) {
         $nid = $entity->get('nid')->getString();
         $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $entity);
