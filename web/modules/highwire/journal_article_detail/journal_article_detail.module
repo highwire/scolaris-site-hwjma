@@ -49,6 +49,13 @@ function journal_article_detail_entity_extra_field_info() {
       'weight' => 100,
       'visible' => FALSE,
     ];
+    //Email Article
+    $fields['node'][$node_type]['display']['email_article'] = [
+      'label' => t('Email Article'),
+      'description' => t('Email Article For Send Mail'),
+      'weight' => 100,
+      'visible' => FALSE,
+    ];
   }
  }
  return $fields;
@@ -150,6 +157,18 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
        $build['hwjma_usage_stats']['data'] = $render;
       }
     }
+    // Add Email Article
+    if ($display->getComponent('email_article')) {
+      $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
+      $emailArticleDisplay = $journalArticleDetailConfig->get('email_article_display');
+      $article_title = $entity->get('title')->getString();
+      // Prepare a custom date range form with date calender
+      if (isset($emailArticleDisplay) && !empty($emailArticleDisplay)) {
+        $nid = $entity->get('nid')->getString();
+        $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $entity);
+        $build['email_article'] = $form;
+      }
+    }
   }
 }
 
@@ -186,4 +205,20 @@ function journal_article_detail_page_attachments_alter(array &$page) {
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
   // JOCREX-101: Jump to Section web/modules/highwire/journal_article_detail/css/jumptosection.css web/modules/highwire/journal_article_detail/js/jumptosection.js
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
+  // JCOREX-343 Email Article web/modules/highwire/journal_article_detail/css/emailarticle.css
+  $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
+}
+
+function journal_article_detail_mail($key, &$message, $params) {
+  // Bind a mail params with message
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+  switch ($key) {
+    case 'email_article':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('@title', array('@title' => $params['title']), $options);
+      $message['body'][] = Html::escape($params['message']);
+      break;
+  }
 }
