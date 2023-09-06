@@ -1,0 +1,7 @@
+uuid: b9ba9735-6382-42fa-bedc-a076bd41124c
+langcode: en
+status: false
+dependencies: {  }
+formId: node_journal_info_form
+captchaType: default
+label: node_journal_info_form

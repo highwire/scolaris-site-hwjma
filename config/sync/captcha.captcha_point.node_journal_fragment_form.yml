@@ -1,0 +1,7 @@
+uuid: 6fd25af6-f1c1-4bfa-a9ac-b99015bd20f5
+langcode: en
+status: false
+dependencies: {  }
+formId: node_journal_fragment_form
+captchaType: default
+label: node_journal_fragment_form
