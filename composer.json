@@ -24,7 +24,8 @@
         "webflo/drupal-finder": "^1.0.0",
         "whichbrowser/parser": "^2.0",
         "zaporylie/composer-drupal-optimizations": "^1.0",
-        "drupal/structure_sync": "^2.0"
+        "drupal/structure_sync": "^2.0",
+        "drupal/recaptcha": "^3.2"
     },
     "require-dev": {
         "behat/behat": "^3.2",
