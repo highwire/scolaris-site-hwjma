@@ -204,11 +204,11 @@ function journal_article_detail_theme() {
  * Implements hook for page attachment labraries.
  */
 function journal_article_detail_page_attachments_alter(array &$page) {
-  // JCOREX-338: Author tooltip => web>modules>highwire>journal_article_detail>css>tooltip_popup.css
+  // JCOREX-338: Author tooltip css path => web>modules>highwire>journal_article_detail>css>tooltip_popup.css
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
-  // JOCREX-101: Jump to Section => web>modules>highwire>journal_article_detail>css>jumptosection.css web>modules>highwire>journal_article_detail>js>jumptosection.js
+  // JOCREX-101: Jump to Section css and js path => web>modules>highwire>journal_article_detail>css>jumptosection.css web>modules>highwire>journal_article_detail>js>jumptosection.js
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
-  // JCOREX-343 Email Article => web>modules>highwire>journal_article_detail>css>emailarticle.css
+  // JCOREX-343 Email Article css path => web>modules>highwire>journal_article_detail>css>emailarticle.css
   $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
 }
 
