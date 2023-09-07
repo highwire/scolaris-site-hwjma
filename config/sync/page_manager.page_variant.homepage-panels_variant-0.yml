@@ -34,17 +34,16 @@ variant_settings:
       label_display: '0'
       views_label: ''
       items_per_page: none
-      region: content_bottom
-      weight: -1
+      region: main
+      weight: 1
       uuid: 471e12e4-ae64-463a-9533-e0608fbb29ab
       context_mapping: {  }
   id: panels_variant
   uuid: 61258e05-3ba6-4019-be28-bc2b42b2717d
   label: null
   weight: 0
-  layout: hwjma_layout__front
-  layout_settings:
-    label: Homepage
+  layout: bs_1col
+  layout_settings: {  }
   page_title: Homepage
   storage_type: page_manager
   storage_id: homepage-panels_variant-0
