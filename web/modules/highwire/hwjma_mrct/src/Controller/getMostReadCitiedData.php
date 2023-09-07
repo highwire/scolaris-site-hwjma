@@ -8,13 +8,17 @@ use Drupal\views\Views;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\node\Entity\Node;
-use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Datetime\DrupalDateTime; // use for drupal date time
 class getMostReadCitiedData extends ControllerBase  {
-
+  /* return most cited and most read 
+   * we are passing corpus, most read 
+   * and most cited as argument.                                 
+  */
   function getData ($corpus,$tab) {
     $build = [];
     $block_manager = \Drupal::service('plugin.manager.block');
-    $mostCitedtotal =  $block_manager->createInstance('most_read_cited_block', [
+    /* Fetching total number of records for pagination.  */ 
+    $totalcount =  $block_manager->createInstance('most_read_cited_block', [
       'read_cited' => $tab,
       'view_mode' => 'default',
       'label' => '',
@@ -27,18 +31,20 @@ class getMostReadCitiedData extends ControllerBase  {
     } else {
       $querypage = "";
     }
-    $citedData = $mostCitedtotal->build();
+    $citedData = $totalcount->build();
     
     foreach($citedData['#items'] as $rows) {
       $node = $rows['#node'];
       $title = $node->get('title')->value;
       $nid = $node->get('nid')->value;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
-      $most_citedTotal[$alias] =  $title;
+      $total_record[$alias] =  $title;
     }
     $num_per_page = 3;
-    pager_default_initialize(count($most_citedTotal), $num_per_page);
-    $mostCited1 =  $block_manager->createInstance('most_read_cited_block', [
+    pager_default_initialize(count($total_record), $num_per_page);
+
+    /* Passing limit and per page for get data for pagination.  */
+    $mostCited =  $block_manager->createInstance('most_read_cited_block', [
       'read_cited' => $tab,
       'view_mode' => 'default',    
       'limit' => 3,
@@ -46,9 +52,9 @@ class getMostReadCitiedData extends ControllerBase  {
       'label' => '',
       'corpus' => $corpus,
     ]);
-    $citedData1 = $mostCited1->build();
-   
-    foreach($citedData1['#items'] as $rows) {
+    $citedData = $mostCited->build();
+    /* Fetching the data then create array to the pass twig.  */ 
+    foreach($citedData['#items'] as $rows) {
       $node = $rows['#node'];
       $title = $node->get('title')->value;
       $doi = $node->get('doi')->value;
@@ -70,18 +76,16 @@ class getMostReadCitiedData extends ControllerBase  {
       $authors_name = $author_names;
       $authors=implode(' ',$authors_name);
       $nid = $node->get('nid')->value;
-      $content_node = Node::load($nid);
-      $view_mode = 'content_details';
-      $content_details = render(\Drupal::entityTypeManager()->getViewBuilder('node')->view($content_node, $view_mode));
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
-      $most_cited1[] =  ['title' => $title , 'link' => $alias , 'date_epub' => $epubdate,
-                         'fpage' => $fpage, 'lpage' => $lpage , 'doi' => $doi , 'volume' => $volume ,
-                         'issue' => $issue , 'journal_title' => $journal_title , 'authors_full_name' => $authors
+      $most_readcited[] =  ['title' => $title , 'link' => $alias , 'date_epub' => $epubdate,
+                          'fpage' => $fpage, 'lpage' => $lpage , 'doi' => $doi , 'volume' => $volume ,
+                          'issue' => $issue , 'journal_title' => $journal_title , 'authors_full_name' => $authors
                         ];
     }
+    /* Passing the array to twig. */ 
     $build = [
       '#theme' => 'mostreadcited',
-      '#mostreadcited' => $most_cited1,
+      '#mostreadcited' => $most_readcited,
       '#fpage' => $fpage,
       '#lpage' => $lpage,
       '#pager' => [
