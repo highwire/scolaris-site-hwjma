@@ -9,7 +9,6 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\node\Entity\Node;
-use Drupal\Core\Database\Database;
 use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\Core\Url;
 use HighWire\Utility\Str;
@@ -18,8 +17,6 @@ use Drupal\highwire_content\HighWireContent;
 use Drupal\views\Element\View;
 use Drupal\views\Views;
 use Drupal\Core\Cache\Cache;
-use Drupal\Core\Mail\MailManagerInterface;
-use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Html;
 
 define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
@@ -52,7 +49,7 @@ function journal_article_detail_entity_extra_field_info() {
       'weight' => 100,
       'visible' => FALSE,
     ];
-    //Email Article
+    // JCOREX-343 => Email Article
     $fields['node'][$node_type]['display']['email_article'] = [
       'label' => t('Email Article'),
       'description' => t('Email Article For Send Mail'),
@@ -206,15 +203,21 @@ function journal_article_detail_theme() {
 	];
 }
 
+/**
+ * Implements hook for page attachment labraries.
+ */
 function journal_article_detail_page_attachments_alter(array &$page) {
-  // JCOREX-338: Author tooltip web/modules/highwire/journal_article_detail/css/tooltip_popup.css
+  // JCOREX-338: Author tooltip => web/modules/highwire/journal_article_detail/css/tooltip_popup.css
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
-  // JOCREX-101: Jump to Section web/modules/highwire/journal_article_detail/css/jumptosection.css web/modules/highwire/journal_article_detail/js/jumptosection.js
+  // JOCREX-101: Jump to Section => web/modules/highwire/journal_article_detail/css/jumptosection.css web/modules/highwire/journal_article_detail/js/jumptosection.js
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
-  // JCOREX-343 Email Article web/modules/highwire/journal_article_detail/css/emailarticle.css
+  // JCOREX-343 Email Article => web/modules/highwire/journal_article_detail/css/emailarticle.css
   $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
 }
 
+/**
+ * Implements hook_mail().
+ */
 function journal_article_detail_mail($key, &$message, $params) {
   // Bind a mail params with message
   $options = array(

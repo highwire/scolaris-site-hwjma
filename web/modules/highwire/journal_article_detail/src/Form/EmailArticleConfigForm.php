@@ -38,6 +38,7 @@ class EmailArticleConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    // Get all configuration settings of journal article detail
     $config = $this->config('journal_article_detail.settings');
     
     $form['email_article_display'] = array(

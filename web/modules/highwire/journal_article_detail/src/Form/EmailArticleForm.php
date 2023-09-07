@@ -4,10 +4,6 @@ namespace Drupal\journal_article_detail\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Database\Database;
-use Drupal\Core\Url;
-use Drupal\Core\Routing;
-use Drupal\Core\Ajax\HtmlCommand;
 
 /**
  * Provides the form for adding countries.
@@ -135,9 +131,13 @@ class EmailArticleForm extends FormBase {
     // Validation on required fields
     $field = $form_state->getValues();
 		$fields["email"] = $field['email'];
+    $fields["sendto"] = $field['sendto'];
 		if (!$form_state->getValue('email') || empty($form_state->getValue('email'))) {
-        $form_state->setErrorByName('email', $this->t('Provide Email'));
+        $form_state->setErrorByName('email', $this->t('Provide Your Email'));
     }
+    if (!$form_state->getValue('sendto') || empty($form_state->getValue('sendto'))) {
+      $form_state->setErrorByName('sendto', $this->t('Provide Send to Email'));
+  }
   }
 
   /**
@@ -153,7 +153,7 @@ class EmailArticleForm extends FormBase {
 
     // Get a drupal mail service
     $mail_manager = \Drupal::service('plugin.manager.mail');
-    // Prepare mail params
+    // Prepare mail params for send mail
     $params = [
         'title' => $fields["name"] . ' has sent you a message from HWJMA',
         'message' => $fields["message"],

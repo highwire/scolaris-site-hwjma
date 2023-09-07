@@ -88,7 +88,7 @@ class EmailArticle extends BlockBase implements ContainerFactoryPluginInterface 
     }
     $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
     $emailArticleDisplay = $journalArticleDetailConfig->get('email_article_display');
-    // Prepare a custom date range form with date calender
+    // Check email article display configuration is true then get a from
     if (isset($emailArticleDisplay) && !empty($emailArticleDisplay)) {
         $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $nid);
     }  
