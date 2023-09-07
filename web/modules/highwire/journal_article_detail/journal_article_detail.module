@@ -7,17 +7,14 @@
 use Drupal\node\Entity\NodeType;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\node\Entity\Node;
-use Drupal\Core\Database\Database;
-use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\Core\Url;
 use HighWire\Utility\Str;
-use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\highwire_content\HighWireContent;
 use Drupal\views\Element\View;
 use Drupal\views\Views;
 use Drupal\Core\Cache\Cache;
+use Drupal\Component\Utility\Html;
 
 define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
 
@@ -46,6 +43,13 @@ function journal_article_detail_entity_extra_field_info() {
     $fields['node'][$node_type]['display']['hwjma_usage_stats'] = [
       'label' => t('HWJMA Usage Stats'),
       'description' => t('Usage Statistics Table'),
+      'weight' => 100,
+      'visible' => FALSE,
+    ];
+    // JCOREX-343 => Email Article
+    $fields['node'][$node_type]['display']['email_article'] = [
+      'label' => t('Email Article'),
+      'description' => t('Email Article For Send Mail'),
       'weight' => 100,
       'visible' => FALSE,
     ];
@@ -150,6 +154,18 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
        $build['hwjma_usage_stats']['data'] = $render;
       }
     }
+    // Add Email Article
+    if ($display->getComponent('email_article')) {
+      $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
+      $emailArticleDisplay = $journalArticleDetailConfig->get('email_article_display');
+      $article_title = $entity->get('title')->getString();
+      // Check email article display configuration is true then get a from
+      if (isset($emailArticleDisplay) && !empty($emailArticleDisplay)) {
+        $nid = $entity->get('nid')->getString();
+        $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $entity);
+        $build['email_article'] = $form;
+      }
+    }
   }
 }
 
@@ -177,13 +193,38 @@ function journal_article_detail_theme() {
     ],
     'altmetrics_data' => [
       'variables' => ['altmetrics_data' => NULL, 'altmetrice_setting' => NULL, 'pager' => NULL]
+    ],
+    'email_article' => [
+      'variables' => ['article_title' => NULL, 'article_title_link' => NULL, 'email_article_display' => NULL, 'custom_form' => NULL]
     ]
 	];
 }
 
+/**
+ * Implements hook for page attachment labraries.
+ */
 function journal_article_detail_page_attachments_alter(array &$page) {
-  // JCOREX-338: Author tooltip web/modules/highwire/journal_article_detail/css/tooltip_popup.css
+  // JCOREX-338: Author tooltip css path => web>modules>highwire>journal_article_detail>css>tooltip_popup.css
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
-  // JOCREX-101: Jump to Section web/modules/highwire/journal_article_detail/css/jumptosection.css web/modules/highwire/journal_article_detail/js/jumptosection.js
+  // JOCREX-101: Jump to Section css and js path => web>modules>highwire>journal_article_detail>css>jumptosection.css web>modules>highwire>journal_article_detail>js>jumptosection.js
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
+  // JCOREX-343 Email Article css path => web>modules>highwire>journal_article_detail>css>emailarticle.css
+  $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
+}
+
+/**
+ * Implements hook_mail().
+ */
+function journal_article_detail_mail($key, &$message, $params) {
+  // Bind a mail params with message
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+  switch ($key) {
+    case 'email_article':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('@title', array('@title' => $params['title']), $options);
+      $message['body'][] = Html::escape($params['message']);
+      break;
+  }
 }

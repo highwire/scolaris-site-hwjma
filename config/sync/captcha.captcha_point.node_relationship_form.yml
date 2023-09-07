@@ -1,0 +1,7 @@
+uuid: 8425b8f0-ba1a-42d4-a9c1-cd3efaf2bf4c
+langcode: en
+status: false
+dependencies: {  }
+formId: node_relationship_form
+captchaType: default
+label: node_relationship_form

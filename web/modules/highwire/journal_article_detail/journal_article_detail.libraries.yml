@@ -32,3 +32,8 @@ jumptosection:
   css:
     theme:
       css/jumptosection.css: {}
+
+emailarticle:
+  css:
+    theme:
+      css/emailarticle.css: {}
