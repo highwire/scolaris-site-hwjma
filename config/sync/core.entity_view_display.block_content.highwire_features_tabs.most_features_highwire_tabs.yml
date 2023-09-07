@@ -86,21 +86,21 @@ content:
     type: block_field
     weight: 3
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
   field_most_read:
     type: block_field
     weight: 4
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
   field_top_topics:
     type: block_field
     weight: 4
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
