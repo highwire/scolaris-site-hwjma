@@ -7,12 +7,9 @@
 use Drupal\node\Entity\NodeType;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\node\Entity\Node;
-use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\Core\Url;
 use HighWire\Utility\Str;
-use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\highwire_content\HighWireContent;
 use Drupal\views\Element\View;
 use Drupal\views\Views;
