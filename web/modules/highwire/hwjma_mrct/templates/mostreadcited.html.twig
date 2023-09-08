@@ -1,8 +1,9 @@
+{# attching library #}
 {{ attach_library('hwjma_mrct/mostreadcitedtopics') }}
 <div id="mostreadcited">
   <ul>
     {% for  row in mostreadcited %}
-      <li><h5 class="article-section__heading"><a href="{{row.link}}">{{ row.title }}</a></h5><hr></li>
+      <li><h5 class="article-section__heading"><a href="{{row.link}}">{{ row.title }}</a></h5></li>
       <p class="article-section__author-sub">
         {{ row.authors_full_name }}
       </p>
@@ -13,4 +14,5 @@
 </ul>
   <div class="text-center altmetrics-pager">{{ pager }}</a> </div> 
 </div>
+
 

@@ -51,12 +51,11 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
    * @var \HighWire\Clients\Staticfs\Staticfs
    */
   protected $staticfs;
-
-    /**
-     * Drupal default cache bin
-     *
-     * @var \Drupal\Core\Cache\CacheBackendInterface
-     */
+  /**
+   * Drupal default cache bin
+   *
+   * @var \Drupal\Core\Cache\CacheBackendInterface
+   */
   protected $cacheDefault;
 
   /**
@@ -105,8 +104,9 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
   }
 
   /**
-     * @inheritdoc
-     */
+   * @inheritdoc
+   * Creating configuration form most read.
+   */
   public function blockForm($form, FormStateInterface $form_state) {
     $form = parent::blockForm($form, $form_state);
     $config = $this->getConfiguration();
@@ -118,16 +118,14 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
       '#description' => $this->t('Limit the number of articles rendered'),
       '#default_value' => isset($config['limit']) ? $config['limit'] : '',
     ];
-
     $form['corpus'] = [
       '#type' => 'textfield',
       '#multiple' => True,
       '#required' => TRUE,
       '#title' => $this->t('Corpus Code'),
-      '#description' => $this->t('If no node context is provided, you may instead manually provide a corpus code. You must either supply a node context or a corpus code. If both are supplied, the node-context takes precedence.'),
+      '#description' => $this->t('Provide a corpus code. You must either supply a node context or a corpus code. If both are supplied, the node-context takes precedence.'),
       '#default_value' => isset($config['corpus']) ? $config['corpus'] : '',
     ];
-
     return $form;
   }
 
@@ -160,6 +158,8 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
 
   /**
    * {@inheritdoc}
+   * Creating markup for most read. 
+   * Passing limit and corpus as argument.
    */
   public function build() {
     $config = $this->getConfiguration();
@@ -185,8 +185,7 @@ class MostRead extends BlockBase implements ContainerFactoryPluginInterface  {
       '#most_read' => $most_read,
       '#corpus' => $config['corpus']
     ];
-    $build['#attached']['library'][] = 'hwjma_mrct/mostread';
     return $build;  
-    }   
+  }   
 }
 

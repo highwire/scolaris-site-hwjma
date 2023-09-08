@@ -2,12 +2,11 @@
 
 /**
 * Implements hook_theme().
-*
 * We use hook_theme to define the templates used.
 */
 
 function hwjma_mrct_theme($existing, $type, $theme, $path) {
-  
+
   return [
     'mostread' => [
       'variables' => [

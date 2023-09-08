@@ -122,33 +122,35 @@ class MostCitied extends BlockBase implements ContainerFactoryPluginInterface  {
 
   /**
     * @inheritdoc
+    * Configurtion form for most cited.
   */
   public function blockForm($form, FormStateInterface $form_state) {
-  $form = parent::blockForm($form, $form_state);
-  $config = $this->getConfiguration();
-  $form['limit'] = [
-    '#type' => 'number',
-    '#multiple' => FALSE,
-    '#required' => TRUE,
-    '#title' => $this->t('Limit'),
-    '#description' => $this->t('Limit the number of articles rendered'),
-    '#default_value' => isset($config['limit']) ? $config['limit'] : '',
-  ];
+    $form = parent::blockForm($form, $form_state);
+    $config = $this->getConfiguration();
+    $form['limit'] = [
+      '#type' => 'number',
+      '#multiple' => FALSE,
+      '#required' => TRUE,
+      '#title' => $this->t('Limit'),
+      '#description' => $this->t('Limit the number of articles rendered'),
+      '#default_value' => isset($config['limit']) ? $config['limit'] : '',
+    ];
 
-  $form['corpus'] = [
-    '#type' => 'textfield',
-    '#multiple' => TRUE,
-    '#required' => TRUE,
-    '#title' => $this->t('Corpus Code'),
-    '#description' => $this->t('If no node context is provided, you may instead manually provide a corpus code. You must either supply a node context or a corpus code. If both are supplied, the node-context takes precedence.'),
-    '#default_value' => isset($config['corpus']) ? $config['corpus'] : '',
-  ];
+    $form['corpus'] = [
+      '#type' => 'textfield',
+      '#multiple' => TRUE,
+      '#required' => TRUE,
+      '#title' => $this->t('Corpus Code'),
+      '#description' => $this->t('If no node context is provided, you may instead manually provide a corpus code. You must either supply a node context or a corpus code. If both are supplied, the node-context takes precedence.'),
+      '#default_value' => isset($config['corpus']) ? $config['corpus'] : '',
+    ];
 
-  return $form;
+    return $form;
   }
 
   /**
    * @inheritdoc
+   * Passing limit and corpus
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     parent::blockSubmit($form, $form_state);
@@ -158,35 +160,37 @@ class MostCitied extends BlockBase implements ContainerFactoryPluginInterface  {
     }
   }
 
- /**
- * {@inheritdoc}
- */
+  /**
+  * @inheritdoc
+  * Building markup for most cited block.
+  * Passing limit and corpus as argument.
+  */
   public function build() {
-  $config = $this->getConfiguration();
-  $block_manager = \Drupal::service('plugin.manager.block');  
-  $plugin_block = $block_manager->createInstance('most_read_cited_block', [
-  'read_cited' => 'most-cited',
-  'view_mode' => 'default',
-  'limit' => $config['limit'],
-  'label' => '',
-  'corpus' => $config['corpus'],
-  ]);    
-  $data = $plugin_block->build();
-  foreach($data['#items'] as $rows) {
-  $node = $rows['#node'];
-  $title = $node->get('title')->value;
-  $nid = $node->get('nid')->value;
-  $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
-  $most_cited[$alias] =  $title;
-  }
-  $build = [];
-  $build = [
-  '#theme' => 'mostcitied',
-  '#most_cited' => $most_cited,
-  '#corpus' => $config['corpus']
-  ];
-  $build['#attached']['library'][] = 'hwjma_mrct/mostreadcitedtopics';
-  return $build;  
+    $config = $this->getConfiguration();
+    $block_manager = \Drupal::service('plugin.manager.block');  
+    $plugin_block = $block_manager->createInstance('most_read_cited_block', [
+      'read_cited' => 'most-cited',
+      'view_mode' => 'default',
+      'limit' => $config['limit'],
+      'label' => '',
+      'corpus' => $config['corpus'],
+    ]);    
+    $data = $plugin_block->build();
+    foreach($data['#items'] as $rows) {
+      $node = $rows['#node'];
+      $title = $node->get('title')->value;
+      $nid = $node->get('nid')->value;
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
+      $most_cited[$alias] =  $title;
+    }
+    $build = [];
+    $build = [
+      '#theme' => 'mostcitied',
+      '#most_cited' => $most_cited,
+      '#corpus' => $config['corpus']
+    ];
+    $build['#attached']['library'][] = 'hwjma_mrct/mostreadcitedtopics';
+    return $build;  
   }   
 }
 

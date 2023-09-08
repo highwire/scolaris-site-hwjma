@@ -120,77 +120,13 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
   }
 
   /**
-   * @inheritdoc
-   */
-  public function blockForm($form, FormStateInterface $form_state) {
-    $form = parent::blockForm($form, $form_state);
-    $config = $this->getConfiguration();
-
-    $form['read_cited'] = [
-      '#type' => 'select',
-      '#required' => TRUE,
-      '#multiple' => FALSE,
-      '#title' => $this->t('Most Read or Most Cited'),
-      '#options' => [
-        'most-read' => 'Most Read',
-        'most-cited' => 'Most Cited',
-      ],
-      '#default_value' => isset($config['read_cited']) ? $config['read_cited'] : 'most-read',
-    ];
-
-    $view_modes = $this->entityManager->getViewModes('node');
-    $view_modes_list = [];
-
-    foreach ($view_modes as $key => $view_mode) {
-      $view_modes_list[$key] = $view_mode['label'];
-    }
-
-    $form['view_mode'] = [
-      '#type' => 'select',
-      '#multiple' => FALSE,
-      '#title' => $this->t('View mode'),
-      '#description' => $this->t('What view mode to use to render the articles?'),
-      '#options' => $view_modes_list,
-      '#default_value' => isset($config['view_mode']) ? $config['view_mode'] : 'toc_list',
-    ];
-
-    $form['limit'] = [
-      '#type' => 'number',
-      '#multiple' => FALSE,
-      '#title' => $this->t('Limit'),
-      '#description' => $this->t('Limit the number of articles rendered'),
-      '#default_value' => isset($config['limit']) ? $config['limit'] : '',
-    ];
-
-    $form['corpus'] = [
-      '#type' => 'textfield',
-      '#multiple' => FALSE,
-      '#title' => $this->t('Optional: Corpus Code'),
-      '#description' => $this->t('If no node context is provided, you may instead manually provide a corpus code. You must either supply a node context or a corpus code. If both are supplied, the node-context takes precedence.'),
-      '#default_value' => isset($config['corpus']) ? $config['corpus'] : '',
-    ];
-
-    return $form;
-  }
-
-  /**
-   * @inheritdoc
-   */
-  public function blockSubmit($form, FormStateInterface $form_state) {
-    parent::blockSubmit($form, $form_state);
-    $values = $form_state->getValues();
-    foreach (['read_cited', 'view_mode', 'limit', 'corpus'] as $option) {
-      $this->configuration[$option] = $values[$option];
-    }
-  }
-
-  /**
    * {@inheritdoc}
+   * Building markup for both most cited and mostread.
    */
   public function build() {
     $config = $this->configuration;
-    $querypage = $config['page'];
-    
+    // Check page number for the pagination
+    $querypage = $config['page'];  
     $corpus = '';
     try {
       $corpus = $config['corpus'];
@@ -202,13 +138,13 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
       return [];
     }
 
-    // Get list of apaths
+    // Get list of apaths from cache
     $cache_key = serialize($config) . $corpus;
     if ($cache = $this->cacheDefault->get($cache_key)) {
       $apaths = $cache->data; 
     }
     else {
-      
+      // Fetching the data for most cited from staticfs
       if ($config['read_cited'] == 'most-cited') {
         try {
           $apaths = $this->staticfs->mostCited($corpus)->getData();
@@ -218,7 +154,7 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
           return [];
         }
       }
-
+      // Fetching the data for most read from staticfs
       if ($config['read_cited'] == 'most-read') {
         try {
           $apaths = $this->staticfs->mostRead($corpus)->getData();
@@ -228,7 +164,7 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
           return [];
         }
       }
-
+      // Storing apaths into cache
       $this->cacheDefault->set($cache_key, $apaths, time() + 86400);
     }
 
@@ -278,11 +214,17 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
         }
       }
     }
-
+     
+    /**
+    * Do a bulk markup request to prime the caches.
+    * @param array $data
+    * An array of data keyed by markup profile id and an array of apaths.
+    */
     highwire_markup_pre_fetch_markup($pre_markup_cache);
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
     $build_items = [];
     $cache_tags = [];
+    //Creating array to return to theme file
     foreach ($nodes as $node) {
       $build_items[] = $view_builder->view($node, $config['view_mode']);
       $cache_tags = $node->getCacheTags();
