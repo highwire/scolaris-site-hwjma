@@ -1,0 +1,24 @@
+uuid: c788d920-fea1-4b2b-a8f9-ee751bc99084
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+    - field.storage.block_content.field_most_read
+  module:
+    - block_field
+id: block_content.highwire_features_tabs.field_most_read
+field_name: field_most_read
+entity_type: block_content
+bundle: highwire_features_tabs
+label: 'Most Read'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids: {  }
+field_type: block_field

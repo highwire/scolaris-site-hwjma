@@ -1,0 +1,11 @@
+uuid: 671417b5-88bb-4d6b-83b6-2d89746e1afd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+id: block_content.highwire_features_tabs
+target_entity_type_id: block_content
+target_bundle: highwire_features_tabs
+default_langcode: site_default
+language_alterable: false
