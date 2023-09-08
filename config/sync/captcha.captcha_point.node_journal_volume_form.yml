@@ -1,0 +1,7 @@
+uuid: 8352d5af-e524-44cf-a730-97e5d899163f
+langcode: en
+status: false
+dependencies: {  }
+formId: node_journal_volume_form
+captchaType: default
+label: node_journal_volume_form
