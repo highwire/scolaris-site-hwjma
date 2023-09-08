@@ -1,0 +1,31 @@
+<?php
+
+/**
+* Implements hook_theme().
+* We use hook_theme to define the templates used.
+*/
+
+function hwjma_mrct_theme($existing, $type, $theme, $path) {
+
+  return [
+    'mostread' => [
+      'variables' => [
+        'most_read' => NULL,
+        'corpus' => NULL
+      ],
+    ],
+    'mostcitied' => [
+      'variables' => [
+        'most_cited' => NULL,
+        'corpus' => NULL,
+      ],
+    ],   
+    'mostreadcited' => [
+      'variables' => [
+        'mostreadcited' => NULL,
+        'pager' => NULL,
+      ],
+    ], 
+  ];
+ }
+

@@ -25,7 +25,8 @@
         "whichbrowser/parser": "^2.0",
         "zaporylie/composer-drupal-optimizations": "^1.0",
         "drupal/structure_sync": "^2.0",
-        "drupal/recaptcha": "^3.2"
+        "drupal/recaptcha": "^3.2",
+        "drupal/block_field": "^1.0@alpha",
     },
     "require-dev": {
         "behat/behat": "^3.2",
