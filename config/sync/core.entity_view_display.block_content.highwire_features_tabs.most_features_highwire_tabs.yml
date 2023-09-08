@@ -96,13 +96,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_top_topics:
-    type: block_field
-    weight: 4
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   body: true
+  field_top_topics: true
   langcode: true
