@@ -1,5 +1,0 @@
-hwjma_mrct.data:
-  path: '/content/{corpus}/{tab}'
-  defaults: { _controller: '\Drupal\hwjma_mrct\Controller\getMostReadCitiedData::getData' }
-  requirements:
-    _permission: 'access content'
