@@ -2,4 +2,4 @@ name: JOURNAL ARTICLE DETAIL
 description: All article detail page functionality
 package: 'JCOREX'
 type: module
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^8.8 || ^9 || ^10
