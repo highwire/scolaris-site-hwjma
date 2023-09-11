@@ -56,6 +56,13 @@ class getMostReadCitiedData extends ControllerBase  {
     /* Fetching the data then create array to the pass twig.  */ 
     foreach($citedData['#items'] as $rows) {
       $node = $rows['#node'];
+      //dump($node);
+      $pdf_url=$node->get('variant_full_text_pdf')->getValue()[0]['uri'];
+      if (!empty($pdf_url)) {
+        $variant_full_text_pdf_url  = '/' . str_replace('sass://', 'content/', $pdf_url);
+      } else {
+        $variant_full_text_pdf_url = '#';
+      }
       $title = $node->get('title')->value;
       $doi = $node->get('doi')->value;
       $journal_title = $node->get('journal_title')->value;
@@ -79,7 +86,8 @@ class getMostReadCitiedData extends ControllerBase  {
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
       $most_readcited[] =  ['title' => $title , 'link' => $alias , 'date_epub' => $epubdate,
                           'fpage' => $fpage, 'lpage' => $lpage , 'doi' => $doi , 'volume' => $volume ,
-                          'issue' => $issue , 'journal_title' => $journal_title , 'authors_full_name' => $authors
+                          'issue' => $issue , 'journal_title' => $journal_title , 
+                          'authors_full_name' => $authors , 'pdf_download' => $variant_full_text_pdf_url ,
                         ];
     }
     /* Passing the array to twig. */ 

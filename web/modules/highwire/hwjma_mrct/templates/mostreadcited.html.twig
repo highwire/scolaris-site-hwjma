@@ -10,9 +10,15 @@
       <p class="article-section__author-description">
         {{row.journal_title}} {{row.date_epub}} {{row.volume}}({{row.issue}}): {{ row.fpage }}-{{ row.lpage }}; DOI: https://doi.org/{{ row.doi}}
       </p>
+      <a href="{{row.link}}" class="article-section__view-article-btn">
+        View Article
+      </a>
+      <a href="{{row.pdf_download}}" target="pdfframe" class="article-section__view-article-btn">
+         <i class="bi bi-download"></i> Download PDF
+      </a>
+      <hr>
     {% endfor %}
 </ul>
   <div class="text-center altmetrics-pager">{{ pager }}</a> </div> 
 </div>
-
 
