@@ -210,6 +210,8 @@ function journal_article_detail_page_attachments_alter(array &$page) {
   $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
   // JCOREX-343 Email Article css path => web>modules>highwire>journal_article_detail>css>emailarticle.css
   $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
+  // JCOREX-342 Email Article js path => web>modules>highwire>journal_article_detail>js>articleprint.js
+  $page['#attached']['library'][] = 'journal_article_detail/articleprint';
 }
 
 /**
