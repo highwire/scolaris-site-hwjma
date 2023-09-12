@@ -64,6 +64,7 @@ class getMostReadCitiedData extends ControllerBase  {
         $variant_full_text_pdf_url = '#';
       }
       $title = $node->get('title')->value;
+      $nid = $node->get('nid')->value;
       $doi = $node->get('doi')->value;
       $journal_title = $node->get('journal_title')->value;
       $date_epub_original = $node->get('date_epub_original')->value;
@@ -75,6 +76,8 @@ class getMostReadCitiedData extends ControllerBase  {
       $issue_id = $node->get('slug')->value;
       $volume = $node->get('volume')->value;
       $issue = $node->get('issue')->value; 
+      $has_abstract = $node->get('has_abstract')->value;
+      $abstract_view = render(\Drupal::entityTypeManager()->getViewBuilder('node')->view($node, "abstract_content_view"));
       $authors = $node->get('authors_full_name')->getValue();
       $author_names = [];
       foreach ($authors as $key => $value) {
@@ -82,12 +85,13 @@ class getMostReadCitiedData extends ControllerBase  {
       }
       $authors_name = $author_names;
       $authors=implode(' ',$authors_name);
-      $nid = $node->get('nid')->value;
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
       $most_readcited[] =  ['title' => $title , 'link' => $alias , 'date_epub' => $epubdate,
                           'fpage' => $fpage, 'lpage' => $lpage , 'doi' => $doi , 'volume' => $volume ,
                           'issue' => $issue , 'journal_title' => $journal_title , 
                           'authors_full_name' => $authors , 'pdf_download' => $variant_full_text_pdf_url ,
+                          'show_abstract' => $has_abstract ,
+                          'show_abstract_markup' => $abstract_view ,
                         ];
     }
     /* Passing the array to twig. */ 

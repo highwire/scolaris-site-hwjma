@@ -23,3 +23,9 @@
 #mostcited ul li {
   padding-left:0px;
 }
+.show-mostcited-abstract {
+  display:none;
+}
+.action-download-most-citedread {
+  color:#d4431c;
+}

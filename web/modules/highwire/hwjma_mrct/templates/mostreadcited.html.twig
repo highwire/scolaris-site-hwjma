@@ -10,15 +10,26 @@
       <p class="article-section__author-description">
         {{row.journal_title}} {{row.date_epub}} {{row.volume}}({{row.issue}}): {{ row.fpage }}-{{ row.lpage }}; DOI: https://doi.org/{{ row.doi}}
       </p>
+      {% if row.show_abstract %} 
+           <a href="#" data-target="{{ row.fpage }}-{{ row.lpage }}" class="article-section__abstract-btn show-click-toggle">
+             Show abstract
+           </a>
+      {% endif %}
       <a href="{{row.link}}" class="article-section__view-article-btn">
         View Article
       </a>
-      <a href="{{row.pdf_download}}" target="pdfframe" class="article-section__view-article-btn">
+      <a href="{{row.pdf_download}}" target="pdfframe" class="action-download-most-citedread">
          <i class="bi bi-download"></i> Download PDF
       </a>
+      {% if row.show_abstract_markup is not empty %}
+        <div class="show-mostcited-abstract" id="{{ row.fpage }}-{{ row.lpage }}" >
+          {{ row.show_abstract_markup }}
+        </div>
+      {% endif %}
       <hr>
     {% endfor %}
 </ul>
+  
   <div class="text-center altmetrics-pager">{{ pager }}</a> </div> 
 </div>
 
