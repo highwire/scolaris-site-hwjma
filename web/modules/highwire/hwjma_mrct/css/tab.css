@@ -13,7 +13,9 @@
   content: " " !important;
   width: 0px !important;
 }
-
+#mostread ul li {
+  padding-left: 0px;
+}
 #mostcited ul li {
   padding-left: 0px;
 }
