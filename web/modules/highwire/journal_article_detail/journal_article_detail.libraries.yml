@@ -37,3 +37,8 @@ emailarticle:
   css:
     theme:
       css/emailarticle.css: {}
+
+articleprint:
+  version: VERSION
+  js:
+    js/articleprint.js: {}
