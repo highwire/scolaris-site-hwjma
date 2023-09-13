@@ -323,10 +323,10 @@ blocks:
       body: {  }
       field_most_cited:
         -
-          plugin_id: most_read_cited
+          plugin_id: most_read_cited_topics
           settings:
-            id: most_read_cited
-            label: 'Highwire Most Read'
+            id: most_read_cited_topics
+            label: 'Highwire Most Cited'
             provider: hwjma_mrct
             label_display: false
             limit: '3'
