@@ -130,7 +130,7 @@ content:
     type: hwmarkup_display_formatter
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
@@ -166,6 +166,7 @@ hidden:
   doi: true
   early_release: true
   elocation_id: true
+  email_article: true
   enclosures: true
   extract_policy: true
   final_published: true
@@ -186,8 +187,11 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
+  hwjma_altmetrics: true
   hwjma_focus_view: true
+  hwjma_info_metrics_tab: true
   hwjma_toc_pager: true
+  hwjma_usage_stats: true
   hwmd_abstract_article_: true
   hwmd_abstract_article_toc_: true
   hwmd_abstract_search_index_: true
