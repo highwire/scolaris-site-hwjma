@@ -180,10 +180,9 @@ class MostCitied extends BlockBase implements ContainerFactoryPluginInterface  {
       $node = $rows['#node'];
       $title = $node->get('title')->value;
       $nid = $node->get('nid')->value;
-      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' .$nid);
       $most_cited[$alias] =  $title;
     }
-    $build = [];
     $build = [
       '#theme' => 'mostcitied',
       '#most_cited' => $most_cited,

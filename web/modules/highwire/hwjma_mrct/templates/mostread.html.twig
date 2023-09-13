@@ -3,9 +3,11 @@
 <div id="mostread">
   <ul>
     {% for key, title in most_read %}
-      <li><a href="{{key}}">{{ title }}</a></br><hr></li>
+      <li> 
+        <a href="{{key}}">{{ title }} </a>
+        <hr>
+      </li>
     {% endfor %}
   </ul>
-    <a href="/content/{{corpus}}/most-read" class="nav-toggle">Read More</a>
+  <a href="/content/{{corpus}}/most-read" class="nav-toggle">Read More</a>
 </div>
-

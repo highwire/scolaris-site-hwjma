@@ -8,7 +8,8 @@
         {{ row.authors_full_name }}
       </p>
       <p class="article-section__author-description">
-        {{row.journal_title}} {{row.date_epub}} {{row.volume}}({{row.issue}}): {{ row.fpage }}-{{ row.lpage }}; DOI: https://doi.org/{{ row.doi}}
+        {{row.journal_title}} {{row.date_epub}} {{row.volume}}({{row.issue}}): {{ row.fpage }}-{{ row.lpage }}; 
+        DOI: https://doi.org/{{ row.doi}}
       </p>
       {% if row.show_abstract %} 
            <a href="#" data-target="{{ row.fpage }}-{{ row.lpage }}" class="article-section__abstract-btn show-click-toggle">
@@ -28,8 +29,7 @@
       {% endif %}
       <hr>
     {% endfor %}
-</ul>
+  </ul>
   
   <div class="text-center altmetrics-pager">{{ pager }}</a> </div> 
 </div>
-

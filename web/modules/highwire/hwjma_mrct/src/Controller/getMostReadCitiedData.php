@@ -40,6 +40,7 @@ class getMostReadCitiedData extends ControllerBase  {
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
       $total_record[$alias] =  $title;
     }
+    /* Hardcoding for now later we will manage using configuration.  */
     $num_per_page = 3;
     pager_default_initialize(count($total_record), $num_per_page);
 
@@ -47,7 +48,7 @@ class getMostReadCitiedData extends ControllerBase  {
     $mostCited =  $block_manager->createInstance('most_read_cited_block', [
       'read_cited' => $tab,
       'view_mode' => 'default',    
-      'limit' => 3,
+      'limit' => $num_per_page,
       'page' => $querypage ,
       'label' => '',
       'corpus' => $corpus,
@@ -68,8 +69,7 @@ class getMostReadCitiedData extends ControllerBase  {
       $doi = $node->get('doi')->value;
       $journal_title = $node->get('journal_title')->value;
       $date_epub_original = $node->get('date_epub_original')->value;
-      $epub_date_format = new DrupalDateTime($date_epub_original,'UTC' );
-      $epub_date_format->setTimezone(new \DateTimeZone('America/Chicago'));
+      $epub_date_format = new DrupalDateTime($date_epub_original);
       $epubdate = $epub_date_format->format('F j, Y');
       $fpage = $node->get('fpage')->value;
       $lpage = $node->get('lpage')->value;
@@ -83,8 +83,7 @@ class getMostReadCitiedData extends ControllerBase  {
       foreach ($authors as $key => $value) {
         $author_names[$key] = $value['value'];
       }
-      $authors_name = $author_names;
-      $authors=implode(' ',$authors_name);
+      $authors = implode(' ',$author_names);
       $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
       $most_readcited[] =  ['title' => $title , 'link' => $alias , 'date_epub' => $epubdate,
                           'fpage' => $fpage, 'lpage' => $lpage , 'doi' => $doi , 'volume' => $volume ,

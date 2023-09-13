@@ -169,13 +169,12 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
     }
 
     if (!empty($apaths) && $config['limit']) {
-      if(empty($querypage)) {  
+      if (empty($querypage)) {  
         $apaths = array_slice($apaths, 0, $config['limit']);
       } else {
-        $startp = $querypage*$config['limit'];
+        $startp = $querypage * $config['limit'];
         $apaths = array_slice($apaths, $startp, $config['limit']);
-      }
-      
+      }    
     }
     if (empty($apaths)) {
       return [];
@@ -248,5 +247,4 @@ class HwjmaMostReadCited extends BlockBase implements ContainerFactoryPluginInte
       ];
     }
   }
-
 }
