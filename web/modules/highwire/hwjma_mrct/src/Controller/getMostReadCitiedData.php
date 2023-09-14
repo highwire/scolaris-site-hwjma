@@ -83,8 +83,8 @@ class getMostReadCitiedData extends ControllerBase  {
       foreach ($authors as $key => $value) {
         $author_names[$key] = $value['value'];
       }
-      $authors = implode(' ',$author_names);
-      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
+      $authors = implode(' ', $author_names);
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'. $nid);
       $most_readcited[] =  ['title' => $title , 'link' => $alias , 'date_epub' => $epubdate,
                           'fpage' => $fpage, 'lpage' => $lpage , 'doi' => $doi , 'volume' => $volume ,
                           'issue' => $issue , 'journal_title' => $journal_title , 
