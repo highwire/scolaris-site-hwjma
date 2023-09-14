@@ -1,0 +1,10 @@
+uuid: 279a8e66-6524-4d47-9b2a-64fd02f9a749
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.most_features_highwire_tabs
+label: 'Most Features Highwire Tabs'
+targetEntityType: block_content
+cache: true

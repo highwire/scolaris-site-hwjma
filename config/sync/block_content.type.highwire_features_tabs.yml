@@ -1,0 +1,8 @@
+uuid: c9512383-ddff-43e5-adc8-5249d41f83fb
+langcode: en
+status: true
+dependencies: {  }
+id: highwire_features_tabs
+label: 'Highwire Features Tabs'
+revision: 0
+description: 'Highwire Features Tabs'

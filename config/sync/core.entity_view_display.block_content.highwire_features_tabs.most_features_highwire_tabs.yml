@@ -1,0 +1,100 @@
+uuid: c289aba6-3426-4cfd-a995-a1659987c6c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+    - core.entity_view_mode.block_content.most_features_highwire_tabs
+    - field.field.block_content.highwire_features_tabs.body
+    - field.field.block_content.highwire_features_tabs.field_most_cited
+    - field.field.block_content.highwire_features_tabs.field_most_read
+    - field.field.block_content.highwire_features_tabs.field_top_topics
+  module:
+    - block_field
+    - field_group
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+  field_group:
+    group_most_read_cited_topics:
+      children:
+        - group_most_read
+        - group_most_cited
+      parent_name: ''
+      weight: 0
+      format_type: highwire_tabs
+      format_settings:
+        id: 'Most Read Cited Topics'
+        classes: most-read-cited
+        direction: vertical
+        ajax_markup:
+          ajax_markup_enabled: 1
+          active_tab_ajax_enabled: 0
+      label: 'Most Read Cited Topics'
+      region: content
+    group_most_read:
+      children:
+        - field_most_read
+      parent_name: group_most_read_cited_topics
+      weight: 6
+      format_type: highwire_tab
+      format_settings:
+        id: most-read
+        classes: mainpanel
+        description: ''
+        active: 0
+        formatter: closed
+      label: 'Most Read'
+      region: content
+    group_most_cited:
+      children:
+        - field_most_cited
+      parent_name: group_most_read_cited_topics
+      weight: 8
+      format_type: highwire_tab
+      format_settings:
+        id: most-cited
+        classes: mainpanel
+        description: ''
+        active: 0
+        formatter: closed
+      label: 'Most Cited'
+      region: content
+    group_top_topics:
+      children: {  }
+      parent_name: ''
+      weight: 4
+      format_type: highwire_tab
+      format_settings:
+        id: most-top-topics
+        classes: most-top-topics-tabs
+        description: ''
+        active: 0
+        formatter: closed
+      label: 'Top Topics'
+      region: hidden
+id: block_content.highwire_features_tabs.most_features_highwire_tabs
+targetEntityType: block_content
+bundle: highwire_features_tabs
+mode: most_features_highwire_tabs
+content:
+  field_most_cited:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+  field_most_read:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+hidden:
+  body: true
+  field_top_topics: true
+  langcode: true

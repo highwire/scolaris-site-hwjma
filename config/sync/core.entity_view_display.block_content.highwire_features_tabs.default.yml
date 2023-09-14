@@ -1,0 +1,48 @@
+uuid: 5cab7ba3-48b8-41eb-bad9-fc735de39035
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.highwire_features_tabs
+    - field.field.block_content.highwire_features_tabs.body
+    - field.field.block_content.highwire_features_tabs.field_most_cited
+    - field.field.block_content.highwire_features_tabs.field_most_read
+    - field.field.block_content.highwire_features_tabs.field_top_topics
+  module:
+    - block_field
+    - text
+id: block_content.highwire_features_tabs.default
+targetEntityType: block_content
+bundle: highwire_features_tabs
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_most_cited:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+  field_most_read:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+  field_top_topics:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
+hidden:
+  langcode: true
