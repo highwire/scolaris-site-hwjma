@@ -33,6 +33,7 @@ module:
   elasticentityquery: 0
   entityqueue: 0
   facets: 0
+  facets_taxonomy_tree: 0
   field: 0
   field_group: 0
   field_ui: 0
