@@ -316,3 +316,27 @@ function hwjma_preprocess_block__mainpagecontent(&$variables) {
 	$variables['content']['#markup'] = t($temp_markup);
 }
 
+/**
+ * Process Keywords right sidebar block content
+ */
+function hwjma_preprocess_block__entity_field__node__test_type(&$variables) {
+  $journals_sidebar['items']['block_heading'] = $variables['label'];
+  $journals_sidebar['items']['show_test_type_block'] = TRUE;
+  $data_arr = $variables['content']['field']['#items'];
+  $journals_sidebar['items']['listing_items'] = array();
+  if (!empty($data_arr)) {
+    foreach ($data_arr as $dataKey => $data) {
+      $url_object = Url::fromUri('internal:/search');
+      $url_options['query'] = ['query' => ""];
+      $url_options['query']['f'][] = 'chapter_type:test-review-item-test-review';
+      $url_options['query']['f'][] = 'test_type:' . $data->getValue()['first'];
+      $url_object->setOptions($url_options);
+      $path = $url_object->toString();
+      $journals_sidebar['items']['listing_items'][$dataKey]['url'] = $path;
+      $journals_sidebar['items']['listing_items'][$dataKey]['title'] = $data->getValue()['first'];
+    }
+  } else {
+    $journals_sidebar['items']['show_test_type_block'] = FALSE;
+  }
+    $variables['journals_sidebar'] = $journals_sidebar;
+}

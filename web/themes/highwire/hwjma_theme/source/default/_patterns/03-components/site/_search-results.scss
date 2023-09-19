@@ -225,8 +225,8 @@
       margin-bottom: 10px;
     }
   }
-
-  .facets-widget-bpscheckbox_content_type {
+  
+  .facets-widget-hwjmacheckbox_content_type {
     & {
       border-bottom: 1px solid $info-light;
       padding-bottom: 5px;
@@ -317,12 +317,12 @@
     }
   }
 
-  .facets-widget-bps_include_all_checkbox_multiple {
+  .facets-widget-hwjma_include_all_checkbox_multiple {
     border-bottom: 1px solid $info-light;
-    &+.facets-widget-bpscheckbox_content_type {
+    &+.facets-widget-hwjmacheckbox_content_type {
       margin-bottom: 0;
       padding: 0;
-      .item-list__bpscheckbox_content_type {
+      .item-list__hwjmacheckbox_content_type {
         margin-bottom: 0;
       }
     }
@@ -357,12 +357,12 @@
     .modal-body {
       padding: 0 !important;
       overflow: visible;
-      .bps-checkbox-multiple-group {
+      .hwjma-checkbox-multiple-group {
         overflow: auto;
         max-height: 54vh;
         padding-left: 0;
       }
-      .bps-checkbox-multiple-facet {
+      .hwjma-checkbox-multiple-facet {
         list-style: none;
         padding: 0;
         margin: 0;
@@ -427,7 +427,7 @@
                 display: none;
               }
             }
-            .bps-checkbox-multiple-facet {
+            .hwjma-checkbox-multiple-facet {
               padding-left: 25px;
               border-bottom: 1px solid $info-light;
               padding-top: 5px;
@@ -449,7 +449,7 @@
           }
         }
 
-        .bps-facets-form-actions {
+        .hwjma-facets-form-actions {
           @extend .modal-footer;
           padding-bottom: 0;
 
@@ -489,7 +489,7 @@
   content: '\e931';
 }
 
-.facets-widget-bps-search-facets-daterange {
+.facets-widget-hwjma-search-facets-daterange {
   border-bottom: 1px solid $info-light;
 
   &.active {

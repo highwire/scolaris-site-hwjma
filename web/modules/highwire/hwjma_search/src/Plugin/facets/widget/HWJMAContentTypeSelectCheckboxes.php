@@ -16,7 +16,7 @@ use Drupal\facets\Result\ResultInterface;
  *   description = @Translation("A configurable widget that shows a list of checkboxes"),
  * )
  */
-class hwjmaContentTypeSelectCheckboxes extends LinksWidget {
+class HWJMAContentTypeSelectCheckboxes extends LinksWidget {
 
   /**
   * {@inheritdoc}
