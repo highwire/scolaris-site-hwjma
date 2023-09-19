@@ -80,7 +80,7 @@ jQuery(document).ready(function ($) {
   $(window).on( 'resize orientationchange', createSlick );
   
   // Search Result Date Range Toggle
-  $('.facets-widget-bps-search-facets-daterange .facet-modal-click').on('click', function (event) {
+  $('.facets-widget-hwjma-search-facets-daterange .facet-modal-click').on('click', function (event) {
     event.preventDefault();
     $(this).toggleClass('open');
     $(this).next('.facets-date-range').slideToggle();
@@ -114,8 +114,8 @@ jQuery(document).ready(function ($) {
   });
 
   // Search result popup filter wrap item
-  $('.bps-checkbox-multiple-facet').each(function() {
-    $(this).find('li.facet-item').wrapAll("<li><ul class='bps-checkbox-multiple-group' /></li>");
+  $('.hwjma-checkbox-multiple-facet').each(function() {
+    $(this).find('li.facet-item').wrapAll("<li><ul class='hwjma-checkbox-multiple-group' /></li>");
   });
 
 });

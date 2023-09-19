@@ -92,3 +92,27 @@ function hwjma_theme_suggestions_menu_alter(array &$suggestions, array $variable
     $suggestions[] = 'menu__' . $variables['menu_name'] . '__sidebar';
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function hwjma_theme_suggestions_facet_block_alter(array &$suggestions, array $variables) {
+  // Add different facet block styles for specific facets.
+  if (!empty($variables['facet_id'])) {
+    switch ($variables['facet_id']) {
+      case 'keywords':
+      case 'authors_full_name':
+      case 'member_network':
+      case 'article_type':
+      case 'publication_title':
+      case 'subject':
+      case 'content_type_facet':
+        $suggestions[] = 'facet_block__modal';
+        break;
+
+      case 'hwjma_search_date_filter':
+        $suggestions[] = 'facet_block__collapse';
+        break;
+    }
+  }
+}
