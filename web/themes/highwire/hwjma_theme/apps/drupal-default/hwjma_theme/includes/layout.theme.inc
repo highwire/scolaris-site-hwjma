@@ -31,6 +31,12 @@ function hwjma_theme(array $existing, $type, $theme, $path) {
       'template' => 'facet-block',
       'variables' => ['title' => '', 'facet' => '', 'contextual_links' => '', 'facet_id' => ''],
     ],
+    'facet_block__modal' => [
+      'base hook' => 'facet_block',
+    ],
+    'facet_block__collapse' => [
+      'base hook' => 'facet_block',
+    ],
   ];
 }
 
@@ -438,3 +444,46 @@ function hwjma_preprocess_menu__main__sidebar(&$variables) {
   // Add 'is_active' flag to active links.
   hwjma_preprocess_menu__sidebar($variables);
 }
+
+/**
+ * Implements hook_preprocess_THEME().
+ */
+function hwjma_preprocess_highwire_personalization_manage_saved_search(&$variables) {
+  // Add icon & class to myaccount label run.
+  if (!empty($variables['search_label']) && !empty($variables['execute_label']) && !empty($variables['search_link'])) {
+    $variables['search_link']['#title'] = [
+      'title' => [
+        '#markup' => $variables['search_label'],
+      ],
+      'icon' => [
+        '#type' => 'hwjma_icon',
+        '#icon' => 'search-o',
+        '#extra_classes' => 'fa-search',
+        '#prefix' => '<span class="saved-search-execute-label">',
+      ],
+      'execute_title' => [
+        '#markup' => $variables['execute_label'],
+        '#suffix' => '</span>',
+      ],
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess__THEME().
+ */
+function hwjma_preprocess_highwire_personalization_manage_marker(&$variables) {
+  $node = $variables['marker_link']['#node'];
+  if ($node == NULL) {
+    $nid = ($variables['marker_link']['#url'])->getrouteParameters()['node'];
+    $node = Node::load($nid);
+  }
+  if ($node) {
+    $variables = search_result($variables, $node);
+    $variables['result']['url'] = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $variables['result']['id']);
+    $variables['marker_link_date'] = $variables['element']['#created'];
+    $variables['marker_link'] = ($variables['element']['links']['#items']['delete']['#url'])->toString();
+    $variables['marker_popupdata'] = 'Are you sure remove your favourite ' . $variables['result']['title'] . '?';
+    $variables['modaltargetid'] = "favorite-action" . uniqid();
+  }
+} 

@@ -680,3 +680,255 @@ function hwjma_preprocess_node__journal_issue__issue_list_item(&$variables) {
 
   $variables['cover_date'] = $custom_meta;
 }
+
+/**
+ * Implements hook_preprocess__THEME().
+ */
+function hwjma_preprocess_node__search_result(&$variables) {
+  $node = $variables['node'];
+  if ($node !== NULL) {
+    $variables = search_result($variables, $node);
+  }
+}
+
+/**
+ * Function for search result
+ */
+function search_result($variables, $node) {
+  $content = $variables['content'];
+
+  $node_type = $node->getType();
+  $result = [];
+
+  // Add access icon placeholder.
+  $access_icon_placeholder = [
+    '#type' => 'access_icon_placeholder',
+    '#apath' => $node->get('apath')->getString(),
+    '#context' => $node_type . ':search_result',
+    '#access_icon' => 'hwjma_access_icon',
+  ];
+  $entity_type = 'node';
+  $view_mode = 'search_short_description';
+  $short_text = render(\Drupal::entityTypeManager()->getViewBuilder($entity_type)->view($node, $view_mode));
+
+  $access_icon_render = \Drupal::service('renderer')->render($access_icon_placeholder);
+  $variables['access_icon_placeholder'] = $access_icon_render;
+
+  // Add item id.
+  $result['id'] = $node->id();
+
+  // Add title & Link to content.
+  foreach (['label' => 'title', 'url' => 'url'] as $drupal => $pl) {
+    if (!empty($variables[$drupal])) {
+      $result[$pl] = $variables[$drupal];
+    }
+  }
+
+  // Add node fields.
+  $result += hwjma_get_node_fields($variables, ['subtitle' => 'subTitle']);
+
+  // Add type label
+  $result['type'] = hwjma_get_node_type_lable($node_type);
+
+  $title = $node->get('title_plain')->getString() ? $node->get('title_plain')->getString() : '';
+  $html_entity_decoded_title =  html_entity_decode($title);
+  $result['title'] = $html_entity_decoded_title;
+  // Grab node title for img alt attribute.
+  $img_alt_text = $node->get('title_plain')->value ? $node->get('title_plain')->value : HighWireContent::processTitle($node->get('title')->value);
+  $title_without_html = strip_tags($img_alt_text);
+  $result['img_alt_text'] = $title_without_html;
+  $result['short_description'] = $short_text;
+
+  // Add fields based on node type.
+  $theme_path = base_path() . drupal_get_path('theme', 'hwjma');
+
+  switch ($node_type) {
+    case HW_NODE_TYPE_BOOK:
+    case HW_NODE_TYPE_REFERENCE:
+      $result += hwjma_get_node_fields($variables, ['cover_image' => 'img', 'hwmd_abstract_book' => 'desc']);
+      break;
+    case in_array($node_type, HW_NODE_TYPE_BOOK_CHUNK):
+      $result['img'] = $theme_path . '/images/icon-chapter.svg';
+      $result += hwjma_get_node_fields($variables, ['parent_book' => 'source', 'hwmd_abstract_book' => 'desc']);
+      break;
+    case HW_NODE_TYPE_ARTICLE:
+      $result['img'] = $theme_path . '/images/icon-article.svg';
+      $result += hwjma_get_node_fields($variables, ['parent_journal' => 'source', 'hwmd_abstract_article_toc' => 'desc']);
+      break;
+    case HW_NODE_TYPE_CLINICAL_GUIDELINE:
+      $result['img'] = $theme_path . '/images/icon-guideline.svg';
+      $result += hwjma_get_node_fields($variables, ['parent_book' => 'source', 'hwmd_abstract_book' => 'desc']);
+      break;
+    case HW_NODE_TYPE_PRESCRIBING_GUIDELINE:
+      $result['img'] = $theme_path . '/images/icon-prescribing.svg';
+      $result += hwjma_get_node_fields($variables, ['parent_book' => 'source', 'hwmd_abstract_book' => 'desc']);
+      break;
+    case HW_NODE_TYPE_PATIENT_EDUCATION:
+      $result['img'] = $theme_path . '/images/icon-patient-education.svg';
+      $result += hwjma_get_node_fields($variables, ['parent_book' => 'source', 'hwmd_abstract_book' => 'desc']);
+      break;
+    case HW_NODE_TYPE_PROCEDURE:
+      $result['img'] = $theme_path . '/images/icon-procedure.svg';
+      $result += hwjma_get_node_fields($variables, ['parent_book' => 'source', 'hwmd_abstract_book' => 'desc']);
+      break;
+    case in_array($node_type, HW_NODE_TYPE_REFERENCE_CHUNK):
+      $result['img'] = $theme_path . '/images/icon-reference.svg';
+      $result += hwjma_get_node_fields($variables, ['parent_book' => 'source', 'hwmd_abstract_book' => 'desc']);
+      break;
+    case HW_NODE_TYPE_JOURNAL:
+      $result += hwjma_get_node_fields($variables, ['journal_current_issue' => 'img']);
+      $result += hwjma_get_node_pseudo_fields($variables, ['field_journal_description' => 'desc']);
+      if (!empty($result['img']) && !empty($variables['url'])) {
+        $result['img']['#prefix'] = '<a href="' . $variables['url'] . '">';
+        $result['img']['#suffix'] = '</a>';
+      }
+      break;
+    default:
+      break;
+  }
+
+  if ($node_type == HW_NODE_TYPE_ISSUE) {
+    $result += hwjma_get_node_fields($variables, ['variant_cover_image' => 'img', 'issue_title' => 'title', 'volume' => 'volume', 'issue' => 'issue',]);
+    $result += hwjma_get_node_pseudo_fields($variables, ['description' => 'desc']);
+    if (!empty($result['img']) && !empty($variables['url'])) {
+      $result['img']['#prefix'] = '<a href="' . $variables['url'] . '">';
+      $result['img']['#suffix'] = '</a>';
+    }
+  }
+
+  // Add cover placeholder for books / journals.
+  if ($node_type == HW_NODE_TYPE_BOOK || $node_type == HW_NODE_TYPE_JOURNAL) {
+    if (empty($result['img']) && !empty($variables['cover_placeholder'])) {
+      if (empty($variables['cover_placeholder']['#url']) && !empty($variables['url'])) {
+        $variables['cover_placeholder']['#url'] = $variables['url'];
+        $plain_title = strip_tags($variables['node']->getTitle());
+        $variables['cover_placeholder']['#sr_text'] = t('Go to @title', ['@title' => $plain_title]);
+      }
+      $result['img'] = $variables['cover_placeholder'];
+    }
+  }
+  $img_alt = '';
+  $img_title = '';
+  $media_url = '/themes/highwire/hwjma_theme/dist/app-drupal/assets/images/250X350.png';
+
+  if ($node_type == 'journal_article') {
+      $parent_journal = $node->get('parent_journal')->getValue();
+      $parent_journal_nid = $parent_journal[0]['target_id'];
+      if (!empty($parent_journal_nid)) {
+          $node = Node::load($parent_journal_nid);
+          $source_title = $node->getTitle();
+          $source_url = $node->toUrl()->toString();
+          $nid_journal_info = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+            'type' => 'journal_info',
+            'field_journal' => $node->id()]);
+            foreach ($nid_journal_info as $nid) {
+              $node = $nid;
+              $parent_journal_img = $node->get('field_journal_cover_image')->getValue();
+              $image_tid = $parent_journal_img[0]['target_id'];
+              if (!empty($image_tid)) {
+                $file = File::load($image_tid);
+                $path = $file->getFileUri();
+                $media_url = file_create_url($path);
+              }
+            }
+       }
+    }
+
+    if ($node_type == 'item_chapter') {
+      $nid = $node->id();
+      $options = ['absolute' => TRUE];
+      $url_object = Url::fromRoute('entity.node.canonical', ['node' => $nid], $options);
+      $chapter_url = $url_object->toString();
+      $parent = $node->get('parent')->getValue();
+      $parent_nid = $parent[0]['target_id'];
+      $parent_issue_url = null;
+        if (!empty($parent_nid)) {
+            $node = Node::load($parent_nid);
+            $url_object = Url::fromRoute('entity.node.canonical', ['node' => $parent_nid], $options);
+            $parent_url = $url_object->toString();
+        }
+      $source_title = $node->get('title')->getstring();
+      $source_url = $node->toUrl()->toString();
+    }
+
+  if($node->hasField('variant_cover_image') && !$node->get('variant_cover_image')->isEmpty()) {
+    $imagefield = $node->get('variant_cover_image')->getValue();
+    //check if node has image
+    if (!empty($imagefield)) {
+      $img_alt = $node->cover_image->alt;
+      $img_title = $node->cover_image->title;
+      $fileid = $imagefield[0]['target_id'];
+      if (!empty($fileid)) {
+        $file = File::load($fileid);
+        if (!empty($file)) {
+          $path = $file->getFileUri();
+          $media_url = file_create_url($path);
+        }
+      }
+    }
+  }
+  if($node->hasField('cover_image') && !$node->get('cover_image')->isEmpty()) {
+    $imagefield = $node->get('cover_image')->getValue();
+    //check if node has image
+    if (!empty($imagefield)) {
+      $img_alt = $node->cover_image->alt;
+      $img_title = $node->cover_image->title;
+      $fileid = $imagefield[0]['target_id'];
+      if (!empty($fileid)) {
+        $file = File::load($fileid);
+        if (!empty($file)) {
+          $path = $file->getFileUri();
+          $media_url = file_create_url($path);
+        }
+      }
+    }
+  }
+  if ($node_type == 'journal') {
+    $node_id = $node->id();
+    $info_nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+      'type' => 'journal_info',
+      'field_journal' => $node_id
+    ]);
+    $media_url = '/themes/highwire/hwjma_theme/dist/app-drupal/assets/images/250X350.png';
+    if (!empty($info_nodes)) {
+      $journal_info = reset($info_nodes);
+      if (!$journal_info->get('field_journal_cover_image')->isEmpty()) {
+        $node_cover_image = $journal_info->get('field_journal_cover_image')->getValue();
+        $image_tid = $node_cover_image[0]['target_id'];
+        if (!empty($image_tid)) {
+          $file = File::load($image_tid);
+          $path = $file->getFileUri();
+          $media_url = file_create_url($path);
+        }
+      }
+    }
+  }
+  $result['img'] = $media_url;
+  if ($source_title) {
+    $result['source'] = TRUE;
+    $result['source_title'] = $source_title;
+    $result['source_url'] = $source_url;
+  }
+  $variables['result'] = $result;
+  return $variables;
+}
+
+/**
+ * @file
+ * Functions to support theming node entities in the Particle theme.
+ */
+function hwjma_get_node_type_lable($key) {
+  $typeArry = [
+    'journal' => 'Journal',
+    'journal_article' => 'Journal Article',
+    'journal_fragment' => 'Journal Fragment',
+    'journal_issue' => 'Journal Issue',
+    'journal_volume' => 'Journal Volume',
+    'item_test_review' => 'Test Review',
+    'item_monograph' => 'Monograph',
+    'media' => 'Media',
+    'item_report_guideline' => 'Reports and Guidelines',
+    'item_chapter' => 'Chapter',
+  ];
+  return $typeArry[$key];
+}
