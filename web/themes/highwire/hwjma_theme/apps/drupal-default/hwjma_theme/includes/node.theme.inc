@@ -821,8 +821,7 @@ function search_result($variables, $node) {
           $nid_journal_info = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
             'type' => 'journal_info',
             'field_journal' => $node->id()]);
-          foreach ($nid_journal_info as $nid) {
-            $node = $nid;
+          foreach ($nid_journal_info as $node) {
             $parent_journal_img = $node->get('field_journal_cover_image')->getValue();
             $image_tid = $parent_journal_img[0]['target_id'];
             if (!empty($image_tid)) {
