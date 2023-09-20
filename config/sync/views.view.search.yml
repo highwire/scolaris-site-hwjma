@@ -55,14 +55,14 @@ display:
             first: '« First'
             last: 'Last »'
           expose:
-            items_per_page: false
+            items_per_page: true
             items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options: '10, 50, 100'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          quantity: 3
       style:
         type: default
         options:
@@ -74,8 +74,12 @@ display:
         options:
           view_modes:
             'entity:node':
-              journal_article: default
-              journal_issue: default
+              journal: search_result
+              journal_article: search_result
+              journal_fragment: default
+              journal_info: search_result
+              journal_issue: search_result
+              journal_volume: default
       fields:
         search_api_id:
           table: search_api_index_hwjma
@@ -266,6 +270,18 @@ display:
           expose:
             label: ''
           plugin_id: search_api
+        title_plain:
+          id: title_plain
+          table: search_api_index_hwjma
+          field: title_plain
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: Title
+          plugin_id: search_api
         date_ppub_facet:
           id: date_ppub_facet
           table: search_api_index_hwjma
@@ -319,6 +335,10 @@ display:
           max_links: 100
       path: search
       exposed_block: true
+      cache:
+        type: none
+      defaults:
+        cache: false
     cache_metadata:
       max-age: -1
       contexts:
