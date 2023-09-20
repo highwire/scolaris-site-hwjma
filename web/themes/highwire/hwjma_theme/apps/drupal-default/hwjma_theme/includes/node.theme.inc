@@ -821,16 +821,16 @@ function search_result($variables, $node) {
           $nid_journal_info = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
             'type' => 'journal_info',
             'field_journal' => $node->id()]);
-            foreach ($nid_journal_info as $nid) {
-              $node = $nid;
-              $parent_journal_img = $node->get('field_journal_cover_image')->getValue();
-              $image_tid = $parent_journal_img[0]['target_id'];
-              if (!empty($image_tid)) {
-                $file = File::load($image_tid);
-                $path = $file->getFileUri();
-                $media_url = file_create_url($path);
-              }
+          foreach ($nid_journal_info as $nid) {
+            $node = $nid;
+            $parent_journal_img = $node->get('field_journal_cover_image')->getValue();
+            $image_tid = $parent_journal_img[0]['target_id'];
+            if (!empty($image_tid)) {
+              $file = File::load($image_tid);
+              $path = $file->getFileUri();
+              $media_url = file_create_url($path);
             }
+          }
        }
     }
 
@@ -842,11 +842,11 @@ function search_result($variables, $node) {
       $parent = $node->get('parent')->getValue();
       $parent_nid = $parent[0]['target_id'];
       $parent_issue_url = null;
-        if (!empty($parent_nid)) {
-            $node = Node::load($parent_nid);
-            $url_object = Url::fromRoute('entity.node.canonical', ['node' => $parent_nid], $options);
-            $parent_url = $url_object->toString();
-        }
+      if (!empty($parent_nid)) {
+          $node = Node::load($parent_nid);
+          $url_object = Url::fromRoute('entity.node.canonical', ['node' => $parent_nid], $options);
+          $parent_url = $url_object->toString();
+      }
       $source_title = $node->get('title')->getstring();
       $source_url = $node->toUrl()->toString();
     }
