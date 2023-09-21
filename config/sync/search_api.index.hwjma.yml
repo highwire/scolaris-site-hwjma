@@ -8,11 +8,18 @@ dependencies:
     - search_api
     - highwire_search
   config:
+    - field.storage.node.apath
+    - field.storage.node.article_type
+    - field.storage.node.authors_full_name
+    - field.storage.node.chapter_type
     - field.storage.node.corpus
-    - field.storage.node.date_epub_version
     - field.storage.node.early_release
+    - field.storage.node.date_epub_version
     - field.storage.node.issue
+    - field.storage.node.journal_title
+    - field.storage.node.keywords
     - field.storage.node.date_ppub
+    - field.storage.node.title_plain
     - field.storage.node.version_current
     - field.storage.node.volume
     - search_api.server.hwjma_solr
@@ -44,6 +51,38 @@ name: HWJMA
 description: ''
 read_only: false
 field_settings:
+  apath:
+    label: Apath
+    datasource_id: 'entity:node'
+    property_path: apath
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.apath
+  article_type:
+    label: article-type
+    datasource_id: 'entity:node'
+    property_path: article_type
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.article_type
+  authors_full_name:
+    label: authors-full-name
+    datasource_id: 'entity:node'
+    property_path: authors_full_name
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.authors_full_name
+  chapter_type:
+    label: chapter-type
+    datasource_id: 'entity:node'
+    property_path: chapter_type
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.chapter_type
   corpus:
     label: Corpus
     datasource_id: 'entity:node'
@@ -84,6 +123,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.early_release
+  first:
+    label: 'keywords » Text'
+    datasource_id: 'entity:node'
+    property_path: 'keywords:first'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.keywords
   fulltext_search:
     label: 'Full Text Search'
     property_path: rendered_item
@@ -103,6 +150,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.issue
+  journal_title:
+    label: journal-title
+    datasource_id: 'entity:node'
+    property_path: journal_title
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.journal_title
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -111,6 +166,14 @@ field_settings:
     dependencies:
       module:
         - node
+  title_plain:
+    label: title-plain
+    datasource_id: 'entity:node'
+    property_path: title_plain
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.title_plain
   type:
     label: 'Content type'
     datasource_id: 'entity:node'
@@ -153,6 +216,16 @@ processor_settings:
   add_url: {  }
   aggregated_field: {  }
   freebird_search_substitute_date:
+    date_epub_version:
+      enabled: ''
+      target: ''
+      condition: ''
+      substitute: ''
+    date_ppub:
+      enabled: ''
+      target: ''
+      condition: ''
+      substitute: ''
     date_ppub_facet:
       enabled: 1
       target: journal_article
@@ -164,7 +237,11 @@ processor_settings:
   html_filter:
     all_fields: false
     fields:
+      - article_type
+      - authors_full_name
+      - first
       - fulltext_search
+      - journal_title
     title: true
     alt: true
     tags:
