@@ -102,10 +102,11 @@ function hwjma_theme_suggestions_facet_block_alter(array &$suggestions, array $v
     switch ($variables['facet_id']) {
       case 'keywords':
       case 'authors_full_name':
-      case 'member_network':
+      case 'volume':
       case 'article_type':
       case 'publication_title':
-      case 'subject':
+      case 'doi':
+      case 'issue_facet':
       case 'content_type_facet':
         $suggestions[] = 'facet_block__modal';
         break;
