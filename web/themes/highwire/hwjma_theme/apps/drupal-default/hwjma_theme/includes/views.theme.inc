@@ -154,6 +154,12 @@ function hwjma_preprocess_views_view__search__page(&$variables) {
   $facet_blocks = [
     'content_type_facet' => 'Include content types...',
     'author' => 'Author',
+    'keywords' => 'Keywords',
+    'article_type' => 'Article type',
+    'journal_title_facet' => 'Journal title',
+    'volume' => 'Volume',
+    'doi' => 'DOI',
+    'issue_facet' => 'Issue',
   ];
 
   $facets_render = [];
