@@ -234,14 +234,24 @@ function journal_article_detail_mail($key, &$message, $params) {
   }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
 function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Define the view IDs we want to target.
   $view_ids = ['past_issue'];
+
+  // Check if the current form is the exposed filter form of the 'past_issue' view.
   if ($form['#id'] == 'views-exposed-form-past-issue-page-1' && in_array($form_state->get('view')->id(), $view_ids)) {
+    // Attach a library to the form for styling or additional functionality.
     $form['#attached']['library'][] = 'journal_article_detail/pastissue';
+    
+    // Get the current path and extract the 'corpus' from it.
     $current_path = \Drupal::service('path.current')->getPath();
     $current_path_array = explode('/', $current_path);
     $corpus = $current_path_array[2];
 
+    // Query for journal volume information.
     $query = \Drupal::database()->select('node_field_data', 'n');
     $query->join('node__corpus', 'c', 'c.entity_id = n.nid');
     $query->fields('n', ['title']);
@@ -258,6 +268,7 @@ function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateIn
       }
     }
 
+    // Query for journal issue years.
     $date_query = \Drupal::entityQuery('node');
     $date_query->condition('type', 'journal_issue');
     $date_query->condition('status', 1);
@@ -300,41 +311,60 @@ function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateIn
       }
     }
 
+   // Add volume lists to the form.
    $form['volume_int']['#suffix'] = '<div class="vol-list">
                           <ul class="volumes-browser-slider">
                            '.$vol_id.'
                           </ul>
                         </div>';
 
+    // Add year lists to the form.
     $form['date_ppub_year']['#suffix'] = '<div class="year-list">
                           <ul class="year-browser-slider year-nav-tabs">
                             '.$year_id.'
                           </ul>
                           <div class="year-sub-slider">'.$ppub_years_array.'</div>
                         </div>';
+
+   // Add any additional HTML elements or content to the form.
    $form['#suffix'] = '<div class="past-issue-heading"></div>';
   }
 }
 
 /**
  * Implements hook_views_pre_view().
+ *
+ * This function is called before a view is executed and is used to modify the
+ * view's settings dynamically.
+ *
+ * @param ViewExecutable $view
+ *   The ViewExecutable object representing the view.
+ * @param string $display_id
+ *   The current display ID.
+ * @param array $args
+ *   An array of arguments passed to the view.
  */
 function journal_article_detail_views_pre_view(ViewExecutable $view, string $display_id, array $args) {
+  // Check if the current view is 'past_issue'.
   if ($view->id() == 'past_issue') {
+    // Get the current path.
     $current_path = \Drupal::service('path.current')->getPath();
     $current_path_array = explode('/', $current_path);
     $corpus = $current_path_array[2];
   
+    // Query for 'journal_issue' nodes based on type and 'corpus' for latest year.
     $date_query = \Drupal::entityQuery('node');
     $date_query->condition('type', 'journal_issue');
     $date_query->condition('status', 1);
     $date_query->condition ('corpus', $corpus);
     $year_result = $date_query->execute(); 
     if (!empty($year_result)) {
+      // Get the last journal issue node.
       $year_nids = array_keys($year_result);
       $highwire_last_issue = Node::load($year_nids[count($year_nids) - 1]);
       $highwire_journal_end_year = $highwire_last_issue->date_ppub->getValue()[0]['original'];
 
+      // Modify the view's exposed input to filter by the latest year.
       $end_year = (date("Y", strtotime($highwire_journal_end_year)));
       $exposed_input = $view->getExposedInput();
       $filters = $view->display_handler->getOption('filters');

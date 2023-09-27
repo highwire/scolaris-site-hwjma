@@ -211,6 +211,7 @@ function hwjma_preprocess_node__journal__content_details(&$variables) {
     $variables['pap_tabs']['#text'] = $variables['elements']['pap_alias']['#value'];
     $variables['pap_tabs']['#url'] = $pab_path;
   }
+  // Add past issue link button in journal page
   $past_issue_link = '/content/'.$corpus.'/past-issues';
 
   // creating variables for node template
