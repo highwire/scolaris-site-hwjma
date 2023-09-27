@@ -1,0 +1,179 @@
+
+.year-nav-tabs {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 0;
+	justify-content: center;
+}
+.year-nav-tabs li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.year-nav-tabs li.active {
+    border-bottom: 3px solid #ca2015;
+}
+.year-sub-tabs {
+    display: flex;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+	justify-content: center;
+}
+.year-sub-tabs li {
+    padding: 10px;
+}
+.year-sub-tabs  li.active {
+    border-bottom: 3px solid #ca2015;
+}
+.vol-list,
+.view-past-issue .form-item-volume-int, .view-past-issue .form-item-date-ppub-year,
+.view-past-issue .form-actions .btn.btn-search{ 
+   display:none;
+}
+ul.volumes-browser-slider {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 0;
+	justify-content: center;
+}
+ul.volumes-browser-slider li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+ul.volumes-browser-slider  li.active {
+    border-bottom: 3px solid #ca2015;
+}
+.show_cover .switch {
+	position: relative;
+	display: block;
+	width: 70px;
+	height: 30px;
+	padding: 3px;
+	margin: 0 10px 10px 0;
+	background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
+	border-radius: 18px;
+	box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	box-sizing:content-box;
+}
+.show_cover .switch-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	box-sizing:content-box;
+}
+.show_cover .switch-label {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 14px;
+	text-transform: uppercase;
+	background: #eceeef;
+	border-radius: inherit;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+	box-sizing:content-box;
+}
+.show_cover .switch-label:before, .switch-label:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -.5em;
+	line-height: 1;
+	-webkit-transition: inherit;
+	-moz-transition: inherit;
+	-o-transition: inherit;
+	transition: inherit;
+	box-sizing:content-box;
+}
+.show_cover .switch-label:before {
+	content: attr(data-off);
+	right: 11px;
+	color: #aaaaaa;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.show_cover .switch-label:after {
+	content: attr(data-on);
+	left: 11px;
+	color: #FFFFFF;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+}
+.show_cover .switch-input:checked ~ .switch-label {
+	background: #E1B42B;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.show_cover .switch-input:checked ~ .switch-label:before {
+	opacity: 0;
+}
+.show_cover .switch-input:checked ~ .switch-label:after {
+	opacity: 1;
+}
+.show_cover .switch-handle {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 28px;
+	height: 28px;
+	background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+	border-radius: 100%;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.show_cover .switch-handle:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -6px;
+	width: 12px;
+	height: 12px;
+	background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+	border-radius: 6px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+}
+.show_cover .switch-input:checked ~ .switch-handle {
+	left: 44px;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.show_cover .switch-label, .show_cover .switch-handle {
+	transition: All 0.3s ease;
+	-webkit-transition: All 0.3s ease;
+	-moz-transition: All 0.3s ease;
+	-o-transition: All 0.3s ease;
+}
+.past-issue-browse label.form-label {
+    font-weight: 700;
+}
+.view-past-issue .archive-issue-detail {
+    text-align: center;
+}
+.view-past-issue .archive-issue-detail a{
+	color: #006a8a;
+}
+.view-past-issue .issue-result-item.views-row {
+    display: inline-block;
+	padding: 20px 0 25px 25px;
+    margin-left: 20px;
+}
+.view-past-issue h3 {
+    color: #d4431c;
+}
+.view-past-issue .archive-issue-detail img {
+    width: 164px;
+    height: 220px;
+}
+.view-past-issue .issue-detail-title {
+    margin-top: 10px;
+}
+.archive-issue-detail.show-issue-img {
+	width: 260px;
+	display: inline-block;
+}

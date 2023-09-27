@@ -15,6 +15,9 @@ use Drupal\views\Element\View;
 use Drupal\views\Views;
 use Drupal\Core\Cache\Cache;
 use Drupal\Component\Utility\Html;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+
 
 define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
 
@@ -228,5 +231,114 @@ function journal_article_detail_mail($key, &$message, $params) {
       $message['subject'] = t('@title', array('@title' => $params['title']), $options);
       $message['body'][] = Html::escape($params['message']);
       break;
+  }
+}
+
+function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $view_ids = ['past_issue'];
+  if ($form['#id'] == 'views-exposed-form-past-issue-page-1' && in_array($form_state->get('view')->id(), $view_ids)) {
+    $form['#attached']['library'][] = 'journal_article_detail/pastissue';
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_path_array = explode('/', $current_path);
+    $corpus = $current_path_array[2];
+
+    $query = \Drupal::database()->select('node_field_data', 'n');
+    $query->join('node__corpus', 'c', 'c.entity_id = n.nid');
+    $query->fields('n', ['title']);
+    $query->condition ('n.type', 'journal_volume');
+    $query->condition ('c.bundle', 'journal_volume');
+    $query->condition ('c.corpus_value', $corpus);
+    $query->condition('n.status', '1');
+    $vol_result = $query->execute()->fetchCol();
+
+    $vol_id = '';
+    if(!empty($vol_result)){
+      foreach($vol_result as $val){
+        $vol_id .= '<li id="'.$val.'">'.$val.'</li>';
+      }
+    }
+
+    $date_query = \Drupal::entityQuery('node');
+    $date_query->condition('type', 'journal_issue');
+    $date_query->condition('status', 1);
+    $date_query->condition ('corpus', $corpus);
+    $year_result = $date_query->execute(); 
+
+    $year_nids = array_keys($year_result);
+    $highwire_first_issue = Node::load($year_nids[0]);
+    $highwire_last_issue = Node::load($year_nids[count($year_nids) - 1]);
+
+    $highwire_journal_start_year = $highwire_first_issue->date_ppub->getValue()[0]['original'];
+    $highwire_journal_end_year = $highwire_last_issue->date_ppub->getValue()[0]['original'];
+
+    $start_year = (date("Y", strtotime($highwire_journal_start_year)));
+    $end_year = (date("Y", strtotime($highwire_journal_end_year)));
+
+    $start_decade = (int) floor($start_year / 10) * 10;
+    $end_decade = (int) floor($end_year / 10) * 10;
+    $ppub_year = [];
+    while ($start_decade <= $end_decade) {
+      $parent_year = $start_decade . 's';
+      for ($i = $start_decade; $i < $start_decade + 10; $i++) {
+        if ($i >= $start_year && $i <= $end_year) {
+          $ppub_year[$parent_year][] = $i;
+        }
+      }
+      $start_decade = $start_decade + 10;
+    }
+
+    $year_id = '';
+    $ppub_years_array = '';
+    if(!empty($ppub_year)){
+      foreach($ppub_year as $k => $v){
+        $year_id .= '<li id="'.$k.'_year">'.$k.'</li>';
+        $ppub_years_array .= '<span class="year-child" id="'.$k.'"><ul class="year-sub-tabs">';
+        foreach($v as $year){
+          $ppub_years_array .= '<li id="'.$year.'">'.$year.'</li>';
+        }
+        $ppub_years_array .= '</ul></span>';
+      }
+    }
+
+   $form['volume_int']['#suffix'] = '<div class="vol-list">
+                          <ul class="volumes-browser-slider">
+                           '.$vol_id.'
+                          </ul>
+                        </div>';
+
+    $form['date_ppub_year']['#suffix'] = '<div class="year-list">
+                          <ul class="year-browser-slider year-nav-tabs">
+                            '.$year_id.'
+                          </ul>
+                          <div class="year-sub-slider">'.$ppub_years_array.'</div>
+                        </div>';
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function journal_article_detail_views_pre_view(ViewExecutable $view, string $display_id, array $args) {
+  if ($view->id() == 'past_issue') {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $current_path_array = explode('/', $current_path);
+    $corpus = $current_path_array[2];
+  
+    $date_query = \Drupal::entityQuery('node');
+    $date_query->condition('type', 'journal_issue');
+    $date_query->condition('status', 1);
+    $date_query->condition ('corpus', $corpus);
+    $year_result = $date_query->execute(); 
+    if (!empty($year_result)) {
+      $year_nids = array_keys($year_result);
+      $highwire_last_issue = Node::load($year_nids[count($year_nids) - 1]);
+      $highwire_journal_end_year = $highwire_last_issue->date_ppub->getValue()[0]['original'];
+
+      $end_year = (date("Y", strtotime($highwire_journal_end_year)));
+      $exposed_input = $view->getExposedInput();
+      $filters = $view->display_handler->getOption('filters');
+      $filters["date_ppub_year"]["value"]["value"] = $end_year;
+      $view->display_handler->overrideOption('filters', $filters); 
+    }
   }
 }
