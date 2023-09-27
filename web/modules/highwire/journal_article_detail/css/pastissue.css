@@ -160,11 +160,20 @@ ul.volumes-browser-slider  li.active {
 }
 .view-past-issue .issue-result-item.views-row {
     display: inline-block;
-	padding: 20px 0 25px 25px;
-    margin-left: 20px;
+    padding: 22px;
+    margin-left: 100px;
+    border: 1px solid #dadada;
 }
 .view-past-issue h3 {
-    color: #d4431c;
+    margin: 18px 0px 18px 50px;
+    width: 100px;
+    font-size: .96em;
+    font-weight: 700;
+    line-height: 2;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #6b6b6b;
+    color: #fff;
 }
 .view-past-issue .archive-issue-detail img {
     width: 164px;
@@ -177,3 +186,10 @@ ul.volumes-browser-slider  li.active {
 	width: 260px;
 	display: inline-block;
 }
+.past-issue-heading {
+    font-size: 1.71em;
+    font-weight: lighter;
+    letter-spacing: .05em;
+    line-height: 1;
+}
+

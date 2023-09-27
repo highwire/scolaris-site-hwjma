@@ -312,6 +312,7 @@ function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateIn
                           </ul>
                           <div class="year-sub-slider">'.$ppub_years_array.'</div>
                         </div>';
+   $form['#suffix'] = '<div class="past-issue-heading"></div>';
   }
 }
 

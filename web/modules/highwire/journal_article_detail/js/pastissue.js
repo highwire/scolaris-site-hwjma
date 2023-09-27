@@ -58,6 +58,7 @@
         $(".browse_by select").val('volume');
         $('.volumes-browser-slider li').removeClass('active');
         $('.volumes-browser-slider li#'+id).addClass('active');
+        $('.past-ssue-heading').text('Volume '+id);
     }
     else {
         var id = $(".view-past-issue .form-item-date-ppub-year input").val();
@@ -72,6 +73,7 @@
             $('.year-list .year-browser-slider li#'+parent+'_year').addClass('active');
             $('.year-sub-slider #'+parent).show();
         }
+        $('.past-issue-heading').text(id);
     }
 
     $(document).on('change', ".show_cover input.switch-input", function() {
@@ -100,6 +102,7 @@
 			$(".browse_by select").val('volume');
 			$('.volumes-browser-slider li').removeClass('active');
 			$('.volumes-browser-slider li#'+id).addClass('active');
+			$('.past-issue-heading').text('Volume '+id);
 		}
 		else {
 			var id = $(".view-past-issue .form-item-date-ppub-year input").val();
@@ -114,6 +117,7 @@
                 $('.year-list .year-browser-slider li#'+parent+'_year').addClass('active');
                 $('.year-sub-slider #'+parent).show();
             }
+		$('.past-issue-heading').text(id);
 		}
 	});
 
