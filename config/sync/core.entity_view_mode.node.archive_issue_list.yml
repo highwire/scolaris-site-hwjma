@@ -1,0 +1,10 @@
+uuid: 908efc0a-20f2-42b3-96e5-0db7d8f247ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.archive_issue_list
+label: 'Archive Issue List'
+targetEntityType: node
+cache: true

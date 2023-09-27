@@ -1,0 +1,12 @@
+<div class="archive-issue-detail">
+  <div class="issue-detail-img show-cover-image">
+    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+      <img src="{{ file_url(node.variant_cover_image.entity.fileuri) }}"> 
+    </a>
+  </div>
+  <div class="issue-detail-title">
+    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+      {{ node.date_ppub.0.value|date("F d, Y") }} : Vol. {{ node.volume.value }}, Issue {{ node.issue.value }}: {{ node.issue_page_range.value }}
+    </a>
+  </div>
+</div>

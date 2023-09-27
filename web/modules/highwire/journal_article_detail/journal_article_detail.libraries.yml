@@ -42,3 +42,12 @@ articleprint:
   version: VERSION
   js:
     js/articleprint.js: {}
+
+pastissue:
+  version: VERSION
+  js:
+    js/pastissue.js: {}
+  css:
+    theme:
+      css/pastissue.css: {}
+
