@@ -13,13 +13,13 @@ dependencies:
     - field.storage.node.authors_full_name
     - field.storage.node.chapter_type
     - field.storage.node.corpus
+    - field.storage.node.date_ppub
     - field.storage.node.doi
     - field.storage.node.early_release
     - field.storage.node.date_epub_version
     - field.storage.node.issue
     - field.storage.node.journal_title
     - field.storage.node.keywords
-    - field.storage.node.date_ppub
     - field.storage.node.title_plain
     - field.storage.node.version_current
     - field.storage.node.volume
@@ -113,6 +113,14 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: date_ppub
     type: date
+    dependencies:
+      config:
+        - field.storage.node.date_ppub
+  date_ppub_year:
+    label: date_ppub_year
+    datasource_id: 'entity:node'
+    property_path: date_ppub
+    type: integer
     dependencies:
       config:
         - field.storage.node.date_ppub
@@ -217,6 +225,14 @@ field_settings:
         - field.storage.node.volume
   volume_facet:
     label: volume-facet
+    datasource_id: 'entity:node'
+    property_path: volume
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.volume
+  volume_int:
+    label: volume_int
     datasource_id: 'entity:node'
     property_path: volume
     type: integer

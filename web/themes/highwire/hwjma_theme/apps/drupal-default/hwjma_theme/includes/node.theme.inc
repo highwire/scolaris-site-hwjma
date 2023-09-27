@@ -211,13 +211,16 @@ function hwjma_preprocess_node__journal__content_details(&$variables) {
     $variables['pap_tabs']['#text'] = $variables['elements']['pap_alias']['#value'];
     $variables['pap_tabs']['#url'] = $pab_path;
   }
+  // Add past issue link button in journal page
+  $past_issue_link = '/content/'.$corpus.'/past-issues';
 
   // creating variables for node template
   $variables['addtoany'] = $addtoany;
   $variables['hw_marker_sign_up'] = $hw_marker_sign_up;
   $variables['hw_alerts_sign_up'] = $hw_alerts_sign_up;
   $variables['sample_issue_link'] = $sample_issue_link;
-   $variables['current_issue_link'] = $current_issue_link;
+  $variables['current_issue_link'] = $current_issue_link;
+  $variables['past_issue_link'] = $past_issue_link;
   //load journal_info  content type
    $info_nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['type' => 'journal_info', 'field_journal' => $node->id() ]);
   $variables['title'] = $node->get('title')->getString();
