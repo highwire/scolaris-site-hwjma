@@ -42,3 +42,8 @@ articleprint:
   version: VERSION
   js:
     js/articleprint.js: {}
+
+responsearticle:
+  css:
+    theme:
+      css/responsearticle.css: {}

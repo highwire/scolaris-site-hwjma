@@ -137,7 +137,7 @@ class EmailArticleForm extends FormBase {
     }
     if (!$form_state->getValue('sendto') || empty($form_state->getValue('sendto'))) {
       $form_state->setErrorByName('sendto', $this->t('Provide Send to Email'));
-  }
+    }
   }
 
   /**

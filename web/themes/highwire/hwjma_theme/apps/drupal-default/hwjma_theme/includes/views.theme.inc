@@ -153,10 +153,10 @@ function hwjma_preprocess_views_view__search__page(&$variables) {
   // Add facet blocks.
   $facet_blocks = [
     'content_type_facet' => 'Include content types...',
-    'keywords' => 'Keywords',
+    // 'keywords' => 'Keywords',
     'author' => 'Author',
-   'article_type' => 'Article Type',
-    'journal_title_facet' => 'Journol Title',
+  //  'article_type' => 'Article Type',
+    // 'journal_title_facet' => 'Journol Title',
   ];
 
   $facets_render = [];
