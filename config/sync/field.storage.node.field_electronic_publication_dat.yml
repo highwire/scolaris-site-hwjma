@@ -1,23 +1,24 @@
-uuid: 06f2c74e-abc9-4414-aa5c-77dd108230cc
+uuid: eed81e4b-0fbb-4a19-bc8a-bf3afe0afa28
 langcode: en
 status: true
 dependencies:
   module:
+    - datetime_range
     - field_permissions
     - node
-    - text
 third_party_settings:
   field_permissions:
     permission_type: custom
-id: node.doi
-field_name: doi
+id: node.field_electronic_publication_dat
+field_name: field_electronic_publication_dat
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: daterange
+settings:
+  datetime_type: datetime
+module: datetime_range
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
-custom_storage: true
+custom_storage: false

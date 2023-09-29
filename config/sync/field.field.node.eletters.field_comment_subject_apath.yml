@@ -1,0 +1,19 @@
+uuid: 0ecc125a-782e-4387-94a7-bc91b7078eed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_comment_subject_apath
+    - node.type.eletters
+id: node.eletters.field_comment_subject_apath
+field_name: field_comment_subject_apath
+entity_type: node
+bundle: eletters
+label: 'Highwire Comment Subject Apath'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

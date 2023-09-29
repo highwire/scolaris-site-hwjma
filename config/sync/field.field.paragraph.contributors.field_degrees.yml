@@ -1,0 +1,19 @@
+uuid: 3556a6a2-e4ca-4e04-aa56-506a72ec4f56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_degrees
+    - paragraphs.paragraphs_type.contributors
+id: paragraph.contributors.field_degrees
+field_name: field_degrees
+entity_type: paragraph
+bundle: contributors
+label: Degrees
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,18 @@
+uuid: 37d9bb87-be3f-4c01-a24c-5e36a25b69c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_no_competing_interests
+field_name: field_no_competing_interests
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

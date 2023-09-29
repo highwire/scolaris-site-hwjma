@@ -1,0 +1,19 @@
+uuid: 1acf29f0-fbc2-434f-b611-c38c7cb5c253
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highwire_atom_path
+    - node.type.eletters
+id: node.eletters.field_highwire_atom_path
+field_name: field_highwire_atom_path
+entity_type: node
+bundle: eletters
+label: 'HighWire: Atom Path'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

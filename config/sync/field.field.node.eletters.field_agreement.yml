@@ -1,0 +1,23 @@
+uuid: f59057f4-8fb2-422e-9262-2783e7f69e61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agreement
+    - node.type.eletters
+id: node.eletters.field_agreement
+field_name: field_agreement
+entity_type: node
+bundle: eletters
+label: Agreement
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

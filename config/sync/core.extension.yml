@@ -31,11 +31,13 @@ module:
   dynamic_page_cache: 0
   editor: 0
   elasticentityquery: 0
+  entity_reference_revisions: 0
   entityqueue: 0
   facets: 0
   facets_taxonomy_tree: 0
   field: 0
   field_group: 0
+  field_permissions: 0
   field_ui: 0
   file: 0
   file_mdm: 0
@@ -118,9 +120,11 @@ module:
   unpublished_node_permissions: 0
   update: 0
   user: 0
+  views_bulk_operations: 0
   views_ui: 0
   pathauto: 1
   views: 10
+  paragraphs: 11
   freebird: 1000
 theme:
   stable: 0

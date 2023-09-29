@@ -1,0 +1,19 @@
+uuid: c2d8c300-00a2-433e-b499-eac68626c97c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_print_publication_date
+    - node.type.eletters
+id: node.eletters.field_print_publication_date
+field_name: field_print_publication_date
+entity_type: node
+bundle: eletters
+label: 'Print Publication Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

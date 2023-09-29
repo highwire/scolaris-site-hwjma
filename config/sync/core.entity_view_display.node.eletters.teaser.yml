@@ -1,0 +1,68 @@
+uuid: 1f99799d-4000-4bd3-8bd9-3c612e2a7031
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.eletters.body
+    - field.field.node.eletters.field_a_attachments
+    - field.field.node.eletters.field_agreement
+    - field.field.node.eletters.field_attachments
+    - field.field.node.eletters.field_comment_subject_apath
+    - field.field.node.eletters.field_electronic_publication_dat
+    - field.field.node.eletters.field_eleter_contributors
+    - field.field.node.eletters.field_first_publication_date
+    - field.field.node.eletters.field_highwire_atom_path
+    - field.field.node.eletters.field_highwire_comment_response
+    - field.field.node.eletters.field_highwire_comment_subject
+    - field.field.node.eletters.field_last_load_event
+    - field.field.node.eletters.field_no_competing_interests
+    - field.field.node.eletters.field_print_publication_date
+    - field.field.node.eletters.field_references
+    - field.field.node.eletters.field_the_following_competing_in
+    - field.field.node.eletters.field_workflow_state
+    - node.type.eletters
+  module:
+    - text
+    - user
+id: node.eletters.teaser
+targetEntityType: node
+bundle: eletters
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  ccc_permissions_link: true
+  field_a_attachments: true
+  field_agreement: true
+  field_attachments: true
+  field_comment_subject_apath: true
+  field_electronic_publication_dat: true
+  field_eleter_contributors: true
+  field_first_publication_date: true
+  field_highwire_atom_path: true
+  field_highwire_comment_response: true
+  field_highwire_comment_subject: true
+  field_last_load_event: true
+  field_no_competing_interests: true
+  field_print_publication_date: true
+  field_references: true
+  field_the_following_competing_in: true
+  field_workflow_state: true
+  hwjma_focus_view: true
+  hwjma_toc_pager: true
+  langcode: true
+  prev_next_pager: true

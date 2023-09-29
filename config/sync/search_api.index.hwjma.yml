@@ -13,12 +13,12 @@ dependencies:
     - field.storage.node.authors_full_name
     - field.storage.node.chapter_type
     - field.storage.node.corpus
-    - field.storage.node.early_release
     - field.storage.node.date_epub_version
+    - field.storage.node.date_ppub
+    - field.storage.node.early_release
+    - field.storage.node.keywords
     - field.storage.node.issue
     - field.storage.node.journal_title
-    - field.storage.node.keywords
-    - field.storage.node.date_ppub
     - field.storage.node.title_plain
     - field.storage.node.version_current
     - field.storage.node.volume
@@ -242,6 +242,7 @@ processor_settings:
       - first
       - fulltext_search
       - journal_title
+      - volume
     title: true
     alt: true
     tags:

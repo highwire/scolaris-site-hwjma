@@ -1,0 +1,258 @@
+uuid: ec2383af-f994-45ce-bdd7-ef54dab0f536
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.eletters.body
+    - field.field.node.eletters.field_a_attachments
+    - field.field.node.eletters.field_agreement
+    - field.field.node.eletters.field_attachments
+    - field.field.node.eletters.field_comment_subject_apath
+    - field.field.node.eletters.field_electronic_publication_dat
+    - field.field.node.eletters.field_eleter_contributors
+    - field.field.node.eletters.field_first_publication_date
+    - field.field.node.eletters.field_highwire_atom_path
+    - field.field.node.eletters.field_highwire_comment_response
+    - field.field.node.eletters.field_highwire_comment_subject
+    - field.field.node.eletters.field_last_load_event
+    - field.field.node.eletters.field_no_competing_interests
+    - field.field.node.eletters.field_print_publication_date
+    - field.field.node.eletters.field_references
+    - field.field.node.eletters.field_the_following_competing_in
+    - field.field.node.eletters.field_workflow_state
+    - node.type.eletters
+  module:
+    - datetime_range
+    - field_group
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_author_information:
+      children:
+        - field_eleter_contributors
+      parent_name: ''
+      weight: 2
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+        formatter: closed
+      label: 'Author Information'
+      region: content
+    group_references:
+      children:
+        - field_references
+      parent_name: ''
+      weight: 1
+      format_type: tab
+      format_settings:
+        label: References
+        button_classes: ''
+        separate_toggle_button: '1'
+        separate_toggle_button_settings:
+          button_weight: ''
+          button_parent: default
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+        ajax_markup:
+          ajax_markup_enabled: 0
+        formatter: closed
+        description: ''
+      label: References
+      region: content
+    group_statement_of_competing_int:
+      children:
+        - field_no_competing_interests
+        - field_the_following_competing_in
+      parent_name: ''
+      weight: 3
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+        formatter: closed
+      label: 'Statement of Competing Interest'
+      region: content
+    group_message:
+      children: {  }
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Message
+      region: hidden
+    group_terms_and_conditions:
+      children: {  }
+      parent_name: ''
+      weight: 10
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Terms and Conditions'
+      region: hidden
+    group_pub_date_string:
+      children: {  }
+      parent_name: ''
+      weight: 12
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Publication Date - String'
+      region: hidden
+    group_author_info:
+      children: {  }
+      parent_name: ''
+      weight: 15
+      format_type: accordion
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Author Info'
+      region: hidden
+    group_compose_response:
+      children:
+        - title
+        - body
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        label: 'COMPOSE RESPONSE'
+        description: ''
+        required_fields: true
+        id: compose_response_section
+        classes: ''
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        formatter: closed
+      label: 'COMPOSE RESPONSE'
+      region: content
+id: node.eletters.default
+targetEntityType: node
+bundle: eletters
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  field_electronic_publication_dat:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_eleter_contributors:
+    type: paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+    region: content
+  field_highwire_comment_response:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_highwire_comment_subject:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_no_competing_interests:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_references:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_the_following_competing_in:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_workflow_state:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  title:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_a_attachments: true
+  field_agreement: true
+  field_attachments: true
+  field_comment_subject_apath: true
+  field_first_publication_date: true
+  field_highwire_atom_path: true
+  field_last_load_event: true
+  field_print_publication_date: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

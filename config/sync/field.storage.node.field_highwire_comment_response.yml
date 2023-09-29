@@ -1,23 +1,23 @@
-uuid: 06f2c74e-abc9-4414-aa5c-77dd108230cc
+uuid: 8905d211-89eb-49cf-b56c-35388faa6716
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
     - node
-    - text
 third_party_settings:
   field_permissions:
     permission_type: custom
-id: node.doi
-field_name: doi
+id: node.field_highwire_comment_response
+field_name: field_highwire_comment_response
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: entity_reference
+settings:
+  target_type: node
+module: core
 locked: false
 cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
-custom_storage: true
+custom_storage: false

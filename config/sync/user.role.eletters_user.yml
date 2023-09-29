@@ -1,0 +1,9 @@
+uuid: 3a85bc39-907d-4a1b-8442-5686d065de4c
+langcode: en
+status: true
+dependencies: {  }
+id: eletters_user
+label: 'eLetters user'
+weight: 4
+is_admin: null
+permissions: {  }

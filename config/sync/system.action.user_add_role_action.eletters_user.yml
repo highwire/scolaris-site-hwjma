@@ -1,0 +1,14 @@
+uuid: e230c05a-7778-4fed-b419-64a11ee70b0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.eletters_user
+  module:
+    - user
+id: user_add_role_action.eletters_user
+label: 'Add the eLetters user role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: eletters_user

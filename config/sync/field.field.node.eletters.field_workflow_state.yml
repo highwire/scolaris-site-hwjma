@@ -1,0 +1,21 @@
+uuid: 1dccecda-6a14-4441-b9f3-c0f27024a3d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_workflow_state
+    - node.type.eletters
+  module:
+    - options
+id: node.eletters.field_workflow_state
+field_name: field_workflow_state
+entity_type: node
+bundle: eletters
+label: 'Workflow State'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 236d5989-99d8-4cfb-b89d-e08e49ff813b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_address
+    - paragraphs.paragraphs_type.contributors
+id: paragraph.contributors.field_address
+field_name: field_address
+entity_type: paragraph
+bundle: contributors
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

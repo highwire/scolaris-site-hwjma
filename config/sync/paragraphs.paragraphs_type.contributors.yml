@@ -1,0 +1,10 @@
+uuid: 0bd24f06-50b4-46dd-a045-cb985e5aa55a
+langcode: en
+status: true
+dependencies: {  }
+id: contributors
+label: Contributors
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

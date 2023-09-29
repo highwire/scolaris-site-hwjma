@@ -1,0 +1,19 @@
+uuid: c4cae644-f145-4071-baab-0cd3938931c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_the_following_competing_in
+    - node.type.eletters
+id: node.eletters.field_the_following_competing_in
+field_name: field_the_following_competing_in
+entity_type: node
+bundle: eletters
+label: 'Please describe the competing interests'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

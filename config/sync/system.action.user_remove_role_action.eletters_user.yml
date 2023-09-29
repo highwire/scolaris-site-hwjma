@@ -1,0 +1,14 @@
+uuid: 7569c4ed-564c-4861-a8f3-680673d70bbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.eletters_user
+  module:
+    - user
+id: user_remove_role_action.eletters_user
+label: 'Remove the eLetters user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: eletters_user
