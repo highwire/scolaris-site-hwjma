@@ -37,3 +37,12 @@ journal_article_detail.email_article_config_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+journal_article_detail.eletter_config_form:
+  path: '/admin/config/highware/eletter/eletter_config'
+  defaults:
+    _form: '\Drupal\journal_article_detail\Form\EletterConfigForm'
+    _title: 'EletterConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
