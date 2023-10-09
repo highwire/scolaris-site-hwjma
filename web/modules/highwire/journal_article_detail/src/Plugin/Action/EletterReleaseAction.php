@@ -25,9 +25,9 @@ class EletterReleaseAction extends ViewsBulkOperationsActionBase {
   public function execute($entity = NULL) {
     // Update workflow status
     if (is_object($entity)) {
-        $entity->set('field_workflow_state', 'R');
-        $entity->save();
-        return $this->t('Workflow status are updated');   
+      $entity->set('field_workflow_state', 'R');
+      $entity->save();
+      return $this->t('Workflow status are updated');   
     }
   }
 
