@@ -134,19 +134,19 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
       $nid = $entity->get('nid')->getString();
       // Prepare a tab/button/link for frontend (tab Article lifetime, Last 6 Months, This Month)
       foreach ($usageStatsDateFilter as $key => $value) {
-          if (!empty($value) && !empty($filterTabValues[$value])) {
-            $filterTabData .= '<a id="'.$value.'" href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn-primary tab-margin usagestatstab js-form-submit form-submit use-ajax'. ($defaultViewFilter == $value ? " active" : "") .'">'.$filterTabValues[$value].'</a>';
-          }
+        if (!empty($value) && !empty($filterTabValues[$value])) {
+          $filterTabData .= '<a id="'.$value.'" href="/journal_article_detail?type='.$key.'&nid='.$entity->get('nid')->getString().'" class="btn btn-primary tab-margin usagestatstab js-form-submit form-submit use-ajax'. ($defaultViewFilter == $value ? " active" : "") .'">'.$filterTabValues[$value].'</a>';
+        }
       }
       $filter_tabs = '<div class="usage-stats-section"><div class="Usage-stats-title"><h2>'.$override_title.':</h2></div><div class="usage-stats-tabs"><p>'.$filterTabData.'</p></div></div>';
       $build['hwjma_usage_stats']['custom_tabs'] = [
-          '#type' => 'markup',
-          '#markup' => $filter_tabs,
+        '#type' => 'markup',
+        '#markup' => $filter_tabs,
       ];
       // Prepare a custom date range form with date calender
       if (isset($usageStatsDateFilter['ViewRange']) &&!empty($usageStatsDateFilter['ViewRange'])) {
-          $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\UsageStatsDateRangeForm', $nid);
-          $build['hwjma_usage_stats']['custom_form'] = $form;
+        $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\UsageStatsDateRangeForm', $nid);
+        $build['hwjma_usage_stats']['custom_form'] = $form;
       }
       $block_manager = \Drupal::service('plugin.manager.block');
       $plugin_block = $block_manager->createInstance('hwjma_usage_stats', [
@@ -183,8 +183,8 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
         <p id="eletter-submit-form" title="Response to Article" class="hw-add-e-letters">Submit a Response to This Article</p>  </div>        
       </div>';
       $build['article_response_tab']['response_form_link'] = [
-          '#type' => 'markup',
-          '#markup' => $form_link,
+        '#type' => 'markup',
+        '#markup' => $form_link,
       ];
       $node = \Drupal::entityTypeManager()->getStorage('node')->create(['type' => 'eletters']);
       $form = \Drupal::service('entity.form_builder')->getForm($node);
