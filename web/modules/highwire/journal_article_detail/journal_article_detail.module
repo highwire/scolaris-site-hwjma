@@ -436,18 +436,18 @@ function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInte
     }
     if (!empty($to_email)) {
       // Send a mail
-          $result = $mail_manager->mail('journal_article_detail',
-          'eletter_front_email',
-          $to_email,
-          \Drupal::currentUser()->getPreferredLangcode(),
-          $params,
-          NULL,
-          TRUE);
+      $result = $mail_manager->mail('journal_article_detail',
+      'eletter_front_email',
+      $to_email,
+      \Drupal::currentUser()->getPreferredLangcode(),
+      $params,
+      NULL,
+      TRUE);
       // If mail not send then set error message
       if ($result['result'] != true) {
-          $message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
-          drupal_set_message($message, 'error');
-          return;
+        $message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
+        drupal_set_message($message, 'error');
+        return;
       }
     }
   }
