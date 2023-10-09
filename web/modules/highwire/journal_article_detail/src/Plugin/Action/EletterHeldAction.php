@@ -38,5 +38,4 @@ class EletterHeldAction extends ViewsBulkOperationsActionBase {
     // @see Drupal\Core\Field\FieldUpdateActionBase::access().
     return $object->access('update', $account, $return_as_object);
   }
-
 }
