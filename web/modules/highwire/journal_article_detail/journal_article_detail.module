@@ -56,6 +56,13 @@ function journal_article_detail_entity_extra_field_info() {
       'weight' => 100,
       'visible' => FALSE,
     ];
+    // JCOREX-352 => Article Response
+    $fields['node'][$node_type]['display']['article_response_tab'] = [
+      'label' => t('Responses'),
+      'description' => t('Article Response Submit Form'),
+      'weight' => 100,
+      'visible' => FALSE,
+    ];
   }
  }
  return $fields;
@@ -169,6 +176,25 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
         $build['email_article'] = $form;
       }
     }
+    // Add Article Response Tab
+    if ($display->getComponent('article_response_tab')) {
+      $form_link = '<div class="panel-pane pane-highwire-article-add-comments">
+      <div class="pane-content">
+        <p id="eletter-submit-form" title="Response to Article" class="hw-add-e-letters">Submit a Response to This Article</p>  </div>        
+      </div>';
+      $build['article_response_tab']['response_form_link'] = [
+          '#type' => 'markup',
+          '#markup' => $form_link,
+      ];
+      $node = \Drupal::entityTypeManager()->getStorage('node')->create(['type' => 'eletters']);
+      $form = \Drupal::service('entity.form_builder')->getForm($node);
+      $build['article_response_tab']['custom_form'] = $form;
+      $build['article_response_tab']['list_heading'] = [
+        '#type' => 'markup',
+        '#markup' => '<div class="jump-comment-section">Jump to comment: </div>',
+      ];
+      $build['article_response_tab']['listing'] = views_embed_view('eletters', 'block_1');
+    }
   }
 }
 
@@ -215,6 +241,8 @@ function journal_article_detail_page_attachments_alter(array &$page) {
   $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
   // JCOREX-342 Email Article js path => web>modules>highwire>journal_article_detail>js>articleprint.js
   $page['#attached']['library'][] = 'journal_article_detail/articleprint';
+  // JOCREX-352: Article Response Tab css and js path => web>modules>highwire>journal_article_detail>css>article_response_tab.css web>modules>highwire>journal_article_detail>js>article_response_tab.js
+  $page['#attached']['library'][] = 'journal_article_detail/article_response_tab';
 }
 
 /**
@@ -230,6 +258,11 @@ function journal_article_detail_mail($key, &$message, $params) {
       $message['from'] = $params['from'];
       $message['subject'] = t('@title', array('@title' => $params['title']), $options);
       $message['body'][] = Html::escape($params['message']);
+      break;
+    case 'eletter_front_email':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('@title', array('@title' => $params['subject']), $options);
+      $message['body'][] = Html::escape($params['body']);
       break;
   }
 }
@@ -329,6 +362,14 @@ function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateIn
    // Add any additional HTML elements or content to the form.
    $form['#suffix'] = '<div class="past-issue-heading"></div>';
   }
+
+  if ($form_id == 'node_eletters_form') {
+    // $form['field_highwire_comment_subject']['widget']['#default_value'] = ['447'];
+    // $form['field_highwire_comment_response']['widget']['#default_value'] = ['447'];
+    // $form['field_highwire_comment_response']['widget'][0]['target_id']['#default_value'] = 447;
+    $form['#action'] = '/node/add/eletters';
+    $form['actions']['submit']['#submit'][] = 'eletter_module_form_submit';
+  }
 }
 
 /**
@@ -372,4 +413,48 @@ function journal_article_detail_views_pre_view(ViewExecutable $view, string $dis
       $view->display_handler->overrideOption('filters', $filters); 
     }
   }
+}
+
+function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInterface $form_state){
+  $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
+  $sender_email = $journalArticleDetailConfig->get('highwire_rr_email_sender');
+  $sender_msg = $journalArticleDetailConfig->get('highwire_rr_email_response_sent');
+  $email_subject = $journalArticleDetailConfig->get('highwire_rr_email_subject');
+  
+  // Retrieve article details.
+  if (!empty($form_state->getValue('field_highwire_comment_response'))) {
+    $article_nid = $form_state->getValue('field_highwire_comment_response')[0]['target_id'];
+  }
+  $params = [];
+  $created = time();
+  $params['body'] = $sender_msg;
+  $params['subject'] = $email_subject;
+  // Get a drupal mail service
+  $mail_manager = \Drupal::service('plugin.manager.mail');
+  $contributor_data = $form_state->getValue('field_contributors');
+  foreach ($contributor_data as $key => $value) {
+    if (is_numeric($key)) {
+      $to_email = $value['subform']['field_first_name_and_middle_init'][0]['value'] . " " . $value['subform']['field_last_name'][0]['value'] . '<'. $value['subform']['field_email_address'][0]['value'] . '>';
+    }
+    if (!empty($to_email)) {
+      // Send a mail
+          $result = $mail_manager->mail('journal_article_detail',
+          'eletter_front_email',
+          $to_email,
+          \Drupal::currentUser()->getPreferredLangcode(),
+          $params,
+          NULL,
+          TRUE);
+      // If mail not send then set error message
+      if ($result['result'] != true) {
+          $message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
+          drupal_set_message($message, 'error');
+          return;
+      }
+      // $email = drupal_mail('highwire_responses_moderation', 'highwire_respo/nses_moderation_email', $to_email, language_default(), $params, $sender_email);
+    }
+  }
+  $form_state->setRedirect('<front>');
+  \Drupal::messenger()->deleteAll();
+  \Drupal::messenger()->addMessage('Thank you for your response. We intend to publish as rapidly as possible all responses that contribute substantially to the topic under discussion.' );  
 }
