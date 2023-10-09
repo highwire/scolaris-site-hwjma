@@ -23,6 +23,7 @@ class EletterReleaseAction extends ViewsBulkOperationsActionBase {
    * {@inheritdoc}
    */
   public function execute($entity = NULL) {
+    // Update workflow status
     if (is_object($entity)) {
         $entity->set('field_workflow_state', 'R');
         $entity->save();

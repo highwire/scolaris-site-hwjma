@@ -364,9 +364,6 @@ function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateIn
   }
 
   if ($form_id == 'node_eletters_form') {
-    // $form['field_highwire_comment_subject']['widget']['#default_value'] = ['447'];
-    // $form['field_highwire_comment_response']['widget']['#default_value'] = ['447'];
-    // $form['field_highwire_comment_response']['widget'][0]['target_id']['#default_value'] = 447;
     $form['#action'] = '/node/add/eletters';
     $form['actions']['submit']['#submit'][] = 'eletter_module_form_submit';
   }
@@ -416,6 +413,7 @@ function journal_article_detail_views_pre_view(ViewExecutable $view, string $dis
 }
 
 function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInterface $form_state){
+  // Get config values
   $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
   $sender_email = $journalArticleDetailConfig->get('highwire_rr_email_sender');
   $sender_msg = $journalArticleDetailConfig->get('highwire_rr_email_response_sent');
@@ -451,7 +449,6 @@ function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInte
           drupal_set_message($message, 'error');
           return;
       }
-      // $email = drupal_mail('highwire_responses_moderation', 'highwire_respo/nses_moderation_email', $to_email, language_default(), $params, $sender_email);
     }
   }
   $form_state->setRedirect('<front>');
