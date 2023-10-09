@@ -1,0 +1,19 @@
+uuid: 0d73a6ba-edd4-4945-a0e5-ac8a25b385e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_first_name_middle_initial
+    - paragraphs.paragraphs_type.contributors
+id: paragraph.contributors.field_first_name_middle_initial
+field_name: field_first_name_middle_initial
+entity_type: paragraph
+bundle: contributors
+label: 'First Name and Middle Initial'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
