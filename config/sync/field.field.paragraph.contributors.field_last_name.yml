@@ -1,0 +1,19 @@
+uuid: ea9f6cb7-4030-4d44-91e3-ba0aa4376935
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_last_name
+    - paragraphs.paragraphs_type.contributors
+id: paragraph.contributors.field_last_name
+field_name: field_last_name
+entity_type: paragraph
+bundle: contributors
+label: 'Last Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

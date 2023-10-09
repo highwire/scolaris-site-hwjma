@@ -51,3 +51,10 @@ pastissue:
     theme:
       css/pastissue.css: {}
 
+article_response_tab:
+  version: VERSION
+  js:
+    js/article_response_tab.js: {}
+  css:
+    theme:
+      css/article_response_tab.css: {}

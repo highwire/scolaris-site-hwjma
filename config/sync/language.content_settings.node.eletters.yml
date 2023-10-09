@@ -1,0 +1,11 @@
+uuid: 62a05329-60b5-4f38-9bc5-e4ba2c4aaf2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.eletters
+id: node.eletters
+target_entity_type_id: node
+target_bundle: eletters
+default_langcode: site_default
+language_alterable: false
