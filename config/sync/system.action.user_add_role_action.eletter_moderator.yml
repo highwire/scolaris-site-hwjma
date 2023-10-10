@@ -1,0 +1,14 @@
+uuid: 00ad1aa7-76a8-41a9-9362-173ec15248aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.eletter_moderator
+  module:
+    - user
+id: user_add_role_action.eletter_moderator
+label: 'Add the eletter moderator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: eletter_moderator
