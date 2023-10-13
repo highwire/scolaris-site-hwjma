@@ -18,6 +18,7 @@ use Drupal\highwire_content\HighWireContent;
 use Drupal\views\Element\View;
 use Drupal\views\Views;
 use Drupal\Core\Cache\Cache;
+use Drupal\Component\Utility\HTML;
 
 define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
 
@@ -48,6 +49,14 @@ function journal_article_detail_entity_extra_field_info() {
       'description' => t('Usage Statistics Table'),
       'weight' => 100,
       'visible' => FALSE,
+    ];
+    
+    // JCOREX-343 => Email Article
+    $fields['node'][$node_type]['display']['email_article'] = [
+    'label' => t('Email Article'),
+    'description' => t('Email Article For Send Mail'),
+    'weight' => 100,
+    'visible' => FALSE,
     ];
   }
  }
@@ -150,6 +159,20 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
        $build['hwjma_usage_stats']['data'] = $render;
       }
     }
+
+        // Add Email Article
+        if ($display->getComponent('email_article')) {
+          $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
+          $emailArticleDisplay = $journalArticleDetailConfig->get('email_article_display');
+          $article_title = $entity->get('title')->getString();
+          // Check email article display configuration is true then get a from
+          if (isset($emailArticleDisplay) && !empty($emailArticleDisplay)) {
+            $nid = $entity->get('nid')->getString();
+            $form = \Drupal::formBuilder()->getForm('Drupal\journal_article_detail\Form\EmailArticleForm', $entity);
+            $build['email_article'] = $form;
+            
+          }
+        }
   }
 }
 
@@ -177,10 +200,81 @@ function journal_article_detail_theme() {
     ],
     'altmetrics_data' => [
       'variables' => ['altmetrics_data' => NULL, 'altmetrice_setting' => NULL, 'pager' => NULL]
+    ],
+        'email_article' => [
+      'variables' => ['article_title' => NULL, 'article_title_link' => NULL, 'email_article_display' => NULL, 'custom_form' => NULL]
     ]
 	];
 }
 
 function journal_article_detail_page_attachments_alter(array &$page) {
   $page['#attached']['library'][] = 'journal_article_detail/tooltip_popup';
+  $page['#attached']['library'][] = 'journal_article_detail/jumptosection';
+  $page['#attached']['library'][] = 'journal_article_detail/emailarticle';
+  $page['#attached']['library'][] = 'journal_article_detail/articleprint';
+}
+/**
+ * Implements hook_mail().
+ */
+function journal_article_detail_mail($key, &$message, $params) {
+  // Bind a mail params with message
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+  switch ($key) {
+    case 'email_article':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('@title', array('@title' => $params['title']), $options);
+      $message['body'][] = Html::escape($params['message']);
+      break;
+    case 'eletter_front_email':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('@title', array('@title' => $params['subject']), $options);
+      $message['body'][] = Html::escape($params['body']);
+      break;
+  }
+}
+
+function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInterface $form_state){
+  // Get config values
+  $journalArticleDetailConfig = \Drupal::config('journal_article_detail.settings');
+  $sender_email = $journalArticleDetailConfig->get('highwire_rr_email_sender');
+  $sender_msg = $journalArticleDetailConfig->get('highwire_rr_email_response_sent');
+  $email_subject = $journalArticleDetailConfig->get('highwire_rr_email_subject');
+  
+  // Retrieve article details.
+  if (!empty($form_state->getValue('field_highwire_comment_response'))) {
+    $article_nid = $form_state->getValue('field_highwire_comment_response')[0]['target_id'];
+  }
+  $params = [];
+  $created = time();
+  $params['body'] = $sender_msg;
+  $params['subject'] = $email_subject;
+  // Get a drupal mail service
+  $mail_manager = \Drupal::service('plugin.manager.mail');
+  $contributor_data = $form_state->getValue('field_contributors');
+  foreach ($contributor_data as $key => $value) {
+    if (is_numeric($key)) {
+      $to_email = $value['subform']['field_first_name_and_middle_init'][0]['value'] . " " . $value['subform']['field_last_name'][0]['value'] . '<'. $value['subform']['field_email_address'][0]['value'] . '>';
+    }
+    if (!empty($to_email)) {
+      // Send a mail
+      $result = $mail_manager->mail('journal_article_detail',
+      'eletter_front_email',
+      $to_email,
+      \Drupal::currentUser()->getPreferredLangcode(),
+      $params,
+      NULL,
+      TRUE);
+      // If mail not send then set error message
+      if ($result['result'] != true) {
+        $message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
+        drupal_set_message($message, 'error');
+        return;
+      }
+    }
+  }
+  $form_state->setRedirect('<front>');
+  \Drupal::messenger()->deleteAll();
+  \Drupal::messenger()->addMessage('Thank you for your response. We intend to publish as rapidly as possible all responses that contribute substantially to the topic under discussion.' );  
 }

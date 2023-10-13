@@ -24,3 +24,21 @@ tooltip_popup:
   css:
     theme:
       css/tooltip_popup.css: {}
+
+jumptosection:
+  version: VERSION
+  js:
+    js/jumptosection.js: {}
+  css:
+    theme:
+      css/jumptosection.css: {}
+
+emailarticle:
+  css:
+    theme:
+      css/emailarticle.css: {}
+      
+articleprint:
+  version: VERSION
+  js:
+    js/articleprint.js: {}
