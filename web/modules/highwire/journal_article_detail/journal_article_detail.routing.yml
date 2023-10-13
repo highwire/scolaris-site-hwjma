@@ -21,3 +21,21 @@ journal_article_detail.usage_stats_settings_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+journal_article_detail.email_article_form:
+  path: '/email_article_form'
+  defaults:
+    _form: '\Drupal\journal_article_detail\Form\EmailArticleForm'
+    _title: 'Email Article Form'
+  requirements:
+    _access: 'TRUE'
+    
+journal_article_detail.email_article_config_form:
+  path: '/admin/config/highware/email_article_config_form'
+  defaults:
+    _form: '\Drupal\journal_article_detail\Form\EmailArticleConfigForm'
+    _title: 'EmailArticleConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

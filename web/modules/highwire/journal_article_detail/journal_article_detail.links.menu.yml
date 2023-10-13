@@ -4,4 +4,11 @@ journal_article_detail.usage_stats_settings_form:
   description: 'A description for the menu entry'
   parent: highwire_core.admin_index
   weight: 100
+
+journal_article_detail.email_article_config_form:
+  title: 'Email Article Config'
+  route_name: journal_article_detail.email_article_config_form
+  description: 'A description for the menu entry'
+  parent: highwire_core.admin_index
+  weight: 100
   
