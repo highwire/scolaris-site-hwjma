@@ -1,0 +1,6 @@
+hwjma_monsido.hwjma_monsido_config_form:
+  title: 'Monsido Setting'
+  route_name: hwjma_monsido.hwjma_monsido_config_form
+  description: 'Monsido setting form'
+  parent: highwire_core.admin_index
+  weight: 100

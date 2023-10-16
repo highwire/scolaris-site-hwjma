@@ -1,0 +1,9 @@
+hwjma_monsido.hwjma_monsido_config_form:
+  path: '/admin/config/highware/monsido'
+  defaults:
+    _form: '\Drupal\hwjma_monsido\Form\MonsidoForm'
+    _title: 'MonsidoConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
