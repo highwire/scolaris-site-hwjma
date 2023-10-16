@@ -4,7 +4,7 @@
         $('.node-eletters-form').toggle();
     });
     $(document).on("click", ".show-click-toggle", function(){
-        $(this).parent().siblings('p').toggle();
+        $(this).parent().siblings('.eletter-field-body').toggle();
     });
 }(jQuery));
 /* ---------------- Article Response tab : JCOREX-352 ---------------- */

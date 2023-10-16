@@ -1,0 +1,23 @@
+<div class="eletter-row">
+      <div class="eletter-title-list">
+        <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank">{{ node.title.value }}</a>
+      </div> 
+  {% for key,item in node.field_contributors %}
+    <div class="eletter-contributor-data">
+    {% if key == 0 %}
+      <span class="field-content"> {{ item.entity.field_first_name_middle_initial.value}} {{ item.entity.field_last_name.value}} [ {{ item.entity.field_degrees.value}} ]</span>
+    {% endif %}
+    {% if key != 0 %}
+      <span class="field-content"> | {{ item.entity.field_first_name_middle_initial.value}} {{ item.entity.field_last_name.value}} [ {{ item.entity.field_degrees.value}} ]</span>
+    {% endif %}
+    </div>    
+  {% endfor %}
+  <div class="eletter-created">Posted on: {{ node.created.value | date('F j, Y') }} </div>
+  <div>
+    <a href="#" class="eletter-section-desc-btn show-click-toggle">Show description</a> 
+    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank" hreflang="en">View eLetter</a> 
+  </div>
+  <div class="eletter-field-body" style="display: none;">
+      <p>{{ node.body.value | raw}}</p>
+  </div>
+</div>
