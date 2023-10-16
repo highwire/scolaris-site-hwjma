@@ -1,0 +1,8 @@
+monsidojs:
+  version: VERSION
+  js:
+    https://app-script.monsido.com/v2/monsido-script.js:
+      { type: external, minified: true, attributes: { type: text/javascript } }
+    https://monsido-consent.com/v1/mcm.js:
+      { type: external, minified: true, attributes: { type: text/javascript } }
+    js/monsidoscript.js: {}
