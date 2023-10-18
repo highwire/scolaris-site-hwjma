@@ -15,7 +15,7 @@ use Drupal\views\ViewExecutable;
 
 function hwjma_monsido_page_attachments_alter(array &$page) {
 $config = \Drupal::config('hwjma_monsido.settings');
-// JOCREX-356: adding jS for cookiee module 
+// JOCREX-356: adding jS for cookiee module in header section 
 $page['#attached']['html_head'][] =  [
     [
       '#tag' => 'script',
@@ -40,6 +40,7 @@ $page['#attached']['html_head'][] =  [
     ],
     'jquery-define'
   ];
+// Get variable from settings.yml file and passing to monsido scripts  
 $monsido_token=$config->get('monsido_token');
 $monsido_privacy_regulation=$config->get('monsido_privacy_regulation') == 'ccpa-gdpr' ? '["ccpa", "gdpr"]' : '["' . $config->get('monsido_privacy_regulation') . '"]';;
 $manualStartup=$config->get('manual_startup')? 'true' : 'false';
@@ -54,7 +55,7 @@ $iconShape=$config->get('icon_shape');
 $position=$config->get('icon_position');
 $cookiePolicyUrl=$config->get('cookie_policy_url');
 $optOutUrl=$config->get('opt_out_url');
-
+//passing variable to script and store in variable
 $mainvar = <<<EOF
 window._monsido = window._monsido || {
  token: "$monsido_token",
@@ -86,6 +87,7 @@ links: {
 },
 };
 EOF;
+// JOCREX-356: adding jS for cookiee module in header section 
 $page['#attached']['html_head'][] =  [
   [
     '#tag' => 'script',
@@ -98,6 +100,5 @@ $page['#attached']['html_head'][] =  [
   'jquery-define3'
 ];
 
-
-
 }
+

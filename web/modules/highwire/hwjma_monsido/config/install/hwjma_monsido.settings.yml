@@ -6,7 +6,7 @@ icon_shape: 'circle'
 icon_position: 'bottom-right'
 cookie_policy_url: '#'
 opt_out_url: '#'
-monsido_privacy_regulation: 'GDPR'
+monsido_privacy_regulation: 'gdpr'
 manual_startup: 0
 hide_accept: 0
 cat_const: 1

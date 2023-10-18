@@ -1,0 +1,33 @@
+<?php 
+/**
+ * @file
+ * Installation file for Monsido module.
+ */
+
+/**
+ * Implements hook_uninstall()
+ *
+ * Perform actions to delete values to Monsido module.
+ */
+function hwjma_monsido_uninstall() {
+    /** Monsido token value */
+    Drupal::state()->delete('monsido_token');
+    /** Monsido theme settings value */
+    Drupal::state()->delete('button_color');
+    Drupal::state()->delete('button_text_color');
+    Drupal::state()->delete('icon_pic_url');
+    Drupal::state()->delete('icon_shape');
+    Drupal::state()->delete('icon_position');
+    /** Mansido links settings value */
+    Drupal::state()->delete('cookie_policy_url');
+    Drupal::state()->delete('opt_out_url');
+    /** Monsido privacy regulation value */
+    Drupal::state()->delete('monsido_privacy_regulation');
+    /** Monsido settings value */
+    Drupal::state()->delete('manual_startup');
+    Drupal::state()->delete('hide_accept');
+    Drupal::state()->delete('cat_const');
+    Drupal::state()->delete('rjct_option');
+    Drupal::state()->delete('overlay');
+}
+
