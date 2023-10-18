@@ -14,93 +14,92 @@ use Drupal\views\ViewExecutable;
 
 
 function hwjma_monsido_page_attachments_alter(array &$page) {
-  $config = \Drupal::config('hwjma_monsido.settings');
-  // Get variable from settings.yml file and passing to monsido scripts  
-  $monsido_token=$config->get('monsido_token');
-  if(!empty($monsido_token)){
-    $monsido_privacy_regulation=$config->get('monsido_privacy_regulation') == 'ccpa-gdpr' ? '["ccpa", "gdpr"]' : '["' . $config->get('monsido_privacy_regulation') . '"]';;
-    $manualStartup=$config->get('manual_startup')? 'true' : 'false';
-    $hideOnAccepted=$config->get('hide_accept')? 'true' : 'false';
-    $perCategoryConsent=$config->get('cat_const')? 'true' : 'false';
-    $explicitRejectOption=$config->get('rjct_option')? 'true' : 'false';
-    $hasOverlay=$config->get('overlay')? 'true' : 'false';
-    $buttonColor=$config->get('button_color');
-    $buttonTextColor=$config->get('button_text_color');
-    $iconPictureUrl=$config->get('icon_pic_url');
-    $iconShape=$config->get('icon_shape');
-    $position=$config->get('icon_position');
-    $cookiePolicyUrl=$config->get('cookie_policy_url');
-    $optOutUrl=$config->get('opt_out_url');
-    //passing variable to script and store in variable
-    $monsidoScript = <<<EOF
-    window._monsido = window._monsido || {
-    token: "$monsido_token",
-    };
-    window._monsidoConsentManagerConfig = window._monsidoConsentManagerConfig || {
-    token: "$monsido_token",
-    privacyRegulation: $monsido_privacy_regulation,
-    settings: {
-      manualStartup: $manualStartup,
-      hideOnAccepted: $hideOnAccepted,
-      perCategoryConsent: $perCategoryConsent,
-      explicitRejectOption: $explicitRejectOption,
-      hasOverlay: $hasOverlay,
-    },
-    i18n: {
-      languages: ["en_US"],
-      defaultLanguage: "en_US"
-    },
-    theme: {
-      buttonColor: "$buttonColor",
-      buttonTextColor: "$buttonTextColor",
-      iconPictureUrl: "$iconPictureUrl",
-      iconShape: "$iconShape",
-      position: "$position",
-    },
-    links: {
-      cookiePolicyUrl: "$cookiePolicyUrl",
-      optOutUrl: "$optOutUrl",
-    },
-    };
-    EOF;
-    // JOCREX-356: adding varible jS for cookiee module in header section 
-    $page['#attached']['html_head'][] =  [
-      [
-        '#tag' => 'script',
-        '#attributes' => array(
-          'language' => "javascript",
-          'type' => "text/javascript",
-        ),
-        '#value' => $monsidoScript,
-      ],
-      'jquery-define3'
-    ];
-    // JOCREX-356: adding jS for cookiee module in header section 
-    $page['#attached']['html_head'][] =  [
-        [
-          '#tag' => 'script',
-          '#attributes' => array(
-            'language' => "javascript",
-            'type' => "text/javascript",
-            'src' => "https://app-script.monsido.com/v2/monsido-script.js",
-          ),
-          '#value' => '',
-        ],
-      'jquery-define1'
-    ];
-    $page['#attached']['html_head'][] =  [
-        [
-          '#tag' => 'script',
-          '#attributes' => array(
-            'language' => "javascript",
-            'type' => "text/javascript",
-            'src' => "https://monsido-consent.com/v1/mcm.js",
-          ),
-          '#value' => '',
-        ],
-        'jquery-define'
-    ];
-  }
-
+$config = \Drupal::config('hwjma_monsido.settings');
+// Get variable from settings.yml file and passing to monsido scripts  
+$monsido_token=$config->get('monsido_token');
+if(!empty($monsido_token)){
+$monsido_privacy_regulation=$config->get('monsido_privacy_regulation') == 'ccpa-gdpr' ? '["ccpa", "gdpr"]' : '["' . $config->get('monsido_privacy_regulation') . '"]';;
+$manualStartup=$config->get('manual_startup')? 'true' : 'false';
+$hideOnAccepted=$config->get('hide_accept')? 'true' : 'false';
+$perCategoryConsent=$config->get('cat_const')? 'true' : 'false';
+$explicitRejectOption=$config->get('rjct_option')? 'true' : 'false';
+$hasOverlay=$config->get('overlay')? 'true' : 'false';
+$buttonColor=$config->get('button_color');
+$buttonTextColor=$config->get('button_text_color');
+$iconPictureUrl=$config->get('icon_pic_url');
+$iconShape=$config->get('icon_shape');
+$position=$config->get('icon_position');
+$cookiePolicyUrl=$config->get('cookie_policy_url');
+$optOutUrl=$config->get('opt_out_url');
+//passing variable to script and store in variable
+$mainvar = <<<EOF
+window._monsido = window._monsido || {
+ token: "$monsido_token",
+};
+window._monsidoConsentManagerConfig = window._monsidoConsentManagerConfig || {
+token: "$monsido_token",
+privacyRegulation: $monsido_privacy_regulation,
+settings: {
+  manualStartup: $manualStartup,
+  hideOnAccepted: $hideOnAccepted,
+  perCategoryConsent: $perCategoryConsent,
+  explicitRejectOption: $explicitRejectOption,
+  hasOverlay: $hasOverlay,
+},
+i18n: {
+  languages: ["en_US"],
+  defaultLanguage: "en_US"
+},
+theme: {
+  buttonColor: "$buttonColor",
+  buttonTextColor: "$buttonTextColor",
+  iconPictureUrl: "$iconPictureUrl",
+  iconShape: "$iconShape",
+  position: "$position",
+},
+links: {
+  cookiePolicyUrl: "$cookiePolicyUrl",
+  optOutUrl: "$optOutUrl",
+},
+};
+EOF;
+// JOCREX-356: adding jS for cookiee module in header section 
+$page['#attached']['html_head'][] =  [
+  [
+    '#tag' => 'script',
+    '#attributes' => array(
+      'language' => "javascript",
+      'type' => "text/javascript",
+    ),
+    '#value' => $mainvar,
+  ],
+  'jquery-define3'
+];
+// JOCREX-356: adding jS for cookiee module in header section 
+$page['#attached']['html_head'][] =  [
+  [
+    '#tag' => 'script',
+    '#attributes' => array(
+      'language' => "javascript",
+      'type' => "text/javascript",
+      'src' => "https://app-script.monsido.com/v2/monsido-script.js",
+    ),
+    '#value' => '',
+  ],
+  'jquery-define1'
+];
+$page['#attached']['html_head'][] =  [
+  [
+    '#tag' => 'script',
+    '#attributes' => array(
+      'language' => "javascript",
+      'type' => "text/javascript",
+      'src' => "https://monsido-consent.com/v1/mcm.js",
+    ),
+    '#value' => '',
+  ],
+  'jquery-define'
+];
+}
 }
 
