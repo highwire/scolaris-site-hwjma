@@ -6,6 +6,7 @@ dependencies:
     - page_manager.page.node_view
   module:
     - ctools
+    - highwire_ecommerce
     - hwjma_search
     - journal_article_detail
     - panels
@@ -63,6 +64,15 @@ variant_settings:
       more_link_label: 'See more'
       more_link_url: ''
       msg_no_data: 'No Altmetric data available.'
+      context_mapping: {  }
+    113f7a39-fad0-4194-b32e-5e0e21fe0f3c:
+      id: highwire_ecommerce_shopping_cart
+      label: 'HighWire Ecommerce Shopping Cart'
+      provider: highwire_ecommerce
+      label_display: visible
+      region: top
+      weight: 0
+      uuid: 113f7a39-fad0-4194-b32e-5e0e21fe0f3c
       context_mapping: {  }
   id: panels_variant
   uuid: 9959ed8c-0ea0-4063-8de1-e06f7b1a5780

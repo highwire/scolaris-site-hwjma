@@ -1,8 +1,9 @@
-uuid: 0cf40d8a-4d62-45f0-960e-8242cc6c4829
+uuid: 7de21bc6-1d3c-4f04-8e45-14ba44c8b789
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.toc_list
     - field.field.node.eletters.body
     - field.field.node.eletters.field_attachments
     - field.field.node.eletters.field_contributors
@@ -20,13 +21,18 @@ dependencies:
     - datetime_range
     - entity_reference_revisions
     - file
+    - layout_builder
     - options
     - text
     - user
-id: node.eletters.default
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.eletters.toc_list
 targetEntityType: node
 bundle: eletters
-mode: default
+mode: toc_list
 content:
   body:
     label: hidden
@@ -128,9 +134,9 @@ content:
     region: content
   links:
     weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   addtoany: true
   ccc_permissions_link: true

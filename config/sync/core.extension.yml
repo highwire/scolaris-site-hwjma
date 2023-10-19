@@ -52,6 +52,7 @@ module:
   highwire_core: 0
   highwire_counter: 0
   highwire_display: 0
+  highwire_ecommerce: 0
   highwire_hwphp: 0
   highwire_kafka: 0
   highwire_markup: 0
@@ -67,6 +68,7 @@ module:
   hwjma_basic_config: 0
   hwjma_content_display: 0
   hwjma_core: 0
+  hwjma_ecommerce: 0
   hwjma_search: 0
   image: 0
   image_captcha: 0
