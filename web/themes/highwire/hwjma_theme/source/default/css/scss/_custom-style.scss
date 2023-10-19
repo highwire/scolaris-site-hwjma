@@ -652,7 +652,7 @@ input[list]+ul[list] {
                 border-bottom: 1px solid $secondary;
                 margin-bottom: 20px;
             }
-            .bps-purchase-offer {
+            .hwjma-purchase-offer {
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
@@ -661,6 +661,7 @@ input[list]+ul[list] {
                     text-align: right;
                     .purchase-offer-item {
                         margin-top: -35px;
+                        width: 378px;
                     }
                     .access-type {
                         span {
