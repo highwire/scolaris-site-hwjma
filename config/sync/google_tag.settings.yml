@@ -5,7 +5,7 @@ rebuild_snippets: true
 flush_snippets: true
 debug_output: false
 _default_container:
-  container_id: ''
+  container_id: GTM-TQBHHX2
   path_toggle: 'exclude listed'
   path_list: "/admin*\n/batch*\n/node/add*\n/node/*/edit\n/node/*/delete\n/user/*/edit*\n/user/*/cancel*"
   role_toggle: 'exclude listed'

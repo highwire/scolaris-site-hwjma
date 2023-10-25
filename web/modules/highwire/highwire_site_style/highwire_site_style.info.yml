@@ -1,0 +1,5 @@
+name: Highwire Site Style
+description: Highwire Site Style
+type: module
+core_version_requirement:  ^8 || ^9
+package: Custom

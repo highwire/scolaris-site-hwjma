@@ -64,6 +64,7 @@ module:
   highwire_personalization: 0
   highwire_sams_sigma: 0
   highwire_search: 0
+  highwire_site_style: 0
   highwire_user: 0
   history: 0
   hwjma_basic_config: 0

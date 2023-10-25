@@ -1,0 +1,19 @@
+<?php
+function highwire_site_style_update_8011(&$var) {
+	$GA_enabled = \Drupal::service('module_installer')->install(['google_analytics'], TRUE);
+	$GTM_enabled = \Drupal::service('module_installer')->install(['google_tag'], TRUE);
+	if (!$GA_enabled) {
+		throw new DrupalUpdateException('Google Analytics module not enabled.');
+	}
+	else { 
+		$config = \Drupal::service('config.factory')->getEditable('google_analytics.settings');
+        $config->set('account', 'UA-10876-9')->save();
+	} 
+	if (!$GTM_enabled) {
+		throw new DrupalUpdateException('Google Tag Manager module not enabled.');
+	}
+	else { 
+		$config = \Drupal::service('config.factory')->getEditable('google_tag.settings');
+        $config->set('_default_container.container_id', 'GTM-TQBHHX2')->save();
+	}
+  }
