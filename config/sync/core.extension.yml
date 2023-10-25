@@ -43,6 +43,8 @@ module:
   file_mdm_exif: 0
   filter: 0
   fontawesome: 0
+  google_analytics: 0
+  google_tag: 0
   help: 0
   highwire_access_control: 0
   highwire_binary: 0
