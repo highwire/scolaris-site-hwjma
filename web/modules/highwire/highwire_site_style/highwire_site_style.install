@@ -1,0 +1,12 @@
+<?php
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Monsido module.
+ */
+function highwire_site_style_update_9012(){
+  \Drupal::service('module_installer')->install(['highwire_monsido'], TRUE);  
+  $config = \Drupal::service('config.factory')->getEditable('highwire_monsido.settings');
+  $config->set('monsido_token', 'HBktah_nQR6S6dpnyfGZow')->save(); 
+}
+ 
