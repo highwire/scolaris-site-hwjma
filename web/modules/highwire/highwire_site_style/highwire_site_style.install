@@ -17,21 +17,22 @@ function highwire_site_style_update_9001(){
  */
 function highwire_site_style_update_9002(){
   /* For Google Analytics */
-	$ga_enabled = \Drupal::service('module_installer')->install(['google_analytics'], TRUE); 
-	if (!$ga_enabled) {
-		throw new DrupalUpdateException('Google Analytics module not enabled.');
-	}
-	else { 
-		$config = \Drupal::service('config.factory')->getEditable('google_analytics.settings');
+  $ga_enabled = \Drupal::service('module_installer')->install(['google_analytics'], TRUE); 
+  if (!$ga_enabled) {
+	throw new DrupalUpdateException('Google Analytics module not enabled.');
+  }
+  else { 
+	$config = \Drupal::service('config.factory')->getEditable('google_analytics.settings');
     $config->set('account', 'UA-10876-8')->save();
-	} 
-	/* For Google Tag Manager */
-	$gtm_enabled = \Drupal::service('module_installer')->install(['google_tag'], TRUE);
-	if (!$gtm_enabled) {
-		throw new DrupalUpdateException('Google Tag Manager module not enabled.');
-	}
-	else { 
-		$config = \Drupal::service('config.factory')->getEditable('google_tag.settings');
-    $config->set('_default_container.container_id', 'GTM-TQBHHX8')->save();
-	}
+  } 
+  
+  /* For Google Tag Manager */
+  $gtm_enabled = \Drupal::service('module_installer')->install(['google_tag'], TRUE);
+  if (!$gtm_enabled) {
+	throw new DrupalUpdateException('Google Tag Manager module not enabled.');
+  }
+  else { 
+	$config = \Drupal::service('config.factory')->getEditable('google_tag.settings');
+  $config->set('_default_container.container_id', 'GTM-TQBHHX8')->save();
+  }
 }
