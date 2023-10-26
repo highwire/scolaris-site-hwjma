@@ -4,9 +4,35 @@
  *
  * Perform actions to update values to Monsido module.
  */
-function highwire_site_style_update_9012(){
+function highwire_site_style_update_9001(){
   \Drupal::service('module_installer')->install(['highwire_monsido'], TRUE);  
   $config = \Drupal::service('config.factory')->getEditable('highwire_monsido.settings');
   $config->set('monsido_token', 'HBktah_nQR6S6dpnyfGZow')->save(); 
 }
- 
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Monsido module.
+ */
+function highwire_site_style_update_9002(){
+  /* For Google Analytics */
+  $ga_enabled = \Drupal::service('module_installer')->install(['google_analytics'], TRUE); 
+  if (!$ga_enabled) {
+	throw new DrupalUpdateException('Google Analytics module not enabled.');
+  }
+  else { 
+	$config = \Drupal::service('config.factory')->getEditable('google_analytics.settings');
+    $config->set('account', 'UA-10876-8')->save();
+  } 
+  
+  /* For Google Tag Manager */
+  $gtm_enabled = \Drupal::service('module_installer')->install(['google_tag'], TRUE);
+  if (!$gtm_enabled) {
+	throw new DrupalUpdateException('Google Tag Manager module not enabled.');
+  }
+  else { 
+	$config = \Drupal::service('config.factory')->getEditable('google_tag.settings');
+  $config->set('_default_container.container_id', 'GTM-TQBHHX8')->save();
+  }
+}
