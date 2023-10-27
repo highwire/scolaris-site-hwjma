@@ -1,11 +1,11 @@
-uuid: 0df76947-569c-4134-b378-8d4410170f8b
+uuid: 31e99cf9-39e3-4c11-8d01-1ce71796ad28
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: nCsHBO6tIyMYrk_m7v0JygPijC-Y0nLGTD2Vc4zCX04
+  default_config_hash: qeq9UQ14YMxccp5tzuHxKJE05nrlpAX_FXIj6YDyjnc
 id: node.search_short_description
 label: 'Search Short Description'
 targetEntityType: node

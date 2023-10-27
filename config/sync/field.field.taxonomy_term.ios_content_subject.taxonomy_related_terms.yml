@@ -1,0 +1,21 @@
+uuid: 8a11269a-9b7e-4710-8e22-827d9c7b020d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.taxonomy_related_terms
+    - taxonomy.vocabulary.ios_content_subject
+_core:
+  default_config_hash: b9u_s16NJeqgwOIFVh0ZeBfmSw_qaFrQ-gRRM6-m2nU
+id: taxonomy_term.ios_content_subject.taxonomy_related_terms
+field_name: taxonomy_related_terms
+entity_type: taxonomy_term
+bundle: ios_content_subject
+label: 'Related Terms'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

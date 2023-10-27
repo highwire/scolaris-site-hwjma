@@ -1,20 +1,20 @@
-uuid: d998dc1e-f364-4352-80cb-dbfea3d6e408
+uuid: e9fde13f-d08e-4666-a65c-aead93127f6f
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: iaxvXXzyhXksBYc_P56yn5gvuZkuN6-85sFae4jcbIo
+  default_config_hash: waQO_oWnVxTaWMXR5-n1N9zHFT0OQ0D1zvKDlCLgiOk
 id: abstract_article_
 label: 'Abstract (Article)'
 configurations:
   -
     markup_profile: journal_full_text_abstract
+    access_rule: online_access
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'
-    access_rule: ''
 markup_field_enabled: true
 markup_field_content_types:
   - journal_article
-log: true
+log: false
 render_placeholder: false

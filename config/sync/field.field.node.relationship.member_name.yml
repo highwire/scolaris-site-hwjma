@@ -1,0 +1,23 @@
+uuid: ed4cd383-5882-49b5-a50e-73b759ed5ed4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.member_name
+    - node.type.relationship
+  module:
+    - text
+_core:
+  default_config_hash: 9P4ruireSBf9ltxGFBI21nv0vAfKQ0iEnkJRgA28fvA
+id: node.relationship.member_name
+field_name: member_name
+entity_type: node
+bundle: relationship
+label: member-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,25 @@
+uuid: b9f22bba-3014-4330-b947-880c2ac1df35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.home_journal_block
+  module:
+    - text
+_core:
+  default_config_hash: XnrJYZZbZdZeAGJlnhZcLG_33XtEhR9vA7tuDe1uVmk
+id: node.home_journal_block.body
+field_name: body
+entity_type: node
+bundle: home_journal_block
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

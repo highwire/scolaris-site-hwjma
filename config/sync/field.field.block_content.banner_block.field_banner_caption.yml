@@ -1,0 +1,21 @@
+uuid: 09af41c1-e3ac-4a70-ad3e-8e9d77c6374c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_block
+    - field.storage.block_content.field_banner_caption
+_core:
+  default_config_hash: hXBQG446rlp2CPqI6L9VV_C18WHl_yzrEVr5ip1PZjs
+id: block_content.banner_block.field_banner_caption
+field_name: field_banner_caption
+entity_type: block_content
+bundle: banner_block
+label: 'banner caption'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

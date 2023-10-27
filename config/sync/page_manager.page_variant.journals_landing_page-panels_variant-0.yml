@@ -1,0 +1,89 @@
+uuid: 33e5d1bd-99a6-466e-bd56-ff35144c9065
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.journals_landing_page
+    - system.menu.content
+    - views.view.all_journals
+  module:
+    - panels
+    - system
+    - views
+_core:
+  default_config_hash: Kck6vfxQJDYAelml58j8rqykJSiwY_XcSZKaDJITCzA
+id: journals_landing_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    2c1d67c1-5fc8-4757-a77d-1eaa39a55ed1:
+      id: 'system_menu_block:content'
+      label: Content
+      provider: system
+      label_display: '0'
+      level: 1
+      depth: 0
+      expand_all_items: false
+      region: left
+      weight: 0
+      uuid: 2c1d67c1-5fc8-4757-a77d-1eaa39a55ed1
+      context_mapping: {  }
+    3bbb2ccd-bd7a-47f0-af43-5fd2611089fb:
+      id: 'block_content:50a1a683-1d46-4bc0-af19-355f6adbeb52'
+      label: 'Journal Listing Page Header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: right
+      weight: -1
+      uuid: 3bbb2ccd-bd7a-47f0-af43-5fd2611089fb
+      context_mapping: {  }
+    ade6c3c3-1f3b-48f4-a078-f142f9fb2b35:
+      id: 'views_block:all_journals-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: right
+      weight: 0
+      uuid: ade6c3c3-1f3b-48f4-a078-f142f9fb2b35
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 6704002b-21aa-45de-a086-1bd252af8273
+  label: null
+  weight: 0
+  layout: bs_2col
+  layout_settings:
+    label: ''
+    layout:
+      wrapper: div
+      classes:
+        row: row
+      add_layout_class: 1
+      attributes: 'class|periodicals-browse journal-browse-content'
+    regions:
+      left:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 1
+        attributes: ''
+      right:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 1
+        attributes: ''
+  page_title: Journals
+  storage_type: page_manager
+  storage_id: journals_landing_page-panels_variant-0
+  builder: standard
+page: journals_landing_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,27 @@
+uuid: ce82e27c-4a29-440c-811d-489d68f851ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: 7NXlBfYyEbuh9HSxV_HP4oD8oPBmAfk0dPKPFkwQhK8
+id: mainnavigation
+theme: scolaris_ios
+region: header_nav
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

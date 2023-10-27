@@ -1,0 +1,10 @@
+uuid: b832781b-c02f-4aa0-b65f-741794ced152
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KY0yJ1mqoQinl33ZMWQw2gg54BCRo2ZNpJoo37idFVw
+id: reference
+label: Services
+description: ''
+locked: false

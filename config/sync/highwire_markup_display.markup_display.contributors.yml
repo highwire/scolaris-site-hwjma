@@ -1,9 +1,9 @@
-uuid: 53f72c83-2afa-4745-9cad-849c0e68b7f4
+uuid: 74101fda-2c70-4c9d-86bd-a7b99afd8738
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: vupZg0IPjJSmEitXAsUbVd9cADkCHcY-bbhSZlX9MGk
+  default_config_hash: hiquSWk4Z4J7v1j0wMXAYn21S33YRthhJYu6QX1WzlE
 id: contributors
 label: Contributors
 configurations:

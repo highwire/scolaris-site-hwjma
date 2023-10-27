@@ -1,8 +1,9 @@
-uuid: 22d9e6ab-3092-438f-b902-62babdc0a195
+uuid: fc2ad9a5-8dfc-4139-83ff-aeda62c8d843
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_foxycart_customer_id
     - field.field.user.user.field_hw_preferences_captured
     - field.field.user.user.field_organization_logo
     - field.field.user.user.field_sigma_license_data
@@ -48,6 +49,7 @@ content:
     weight: -1
     region: content
 hidden:
+  field_foxycart_customer_id: true
   field_hw_preferences_captured: true
   field_organization_logo: true
   field_sigma_license_data: true

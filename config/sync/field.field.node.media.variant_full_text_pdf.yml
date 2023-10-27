@@ -1,0 +1,29 @@
+uuid: 1857953e-54d1-4dc9-a051-a0ffac752e08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.variant_full_text_pdf
+    - node.type.media
+  module:
+    - file
+_core:
+  default_config_hash: pwfLuXuOed9hRB0D-ogp-1wflmL1E9SYvMRD1CVHEYM
+id: node.media.variant_full_text_pdf
+field_name: variant_full_text_pdf
+entity_type: node
+bundle: media
+label: variant-full-text-pdf
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  file_extensions: txt
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  description_field: false
+  handler_settings: {  }
+field_type: file

@@ -1,0 +1,21 @@
+uuid: 6fabc0cc-3f58-43cd-969b-a64f5bd4c58e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.extract_policy
+    - node.type.media
+_core:
+  default_config_hash: GifHZ73tNiCvTdKfN_nPCXnXoYicqTr5Pcm9V5CEBME
+id: node.media.extract_policy
+field_name: extract_policy
+entity_type: node
+bundle: media
+label: 'Extract Policy'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,4 +1,4 @@
-uuid: 658e43c3-ec45-42b0-879c-d730dfbdabd6
+uuid: 82561263-0f22-4c00-ae45-8821a6983446
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - node
     - text
 _core:
-  default_config_hash: '-gPLzVWwaXqyHmMW1dzXDAJaP9s07hHN5D6nGtvekcA'
+  default_config_hash: zvtj-Tu1wxbR915if1y-tUZRnJspWKkPwsUImDh71z4
 id: node.field_journal_editorial_brd
 field_name: field_journal_editorial_brd
 entity_type: node

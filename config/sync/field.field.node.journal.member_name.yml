@@ -1,0 +1,23 @@
+uuid: d959f378-bf8e-44a0-a54b-84a4de71c9e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.member_name
+    - node.type.journal
+  module:
+    - text
+_core:
+  default_config_hash: b2XyH7Ad_uZcl9B3XW8bO430dbpSbbQYbAAdL-LaXDE
+id: node.journal.member_name
+field_name: member_name
+entity_type: node
+bundle: journal
+label: member-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

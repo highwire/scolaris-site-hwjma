@@ -1,0 +1,20 @@
+uuid: e970177a-baa1-4ad5-878c-f23de964373c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: U9PmN7nBW0pTb4abERljSnS0WO4Qvre5wZ5Ll2i58IY
+name: 'Journal issue browse info'
+type: journal_issue_browse_info
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

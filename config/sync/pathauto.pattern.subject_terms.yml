@@ -1,0 +1,25 @@
+uuid: ff6d54ba-69f4-44bc-8cdf-787631a3eb38
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+_core:
+  default_config_hash: XNTCIjtT9eqkCUy6dtrV3th5vGLhKGB2yvEa47U1eFg
+id: subject_terms
+label: 'Subject Terms'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'subject/[term:parents:join-path]/[term:name]'
+selection_criteria:
+  669b3a65-6c15-4a72-946a-cb52b158c93a:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      ios_content_subject: ios_content_subject
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 669b3a65-6c15-4a72-946a-cb52b158c93a
+selection_logic: and
+weight: -5
+relationships: {  }

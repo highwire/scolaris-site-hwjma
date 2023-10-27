@@ -1,4 +1,4 @@
-uuid: b80f9dbb-e989-4303-89a7-a4b2f00aa41f
+uuid: 7197b8d6-ee6c-49a4-8700-5bbf2b658fd1
 langcode: en
 status: true
 dependencies:
@@ -51,12 +51,14 @@ dependencies:
     - field.field.node.journal_article.has_videos
     - field.field.node.journal_article.hwmd_abstract_article_
     - field.field.node.journal_article.hwmd_abstract_article_toc_
-    - field.field.node.journal_article.hwmd_abstract_search
     - field.field.node.journal_article.hwmd_abstract_search_index_
     - field.field.node.journal_article.hwmd_collection_detail
     - field.field.node.journal_article.hwmd_contributors
+    - field.field.node.journal_article.hwmd_contributors_authors
+    - field.field.node.journal_article.hwmd_contributors_guest_editor
     - field.field.node.journal_article.hwmd_contributors_plain_
     - field.field.node.journal_article.hwmd_figures_tables_article_
+    - field.field.node.journal_article.hwmd_full_text_search_index_
     - field.field.node.journal_article.hwmd_long_article_
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
@@ -77,6 +79,7 @@ dependencies:
     - field.field.node.journal_article.journal_title
     - field.field.node.journal_article.keywords
     - field.field.node.journal_article.lpage
+    - field.field.node.journal_article.member_name
     - field.field.node.journal_article.member_network
     - field.field.node.journal_article.next_atom
     - field.field.node.journal_article.overline
@@ -116,15 +119,19 @@ dependencies:
     - node.type.journal_article
   module:
     - field_group
+    - highwire_markup_display
+    - layout_builder
+    - text
     - user
 third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
   field_group:
     group_content_actions:
-      children:
-        - hwjma_focus_view
-        - hwjma_toc_pager
+      children: {  }
       parent_name: ''
-      weight: 0
+      weight: 4
       format_type: html_element
       format_settings:
         id: ''
@@ -136,27 +143,43 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Content actions'
-      region: content
+      region: hidden
 _core:
-  default_config_hash: ECcYRBLHSn5w4FhB8G76V_Y6JPssU3-0IhgyVN08M60
+  default_config_hash: CZY71JT35pVLxtMq5zK5eKQ09UzQg-zC6bInttDBFbk
 id: node.journal_article.focus_view
 targetEntityType: node
 bundle: journal_article
 mode: focus_view
 content:
-  hwjma_focus_view:
-    weight: 37
+  hwmd_long_article_:
+    type: hwmarkup_display_formatter
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  ios_focus_view:
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  hwjma_toc_pager:
-    weight: 38
+  ios_toc_pager:
+    weight: 2
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  title_plain:
+    type: text_default
+    weight: 1
+    region: content
+    label: above
     settings: {  }
     third_party_settings: {  }
 hidden:
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
+  altmetrics: true
   apath: true
   article_open_access: true
   article_series_title: true
@@ -205,21 +228,25 @@ hidden:
   has_tables: true
   has_videos: true
   highwire_citations_download: true
+  highwire_cp_message: true
+  highwire_cp_status: true
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_altmetrics: true
+  hwjma_focus_view: true
   hwjma_info_metrics_tab: true
   hwjma_usage_stats: true
   hwmd_abstract_article_: true
   hwmd_abstract_article_toc_: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
   hwmd_collection_detail: true
   hwmd_contributors: true
+  hwmd_contributors_authors: true
+  hwmd_contributors_guest_editor: true
   hwmd_contributors_plain_: true
   hwmd_figures_tables_article_: true
-  hwmd_long_article_: true
+  hwmd_full_text_search_index_: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -238,9 +265,11 @@ hidden:
   journal_publisher_id: true
   journal_title: true
   keywords: true
+  kudos: true
   langcode: true
   links: true
   lpage: true
+  member_name: true
   member_network: true
   next_atom: true
   overline: true
@@ -265,7 +294,6 @@ hidden:
   subtype: true
   summary: true
   taxonomy_terms: true
-  title_plain: true
   title_short: true
   usage_stats_table_block: true
   variant_cover_image: true

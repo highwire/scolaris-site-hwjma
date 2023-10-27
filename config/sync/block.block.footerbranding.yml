@@ -1,0 +1,23 @@
+uuid: 5b1ddb87-7492-41c0-b7df-efc080b45d61
+langcode: en
+status: true
+dependencies:
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: D0zLFp-R3VwqaZcxagdxk2PxrbnKP7zB-aKKqc0CJSE
+id: footerbranding
+theme: scolaris_ios
+region: footer_1
+weight: -3
+provider: null
+plugin: 'block_content:ad9605d0-4bd9-49b1-95d3-dbb25098f24e'
+settings:
+  id: 'block_content:ad9605d0-4bd9-49b1-95d3-dbb25098f24e'
+  label: 'Footer branding'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

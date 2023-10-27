@@ -1,0 +1,21 @@
+uuid: 5d8a0ae7-8c9f-4fc6-b651-65577d6265bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: n6Nz0dqCwFVoNlIlUiU6yK5_jOmTv1Ny6JGRGqUKdQI
+id: block_content.field_banner_caption
+field_name: field_banner_caption
+entity_type: block_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

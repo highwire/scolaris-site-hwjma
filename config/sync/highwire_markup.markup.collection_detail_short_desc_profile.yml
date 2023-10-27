@@ -1,9 +1,9 @@
-uuid: ae822ae7-9159-427d-a995-ee2d2ff97c79
+uuid: 567d313f-9e56-4033-9c3a-2d7dbd084ad8
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Ry-soj92awTedtPxsTX--uTCGjv0_jYJxhWZZJjH6H8
+  default_config_hash: cIxPeafxYvyl9OoCpHoKWAMhY1jmufRGJnlStBrINgU
 id: collection_detail_short_desc_profile
 label: 'Collection Detail Short Desc Profile'
 profile_id: abstract
@@ -19,9 +19,9 @@ configuration:
           add_ellipsis: '1'
           strip_tags: '1'
           allowable_tags: '<p><ul><ol><em><strong><span><h4><h5><h6><cite><code>'
-          toggle_full_text: '1'
           text_collapsed: 'Show full content'
           text_expanded: 'Hide full content'
+          toggle_full_text: 0
     weight: '1'
 dw_logging: null
 exists_field: ''

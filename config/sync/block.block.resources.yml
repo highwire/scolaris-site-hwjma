@@ -1,0 +1,27 @@
+uuid: 8ef5506f-e9c4-4cc5-9e63-07d73c426374
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.resources
+  module:
+    - system
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: tJ6cnQNglYNv4X3tDZC2L_1hygf-E8pQf3YCfFBGkQM
+id: resources
+theme: scolaris_ios
+region: footer_4
+weight: -3
+provider: null
+plugin: 'system_menu_block:resources'
+settings:
+  id: 'system_menu_block:resources'
+  label: Info
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,4 +1,4 @@
-uuid: eee3970b-213a-40c2-a5b4-043483cecd58
+uuid: 4920b9be-4073-4103-9fa9-2c3ce1c1b810
 langcode: en
 status: true
 dependencies:
@@ -48,8 +48,8 @@ dependencies:
     - field.field.node.journal.has_source
     - field.field.node.journal.has_tables
     - field.field.node.journal.has_videos
-    - field.field.node.journal.hwmd_abstract_search
     - field.field.node.journal.hwmd_abstract_search_index_
+    - field.field.node.journal.hwmd_full_text_search_index_
     - field.field.node.journal.issue
     - field.field.node.journal.issue_id
     - field.field.node.journal.issue_is_open
@@ -69,6 +69,7 @@ dependencies:
     - field.field.node.journal.journal_title
     - field.field.node.journal.keywords
     - field.field.node.journal.lpage
+    - field.field.node.journal.member_name
     - field.field.node.journal.member_network
     - field.field.node.journal.next_atom
     - field.field.node.journal.overline
@@ -115,21 +116,22 @@ third_party_settings:
     allow_custom: false
     enabled: false
 _core:
-  default_config_hash: GTNsgHIFOqgbutW-oT2B0D4mgq3rXBaEDZQ6cA3ih-s
+  default_config_hash: BWNeFUe9vk0eVFVTUGsSd_EbOjAtsyte6Kc6HEnan3g
 id: node.journal.abstract_search
 targetEntityType: node
 bundle: journal
 mode: abstract_search
 content:
-  hwmd_abstract_search:
+  hwmd_abstract_search_index_:
     type: hwmarkup_display_formatter
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
   about: true
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
   all_issues: true
@@ -181,12 +183,15 @@ hidden:
   has_tables: true
   has_videos: true
   highwire_citations_download: true
+  highwire_cp_message: true
+  highwire_cp_status: true
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
-  hwmd_abstract_search_index_: true
+  hwmd_full_text_search_index_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -209,6 +214,7 @@ hidden:
   latest_articles: true
   links: true
   lpage: true
+  member_name: true
   member_network: true
   most_read: true
   next_atom: true

@@ -1,21 +1,15 @@
-uuid: 27765cd9-70a7-42a5-8394-3d1e84d6427d
+uuid: ec838659-e7a9-4468-b862-67baab413556
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: naWwEd3MqroSrNrm-2Hhozswfb7Cwbj4a5cQU6IlMhY
+  default_config_hash: SrXN2D0qRdMB6pfvrigzLo0_QhDct3cn1yr0tt3dhuU
 id: long_article_
 label: 'Long (Article)'
 configurations:
   -
-    markup_profile: journal_full_text
-    access_rule: ''
-    field_group_settings:
-      field_group_formatter: '0'
-    weight: '1'
-  -
-    markup_profile: pdf_extract
-    access_rule: ''
+    markup_profile: journal_full_text_
+    access_rule: online_access
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'

@@ -1,0 +1,12 @@
+uuid: f321b334-2884-4ef2-b21b-c4c8008e5d28
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: Ke0I74jdKFQDwtjM05UkNGuccO2qPed71a5Qk-I2vCw
+id: node.browse_list_item_
+label: 'Browse list item'
+targetEntityType: node
+cache: true

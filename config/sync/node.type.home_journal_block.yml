@@ -1,0 +1,20 @@
+uuid: addf76c3-96e4-4916-bfcc-74fa7fd83277
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: LkBHaWKSE67IegL4DzXXV1CVF3s0xTr9sr1u1akDjqM
+name: 'Home Journal Block'
+type: home_journal_block
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

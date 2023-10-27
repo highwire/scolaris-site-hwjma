@@ -1,11 +1,11 @@
-uuid: f40b90dc-3d2a-4c90-a7d1-8ca5225dfe7b
+uuid: b9c7da2b-dd32-4aa2-a4ab-9bebe255f3d7
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: eb64MLsP0qa3R2xhJhDAP63wJZ81TuBPKKA-mnt8AtI
+  default_config_hash: 09M-_lyka_eC131yNdH72UxyA98yJuyHpm_Y3e4194A
 id: node.field_journal_impact_factor
 field_name: field_journal_impact_factor
 entity_type: node

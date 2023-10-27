@@ -1,9 +1,9 @@
-uuid: ac40cdea-65ca-4384-9059-f102e191dba2
+uuid: 8e2c28cd-8782-4325-8347-eddbb76f2a6e
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: ruMpCfaVkc7pN93Gu3MsSrKAoYIvbkM2-2cT1vuaUOU
+  default_config_hash: U958yKKJk9hX_T-BOOoxxe9t0fQLJNDBgVubVDkZGWA
 id: variant_full_text_pdf
 label: 'Variant Full Text PDF'
 description: 'Access to full text PDF for scolaris-journal content'
@@ -20,8 +20,9 @@ file_field_bundles:
   journal_fragment: journal_fragment
   journal_issue: journal_issue
   journal_volume: journal_volume
+  media: media
   relationship: relationship
-ac_denied_action: source_redirect
+ac_denied_action: default
 ac_denied_action_conf: {  }
 ac_denied_message: ''
 concurrency_limit_message: ''

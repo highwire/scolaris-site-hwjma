@@ -1,0 +1,25 @@
+uuid: db6db0a1-9dc7-4af2-b160-c941cb13059a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_head_subject_link
+    - node.type.home_subject
+  module:
+    - link
+_core:
+  default_config_hash: iVx-q0DAfGzaCYuDe5ukjh1p3_9uHYr9XVEEQTbkdm0
+id: node.home_subject.field_head_subject_link
+field_name: field_head_subject_link
+entity_type: node
+bundle: home_subject
+label: 'Head Subject Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

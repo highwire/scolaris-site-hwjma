@@ -1,0 +1,29 @@
+uuid: e701fc9a-dbea-4904-a42a-a926e0473f5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_link
+    - field.field.block_content.image_link.field_image
+    - field.field.block_content.image_link.field_link
+  module:
+    - image
+_core:
+  default_config_hash: 16z7Iqd4umJ1Pyd5wJpBPm1mwzkXLIZFpS-H3cp1CoQ
+id: block_content.image_link.default
+targetEntityType: block_content
+bundle: image_link
+mode: default
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_link: true
+  langcode: true

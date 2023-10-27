@@ -1,0 +1,23 @@
+uuid: 2281fe3c-d246-4902-8e79-14253da83b96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.journal_eissn_compact
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: D2PE5R7yytToPJNErGvt4sPJ99YaZ_fnmZAlFjcoC8k
+id: node.media.journal_eissn_compact
+field_name: journal_eissn_compact
+entity_type: node
+bundle: media
+label: journal-eissn-compact
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

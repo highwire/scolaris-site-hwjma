@@ -1,0 +1,10 @@
+uuid: 2b4e38cb-d355-46bd-a4ea-5e702821da8a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Q6bXGhwk-DpPTf65Z6o6ns8SYGJPKksM63xhXcS0UII
+id: cms-navigation
+label: cms-navigation
+description: ''
+locked: false

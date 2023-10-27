@@ -1,4 +1,4 @@
-uuid: 635ced17-692b-472f-b003-69e6e5b65432
+uuid: c1b20c2f-a8dd-4da2-97f9-3febdae876cb
 langcode: en
 status: true
 dependencies:
@@ -47,6 +47,7 @@ dependencies:
     - field.field.node.journal_issue.has_source
     - field.field.node.journal_issue.has_tables
     - field.field.node.journal_issue.has_videos
+    - field.field.node.journal_issue.hwmd_abstract_search_index_
     - field.field.node.journal_issue.hwmd_table_of_contents_journals_
     - field.field.node.journal_issue.issue
     - field.field.node.journal_issue.issue_id
@@ -67,6 +68,7 @@ dependencies:
     - field.field.node.journal_issue.journal_title
     - field.field.node.journal_issue.keywords
     - field.field.node.journal_issue.lpage
+    - field.field.node.journal_issue.member_name
     - field.field.node.journal_issue.member_network
     - field.field.node.journal_issue.next_atom
     - field.field.node.journal_issue.overline
@@ -105,25 +107,37 @@ dependencies:
     - field.field.node.journal_issue.volume
     - node.type.journal_issue
   module:
-    - image
+    - text
     - user
 _core:
-  default_config_hash: FLAJGwaj6wb652ev9OIVrqbc7BcMQ1btTmfxSqcAPEU
+  default_config_hash: w6-saGsynLYCQRwejNqSA4N1Vw0_0ELBmFE3W80YVOU
 id: node.journal_issue.default
 targetEntityType: node
 bundle: journal_issue
 mode: default
 content:
-  variant_cover_image:
-    type: image
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  parent_journal:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  title_plain:
+    type: text_default
     weight: 0
     region: content
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
+    label: above
+    settings: {  }
     third_party_settings: {  }
 hidden:
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
   apath: true
@@ -171,12 +185,16 @@ hidden:
   has_tables: true
   has_videos: true
   highwire_citations_download: true
+  highwire_cp_message: true
+  highwire_cp_status: true
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
+  hwmd_abstract_search_index_: true
   hwmd_table_of_contents_journals_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -196,15 +214,14 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
-  links: true
   lpage: true
+  member_name: true
   member_network: true
   next_atom: true
   overline: true
   page_count: true
   parent: true
   parent_issue: true
-  parent_journal: true
   parent_volume: true
   pdf_extract_img: true
   pisa_version: true
@@ -222,8 +239,8 @@ hidden:
   subtype: true
   summary: true
   taxonomy_terms: true
-  title_plain: true
   title_short: true
+  variant_cover_image: true
   variant_cover_pdf: true
   variant_cover_source_image: true
   variant_full_text_pdf: true

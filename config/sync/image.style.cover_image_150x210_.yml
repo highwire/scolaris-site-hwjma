@@ -1,0 +1,17 @@
+uuid: 4d8bf0d7-811c-459d-8ae2-00b0bd06d5f2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OM3wgTp_ICAvQJZbA0u8I5okuTuWu0DjRHVzECujvgc
+name: cover_image_150x210_
+label: 'Cover Image (150X210)'
+effects:
+  8eabadad-2bb9-4fe6-8f51-af69fb9c0f1d:
+    uuid: 8eabadad-2bb9-4fe6-8f51-af69fb9c0f1d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 150
+      height: 210
+      anchor: center-center

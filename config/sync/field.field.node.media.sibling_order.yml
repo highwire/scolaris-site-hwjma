@@ -1,0 +1,25 @@
+uuid: cb8a619f-60c8-4cae-8cf4-d5f0a5f2b932
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sibling_order
+    - node.type.media
+_core:
+  default_config_hash: QqPTMcL4Q5zV1RlAV665oAK8jIVaUeHFemTVWNyk-kA
+id: node.media.sibling_order
+field_name: sibling_order
+entity_type: node
+bundle: media
+label: sibling-order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

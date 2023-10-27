@@ -1,4 +1,4 @@
-uuid: 6edd944f-a168-4368-911a-5ebc28647df1
+uuid: 5c0be919-df34-44b2-957a-bb0b7c6f40f1
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - highwire_markup_display
     - node
 _core:
-  default_config_hash: 7ntNA2ILMIE-_eeyvdbm6AeTobrxQ7q-F2JzI5VsQlU
+  default_config_hash: y_sPomd8_Al9Mw-YktJWlTctFdIG6balbPhdCvch_oQ
 id: node.hwmd_abstract_article_
 field_name: hwmd_abstract_article_
 entity_type: node

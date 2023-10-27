@@ -1,36 +1,35 @@
-uuid: 235c017f-1e4b-49ac-a721-194de9502705
+uuid: c84e6323-f2bb-40b2-8a63-59ec3ee4bc45
 langcode: en
 status: true
 dependencies:
   config:
     - page_manager.page.homepage
-    - system.menu.browse-content
-    - views.view.homepage_highlights_carousel
+    - views.view.head_subject_block
+    - views.view.home_journal_head_block
+    - views.view.home_page_latest_issues
   module:
     - panels
-    - system
     - views
 _core:
-  default_config_hash: '-3pqb7baFafzzHDw3Y5whEXzpznjwK63dGZPa4UgXsg'
+  default_config_hash: 9kORNoRb3Yzjr-pN1PTAoU4DOyisTrzklV0weAAowhQ
 id: homepage-panels_variant-0
 label: Panels
 variant: panels_variant
 variant_settings:
   blocks:
-    0cc071b0-f63a-4465-8b23-b88c273b1cfd:
-      id: 'system_menu_block:browse-content'
-      label: 'Browse Content'
-      provider: system
+    1ff867e7-edad-4b58-9def-178c07a9fd18:
+      id: 'views_block:head_subject_block-block_1'
+      label: ''
+      provider: views
       label_display: '0'
-      level: 1
-      depth: 0
-      expand_all_items: false
+      views_label: ''
+      items_per_page: none
       region: main
-      weight: 0
-      uuid: 0cc071b0-f63a-4465-8b23-b88c273b1cfd
+      weight: -1
+      uuid: 1ff867e7-edad-4b58-9def-178c07a9fd18
       context_mapping: {  }
-    471e12e4-ae64-463a-9533-e0608fbb29ab:
-      id: 'views_block:homepage_highlights_carousel-block_1'
+    e61f6baf-2ecf-4359-879d-86346e3d9922:
+      id: 'views_block:home_journal_head_block-block_1'
       label: ''
       provider: views
       label_display: '0'
@@ -38,14 +37,26 @@ variant_settings:
       items_per_page: none
       region: main
       weight: 1
-      uuid: 471e12e4-ae64-463a-9533-e0608fbb29ab
+      uuid: e61f6baf-2ecf-4359-879d-86346e3d9922
+      context_mapping: {  }
+    78d5ae59-0f24-4b8d-8364-52e010e347ef:
+      id: 'views_block:home_page_latest_issues-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: '10'
+      region: main
+      weight: 0
+      uuid: 78d5ae59-0f24-4b8d-8364-52e010e347ef
       context_mapping: {  }
   id: panels_variant
-  uuid: 61258e05-3ba6-4019-be28-bc2b42b2717d
+  uuid: f44470b6-63f2-499f-b981-20ea648949e7
   label: null
   weight: 0
   layout: bs_1col
-  layout_settings: {  }
+  layout_settings:
+    label: Homepage
   page_title: Homepage
   storage_type: page_manager
   storage_id: homepage-panels_variant-0

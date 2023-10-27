@@ -1,0 +1,16 @@
+uuid: 14351d89-525b-464e-bb95-ab1bfa6e8e01
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: h_ptbnuXij3ppFkFCVIjyE4WriscDsT6t-9TLJYuQq4
+name: society_logo_300_150_
+label: 'Society logo(300*150)'
+effects:
+  db902e0f-de1c-4d7b-8222-fe0c1f41883e:
+    uuid: db902e0f-de1c-4d7b-8222-fe0c1f41883e
+    id: image_resize
+    weight: 1
+    data:
+      width: 300
+      height: 160

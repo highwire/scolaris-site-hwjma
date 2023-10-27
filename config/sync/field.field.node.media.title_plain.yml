@@ -1,0 +1,23 @@
+uuid: d2bb6f26-9124-4220-bab1-aa199d616cd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.title_plain
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: qIt84ElaFkmcjAjmQ6mNbs3MKPtTo-VGp2OkIJSGP0g
+id: node.media.title_plain
+field_name: title_plain
+entity_type: node
+bundle: media
+label: title-plain
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

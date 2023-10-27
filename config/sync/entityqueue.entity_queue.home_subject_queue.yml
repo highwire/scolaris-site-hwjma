@@ -1,0 +1,27 @@
+uuid: 03c3b47f-42d3-4ebc-8295-882aaad5393b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: _GkFH3TRumzmKGpi2K10hjB8NenZowprQPKl5aWiny0
+id: home_subject_queue
+label: 'Home Subject Queue'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'highwire:node'
+  handler_settings:
+    target_bundles:
+      home_subject: home_subject
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 6
+  act_as_queue: false
+  reverse: false

@@ -1,0 +1,10 @@
+uuid: c1553afd-6ba1-4812-b644-a9ceac826101
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: aPR3_rJ9xL7YaLQji23jS2YtrEeF9SeFMamWL35vybo
+id: image_link
+label: 'Image link'
+revision: 0
+description: ''

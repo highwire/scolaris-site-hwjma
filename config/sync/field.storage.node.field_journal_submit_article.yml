@@ -1,4 +1,4 @@
-uuid: c45f6f1e-25d3-4679-b7f5-f16b36084e03
+uuid: e0784ce5-f04e-4fc6-af74-6b4ba72af22f
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - node
     - text
 _core:
-  default_config_hash: _yaVm0N93eqRk5KebD7BJBFD5Jx2ItdjRP_zHOL_gBI
+  default_config_hash: OnT3V81XxusuAXT0PORzOvJRDn6I9W030I-i8qoTFDQ
 id: node.field_journal_submit_article
 field_name: field_journal_submit_article
 entity_type: node

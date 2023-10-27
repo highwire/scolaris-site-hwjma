@@ -1,0 +1,12 @@
+uuid: 874bcbe5-26c9-47cf-84e9-2f12fee77520
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: naDSydqPuCVvZsNdpBFCny-ydlB09Os-isFkz5_DcmY
+id: node.header_published_ahead_of_print
+label: 'Header: Published Ahead of Print'
+targetEntityType: node
+cache: true

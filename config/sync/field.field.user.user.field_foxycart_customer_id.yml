@@ -1,0 +1,26 @@
+uuid: 47f95131-6f48-4074-8d70-7548c21ea8ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_foxycart_customer_id
+  module:
+    - user
+_core:
+  default_config_hash: EQR9RzxqsneRv3UDZqCOex3dlJbB28KtODVqhl6-Oa4
+id: user.user.field_foxycart_customer_id
+field_name: field_foxycart_customer_id
+entity_type: user
+bundle: user
+label: 'Foxycart Customer Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,4 +1,4 @@
-uuid: 38ea54bc-ca0a-484b-b513-4a2dd6efb525
+uuid: 391880c3-8109-4bd8-9391-890eac586fbe
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ third_party_settings:
   highwire_markup_display:
     markup_display_id: long_article_
 _core:
-  default_config_hash: WIQ2_giodWUgaCrHRZs4kEuAIu3FA9ydWDOAU-CmPTg
+  default_config_hash: 9jv_W85dtxa9REKF6uzQTar33DI82Qc5LrpBGrkk5Gk
 id: node.journal_article.hwmd_long_article_
 field_name: hwmd_long_article_
 entity_type: node

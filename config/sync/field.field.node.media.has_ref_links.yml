@@ -1,0 +1,23 @@
+uuid: 6ec8c17c-dd9d-4f62-8b48-f9d033739eaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_ref_links
+    - node.type.media
+_core:
+  default_config_hash: CqdeN8nk8PNb28SHkqgnw9XdFn2xfyhAehkQNJ-LEiw
+id: node.media.has_ref_links
+field_name: has_ref_links
+entity_type: node
+bundle: media
+label: has-ref-links
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+uuid: 672a738a-4cc4-48c8-b8d6-84c14a4380ab
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j0yGmZLlcdgY1hDe8pCBv9Vtt5b4kJHSGkXw8dIeRMY
+id: publish_ahead_of_print
+label: 'Publish Ahead of Print'
+description: ''
+use_admin_theme: false
+path: '/admin/highwire_pap/{corpus_node}'
+access_logic: and
+access_conditions: {  }
+parameters:
+  corpus_node:
+    machine_name: corpus_node
+    type: 'entity:node'
+    label: ''

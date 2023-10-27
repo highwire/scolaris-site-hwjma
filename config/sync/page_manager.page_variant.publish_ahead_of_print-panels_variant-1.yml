@@ -1,0 +1,84 @@
+uuid: 492cb882-0b83-4285-9e79-07c1492bfd01
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.publish_ahead_of_print
+  module:
+    - ctools
+    - panels
+_core:
+  default_config_hash: S1AmCxOHJvSDXw5d0t-NBQndXzSFFCbDH6RVTY0SwNw
+id: publish_ahead_of_print-panels_variant-1
+label: Default
+variant: panels_variant
+variant_settings:
+  blocks:
+    be06af27-b5a1-4002-8437-0eedcc1c4854:
+      id: 'entity_view:node'
+      label: 'Content Header'
+      provider: ctools
+      label_display: '0'
+      view_mode: header_published_ahead_of_print
+      region: top
+      weight: -10
+      uuid: be06af27-b5a1-4002-8437-0eedcc1c4854
+      context_mapping:
+        entity: corpus_node
+    2866ac99-5a66-4f87-b017-4184b9318d41:
+      id: 'entity_view:node'
+      label: 'Article List (view)'
+      provider: ctools
+      label_display: '0'
+      view_mode: view_published_ahead_of_print_articles
+      region: left
+      weight: -1
+      uuid: 2866ac99-5a66-4f87-b017-4184b9318d41
+      context_mapping:
+        entity: corpus_node
+  id: panels_variant
+  uuid: 55fb49a1-6f82-4a91-bb50-af89881bc8c9
+  label: null
+  weight: 0
+  page_title: ''
+  storage_type: page_manager
+  storage_id: publish_ahead_of_print-panels_variant-1
+  builder: standard
+  layout: bs_2col_stacked
+  layout_settings:
+    label: ''
+    layout:
+      wrapper: div
+      classes: {  }
+      add_layout_class: 0
+      attributes: 'class|journal-page journal-article row journals-articles-middle'
+    regions:
+      top:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+      left:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 0
+        attributes: 'class|col-12 col-large-tablet-9'
+      right:
+        wrapper: div
+        classes:
+          col-sm-6: col-sm-6
+        add_region_classes: 0
+        attributes: 'class|col-12 col-large-tablet-3 article__rightbar'
+      bottom:
+        wrapper: div
+        classes:
+          col-sm-12: col-sm-12
+        add_region_classes: 1
+        attributes: ''
+page: publish_ahead_of_print
+weight: -10
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,23 @@
+uuid: 3885fc59-dcd4-48d7-ae40-82ca123b978d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_is_open
+    - node.type.media
+_core:
+  default_config_hash: '-Ha0Z_LUGHjgnVcVCLbfeNwSU3IetPH7DWUwiTRNpxk'
+id: node.media.issue_is_open
+field_name: issue_is_open
+entity_type: node
+bundle: media
+label: issue-is-open
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

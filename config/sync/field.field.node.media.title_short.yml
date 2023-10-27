@@ -1,0 +1,23 @@
+uuid: ac29f6ec-169e-4334-b53e-24114b91cfe3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.title_short
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: cKgaadioQCZZCMQERvGrURcMjw06YYnzISNWu3GlNCo
+id: node.media.title_short
+field_name: title_short
+entity_type: node
+bundle: media
+label: title-short
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

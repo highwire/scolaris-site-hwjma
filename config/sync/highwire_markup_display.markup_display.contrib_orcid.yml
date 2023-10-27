@@ -1,0 +1,19 @@
+uuid: e27ed7cf-95e4-4762-9a9c-8b93dbb5983b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7vNqLWucSmmrheKUTBLSk0SUlGmUCdHETj_ChaAyBZg
+id: contrib_orcid
+label: 'Contrib ORCID'
+configurations:
+  -
+    markup_profile: abstract
+    access_rule: ''
+    field_group_settings:
+      field_group_formatter: '0'
+    weight: '1'
+markup_field_enabled: false
+markup_field_content_types: {  }
+log: false
+render_placeholder: false

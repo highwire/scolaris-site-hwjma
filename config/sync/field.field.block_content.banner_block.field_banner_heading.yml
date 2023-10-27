@@ -1,0 +1,21 @@
+uuid: 1f42ef20-36ad-40b2-a392-640ccb6083b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_block
+    - field.storage.block_content.field_banner_heading
+_core:
+  default_config_hash: eURe7PlcyVjPxRSrLq1H6LlowIJp_kRKHdT0rXgSDAI
+id: block_content.banner_block.field_banner_heading
+field_name: field_banner_heading
+entity_type: block_content
+bundle: banner_block
+label: 'banner heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,27 @@
+uuid: 117667e5-99fa-4fbd-8a91-898a60b2a8bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: A6BfJrPkELXYqBlwvL47Al0MzTkDcJYT5jqtwXScEFE
+id: banner_block_queue
+label: 'banner block queue'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: block_content
+  handler: 'highwire:block_content'
+  handler_settings:
+    target_bundles:
+      banner_block: banner_block
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: banner_block
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse: false

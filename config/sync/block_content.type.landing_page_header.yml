@@ -1,0 +1,10 @@
+uuid: 27230bbc-dfc5-4f44-ab1b-6a2c3cab8cb9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: uqzz6TQCu0B-pZvHvOqfl3_ji99K_WdOgjAuyiRKChs
+id: landing_page_header
+label: 'Landing Page Header'
+revision: 0
+description: 'Landing Page Header'

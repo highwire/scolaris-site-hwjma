@@ -1,0 +1,27 @@
+uuid: 5c776a55-2996-4be3-8cfb-a1d0eb9dfbd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.reference
+  module:
+    - system
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: 4E9dSrRZ52WlESNxT4Goe2BDsRM-AvtKHd8sEoAKSqQ
+id: informationfor
+theme: scolaris_ios
+region: footer_3
+weight: -3
+provider: null
+plugin: 'system_menu_block:reference'
+settings:
+  id: 'system_menu_block:reference'
+  label: Services
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

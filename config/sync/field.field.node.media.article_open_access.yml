@@ -1,0 +1,23 @@
+uuid: ecb969d2-e32f-4b1a-92ac-180029b975ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.article_open_access
+    - node.type.media
+_core:
+  default_config_hash: fVigLoxmvegshbEQp2WuDWu8wyhyBrRDXYG73WY8iV8
+id: node.media.article_open_access
+field_name: article_open_access
+entity_type: node
+bundle: media
+label: article-open-access
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

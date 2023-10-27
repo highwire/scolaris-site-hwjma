@@ -1,0 +1,21 @@
+uuid: dc8f6718-ce83-4c79-b7c8-5058c22c35e6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: VmGWedk2D-I7nA_Dmm5D9hR4HjZzNvNaVEnCOBXKuVE
+id: contributors_guest_editor
+label: 'Contributors - guest editor'
+profile_id: contribs
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: delete
+      processor_config:
+        config:
+          xpath: "//div[contains(@class, 'contrib-group-authors')]\r\n//span[contains(@class, 'contributor-list-label')]"
+          selector: ''
+          preserve_children: 0
+    weight: '1'
+dw_logging: null
+exists_field: ''

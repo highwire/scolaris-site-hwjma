@@ -1,0 +1,23 @@
+uuid: 281d6bf7-16b2-4145-90ed-45f682766f06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.journal_publisher
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: Mxi04ZvDhWnap0A6GOJ6QOCZ6F22s6p4YHyOD2P8fHw
+id: node.media.journal_publisher
+field_name: journal_publisher
+entity_type: node
+bundle: media
+label: journal-publisher
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,23 @@
+uuid: 7370fcd1-a000-401b-a9f1-4272ba563c83
+langcode: en
+status: true
+dependencies:
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: oBNDDZELkb_SAePFZtpHjcjh27Qbo-lYn6doNh1eleY
+id: iossitebranding
+theme: scolaris_ios
+region: header_branding_1
+weight: 0
+provider: null
+plugin: 'block_content:055da060-ee86-4798-817f-f8a794001080'
+settings:
+  id: 'block_content:055da060-ee86-4798-817f-f8a794001080'
+  label: 'IOS site branding'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

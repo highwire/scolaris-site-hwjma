@@ -1,0 +1,23 @@
+uuid: 1e53de4c-df91-45b2-958a-fbfb514f749f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.doi
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: _dFGxpdZXY63CVbZDx3TbnZ5_gNDKH0BgFYBRo212uw
+id: node.media.doi
+field_name: doi
+entity_type: node
+bundle: media
+label: doi
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

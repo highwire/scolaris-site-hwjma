@@ -1,0 +1,39 @@
+uuid: a2af625f-fe6c-4697-b95c-7cb85c8e24b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.custom_meta
+    - node.type.media
+  module:
+    - double_field
+_core:
+  default_config_hash: dTJ2i4PZKQPUIg9c2Of6r26Qv6yXVDa6I3qgrWKI4sk
+id: node.media.custom_meta
+field_name: custom_meta
+entity_type: node
+bundle: media
+label: custom-meta
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    min: null
+    max: null
+    list: false
+    allowed_values: {  }
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

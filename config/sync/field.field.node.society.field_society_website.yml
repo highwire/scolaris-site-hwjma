@@ -1,4 +1,4 @@
-uuid: 899e0483-c418-4939-97bd-eb2d8fc513e8
+uuid: bbbfb291-4c99-441f-89e7-bef633c27ebb
 langcode: en
 status: true
 dependencies:
@@ -8,12 +8,12 @@ dependencies:
   module:
     - link
 _core:
-  default_config_hash: GM4QiNV_oAEvHXsb_N_b8thbCQripKOqF9h5bttBxtw
+  default_config_hash: kQjWZfcNjbkzCVhjrlXX1GJbIwI_NBNqie_x2S29V-k
 id: node.society.field_society_website
 field_name: field_society_website
 entity_type: node
 bundle: society
-label: Website
+label: society_website
 description: ''
 required: false
 translatable: false

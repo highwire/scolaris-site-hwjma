@@ -1,4 +1,4 @@
-uuid: f4a90766-c942-41ea-81cd-0212a2bce24e
+uuid: 3d646119-7124-454b-baa5-c2dcfce9802a
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
     - image
     - node
 _core:
-  default_config_hash: fDyeBaL5uGbUFPhWClgtUqnzmETG_jEpzdeOB7bLeNU
+  default_config_hash: k9pnfjuCLlJ6wiw0XcC-AonFzKn79PDJj8dAj2y8BIw
 id: node.field_journal_cover_image
 field_name: field_journal_cover_image
 entity_type: node

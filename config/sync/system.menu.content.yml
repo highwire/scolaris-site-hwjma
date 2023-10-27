@@ -1,9 +1,9 @@
-uuid: 04061ad5-d6d6-4f5b-a8db-8cce854bd93e
+uuid: 605476ef-9bf9-431c-b66f-4fd9800b9804
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: y1KFX3RmsCONnhdcEgGyvBl1gENGptoF8LRPiKIbqi8
+  default_config_hash: AtDrG2I5s0YHhMaVEySfq5SDXw88D6KPj-Wh-ul6pW8
 id: content
 label: Content
 description: ''

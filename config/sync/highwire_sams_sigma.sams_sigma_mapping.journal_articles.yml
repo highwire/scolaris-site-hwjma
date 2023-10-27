@@ -1,0 +1,13 @@
+uuid: b6d70869-b48f-43ed-8b7c-5c34a9d176b7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 8rZXajG8LAFqhbtshtG3HqVEc3DJmH2aIeHcL6uGR9g
+id: journal_articles
+label: 'Journal articles'
+weight: '-10'
+content_type: journal_article
+content_type_field: doi
+sams_sigma_key: DOI
+compact_long_ids: 0

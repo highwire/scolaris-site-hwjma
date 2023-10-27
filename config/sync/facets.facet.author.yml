@@ -1,24 +1,24 @@
-uuid: 7d174a5d-c509-4f4f-8f0f-235879041d80
+uuid: 7c9388ed-27f4-4421-abfb-f445be699914
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.ios
     - views.view.search
   module:
     - search_api
 _core:
-  default_config_hash: oQAPQjKdFc2F6EhxWbHFSh_Vsk9mW3A1xYdAjwSJD3I
+  default_config_hash: zXwp7QcQ66c8zBs0MJDWC9vZvEJTZx5ls5CZhxd0jQY
 id: author
 name: Author
 url_alias: author
 weight: 0
 min_count: 1
 show_only_one_result: false
-field_identifier: authors_full_name
+field_identifier: authors_full_name_facet
 facet_source_id: 'search_api:views_page__search__page_1'
 widget:
-  type: hwjma_include_all_checkbox_multiple
+  type: ios_include_all_checkbox_multiple
   config:
     show_numbers: true
     soft_limit: '0'
@@ -31,33 +31,27 @@ query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: 50
+hard_limit: 100
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
-  active_widget_order:
-    processor_id: active_widget_order
-    weights:
-      sort: 20
-    settings:
-      sort: DESC
   count_widget_order:
     processor_id: count_widget_order
     weights:
       sort: 30
     settings:
       sort: DESC
-  display_value_widget_order:
-    processor_id: display_value_widget_order
-    weights:
-      sort: 40
-    settings:
-      sort: ASC
   insert_missing_active_results_processor:
     processor_id: insert_missing_active_results_processor
     weights:
       build: -25
     settings: {  }
+  ios_facet_result_count_alpha:
+    processor_id: ios_facet_result_count_alpha
+    weights:
+      sort: 50
+    settings:
+      sort: ASC
   last_result_clear_facet_processor:
     processor_id: last_result_clear_facet_processor
     weights:

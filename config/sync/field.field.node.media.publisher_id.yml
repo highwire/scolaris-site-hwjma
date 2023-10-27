@@ -1,0 +1,23 @@
+uuid: 79e2eff8-791b-47e9-9366-4bf651cbe0bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.publisher_id
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: H4lhpFM_lyiBwESNXSMfVEM-T_ROI3YvbEL5cBp7Zmk
+id: node.media.publisher_id
+field_name: publisher_id
+entity_type: node
+bundle: media
+label: publisher-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

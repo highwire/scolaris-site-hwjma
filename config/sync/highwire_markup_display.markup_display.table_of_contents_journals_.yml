@@ -1,18 +1,18 @@
-uuid: 594c5f21-77fa-4831-93a0-ea3f36b2f272
+uuid: 3656b17f-29c3-4198-8f6b-20348e8093a5
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: sdutyJBeLGTpRT3gj2fb_s7DHHMXy0ZXK_0dlMBSPTo
+  default_config_hash: 1o-Xk3XcTk3el4TnYp-mFHGAn89PVcuFhcTqOlzlcGE
 id: table_of_contents_journals_
 label: 'Table of Contents (Journals)'
 configurations:
   -
     markup_profile: table_of_contents
+    access_rule: ''
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'
-    access_rule: ''
 markup_field_enabled: true
 markup_field_content_types:
   - journal_issue

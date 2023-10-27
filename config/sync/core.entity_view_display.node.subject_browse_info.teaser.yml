@@ -1,0 +1,44 @@
+uuid: 5480d6e5-0151-4be8-b5ba-8550338901ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.subject_browse_info.body
+    - field.field.node.subject_browse_info.field_subject_browse_info_image
+    - field.field.node.subject_browse_info.field_subject_browse_reference
+    - node.type.subject_browse_info
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: ToEPfLYlosfo2wJZCYPI6PMUqy0v0OosaaZlPsvxuJw
+id: node.subject_browse_info.teaser
+targetEntityType: node
+bundle: subject_browse_info
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  ccc_permissions_link: true
+  field_subject_browse_info_image: true
+  field_subject_browse_reference: true
+  hwjma_focus_view: true
+  ios_focus_view: true
+  ios_toc_pager: true
+  langcode: true
+  prev_next_pager: true
+  prevnext_toc_pager: true

@@ -1,0 +1,21 @@
+uuid: 6d26a672-47eb-493d-92db-406fd37ec69f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 71_omY5xT3wJJyH0NO7QpxVqn85Rg6OhIh32FI9DSxg
+id: full_text_search_index_
+label: 'Full text (search index)'
+configurations:
+  -
+    markup_profile: full_text_search_index_
+    access_rule: ''
+    field_group_settings:
+      field_group_formatter: '0'
+    weight: '1'
+markup_field_enabled: true
+markup_field_content_types:
+  - journal
+  - journal_article
+log: false
+render_placeholder: false

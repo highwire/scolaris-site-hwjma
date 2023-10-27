@@ -1,0 +1,23 @@
+uuid: 90d9b2ea-0d4c-443e-a368-f0df9a14945a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.page_count
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: 2nSA3k7k_BQSxKtWJ6W_y8JfezSLAk8RfQgSVc2JC3I
+id: node.media.page_count
+field_name: page_count
+entity_type: node
+bundle: media
+label: page-count
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

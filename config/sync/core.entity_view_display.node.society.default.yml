@@ -1,4 +1,4 @@
-uuid: cbeb8bc8-8ed8-48a5-90e1-2e79c19d9db4
+uuid: 709e2be4-57ef-4ad1-92b6-d5596e54bbf7
 langcode: en
 status: true
 dependencies:
@@ -11,15 +11,15 @@ dependencies:
     - link
     - user
 _core:
-  default_config_hash: asCUo8Epu6LaP7OdrR_mCoIZiH0XElMUVq32SXoVIkk
+  default_config_hash: 7LSOC8I55NsbxPEHcOHi_a_mwD9KuRb-W2talqbDdC0
 id: node.society.default
 targetEntityType: node
 bundle: society
 mode: default
 content:
   field_society_log:
-    weight: 104
-    label: above
+    weight: 101
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -27,8 +27,8 @@ content:
     type: image
     region: content
   field_society_website:
-    weight: 103
-    label: above
+    weight: 102
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -36,18 +36,19 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    type: link_separate
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   addtoany: true
   ccc_permissions_link: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
+  ios_focus_view: true
+  ios_toc_pager: true
   langcode: true
   prev_next_pager: true
   prevnext_toc_pager: true

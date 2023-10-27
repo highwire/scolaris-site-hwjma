@@ -1,18 +1,18 @@
-uuid: d45736a0-7eee-4cd6-a19d-b1b76b4418d0
+uuid: 68f16a8f-1b2f-485d-8e65-83b574b11daa
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: jko2BnNcPwWPnj3P1KbAMfyRbmJmw445Ecj6Gidfhy8
+  default_config_hash: U3SI-Zd4dBXcA8CQf32RCSdq1tvWr0qpX4VMlx9L7TM
 id: abstract_article_toc_
 label: 'Abstract (Article ToC)'
 configurations:
   -
     markup_profile: journal_abstract
+    access_rule: ''
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'
-    access_rule: ''
 markup_field_enabled: true
 markup_field_content_types:
   - journal_article

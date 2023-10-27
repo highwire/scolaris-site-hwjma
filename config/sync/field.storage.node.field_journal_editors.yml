@@ -1,4 +1,4 @@
-uuid: abf248d7-b9a3-47e7-8ed8-182839435fe2
+uuid: 0916617b-4a73-4305-94cf-c4fa2ae7bd81
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - node
     - text
 _core:
-  default_config_hash: ZmLEUjRoi9qDAjuIPHkCZAkPZ09pWuW7uzTnslfqN2U
+  default_config_hash: v7HqnceoD7st-ITrJRp-BDFXjUmCPgU7xdFLT67j80Q
 id: node.field_journal_editors
 field_name: field_journal_editors
 entity_type: node

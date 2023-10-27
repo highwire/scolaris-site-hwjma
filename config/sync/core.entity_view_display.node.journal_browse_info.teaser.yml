@@ -1,0 +1,42 @@
+uuid: 1a79f999-521e-4b6d-84e7-2df1e4d142f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.journal_browse_info.body
+    - field.field.node.journal_browse_info.field_attach_to
+    - field.field.node.journal_browse_info.field_image
+    - node.type.journal_browse_info
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: 7bX999fGS86NACfUdSgPIwXDV7KM5YHX5h9fsayBgcs
+id: node.journal_browse_info.teaser
+targetEntityType: node
+bundle: journal_browse_info
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  ccc_permissions_link: true
+  field_attach_to: true
+  field_image: true
+  hwjma_focus_view: true
+  langcode: true
+  prev_next_pager: true
+  prevnext_toc_pager: true

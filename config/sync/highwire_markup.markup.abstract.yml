@@ -1,0 +1,36 @@
+uuid: 523e1c56-8417-4b28-b05b-3cda286ad909
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: N0k84P9F1DaVg75Ziittrju39NS6VMxogukALd6ur40
+id: abstract
+label: Abstract
+profile_id: abstract
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: binaryuri
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: mathml
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: delete
+      processor_config:
+        config:
+          xpath: ''
+          selector: ''
+          preserve_children: 0
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: replace_tag
+      processor_config:
+        config:
+          replace_tag: b|strong
+    weight: '1'
+dw_logging: null
+exists_field: ''

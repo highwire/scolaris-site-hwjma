@@ -1,4 +1,4 @@
-uuid: 1501e11d-df9b-49ee-b6df-2e8feb5f0b55
+uuid: b2fa59c3-bc51-4fc0-aa6a-7bdc4fa50eae
 langcode: en
 status: true
 dependencies:
@@ -47,8 +47,8 @@ dependencies:
     - field.field.node.journal.has_source
     - field.field.node.journal.has_tables
     - field.field.node.journal.has_videos
-    - field.field.node.journal.hwmd_abstract_search
     - field.field.node.journal.hwmd_abstract_search_index_
+    - field.field.node.journal.hwmd_full_text_search_index_
     - field.field.node.journal.issue
     - field.field.node.journal.issue_id
     - field.field.node.journal.issue_is_open
@@ -68,6 +68,7 @@ dependencies:
     - field.field.node.journal.journal_title
     - field.field.node.journal.keywords
     - field.field.node.journal.lpage
+    - field.field.node.journal.member_name
     - field.field.node.journal.member_network
     - field.field.node.journal.next_atom
     - field.field.node.journal.overline
@@ -108,7 +109,7 @@ dependencies:
   module:
     - path
 _core:
-  default_config_hash: 3fjHTnOKrNhiZm1vAxH3WnljN6lO-UWXCwUyP8JlO0o
+  default_config_hash: eJLhIxgr1-BPOFYd6i-x1HjZ36Oq8j3GEPYznVuOS0k
 id: node.journal.default
 targetEntityType: node
 bundle: journal
@@ -217,8 +218,8 @@ hidden:
   has_source: true
   has_tables: true
   has_videos: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
+  hwmd_full_text_search_index_: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -238,6 +239,7 @@ hidden:
   journal_title: true
   keywords: true
   lpage: true
+  member_name: true
   member_network: true
   next_atom: true
   overline: true

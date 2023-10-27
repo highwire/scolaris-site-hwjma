@@ -1,0 +1,23 @@
+uuid: 2cc84775-fa9d-401e-b1b1-41893332e1d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.summary
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: BtYismI-JFPHR-Znpk4pVeR3KWC9IFgJLNjRX-pdBMM
+id: node.media.summary
+field_name: summary
+entity_type: node
+bundle: media
+label: summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

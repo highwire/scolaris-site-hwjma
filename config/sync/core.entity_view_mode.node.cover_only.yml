@@ -1,11 +1,11 @@
-uuid: 364b83ae-2aff-4170-aa86-b887af343739
+uuid: 7d16aa2f-28ab-4d87-b09f-e87da8edfd05
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: 5PfUh9ewCclGUWjqlRAe2vV8OOS-nLRxPv_vwz1Zl-Q
+  default_config_hash: WgVco5wcjZ8PL07qVTFtTiuursxIepIs0R0NCKZRLvs
 id: node.cover_only
 label: 'Cover Only'
 targetEntityType: node

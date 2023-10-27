@@ -1,0 +1,40 @@
+uuid: 9f0ba079-66f5-4002-98b4-f7aea1e9ffc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.variant_cover_source_image
+    - node.type.media
+  module:
+    - image
+_core:
+  default_config_hash: 2toOC-FIR4yOH-LfxHbkj4P_-lfvsehQwZ5hg-eUbo4
+id: node.media.variant_cover_source_image
+field_name: variant_cover_source_image
+entity_type: node
+bundle: media
+label: variant-cover-source-image
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  file_extensions: 'png gif jpg jpeg'
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  max_resolution: ''
+  min_resolution: ''
+  default_image:
+    uuid: null
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  handler_settings: {  }
+field_type: image

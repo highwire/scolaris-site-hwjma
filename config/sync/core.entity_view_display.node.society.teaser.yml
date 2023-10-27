@@ -1,4 +1,4 @@
-uuid: d85a85d2-1ba5-4d39-98e3-410bb8405469
+uuid: 47481410-51bd-493f-87bf-a2759af67d8c
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: jfnn1W854zWPzEZJ2KV52xpdBx0mnwiXW1OZWPQuPV4
+  default_config_hash: 0-UwE28IX91zN1xppbqmEjTFC9mV642sci2QTySHx78
 id: node.society.teaser
 targetEntityType: node
 bundle: society
@@ -27,7 +27,8 @@ hidden:
   field_society_log: true
   field_society_website: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
+  ios_focus_view: true
+  ios_toc_pager: true
   langcode: true
   prev_next_pager: true
   prevnext_toc_pager: true

@@ -1,0 +1,17 @@
+uuid: 7911701c-7f4c-40d1-b40c-b5e9505c3ec9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7KEV4MXtWaQgtTMrmq8HUew4zu1Ka4BICvDZU2ul_Bw
+name: periodical_image
+label: 'Periodical image'
+effects:
+  9d39d5fc-c6b6-40e6-b2b9-922b9e35a750:
+    uuid: 9d39d5fc-c6b6-40e6-b2b9-922b9e35a750
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 256
+      height: 300
+      anchor: center-center

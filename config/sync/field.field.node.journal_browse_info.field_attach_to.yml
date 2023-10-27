@@ -1,0 +1,30 @@
+uuid: 15d5d6bd-a317-43b6-9df3-d9b201e751d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attach_to
+    - node.type.journal_browse_info
+    - node.type.page
+_core:
+  default_config_hash: u86zB3qZD9HO0-2Ii2itiEyRRReqeGKALtqS3IbuvHA
+id: node.journal_browse_info.field_attach_to
+field_name: field_attach_to
+entity_type: node
+bundle: journal_browse_info
+label: 'Attach to'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'highwire:node'
+  handler_settings:
+    target_bundles:
+      page: page
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: page
+field_type: entity_reference

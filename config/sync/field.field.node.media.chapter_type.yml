@@ -1,0 +1,23 @@
+uuid: d0285e44-b1e8-4263-8b3e-8649e3759b5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.chapter_type
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: nr1GUPttrbKCh8GV2TzKzi7qBU0_RA6AB7TbHKzl1Bo
+id: node.media.chapter_type
+field_name: chapter_type
+entity_type: node
+bundle: media
+label: chapter-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

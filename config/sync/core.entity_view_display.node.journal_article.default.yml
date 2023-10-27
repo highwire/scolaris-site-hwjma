@@ -1,4 +1,4 @@
-uuid: dfc77f49-d1ee-46e5-bcd3-a39286e4b99f
+uuid: a614fbe9-2d8b-46b7-b629-ffd00a1cc2cd
 langcode: en
 status: true
 dependencies:
@@ -50,12 +50,14 @@ dependencies:
     - field.field.node.journal_article.has_videos
     - field.field.node.journal_article.hwmd_abstract_article_
     - field.field.node.journal_article.hwmd_abstract_article_toc_
-    - field.field.node.journal_article.hwmd_abstract_search
     - field.field.node.journal_article.hwmd_abstract_search_index_
     - field.field.node.journal_article.hwmd_collection_detail
     - field.field.node.journal_article.hwmd_contributors
+    - field.field.node.journal_article.hwmd_contributors_authors
+    - field.field.node.journal_article.hwmd_contributors_guest_editor
     - field.field.node.journal_article.hwmd_contributors_plain_
     - field.field.node.journal_article.hwmd_figures_tables_article_
+    - field.field.node.journal_article.hwmd_full_text_search_index_
     - field.field.node.journal_article.hwmd_long_article_
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
@@ -76,6 +78,7 @@ dependencies:
     - field.field.node.journal_article.journal_title
     - field.field.node.journal_article.keywords
     - field.field.node.journal_article.lpage
+    - field.field.node.journal_article.member_name
     - field.field.node.journal_article.member_network
     - field.field.node.journal_article.next_atom
     - field.field.node.journal_article.overline
@@ -116,7 +119,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: JLOP5ALzpElfwcEOLGnnHXoHaDosbs9P8P1uwJ87chA
+  default_config_hash: cy-iQGzo1TNW0pcLs_NKWvvxuPk2aQborsRCVAwAcv0
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -128,8 +131,10 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
+  altmetrics: true
   apath: true
   article_open_access: true
   article_series_title: true
@@ -178,23 +183,28 @@ hidden:
   has_tables: true
   has_videos: true
   highwire_citations_download: true
+  highwire_cp_message: true
+  highwire_cp_status: true
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_altmetrics: true
   hwjma_focus_view: true
   hwjma_info_metrics_tab: true
-  hwjma_toc_pager: true
   hwjma_usage_stats: true
   hwmd_abstract_article_: true
   hwmd_abstract_article_toc_: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
   hwmd_collection_detail: true
   hwmd_contributors: true
+  hwmd_contributors_authors: true
+  hwmd_contributors_guest_editor: true
   hwmd_contributors_plain_: true
   hwmd_figures_tables_article_: true
+  hwmd_full_text_search_index_: true
   hwmd_long_article_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -213,8 +223,10 @@ hidden:
   journal_publisher_id: true
   journal_title: true
   keywords: true
+  kudos: true
   langcode: true
   lpage: true
+  member_name: true
   member_network: true
   next_atom: true
   overline: true

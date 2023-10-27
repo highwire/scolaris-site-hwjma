@@ -1,4 +1,4 @@
-uuid: 54043712-1526-4ffa-bd86-9d624e6ae504
+uuid: cb17e5bd-4309-4b87-a545-5513329063b0
 langcode: en
 status: true
 dependencies:
@@ -6,119 +6,76 @@ dependencies:
     - page_manager.page.node_view
   module:
     - ctools
-    - journal_article_detail
-    - node
+    - hwjma_search
     - panels
 _core:
-  default_config_hash: pYGKp5dp_Ocjhz5G4b71ZlBibIHZjR-4s96Y79uI49I
+  default_config_hash: ZIZFZC6hSKt2EKm_aIYBQyA9SrZf8gVD2lAz37tw_mI
 id: node_view-panels_variant-1
-label: Article
+label: 'Journal pages'
 variant: panels_variant
 variant_settings:
   blocks:
-    cdfed180-ace1-4911-8443-79a331d46177:
+    412548a7-646b-46ee-9b80-31275795e5d5:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       provider: ctools
       label_display: '0'
-      view_mode: content_details
+      view_mode: content_detail
       region: top
       weight: 0
-      uuid: cdfed180-ace1-4911-8443-79a331d46177
+      uuid: 412548a7-646b-46ee-9b80-31275795e5d5
       context_mapping:
         entity: node
-    8aebb1b3-a3f7-46fe-9a99-0c47375e5a33:
+    f9bb033c-ff89-4584-b603-bc220b5d6c75:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       provider: ctools
       label_display: '0'
       view_mode: full
-      region: bottom_left
+      region: left
       weight: 0
-      uuid: 8aebb1b3-a3f7-46fe-9a99-0c47375e5a33
+      uuid: f9bb033c-ff89-4584-b603-bc220b5d6c75
       context_mapping:
         entity: node
-    60499b3b-a317-4a2a-bc0e-0795495b43f8:
-      id: 'entity_view:node'
-      label: 'Entity view (Content)'
-      provider: ctools
+    0be0e731-27e2-4f29-bcdf-2e50b2da97ee:
+      id: searchBrowse
+      label: 'Search browse block'
+      provider: ios_search
       label_display: '0'
-      view_mode: focus_view
-      region: bottom_left
-      weight: 0
-      uuid: 60499b3b-a317-4a2a-bc0e-0795495b43f8
-      context_mapping:
-        entity: node
-    9ff1ea9a-2136-477e-b469-c26513339ddb:
-      id: jump_to_section
-      label: 'Jump to Section'
-      provider: journal_article_detail
-      label_display: visible
-      markup: content_sections_nav
-      access_control_rule: ''
-      region: bottom_right
-      weight: 0
-      uuid: 9ff1ea9a-2136-477e-b469-c26513339ddb
-      include_abstract: 1
-      include_content_top: 0
-      abstract_settings:
-        markup: abstract_search
-        title: Abstract
-        id: abstract
-      content_top_settings:
-        title: ''
-        id: ''
-      context_mapping:
-        node: node
+      region: left
+      weight: -1
+      uuid: 0be0e731-27e2-4f29-bcdf-2e50b2da97ee
+      context_mapping: {  }
   id: panels_variant
-  uuid: 913cdc11-eec4-463b-af89-51b8f40e5a98
+  uuid: 9d168c8a-9fea-4b9d-826f-7a3c0717ce08
   label: null
   weight: 0
-  layout: bs_2col_bricked
+  layout: bs_2col_stacked
   layout_settings:
     label: ''
     layout:
       wrapper: div
-      classes:
-        row: row
+      classes: {  }
       add_layout_class: 0
-      attributes: 'class| journal-page'
+      attributes: 'class|journal-page journal-article row journals-articles-middle'
     regions:
       top:
         wrapper: div
         classes:
           col-sm-12: col-sm-12
-        add_region_classes: 0
-        attributes: ''
-      top_left:
-        wrapper: div
-        classes:
-          col-sm-6: col-sm-6
-        add_region_classes: 0
-        attributes: ''
-      top_right:
-        wrapper: div
-        classes:
-          col-sm-6: col-sm-6
-        add_region_classes: 0
-        attributes: ''
-      middle:
-        wrapper: div
-        classes:
-          col-sm-12: col-sm-12
         add_region_classes: 1
         attributes: ''
-      bottom_left:
+      left:
         wrapper: div
         classes:
           col-sm-6: col-sm-6
         add_region_classes: 0
         attributes: 'class|col-12 col-large-tablet-9'
-      bottom_right:
+      right:
         wrapper: div
         classes:
           col-sm-6: col-sm-6
-        add_region_classes: 1
+        add_region_classes: 0
         attributes: 'class|col-12 col-large-tablet-3 article__rightbar'
       bottom:
         wrapper: div
@@ -126,7 +83,7 @@ variant_settings:
           col-sm-12: col-sm-12
         add_region_classes: 1
         attributes: ''
-  page_title: ''
+  page_title: '[node:title]'
   storage_type: page_manager
   storage_id: node_view-panels_variant-1
   builder: standard
@@ -134,9 +91,9 @@ page: node_view
 weight: 0
 selection_criteria:
   -
-    id: node_type
+    id: 'entity_bundle:node'
     bundles:
-      journal_article: journal_article
+      journal: journal
     negate: false
     context_mapping:
       node: node

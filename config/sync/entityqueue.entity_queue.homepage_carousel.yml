@@ -1,0 +1,27 @@
+uuid: eafa54ed-fee9-4ce1-ab5c-9a4d3c75a8c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 6iKj7rgKRPq1YGmiEnsXEBT6Q6t8BOVtJ6apdfNPhxg
+id: homepage_carousel
+label: 'Homepage carousel'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'highwire:node'
+  handler_settings:
+    target_bundles:
+      journal_issue_browse_info: journal_issue_browse_info
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: page
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse: false

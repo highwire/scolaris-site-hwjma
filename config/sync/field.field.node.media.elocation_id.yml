@@ -1,0 +1,23 @@
+uuid: fe5f9917-b125-4f34-814d-793942916b66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.elocation_id
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: i3xNvPz8CnXNhhztIq6CAeNtv4IS8BIr3D9DzfwSgic
+id: node.media.elocation_id
+field_name: elocation_id
+entity_type: node
+bundle: media
+label: elocation-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

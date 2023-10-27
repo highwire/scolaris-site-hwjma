@@ -1,0 +1,27 @@
+uuid: 57a25efa-925b-47e8-bf7e-fb6ae29fc0fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 0TfHilu2ltJgtnbDYoZCBSnCCMHf3N3oGeYAkWpDiNE
+id: home_journal_queue
+label: 'Home Journal Queue'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'highwire:node'
+  handler_settings:
+    target_bundles:
+      home_journal_block: home_journal_block
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 2
+  act_as_queue: false
+  reverse: false

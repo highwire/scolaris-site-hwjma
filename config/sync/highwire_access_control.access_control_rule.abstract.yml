@@ -1,0 +1,21 @@
+uuid: 6fd0bef5-f14c-47d6-a8fb-f0524a109b8e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: onyM9t3uBf8glloFenuyZn6VXZfeYd8TITFjMa3BFkU
+id: abstract
+label: Abstract
+description: 'AC check for journal abstracts.'
+rule_type: content
+role: abstract
+scope: any
+target: variant
+language: en
+content_type: application/xhtml+xml
+file_field: ''
+file_field_bundles: {  }
+ac_denied_action: default
+ac_denied_action_conf: {  }
+ac_denied_message: ''
+concurrency_limit_message: ''

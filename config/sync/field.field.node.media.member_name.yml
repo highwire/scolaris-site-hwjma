@@ -1,0 +1,23 @@
+uuid: 8a6b030c-5c07-4abc-b8a7-6f1a2b149393
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.member_name
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: Ll0lGxY4b7Ju7CdSvylExKbSLIutIP0P9RWetEmdipQ
+id: node.media.member_name
+field_name: member_name
+entity_type: node
+bundle: media
+label: member-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

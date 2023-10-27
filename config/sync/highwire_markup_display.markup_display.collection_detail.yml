@@ -1,18 +1,18 @@
-uuid: 930958e6-40da-4915-8fc9-5b3e1dabe1ce
+uuid: b816f27d-c0d9-498b-b652-414d228d541a
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 3fOfsY79__QgE4GcxecDWGf8kzKB76H6VvpNiilxEoc
+  default_config_hash: Zy_1-51zypS-zUol23KqubenlhVT9EVqqncPAyMlbNY
 id: collection_detail
 label: 'Collection Detail'
 configurations:
   -
     markup_profile: collection_detail_short_desc_profile
+    access_rule: ''
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'
-    access_rule: ''
 markup_field_enabled: true
 markup_field_content_types:
   - journal_article

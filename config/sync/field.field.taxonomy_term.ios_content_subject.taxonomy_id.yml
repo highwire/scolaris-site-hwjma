@@ -1,0 +1,21 @@
+uuid: 7bddc0ff-c26a-4a75-9e02-034a43a11f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.taxonomy_id
+    - taxonomy.vocabulary.ios_content_subject
+_core:
+  default_config_hash: vtGpA5TXP1XA3P8ujHl-HhPp4BGBbdB6VpxMzP4RoZg
+id: taxonomy_term.ios_content_subject.taxonomy_id
+field_name: taxonomy_id
+entity_type: taxonomy_term
+bundle: ios_content_subject
+label: Id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: 85acc250-00ef-439c-b941-543331649d33
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: ACMAX3Ni4fQxdlR_aQZcewUaY3t6d98p0bbvopGMxZ4
+id: user.field_foxycart_customer_id
+field_name: field_foxycart_customer_id
+entity_type: user
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

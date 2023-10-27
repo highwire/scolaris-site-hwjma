@@ -1,0 +1,23 @@
+uuid: af919ad1-f930-4e84-a3e2-dd0ad69e6a14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_ref_stub
+    - node.type.media
+_core:
+  default_config_hash: Le7-2cyjnywfMNDKRMfvPWrWryrF3juN8O1dLmdCVjs
+id: node.media.has_ref_stub
+field_name: has_ref_stub
+entity_type: node
+bundle: media
+label: has-ref-stub
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

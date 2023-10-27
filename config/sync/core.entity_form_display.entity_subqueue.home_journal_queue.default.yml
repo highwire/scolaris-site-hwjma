@@ -1,0 +1,43 @@
+uuid: a26c58bf-52e4-4e37-a888-efacef7c7e06
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_journal_queue
+  module:
+    - entityqueue
+_core:
+  default_config_hash: BDjvgS8J9PKmu5fEf5U_2AQ16boe6pk3yQsiS-oT-YI
+id: entity_subqueue.home_journal_queue.default
+targetEntityType: entity_subqueue
+bundle: home_journal_queue
+mode: default
+content:
+  items:
+    type: entityqueue_dragtable
+    weight: 5
+    settings:
+      link_to_entity: false
+      link_to_edit_form: true
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

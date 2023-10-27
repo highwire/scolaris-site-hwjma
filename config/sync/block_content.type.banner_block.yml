@@ -1,0 +1,10 @@
+uuid: 8513ee78-28fd-4432-b9d5-391d6d27006c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ndeUuaSYpVQhi6kVtNaPR2EB3FWAdhX6hAf3UqL5HwE
+id: banner_block
+label: 'Banner block'
+revision: 0
+description: ''

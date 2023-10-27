@@ -1,0 +1,23 @@
+uuid: ebc45f9c-64d7-4c25-9e05-32c361113750
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_accepted
+    - node.type.media
+  module:
+    - datetime_range
+_core:
+  default_config_hash: xB8fBsVNCOQ7CVWaL_52IBvjqwDgF8-Tj1e7LGXCbWI
+id: node.media.date_accepted
+field_name: date_accepted
+entity_type: node
+bundle: media
+label: date-accepted
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

@@ -1,0 +1,23 @@
+uuid: f305cbf2-2503-42b8-8b88-ac9963933eda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_received
+    - node.type.media
+  module:
+    - datetime_range
+_core:
+  default_config_hash: 16l006-RhMJ2gvF6_qCcRaE8PcQbvjJPAxQvy3ISPF4
+id: node.media.date_received
+field_name: date_received
+entity_type: node
+bundle: media
+label: date-received
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

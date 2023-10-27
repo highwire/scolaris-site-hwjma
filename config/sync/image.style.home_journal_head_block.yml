@@ -1,0 +1,23 @@
+uuid: 8f7cbece-0c33-4253-9e5e-b570b549f520
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Sg_p_Zdg_z9BKz8dY_mENfC073fj6-krTpi9XCYcC_g
+name: home_journal_head_block
+label: 'Home Journal Head Block'
+effects:
+  b30cbecf-2d12-4094-9e3f-7e998454a04d:
+    uuid: b30cbecf-2d12-4094-9e3f-7e998454a04d
+    id: image_resize
+    weight: 1
+    data:
+      width: 600
+      height: 288
+  ef821d32-f559-4eee-bcbb-d3b648ee43cf:
+    uuid: ef821d32-f559-4eee-bcbb-d3b648ee43cf
+    id: image_resize
+    weight: 1
+    data:
+      width: 600
+      height: 288

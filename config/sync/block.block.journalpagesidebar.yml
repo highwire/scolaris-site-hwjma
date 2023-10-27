@@ -1,0 +1,23 @@
+uuid: 1e9d879d-b452-480b-bbb1-c04cf8a776ab
+langcode: en
+status: false
+dependencies:
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: 279IbzDSFdhGt4rqat0ZkF1WiGUBOj3V4QM-yj330tw
+id: journalpagesidebar
+theme: scolaris_ios
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:9d24b6a8-ad49-498c-9f96-a0d9bdd6403a'
+settings:
+  id: 'block_content:9d24b6a8-ad49-498c-9f96-a0d9bdd6403a'
+  label: 'Journal page side bar'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

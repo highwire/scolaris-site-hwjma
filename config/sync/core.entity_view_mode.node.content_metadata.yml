@@ -1,0 +1,12 @@
+uuid: 12f01d99-a2f5-4005-bec2-5577899a241a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: V-UA322fK60hfJjOkz1UObg9zkOZyIhD6nwY43OIexE
+id: node.content_metadata
+label: 'Content Metadata'
+targetEntityType: node
+cache: true

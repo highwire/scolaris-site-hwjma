@@ -1,0 +1,23 @@
+uuid: 237fd5be-de0c-4486-b8e4-954c1a13e168
+langcode: en
+status: false
+dependencies:
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: WxiI4JKDN467ZT3pRzBrYfG61kvg-oXT6ZF3eH-qsek
+id: searchstatic
+theme: scolaris_ios
+region: search
+weight: 0
+provider: null
+plugin: 'block_content:31551b70-6e51-4ea7-9f82-53ee8bd4c6b4'
+settings:
+  id: 'block_content:31551b70-6e51-4ea7-9f82-53ee8bd4c6b4'
+  label: 'Search static'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

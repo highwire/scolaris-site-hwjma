@@ -1,73 +1,78 @@
-uuid: 72d5b44b-ee59-4ddf-9609-bd725da70be8
+uuid: 05bd1779-2b51-4696-85d1-d3d763ac71ff
 langcode: en
 status: true
 dependencies:
   config:
     - page_manager.page.node_view
+    - views.view.related_content
   module:
     - ctools
-    - hwjma_search
-    - journal_article_detail
+    - highwire_display
     - panels
+    - views
 _core:
-  default_config_hash: cw9RujDqIP03Gn9KSbVSpoS1GhOa8jbmz_m9S5AkS00
+  default_config_hash: r4IshrFDjxvC1oetXITUXmyf_E9jEkEM0bYz26gLDo8
 id: node_view-panels_variant-2
-label: Journal
+label: Articles
 variant: panels_variant
 variant_settings:
   blocks:
-    a7abfc2e-30ff-44da-9866-315be43d858c:
+    a74ec459-8ad1-47fc-ab4c-243e170d6a7a:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       provider: ctools
       label_display: '0'
-      view_mode: content_details
+      view_mode: content_detail
       region: top
-      weight: 0
-      uuid: a7abfc2e-30ff-44da-9866-315be43d858c
+      weight: -10
+      uuid: a74ec459-8ad1-47fc-ab4c-243e170d6a7a
       context_mapping:
         entity: node
-    57ddebac-28b4-4a83-b296-4ba88914dfdc:
+    b9d0ea37-1022-4337-82d3-bcf6c9e3aedd:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       provider: ctools
       label_display: '0'
       view_mode: full
       region: left
-      weight: 0
-      uuid: 57ddebac-28b4-4a83-b296-4ba88914dfdc
+      weight: -3
+      uuid: b9d0ea37-1022-4337-82d3-bcf6c9e3aedd
       context_mapping:
         entity: node
-    b88b5f0a-9387-42e2-b95a-5505c1703af8:
-      id: searchBrowse
-      label: 'Search browse block'
-      provider: hwjma_search
-      label_display: '0'
-      region: left
-      weight: -1
-      uuid: b88b5f0a-9387-42e2-b95a-5505c1703af8
-      context_mapping: {  }
-    2c4d7a89-ec58-4152-81dc-ebaa741fcfa3:
-      id: hwjma_altmetrics_data
-      label: 'Altmetrics Data'
-      provider: journal_article_detail
+    b9ebefdf-b4b0-4151-9479-edc3175faeb9:
+      id: highwire_content_nav_block
+      label: 'Article outline'
+      provider: highwire_display
       label_display: visible
+      markup: content_sections_nav
+      access_control_rule: ''
+      include_abstract: 1
+      abstract_settings:
+        markup: abstract
+        title: Abstract
+        id: abstract
+      include_content_top: 0
+      content_top_settings:
+        title: Top
+        id: content-top
       region: right
-      weight: 0
-      uuid: 2c4d7a89-ec58-4152-81dc-ebaa741fcfa3
-      description: 'Altmetric tracks attention and engagement of scholarly articles.'
-      month: 3m
-      issns: 1488-2329
-      number_per_page: '3'
-      api_url: 'https://api.altmetric.com/v1/citations/'
-      show_pager: 0
-      more_link: 1
-      more_link_label: 'See more'
-      more_link_url: ''
-      msg_no_data: 'No Altmetric data available.'
+      weight: 1
+      uuid: b9ebefdf-b4b0-4151-9479-edc3175faeb9
+      context_mapping:
+        node: node
+    61d478a4-69ce-45d8-8b45-852ff25a062b:
+      id: 'views_block:related_content-block_related_content'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: '5'
+      region: right
+      weight: -4
+      uuid: 61d478a4-69ce-45d8-8b45-852ff25a062b
       context_mapping: {  }
   id: panels_variant
-  uuid: 9959ed8c-0ea0-4063-8de1-e06f7b1a5780
+  uuid: 934498bd-c2c9-4edc-843e-c25572f492b3
   label: null
   weight: 0
   layout: bs_2col_stacked
@@ -92,7 +97,8 @@ variant_settings:
         attributes: 'class|col-12 col-large-tablet-9'
       right:
         wrapper: div
-        classes: {  }
+        classes:
+          col-sm-6: col-sm-6
         add_region_classes: 0
         attributes: 'class|col-12 col-large-tablet-3 article__rightbar'
       bottom:
@@ -111,7 +117,7 @@ selection_criteria:
   -
     id: 'entity_bundle:node'
     bundles:
-      journal: journal
+      journal_article: journal_article
     negate: false
     context_mapping:
       node: node

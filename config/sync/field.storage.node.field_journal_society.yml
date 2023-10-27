@@ -1,11 +1,11 @@
-uuid: d05280fb-2f69-4c56-be16-75a9b9c8e85d
+uuid: 1ef9ca9a-2984-4853-8d68-1d050b20c70c
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: NWEL-37_55-dRDE-B0cUBqinlYvFPvvCUdlHG_RViyY
+  default_config_hash: n-2xBlkomV01AbZPfT9Jfy8dOhL-MOB8qXmeF5NA15k
 id: node.field_journal_society
 field_name: field_journal_society
 entity_type: node

@@ -1,21 +1,23 @@
-uuid: 9cb1a4cd-987b-4346-879b-26fc6f03bf08
+uuid: 33340b9c-6e4f-43eb-a601-2caa2066a848
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: OT-6hOTrPzH5jiM_3FvWHPXWVREMy1W2MJVanVa8GJM
+  default_config_hash: CjOBuTKKDqa35kSJU_05nSXCI8iHB1uc4PnBDqoll0w
 id: abstract_search_index_
 label: 'Abstract (Search Index)'
 configurations:
   -
-    markup_profile: abstract_search
+    markup_profile: abstract_search_index_
+    access_rule: ''
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'
-    access_rule: ''
 markup_field_enabled: true
 markup_field_content_types:
   - journal
   - journal_article
+  - journal_issue
+  - journal_volume
 log: false
 render_placeholder: false

@@ -1,11 +1,11 @@
-uuid: e5366173-73a1-4410-9ea3-6dcff1068a09
+uuid: bfda6f62-6473-462e-8f0d-29c5c26e9a64
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: acBeO-8U4bJOXHmP_WmFKZWNzOAu4P1h53jUcEJCNtg
+  default_config_hash: 3cfc2s1YYx57KgwmK5gpcLBLY4M0yMDWMVk14lI4V_U
 id: node.collection_detail_short_desc
 label: 'Collection Detail Short Desc'
 targetEntityType: node

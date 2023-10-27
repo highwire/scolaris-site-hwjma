@@ -1,4 +1,4 @@
-uuid: 332099d0-c84c-4d40-9e66-19dc367b121f
+uuid: 7ebcf56a-83a2-4371-bcb5-1f4ffbd56f93
 langcode: en
 status: true
 dependencies:
@@ -48,8 +48,8 @@ dependencies:
     - field.field.node.journal.has_source
     - field.field.node.journal.has_tables
     - field.field.node.journal.has_videos
-    - field.field.node.journal.hwmd_abstract_search
     - field.field.node.journal.hwmd_abstract_search_index_
+    - field.field.node.journal.hwmd_full_text_search_index_
     - field.field.node.journal.issue
     - field.field.node.journal.issue_id
     - field.field.node.journal.issue_is_open
@@ -69,6 +69,7 @@ dependencies:
     - field.field.node.journal.journal_title
     - field.field.node.journal.keywords
     - field.field.node.journal.lpage
+    - field.field.node.journal.member_name
     - field.field.node.journal.member_network
     - field.field.node.journal.next_atom
     - field.field.node.journal.overline
@@ -118,35 +119,40 @@ third_party_settings:
     group_description:
       children: {  }
       parent_name: ''
-      weight: 3
+      weight: 2
       format_type: highwire_bootstrap_collapse
       format_settings:
-        label: description
-        button_classes: btn-secondary
-        separate_toggle_button: '1'
-        separate_toggle_button_settings:
-          button_weight: '-1'
-          button_parent: group_action_tools
         id: ''
-        classes: abstract-panel--list-item
+        classes: ''
         open: 0
+        button_classes: btn-secondary
+        separate_toggle_button: 0
+        separate_toggle_button_settings:
+          button_weight: ''
+          button_parent: default
         ajax_markup:
           ajax_markup_enabled: 0
+        required_fields: false
       label: description
       region: content
     group_action_tools:
       children: {  }
       parent_name: ''
-      weight: 4
-      format_type: highwire_html_list
+      weight: 3
+      format_type: html_element
       format_settings:
         id: ''
         classes: ''
-        list_type: ul
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
       label: 'Action Tools'
       region: content
 _core:
-  default_config_hash: jK0fqaKlSfxGJY9vcrPLEAJYHw7IiHqi_GZ5KthirNA
+  default_config_hash: D-oT-bwIza-FQJ4jLVN0L7g_SToHJRo4GM05RWs6G-c
 id: node.journal.browse_list_item
 targetEntityType: node
 bundle: journal
@@ -157,22 +163,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  current_issue_link:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   journal_current_issue:
-    type: entity_reference_entity_view
+    type: entity_reference_label
     weight: 0
     region: content
-    label: hidden
+    label: above
     settings:
-      view_mode: cover_only
-      link: false
+      link: true
     third_party_settings: {  }
 hidden:
   about: true
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
   all_issues: true
@@ -189,6 +190,7 @@ hidden:
   contributors: true
   corpus: true
   cover_date: true
+  current_issue_link: true
   custom_meta: true
   date_accepted: true
   date_epreprint: true
@@ -226,9 +228,10 @@ hidden:
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
+  hwmd_full_text_search_index_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -250,6 +253,7 @@ hidden:
   latest_articles: true
   links: true
   lpage: true
+  member_name: true
   member_network: true
   most_read: true
   next_atom: true

@@ -1,0 +1,27 @@
+uuid: cd0a317f-7a53-48d9-ac34-3dd232d07b94
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.content
+  module:
+    - system
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: xrJfxwKmk3QI0-WLWlffLh7xdQdJQ0P-oF0c8QmVI5g
+id: content
+theme: scolaris_ios
+region: footer_2
+weight: -3
+provider: null
+plugin: 'system_menu_block:content'
+settings:
+  id: 'system_menu_block:content'
+  label: Content
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

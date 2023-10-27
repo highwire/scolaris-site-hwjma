@@ -1,0 +1,23 @@
+uuid: f034a327-470d-469e-b609-390cd85a5404
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_title
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: vz2Lbn1CJDfo69y5WBySM-9xAvHZ_PefMYz5zNlSsMo
+id: node.media.issue_title
+field_name: issue_title
+entity_type: node
+bundle: media
+label: issue-title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

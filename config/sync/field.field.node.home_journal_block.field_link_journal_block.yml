@@ -1,0 +1,25 @@
+uuid: b7b42bb6-9f3b-411c-b1d9-73c5b34ec0ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_journal_block
+    - node.type.home_journal_block
+  module:
+    - link
+_core:
+  default_config_hash: 7r27qYp21ZNvr9tgZ5iuZZ3ShkaHq6cCbVn3PeGWblE
+id: node.home_journal_block.field_link_journal_block
+field_name: field_link_journal_block
+entity_type: node
+bundle: home_journal_block
+label: 'Link journal block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,25 @@
+uuid: 4744a032-e8cc-4af8-99b1-5842ae0e676c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.publisher_editable
+    - field.storage.block_content.body
+  module:
+    - text
+_core:
+  default_config_hash: ZmhYhzB70Wco-uzydSNV9gueoB0uQd6r-1pEHaUEfvI
+id: block_content.publisher_editable.body
+field_name: body
+entity_type: block_content
+bundle: publisher_editable
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

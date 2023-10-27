@@ -1,0 +1,63 @@
+uuid: 4af45fdb-4d7e-4f9e-a609-0e4240015f75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.home_journal_block.body
+    - field.field.node.home_journal_block.field_image_journal_home_block
+    - field.field.node.home_journal_block.field_link_journal_block
+    - node.type.home_journal_block
+  module:
+    - image
+    - link
+    - text
+    - user
+_core:
+  default_config_hash: Ri36D1m2CqxMurVtNUePRgtio18AyN2QZ0Se2p7HWGA
+id: node.home_journal_block.default
+targetEntityType: node
+bundle: home_journal_block
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image_journal_home_block:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_link_journal_block:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  ccc_permissions_link: true
+  hwjma_focus_view: true
+  ios_focus_view: true
+  ios_toc_pager: true
+  langcode: true
+  prev_next_pager: true
+  prevnext_toc_pager: true

@@ -1,0 +1,23 @@
+uuid: acd976ed-6500-46d3-a6ea-ca0f730eab2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.subtitle
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: quQ4Jq0BXKd4zfr_67_ecqLUDku7LfNoaJeushfAHI0
+id: node.media.subtitle
+field_name: subtitle
+entity_type: node
+bundle: media
+label: subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

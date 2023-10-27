@@ -1,0 +1,23 @@
+uuid: d5962f6b-0d04-4d73-8a7c-b73ccd3a8e66
+langcode: en
+status: true
+dependencies:
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: r9iG67tNYqfHDzeoTFC8W3B8wD-SImjFKEjnl1iksfs
+id: copyright
+theme: scolaris_ios
+region: footer_bottom_two
+weight: 0
+provider: null
+plugin: 'block_content:66b43517-f5a7-4d9f-840c-09f69f1732cc'
+settings:
+  id: 'block_content:66b43517-f5a7-4d9f-840c-09f69f1732cc'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

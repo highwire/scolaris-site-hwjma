@@ -1,4 +1,4 @@
-uuid: 0a24b860-b217-467e-a2c0-c8d99e9c621c
+uuid: 95781e0c-8bab-40d3-9141-e647a1282951
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - views
   theme:
-    - jcorex_base
+    - scolaris_ios
 _core:
-  default_config_hash: HrJ3MaiETbM-ag0bnicS_U3PbN_lVMZwsXn04s4mvlE
+  default_config_hash: YRNJad99x3ateW3ugngWl49_eoNN-IJHYbpowTnR5Yc
 id: exposedformsearchpage_1
-theme: jcorex_base
+theme: scolaris_ios
 region: search
 weight: 0
 provider: null

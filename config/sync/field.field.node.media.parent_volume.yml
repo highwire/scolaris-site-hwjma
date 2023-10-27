@@ -1,0 +1,23 @@
+uuid: 12eb581f-5130-48ee-8146-a5f538ead8b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.parent_volume
+    - node.type.media
+_core:
+  default_config_hash: OSjiF7JQsOH0QLltpSissjmQn56SmF4A2OyLJ8kON-Y
+id: node.media.parent_volume
+field_name: parent_volume
+entity_type: node
+bundle: media
+label: parent-volume
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

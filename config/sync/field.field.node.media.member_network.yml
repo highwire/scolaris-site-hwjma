@@ -1,0 +1,23 @@
+uuid: a0d3694c-92ef-4d7d-a6cb-995f626131ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.member_network
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: _9rOisEGuR1Mdhg5CZ0w9yZaayLrTbEi5yXn7_7BCag
+id: node.media.member_network
+field_name: member_network
+entity_type: node
+bundle: media
+label: member-network
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

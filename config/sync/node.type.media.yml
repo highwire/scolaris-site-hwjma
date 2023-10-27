@@ -1,0 +1,13 @@
+uuid: 76bb3f98-cd76-4695-a770-f3bc41bf757d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3idzCc1DJ8vM6HDmn0_o8Kb_-kIe6ki2a3ZROIYq_Hk
+name: media
+type: media
+description: 'Auto generated HighWire content type for media'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

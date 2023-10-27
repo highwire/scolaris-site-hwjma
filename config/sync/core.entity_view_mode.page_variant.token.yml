@@ -1,11 +1,11 @@
-uuid: f35a88a2-08ba-49f8-8b8d-8c37e30633ee
+uuid: dd87f9c5-8b7c-45f1-9136-1f96c4133357
 langcode: en
 status: true
 dependencies:
   module:
     - page_manager
 _core:
-  default_config_hash: uRVX8Tdy9jgwEv1xMXbqb3ncheM8fwCgHrrGR9ekTDk
+  default_config_hash: UW1Q204QGkvNz1xz4hndl_94_s61fjoyc-LW-IQyCmw
 id: page_variant.token
 label: Token
 targetEntityType: page_variant

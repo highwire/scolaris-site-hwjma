@@ -1,0 +1,23 @@
+uuid: 6af37a6b-fd97-4755-9b06-3f913be135cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.parent_journal
+    - node.type.media
+_core:
+  default_config_hash: 6NRxvoFBd1pYlLd_6RAHDfskNXRU-br-vEvyXbiqPZ4
+id: node.media.parent_journal
+field_name: parent_journal
+entity_type: node
+bundle: media
+label: parent-journal
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

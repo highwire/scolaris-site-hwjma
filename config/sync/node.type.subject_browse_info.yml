@@ -1,0 +1,19 @@
+uuid: 1fd29985-65bb-4aee-8e90-09e3da80e7c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: 4Y0F36j00bQCsGpL7b2fArQH_u8_86tncbiE98reAZM
+name: 'Subject Browse Info'
+type: subject_browse_info
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

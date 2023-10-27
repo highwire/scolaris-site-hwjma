@@ -1,4 +1,4 @@
-uuid: 8905bdc7-feeb-447c-af42-f0814fc40e3b
+uuid: 33189cc3-77d2-4bda-a3e7-f7cd13ea0f3f
 langcode: en
 status: true
 dependencies:
@@ -48,8 +48,8 @@ dependencies:
     - field.field.node.journal.has_source
     - field.field.node.journal.has_tables
     - field.field.node.journal.has_videos
-    - field.field.node.journal.hwmd_abstract_search
     - field.field.node.journal.hwmd_abstract_search_index_
+    - field.field.node.journal.hwmd_full_text_search_index_
     - field.field.node.journal.issue
     - field.field.node.journal.issue_id
     - field.field.node.journal.issue_is_open
@@ -69,6 +69,7 @@ dependencies:
     - field.field.node.journal.journal_title
     - field.field.node.journal.keywords
     - field.field.node.journal.lpage
+    - field.field.node.journal.member_name
     - field.field.node.journal.member_network
     - field.field.node.journal.next_atom
     - field.field.node.journal.overline
@@ -107,26 +108,45 @@ dependencies:
     - field.field.node.journal.volume
     - node.type.journal
   module:
+    - image
     - layout_builder
+    - text
     - user
 third_party_settings:
   layout_builder:
     allow_custom: false
     enabled: false
 _core:
-  default_config_hash: 6mKRW22M92ZZlZLJ1Norfq_y8172q9ScW_n_hvAtLEo
+  default_config_hash: LGoIU2Vy3_B1q33Hkg3mJnrJX6QxVlxHruDqJLXTkvE
 id: node.journal.search_result
 targetEntityType: node
 bundle: journal
 mode: search_result
 content:
   links:
-    weight: 100
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
+  title_plain:
+    type: text_default
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  variant_cover_image:
+    type: image
+    weight: 0
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
 hidden:
   about: true
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
   all_issues: true
@@ -182,9 +202,10 @@ hidden:
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
+  hwmd_full_text_search_index_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -206,6 +227,7 @@ hidden:
   langcode: true
   latest_articles: true
   lpage: true
+  member_name: true
   member_network: true
   most_read: true
   next_atom: true
@@ -232,9 +254,7 @@ hidden:
   subtype: true
   summary: true
   taxonomy_terms: true
-  title_plain: true
   title_short: true
-  variant_cover_image: true
   variant_cover_pdf: true
   variant_cover_source_image: true
   variant_full_text_pdf: true

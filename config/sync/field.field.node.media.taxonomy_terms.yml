@@ -1,0 +1,23 @@
+uuid: f5930e05-34a2-4a00-9a4f-c1c4dc728398
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.taxonomy_terms
+    - node.type.media
+_core:
+  default_config_hash: 82CC5_BlqIyStTkzw7JYAf-hXDvp5Zras9cZ0WU-eZE
+id: node.media.taxonomy_terms
+field_name: taxonomy_terms
+entity_type: node
+bundle: media
+label: taxonomy-terms
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

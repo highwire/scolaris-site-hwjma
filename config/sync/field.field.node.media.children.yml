@@ -1,0 +1,23 @@
+uuid: ae9068c5-6c12-4be3-8d47-770d23ef12d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.children
+    - node.type.media
+_core:
+  default_config_hash: m2syvabhvl1xj8TEMVZjmTa38Etvg3m-PIE3MywvaAk
+id: node.media.children
+field_name: children
+entity_type: node
+bundle: media
+label: children
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

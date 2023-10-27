@@ -1,0 +1,23 @@
+uuid: 5a3d1596-2d84-48f7-9142-2e997568ddd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.pubmed_id
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: Ws8dNYNww6cKfUyVjY88zUJ8iGGmxI0uIEKE9Fgg0NY
+id: node.media.pubmed_id
+field_name: pubmed_id
+entity_type: node
+bundle: media
+label: pubmed-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

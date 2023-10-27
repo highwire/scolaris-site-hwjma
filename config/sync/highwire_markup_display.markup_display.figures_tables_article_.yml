@@ -1,15 +1,15 @@
-uuid: 5fd0bcbe-577b-4794-8ae2-59785959500b
+uuid: 8ff46f44-9dad-43d7-907a-a8d2e0d9d2df
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: mpOHTiKnM-iZ_HsW_1TP_qjZSsjIVDpad7B4yLeP6To
+  default_config_hash: LUjs7bbzZhYoRTqxoUP_F1WRxmsmXrg7WvhUJqDXNjY
 id: figures_tables_article_
 label: 'Figures & Tables (Article)'
 configurations:
   -
     markup_profile: figures_tables
-    access_rule: online
+    access_rule: online_access
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'

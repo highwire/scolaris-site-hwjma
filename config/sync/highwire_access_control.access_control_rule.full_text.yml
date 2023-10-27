@@ -1,0 +1,21 @@
+uuid: 0dd51e98-1c6f-4500-94d5-5acf8db3dae8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xRrTkiPjfE9Diqdeby4v4SGUhQoaTfQAf3mUFzew54Q
+id: full_text
+label: 'Full text'
+description: 'Access to full text markup.'
+rule_type: content
+role: full-text
+scope: ''
+target: variant
+language: en
+content_type: application/xhtml+xml
+file_field: ''
+file_field_bundles: {  }
+ac_denied_action: default
+ac_denied_action_conf: {  }
+ac_denied_message: ''
+concurrency_limit_message: ''

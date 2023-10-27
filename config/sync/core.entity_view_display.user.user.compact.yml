@@ -1,9 +1,10 @@
-uuid: fd97a1c2-a436-42ed-ad99-976a2e043ca4
+uuid: e12e686e-ab69-48ed-9cb8-c59aee9840ee
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_foxycart_customer_id
     - field.field.user.user.field_hw_preferences_captured
     - field.field.user.user.field_organization_logo
     - field.field.user.user.field_sigma_license_data
@@ -31,6 +32,7 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_foxycart_customer_id: true
   field_hw_preferences_captured: true
   field_organization_logo: true
   field_sigma_license_data: true

@@ -1,0 +1,23 @@
+uuid: 3d02d6cb-1f96-4662-ac9b-35949f907f4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.related
+    - node.type.media
+_core:
+  default_config_hash: qJ6nKRrDf-6xGoLa3ZeMUIRxflOSZFIfbIIUaFujq8w
+id: node.media.related
+field_name: related
+entity_type: node
+bundle: media
+label: related
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

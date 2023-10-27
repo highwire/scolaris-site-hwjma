@@ -1,9 +1,9 @@
-uuid: b2ffa39d-645f-47f9-ba23-be9cd917a657
+uuid: 6e76143f-3cd0-4297-8cfa-fd2e7fa5f130
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 2sdxfFytmOfAxKTWq0AUNfTwWmd8t3UTLL-wIlRt33w
+  default_config_hash: 1f8qCoE29lMru2jiSV7yiDFy3gYWGMuB1VRQEPmiNPk
 id: contributors_plain
 label: 'Contributors - Plain'
 profile_id: contribs

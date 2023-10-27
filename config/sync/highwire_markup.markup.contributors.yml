@@ -1,9 +1,9 @@
-uuid: d5fadb63-2f92-41a3-9b0b-0652eb8515ae
+uuid: e06c8cbc-a084-4e0d-8a59-9ff61e040f80
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: ZY_OFkp--57m6TwMPwPVBFsA_4lIGY4L_Scu9xzzgT0
+  default_config_hash: gJlOGv4n9fzVnBmDKb7lO_zick8MinPOPUl55ejti4M
 id: contributors
 label: Contributors
 profile_id: contribs

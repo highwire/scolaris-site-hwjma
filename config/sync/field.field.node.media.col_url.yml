@@ -1,0 +1,23 @@
+uuid: a7f86b30-aeb3-4048-9d4b-48ce0faceaea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.col_url
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: Ogt9DAoH4yPk5brJCZJ0lEt1SIXO3aKuwr4esEChjhA
+id: node.media.col_url
+field_name: col_url
+entity_type: node
+bundle: media
+label: col-url
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

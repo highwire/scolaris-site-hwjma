@@ -1,0 +1,42 @@
+uuid: 795ef478-36a8-41d9-8eac-d89a6645e0f0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: n35qpy_OLD1EaJuxeA3w7PKXE8tAFW1YcCiQlJDTE2E
+id: journal_full_text_
+label: "Journal Full Text\t"
+profile_id: fulltext
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: sassuri
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: mathml
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: nlmfigures
+      processor_config:
+        config:
+          size: variant_large_image
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: ioscontribsplain
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: openurl
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: replace_tag
+      processor_config:
+        config:
+          replace_tag: ''
+    weight: '1'
+dw_logging: null
+exists_field: has_full_text

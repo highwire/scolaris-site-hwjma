@@ -1,0 +1,23 @@
+uuid: 4715d72e-db4c-44b3-ac12-bfe154ab44bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.slug
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: 5Zl5NNtd-oEgUD7EGYYVdb22gDNLhVFyDk2KCpAQ7LI
+id: node.media.slug
+field_name: slug
+entity_type: node
+bundle: media
+label: slug
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

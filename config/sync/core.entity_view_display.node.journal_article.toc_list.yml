@@ -1,4 +1,4 @@
-uuid: 45089ae9-4d8a-42ec-b41a-a3d8bd7d1878
+uuid: 5f9b3c41-2d9f-43db-a16b-cf5a4152b712
 langcode: en
 status: true
 dependencies:
@@ -51,12 +51,14 @@ dependencies:
     - field.field.node.journal_article.has_videos
     - field.field.node.journal_article.hwmd_abstract_article_
     - field.field.node.journal_article.hwmd_abstract_article_toc_
-    - field.field.node.journal_article.hwmd_abstract_search
     - field.field.node.journal_article.hwmd_abstract_search_index_
     - field.field.node.journal_article.hwmd_collection_detail
     - field.field.node.journal_article.hwmd_contributors
+    - field.field.node.journal_article.hwmd_contributors_authors
+    - field.field.node.journal_article.hwmd_contributors_guest_editor
     - field.field.node.journal_article.hwmd_contributors_plain_
     - field.field.node.journal_article.hwmd_figures_tables_article_
+    - field.field.node.journal_article.hwmd_full_text_search_index_
     - field.field.node.journal_article.hwmd_long_article_
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
@@ -77,6 +79,7 @@ dependencies:
     - field.field.node.journal_article.journal_title
     - field.field.node.journal_article.keywords
     - field.field.node.journal_article.lpage
+    - field.field.node.journal_article.member_name
     - field.field.node.journal_article.member_network
     - field.field.node.journal_article.next_atom
     - field.field.node.journal_article.overline
@@ -117,16 +120,21 @@ dependencies:
   module:
     - datetime_range
     - field_group
-    - highwire_access_control
+    - file
     - highwire_markup_display
+    - layout_builder
     - text
     - user
 third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
   field_group:
-    group_abstract:
-      children: {  }
+    group_action_tools:
+      children:
+        - variant_full_text_pdf
       parent_name: ''
-      weight: 11
+      weight: 9
       format_type: highwire_html_list
       format_settings:
         id: ''
@@ -134,8 +142,28 @@ third_party_settings:
         list_type: ul
       label: 'Action Tools'
       region: content
+    group_abstract:
+      children:
+        - hwmd_abstract_article_toc_
+      parent_name: ''
+      weight: 10
+      format_type: highwire_bootstrap_collapse
+      format_settings:
+        label: abstract
+        button_classes: btn-secondary
+        separate_toggle_button: '1'
+        separate_toggle_button_settings:
+          button_weight: '-1'
+          button_parent: group_action_tools
+        id: ''
+        classes: ''
+        open: 0
+        ajax_markup:
+          ajax_markup_enabled: 0
+      label: abstract
+      region: content
 _core:
-  default_config_hash: 8v22XJLIFVhMcuh_a9vK0Vw7G6SBM8qHN595fTvkZcA
+  default_config_hash: OqFDK9LqlF44mAxSYYQRUJjncLzJ63B5r6PFVVaPNlE
 id: node.journal_article.toc_list
 targetEntityType: node
 bundle: journal_article
@@ -177,14 +205,14 @@ content:
     third_party_settings: {  }
   hwmd_abstract_article_toc_:
     type: hwmarkup_display_formatter
-    weight: 10
+    weight: 11
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   hwmd_contributors_plain_:
     type: hwmarkup_display_formatter
-    weight: 9
+    weight: 8
     region: content
     label: above
     settings: {  }
@@ -209,15 +237,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   variant_full_text_pdf:
-    type: access_aware_file_url_plain
-    weight: 8
+    type: file_default
+    weight: 57
     region: content
     label: above
     settings:
-      access_rules: {  }
-      access_denied_behavior: ''
-      access_denied_html: ''
-      access_link_hide: false
+      use_description_as_link_text: true
     third_party_settings: {  }
   volume:
     type: text_default
@@ -227,8 +252,10 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
+  altmetrics: true
   apath: true
   article_series_title: true
   atom_type: true
@@ -273,21 +300,26 @@ hidden:
   has_tables: true
   has_videos: true
   highwire_citations_download: true
+  highwire_cp_message: true
+  highwire_cp_status: true
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_altmetrics: true
   hwjma_focus_view: true
   hwjma_info_metrics_tab: true
-  hwjma_toc_pager: true
   hwjma_usage_stats: true
   hwmd_abstract_article_: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
   hwmd_collection_detail: true
   hwmd_contributors: true
+  hwmd_contributors_authors: true
+  hwmd_contributors_guest_editor: true
   hwmd_figures_tables_article_: true
+  hwmd_full_text_search_index_: true
   hwmd_long_article_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -305,8 +337,10 @@ hidden:
   journal_publisher: true
   journal_publisher_id: true
   keywords: true
+  kudos: true
   langcode: true
   lpage: true
+  member_name: true
   member_network: true
   next_atom: true
   page_count: true

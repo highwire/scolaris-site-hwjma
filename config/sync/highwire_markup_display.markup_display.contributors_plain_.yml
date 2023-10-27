@@ -1,18 +1,18 @@
-uuid: c3bb822b-5a73-40da-8f59-c94456fce2c1
+uuid: e15fdd8e-ef91-47e9-aa85-871d92000366
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 9goUGZ1H_61QmmTFW54jn9Z2SfBcn_YJrDvOppgAUbM
+  default_config_hash: gB5PlNTsTart5FwgPWFvS4KR4gTFB-5IxK1NfqJKW2Y
 id: contributors_plain_
 label: 'Contributors (Plain)'
 configurations:
   -
     markup_profile: contributors_plain
+    access_rule: ''
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'
-    access_rule: ''
 markup_field_enabled: true
 markup_field_content_types:
   - journal_article

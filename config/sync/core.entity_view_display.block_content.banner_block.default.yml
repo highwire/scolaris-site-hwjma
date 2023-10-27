@@ -1,0 +1,65 @@
+uuid: fa66b815-6b08-42f1-863b-bca2147b0be2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_block
+    - field.field.block_content.banner_block.field_b
+    - field.field.block_content.banner_block.field_banner_caption
+    - field.field.block_content.banner_block.field_banner_heading
+    - field.field.block_content.banner_block.field_banner_image
+    - field.field.block_content.banner_block.field_link
+  module:
+    - image
+    - link
+_core:
+  default_config_hash: vt-zjYGkuLUoctmim9k5TDw6boY37UkjOam7F2AEvEE
+id: block_content.banner_block.default
+targetEntityType: block_content
+bundle: banner_block
+mode: default
+content:
+  field_b:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_banner_caption:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_banner_heading:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_banner_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  langcode: true

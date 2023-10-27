@@ -1,0 +1,31 @@
+uuid: 7d8ff3db-5f2b-4863-b608-a0d5a10be65f
+langcode: en
+status: true
+dependencies:
+  module:
+    - highwire_personalization
+    - system
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: Km6mIIyFuIN-iskx6n-bUSsqZ04eCbkVpckusmfKnL4
+id: highwirepersonalizationuserinfoadminnavigation
+theme: scolaris_ios
+region: sidebar_first
+weight: 0
+provider: null
+plugin: highwire_p13n_admin_nav
+settings:
+  id: highwire_p13n_admin_nav
+  label: 'HighWire Personalization: User Info & Admin Navigation'
+  provider: highwire_personalization
+  label_display: '0'
+  show_user_info: 1
+  show_nav: 1
+  log_out_link_text: 'Log out'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/my-account\r\n/my-account/*"
+    negate: false
+    context_mapping: {  }

@@ -1,9 +1,9 @@
-uuid: 19d06014-6837-4473-acce-644f7175d3db
+uuid: b65f8b65-d31e-437f-a029-012e69c7fafe
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Okgik0btA76sWfI71lgzaCJrhOm_ONntov9sVnTJvX4
+  default_config_hash: XP9rV0EE8xA6JuJwhKO9ltchzOpTWvdoL-4cwd80cOE
 id: journal_abstract
 label: 'Journal Abstract'
 profile_id: abstract
@@ -21,7 +21,7 @@ configuration:
       markup_processors: delete
       processor_config:
         config:
-          xpath: ''
+          xpath: '//div[contains(@class, "abstract")]/h2[contains(@class, "main-title")]'
           selector: ''
           preserve_children: 0
     weight: '1'
@@ -30,7 +30,7 @@ configuration:
       markup_processors: replace_tag
       processor_config:
         config:
-          replace_tag: ''
+          replace_tag: b|strong
     weight: '1'
 dw_logging: null
 exists_field: has_abstract

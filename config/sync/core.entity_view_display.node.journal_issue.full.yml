@@ -1,4 +1,4 @@
-uuid: 137d03d6-de38-4729-8f16-c95e4e9bcd63
+uuid: 23569520-2478-4c44-8e01-d58f972caa03
 langcode: en
 status: true
 dependencies:
@@ -48,6 +48,7 @@ dependencies:
     - field.field.node.journal_issue.has_source
     - field.field.node.journal_issue.has_tables
     - field.field.node.journal_issue.has_videos
+    - field.field.node.journal_issue.hwmd_abstract_search_index_
     - field.field.node.journal_issue.hwmd_table_of_contents_journals_
     - field.field.node.journal_issue.issue
     - field.field.node.journal_issue.issue_id
@@ -68,6 +69,7 @@ dependencies:
     - field.field.node.journal_issue.journal_title
     - field.field.node.journal_issue.keywords
     - field.field.node.journal_issue.lpage
+    - field.field.node.journal_issue.member_name
     - field.field.node.journal_issue.member_network
     - field.field.node.journal_issue.next_atom
     - field.field.node.journal_issue.overline
@@ -118,42 +120,87 @@ third_party_settings:
     group_articles_in_this_issue:
       children:
         - hwmd_table_of_contents_journals_
-        - hwjma_toc_pager
+      parent_name: group_outer
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: 'Articles in this issue'
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: 'class="latest-articles"'
+        effect: none
+        speed: fast
+        id: ''
+        classes: tab-content__main-heading
+      label: 'Articles in this issue'
+      region: content
+    group_outer:
+      children:
+        - group_content_actions
+        - group_articles_in_this_issue
       parent_name: ''
       weight: 0
       format_type: html_element
       format_settings:
-        label: 'Table of Contents'
+        id: ''
+        classes: journal-article__tabwrap
         element: div
-        show_label: true
-        label_element: h2
-        attributes: 'class="tab-content__main-heading latest-articles"'
+        show_label: false
+        label_element: h3
+        attributes: ''
         effect: none
         speed: fast
+      label: Outer
+      region: content
+    group_content_actions:
+      children:
+        - next_atom
+        - prev_atom
+      parent_name: group_outer
+      weight: 1
+      format_type: html_element
+      format_settings:
         id: ''
-        classes: ''
-      label: 'Table of Contents'
+        classes: 'journals-step top'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Content actions'
       region: content
 _core:
-  default_config_hash: ADy0_wjVK8BYI0fagluuLihAu3vVz3BvHT8eHz3U1PE
+  default_config_hash: Xc3hP2Si1EjA4d-J7sgHe3Z1Y3BCrjARoDyM4uJgw4E
 id: node.journal_issue.full
 targetEntityType: node
 bundle: journal_issue
 mode: full
 content:
-  hwjma_toc_pager:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   hwmd_table_of_contents_journals_:
     type: hwmarkup_display_formatter
-    weight: 0
+    weight: 82
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  next_atom:
+    type: entity_reference_entity_id
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  prev_atom:
+    type: entity_reference_entity_id
+    weight: 3
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
   apath: true
@@ -205,6 +252,9 @@ hidden:
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
+  hwmd_abstract_search_index_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -226,8 +276,8 @@ hidden:
   langcode: true
   links: true
   lpage: true
+  member_name: true
   member_network: true
-  next_atom: true
   overline: true
   page_count: true
   parent: true
@@ -236,7 +286,6 @@ hidden:
   parent_volume: true
   pdf_extract_img: true
   pisa_version: true
-  prev_atom: true
   prev_next_pager: true
   prevnext_toc_pager: true
   publisher_id: true

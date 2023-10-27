@@ -1,0 +1,24 @@
+uuid: d4b6743e-e4ea-4cf4-ab16-b0b62db8a283
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.journal_issue_browse_info
+_core:
+  default_config_hash: kvySaYzoTZe4FS7fa18m49fdWIi5TqA34NOAwBbI1qs
+id: node.journal_issue_browse_info.promote
+field_name: promote
+entity_type: node
+bundle: journal_issue_browse_info
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

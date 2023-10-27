@@ -1,27 +1,34 @@
-uuid: 48095e15-54d0-4006-b8c3-c9aad098586b
+uuid: cf14ac37-ae8b-4241-9782-e7ed5547af1c
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.ios
     - views.view.search
   module:
     - views
     - search_api_autocomplete
 _core:
-  default_config_hash: BqONphqiKLqz3usyP1vxG0I_-XfW63CL2KVO0BvSyt0
+  default_config_hash: vz6HX5kdq-On6OPTA3khg6Zv00_BJJvueZEMbMATrHY
 id: search
 label: Search
-index_id: hwjma
+index_id: ios
 suggester_settings:
-  live_results:
-    fields: {  }
-    view_modes: {  }
-suggester_weights: {  }
+  server:
+    fields:
+      - title_plain
+suggester_weights:
+  server: 0
 suggester_limits: {  }
 search_settings:
   'views:search':
     displays:
       default: true
       selected: {  }
-options: {  }
+options:
+  limit: 5
+  min_length: 1
+  show_count: false
+  autosubmit: true
+  submit_button_selector: ':submit'
+  delay: 0

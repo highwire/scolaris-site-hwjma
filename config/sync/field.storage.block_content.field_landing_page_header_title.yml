@@ -1,0 +1,23 @@
+uuid: ef29fcc4-5399-4301-ad5a-1b0916f8e6d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: wU2KqZuwD79MMA_utCHVr054q5iS-JmRg_TqVxudSvk
+id: block_content.field_landing_page_header_title
+field_name: field_landing_page_header_title
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

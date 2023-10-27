@@ -1,0 +1,25 @@
+uuid: e5b15351-db5a-43e5-8bf2-4e107a596110
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.journal_browse_info
+  module:
+    - text
+_core:
+  default_config_hash: HSsnWoAtLTTsVakj2CEy-XlCECaW3TVX2phLnYE367c
+id: node.journal_browse_info.body
+field_name: body
+entity_type: node
+bundle: journal_browse_info
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,23 @@
+uuid: 768e0523-e5e4-43d7-b6a8-f8d30d7fdacb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.member_name
+    - node.type.journal_issue
+  module:
+    - text
+_core:
+  default_config_hash: EkjK4IDUXwPeB3l-22iEJZWt_UeTBnRVtWPoNFPasaQ
+id: node.journal_issue.member_name
+field_name: member_name
+entity_type: node
+bundle: journal_issue
+label: member-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

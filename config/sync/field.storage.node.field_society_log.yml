@@ -1,4 +1,4 @@
-uuid: a1378879-b834-4990-aa54-20d3d8786577
+uuid: c396ae17-e3ad-4c2e-9cd5-866ca3d7bfd3
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
     - image
     - node
 _core:
-  default_config_hash: KqJHUXU9LG3_dXb3dX40WryGfpHPHIHXgJd-qI1BGVg
+  default_config_hash: 2jZ7t8ELcGDepJrdvOWVe4sYuWiLg3w4dlZPO730sfg
 id: node.field_society_log
 field_name: field_society_log
 entity_type: node

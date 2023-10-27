@@ -1,4 +1,4 @@
-uuid: 6b1f82ce-0877-47f8-87ce-3b6546e8e6b0
+uuid: 76fe635a-cf5e-4f62-896e-c35583052bf7
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ third_party_settings:
   highwire_markup_display:
     markup_display_id: abstract_article_toc_
 _core:
-  default_config_hash: elqR7cQmqMiOYmtMuF3_en970C16qzeSq2kmS2S3ZdI
+  default_config_hash: bnALXUST1K-2JtTHPqAltB_TXgu_NLjcXwvZZ4l33Yc
 id: node.journal_article.hwmd_abstract_article_toc_
 field_name: hwmd_abstract_article_toc_
 entity_type: node

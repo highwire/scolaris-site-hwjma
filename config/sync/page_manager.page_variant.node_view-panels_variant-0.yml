@@ -1,36 +1,37 @@
-uuid: d2dbe1af-39a6-4302-b879-0f2be94f09ab
+uuid: 8d740bb3-fa5a-4067-b30f-4d5eb3c4b612
 langcode: en
 status: true
 dependencies:
   config:
     - page_manager.page.node_view
-    - system.menu.information
+    - system.menu.cms-navigation
+    - system.menu.reference
+    - system.menu.resources
   module:
     - ctools
-    - node
     - panels
     - system
 _core:
-  default_config_hash: ZMIxj8z2YQwUbJxUk0atoSYJfZhUzdugKcSClMiOKJo
+  default_config_hash: DBArvCpjFc44eSUgHiF07iN4G4Rm0YU5tEqFe_xqZs4
 id: node_view-panels_variant-0
-label: 'CMS Pages'
+label: 'CMS pages'
 variant: panels_variant
 variant_settings:
   blocks:
-    a64945fa-e5ff-463d-aa00-38853984bd5a:
+    3285d1f2-7d53-4855-bba8-55bead4b0284:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       provider: ctools
       label_display: '0'
-      view_mode: default
+      view_mode: full
       region: right
       weight: 0
-      uuid: a64945fa-e5ff-463d-aa00-38853984bd5a
+      uuid: 3285d1f2-7d53-4855-bba8-55bead4b0284
       context_mapping:
         entity: node
-    0dc4d3b6-d56f-425b-92ff-14dd17007a61:
-      id: 'system_menu_block:information'
-      label: Information
+    bc358692-8241-4df6-832a-95058130aa34:
+      id: 'system_menu_block:resources'
+      label: 'Information for'
       provider: system
       label_display: visible
       level: 1
@@ -38,10 +39,34 @@ variant_settings:
       expand_all_items: false
       region: left
       weight: 0
-      uuid: 0dc4d3b6-d56f-425b-92ff-14dd17007a61
+      uuid: bc358692-8241-4df6-832a-95058130aa34
+      context_mapping: {  }
+    89f3a2b4-1de1-46fe-8d5b-252ec6959e05:
+      id: 'system_menu_block:reference'
+      label: Services
+      provider: system
+      label_display: visible
+      level: 1
+      depth: 0
+      expand_all_items: false
+      region: left
+      weight: 0
+      uuid: 89f3a2b4-1de1-46fe-8d5b-252ec6959e05
+      context_mapping: {  }
+    ca3ae8c2-a04a-41ec-bcc7-6c4d81ae9040:
+      id: 'system_menu_block:cms-navigation'
+      label: cms-navigation
+      provider: system
+      label_display: '0'
+      level: 2
+      depth: 0
+      expand_all_items: false
+      region: left
+      weight: 0
+      uuid: ca3ae8c2-a04a-41ec-bcc7-6c4d81ae9040
       context_mapping: {  }
   id: panels_variant
-  uuid: dfc6a04c-e8c9-43d0-ad91-10e59534bae9
+  uuid: 258ede70-8378-49c7-942f-6ca910527285
   label: null
   weight: 0
   layout: bs_2col
@@ -51,22 +76,20 @@ variant_settings:
       wrapper: div
       classes:
         row: row
-      add_layout_class: 1
-      attributes: ''
+      add_layout_class: 0
+      attributes: 'class|periodicals-browse row'
     regions:
       left:
         wrapper: div
-        classes:
-          col-sm-6: col-sm-6
-        add_region_classes: 1
-        attributes: ''
+        classes: {  }
+        add_region_classes: 0
+        attributes: 'class|column-order col-12 col-medium-tablet-4 col-desktop-4 order_2_1'
       right:
         wrapper: div
-        classes:
-          col-sm-6: col-sm-6
-        add_region_classes: 1
-        attributes: ''
-  page_title: 'CMS Pages'
+        classes: {  }
+        add_region_classes: 0
+        attributes: 'class|column-order col-12 col-medium-tablet-8 col-desktop-8'
+  page_title: '[node:title]'
   storage_type: page_manager
   storage_id: node_view-panels_variant-0
   builder: standard
@@ -74,7 +97,7 @@ page: node_view
 weight: 0
 selection_criteria:
   -
-    id: node_type
+    id: 'entity_bundle:node'
     bundles:
       page: page
     negate: false

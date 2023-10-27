@@ -1,4 +1,4 @@
-uuid: 6617c460-2d42-4ac5-aed5-e63c85c280c5
+uuid: ce7a0126-e7dd-4008-a6bb-57b1ef2c88e4
 langcode: en
 status: true
 dependencies:
@@ -47,8 +47,8 @@ dependencies:
     - field.field.node.journal.has_source
     - field.field.node.journal.has_tables
     - field.field.node.journal.has_videos
-    - field.field.node.journal.hwmd_abstract_search
     - field.field.node.journal.hwmd_abstract_search_index_
+    - field.field.node.journal.hwmd_full_text_search_index_
     - field.field.node.journal.issue
     - field.field.node.journal.issue_id
     - field.field.node.journal.issue_is_open
@@ -68,6 +68,7 @@ dependencies:
     - field.field.node.journal.journal_title
     - field.field.node.journal.keywords
     - field.field.node.journal.lpage
+    - field.field.node.journal.member_name
     - field.field.node.journal.member_network
     - field.field.node.journal.next_atom
     - field.field.node.journal.overline
@@ -108,7 +109,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: hdsO1VaSV8YVdW-WKbvL_fj-u6nh8AHUndc82gmzvfk
+  default_config_hash: ML2zOmGbjtshiBKq38wl4LXoa_AzUO4RTfv1dSY8Z4Q
 id: node.journal.default
 targetEntityType: node
 bundle: journal
@@ -121,6 +122,7 @@ content:
     third_party_settings: {  }
 hidden:
   about: true
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
   all_issues: true
@@ -172,13 +174,16 @@ hidden:
   has_tables: true
   has_videos: true
   highwire_citations_download: true
+  highwire_cp_message: true
+  highwire_cp_status: true
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
+  hwmd_full_text_search_index_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -200,6 +205,7 @@ hidden:
   langcode: true
   latest_articles: true
   lpage: true
+  member_name: true
   member_network: true
   most_read: true
   next_atom: true

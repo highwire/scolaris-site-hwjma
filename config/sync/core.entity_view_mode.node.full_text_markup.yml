@@ -1,11 +1,11 @@
-uuid: c2ccddcc-35d5-41d4-b2d7-41877a1015f1
+uuid: da65c619-e0a9-4dbf-873f-afdff3bd9274
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: DJ7bJDEajgOOHqgSCPHUQYkqhBAx9DW38NynHtVdqLU
+  default_config_hash: Eg-vc6UvynDfE4T-HFii4QX5d507W8ooP5cRA4CDzEc
 id: node.full_text_markup
 label: 'Full text markup'
 targetEntityType: node

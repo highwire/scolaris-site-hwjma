@@ -1,9 +1,9 @@
-uuid: 79c684b4-d61e-48ef-8c33-56bc49a83bf1
+uuid: bd60ac7a-e2b9-4277-8d6e-1d36d6734430
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: s-sqxl7GJfNl5dZ483JF4flgPiTTcXYGYl2e3pB02gA
+  default_config_hash: RGIkgY40vcAuGjkcWHHWjEzHR41thMyvVaD2IxsjDtY
 id: pdf_extract
 label: 'PDF Extract'
 profile_id: pdfextract

@@ -1,4 +1,4 @@
-uuid: bad17ade-893e-4a24-9520-1cd71809fa00
+uuid: 289561ab-886f-4eac-ad5b-39c7b2f74dbc
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ dependencies:
     - link
     - path
 _core:
-  default_config_hash: fbU60pLoSRx_B3qf4WvB9RC6jEDwldDERWz5s_m_EXw
+  default_config_hash: 7i6eHiPyF28U-1rDL3ZZy8KIdJCp2uxUMXaekYv5R_w
 id: node.society.default
 targetEntityType: node
 bundle: society
@@ -25,7 +25,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_society_log:
-    weight: 124
+    weight: 121
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -33,7 +33,7 @@ content:
     type: image_image
     region: content
   field_society_website:
-    weight: 123
+    weight: 122
     settings:
       placeholder_url: ''
       placeholder_title: ''

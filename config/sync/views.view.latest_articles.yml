@@ -1,23 +1,20 @@
-uuid: 20d1d5ec-367d-4b73-8d98-18168e35853c
+uuid: 1da1ca5e-a94a-426b-a1e0-a596901b5793
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.article_type
-    - field.storage.node.date_ppub
-    - search_api.index.hwjma
+    - field.storage.node.apath
+    - search_api.index.ios
   module:
-    - datetime_range
     - search_api
-    - text
 _core:
-  default_config_hash: jAoalgCkbbY5PHX-WV1mn-VdLMPivRMB8iElVNStvos
+  default_config_hash: QVIfTpZedC86QSVQS7-shqvzvfHkI45VxJBqP2TIIJg
 id: latest_articles
 label: 'Latest articles'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_hwjma
+base_table: search_api_index_ios
 base_field: search_api_id
 display:
   default:
@@ -30,12 +27,8 @@ display:
         type: none
         options: {  }
       cache:
-        type: time
-        options:
-          results_lifespan: 300
-          results_lifespan_custom: 0
-          output_lifespan: 300
-          output_lifespan_custom: 0
+        type: tag
+        options: {  }
       query:
         type: views_query
         options:
@@ -59,10 +52,9 @@ display:
       style:
         type: html_list
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
-          uses_fields: true
+          uses_fields: false
           type: ul
           wrapper_class: ''
           class: 'list-unstyled latest-articles'
@@ -74,17 +66,16 @@ display:
               journal: default
               journal_article: toc_list
               journal_fragment: default
-              journal_info: default
               journal_issue: default
               journal_volume: default
       fields:
-        search_api_id:
-          table: search_api_index_hwjma
-          field: search_api_id
-          id: search_api_id
+        apath:
+          table: search_api_index_ios
+          field: apath
+          id: apath
           entity_type: null
           entity_field: null
-          plugin_id: standard
+          plugin_id: search_api_field
           relationship: none
           group_type: group
           admin_label: ''
@@ -129,62 +120,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-        date_ppub:
-          id: date_ppub
-          table: search_api_datasource_hwjma_entity_node
-          field: date_ppub
-          entity_type: node
-          plugin_id: search_api_field
-        article_type:
-          id: article_type
-          table: search_api_datasource_hwjma_entity_node
-          field: article_type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
           click_sort_column: value
-          type: text_default
+          type: string
           settings: {  }
           group_column: value
           group_columns: {  }
@@ -203,12 +140,10 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
       filters:
         type:
           id: type
-          table: search_api_index_hwjma
+          table: search_api_index_ios
           field: type
           relationship: none
           group_type: group
@@ -247,10 +182,10 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: search_api_options
-        status:
-          id: status
-          table: search_api_index_hwjma
-          field: status
+        version_current:
+          id: version_current
+          table: search_api_index_ios
+          field: version_current
           relationship: none
           group_type: group
           admin_label: ''
@@ -285,7 +220,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_boolean
-      sorts: {  }
+      sorts:
+        date_epub_original:
+          id: date_epub_original
+          table: search_api_index_ios
+          field: date_epub_original
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: 'Latest articles'
       header: {  }
       footer: {  }
@@ -294,7 +241,7 @@ display:
       arguments:
         corpus:
           id: corpus
-          table: search_api_index_hwjma
+          table: search_api_index_ios
           field: corpus
           relationship: none
           group_type: group
@@ -331,16 +278,14 @@ display:
         - 'languages:language_interface'
         - url
       tags:
-        - 'config:field.storage.node.article_type'
-        - 'config:field.storage.node.date_ppub'
+        - 'config:field.storage.node.apath'
   block_1:
     display_plugin: block
     id: block_1
     display_title: Block
     position: 1
     display_options:
-      display_extenders:
-        simple_sitemap_display_extender: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -348,5 +293,4 @@ display:
         - 'languages:language_interface'
         - url
       tags:
-        - 'config:field.storage.node.article_type'
-        - 'config:field.storage.node.date_ppub'
+        - 'config:field.storage.node.apath'

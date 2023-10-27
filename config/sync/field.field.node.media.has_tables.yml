@@ -1,0 +1,23 @@
+uuid: fda76e87-3aa6-4640-aba2-3dee9fe30663
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_tables
+    - node.type.media
+_core:
+  default_config_hash: Dvvzptk5KXlWIl-1naZfixFv6PRfCHaH-BNE8--8cho
+id: node.media.has_tables
+field_name: has_tables
+entity_type: node
+bundle: media
+label: has-tables
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

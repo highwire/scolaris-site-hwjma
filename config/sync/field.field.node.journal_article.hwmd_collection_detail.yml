@@ -1,4 +1,4 @@
-uuid: 1bba9ce7-de12-4d5b-8e8e-6b2952e9f900
+uuid: e1abff7b-5e49-4bdc-9536-99c1cad346e2
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ third_party_settings:
   highwire_markup_display:
     markup_display_id: collection_detail
 _core:
-  default_config_hash: OqMobUdF_Xr4xCKP1UBgwZixvb1c55hbR72X9vUwInw
+  default_config_hash: RJIp4HZjH3wkC_5NXwxgWBbLwvZw9WDfodhq-t9WGoE
 id: node.journal_article.hwmd_collection_detail
 field_name: hwmd_collection_detail
 entity_type: node

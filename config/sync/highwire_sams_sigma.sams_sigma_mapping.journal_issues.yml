@@ -1,0 +1,13 @@
+uuid: af22d184-3df3-4822-8e8c-56254573c303
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: eTP4J_3t-Cqq5VucGMjzYtnQt8YPjYLu3EqdzAnFD5E
+id: journal_issues
+label: 'Journal issues'
+weight: '-10'
+content_type: journal_issue
+content_type_field: doi
+sams_sigma_key: DOI
+compact_long_ids: 0

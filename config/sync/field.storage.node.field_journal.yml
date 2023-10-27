@@ -1,11 +1,11 @@
-uuid: 485e2a5c-9905-4d89-b533-aff0f014977b
+uuid: 6208b873-fdfe-4548-aa50-3c8002be779d
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: ka673jhsvoFAx_zb-Oqdpk5ki1xRLctWp0jsH87_3M8
+  default_config_hash: 5izt2RGa-5E0zveraVcOs6papUic4N8sNya4kazOScQ
 id: node.field_journal
 field_name: field_journal
 entity_type: node

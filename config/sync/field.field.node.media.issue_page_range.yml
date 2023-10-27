@@ -1,0 +1,23 @@
+uuid: 6c66937f-d20c-43e0-a73a-1404f2b4cbfc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_page_range
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: HqLXA2fv_mwrDLoSI7T11pnwPIUOjvFDh_gssW_TgxI
+id: node.media.issue_page_range
+field_name: issue_page_range
+entity_type: node
+bundle: media
+label: issue-page-range
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

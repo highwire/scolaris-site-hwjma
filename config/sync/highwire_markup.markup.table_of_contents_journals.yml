@@ -1,0 +1,29 @@
+uuid: bcf4a0cf-a83b-4c17-866b-3e72f20447b6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: TVKhKby0juApAj8cvpUlfG89foQbmUFXJWQZXmGVz9g
+id: table_of_contents_journals
+label: 'Table of Contents - Journals'
+profile_id: toc
+configuration:
+  view_mode_for_article: toc_list
+  view_mode_for_journal: toc_list
+  view_mode_for_journal_article: toc_list
+  view_mode_for_journal_browse_info: toc_list
+  view_mode_for_journal_fragment: toc_list
+  view_mode_for_journal_info: toc_list
+  view_mode_for_journal_issue: toc_list
+  view_mode_for_journal_issue_browse_info: toc_list
+  view_mode_for_journal_volume: toc_list
+  view_mode_for_media: toc_list
+  view_mode_for_news_article: toc_list
+  view_mode_for_page: toc_list
+  view_mode_for_relationship: toc_list
+  view_mode_for_society: toc_list
+  toc_wrapper_class: ''
+  toc_section_class: ''
+  display_flat_toc: 0
+dw_logging: null
+exists_field: ''

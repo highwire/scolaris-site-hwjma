@@ -1,0 +1,22 @@
+uuid: 9db2b80d-321b-4b57-9e40-ece9a63ad481
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: KgejZZxCGc_zkfKfNLiZ6dCwIxAGVsU_wA7RTPgUal0
+id: mainpagecontent
+theme: scolaris_ios
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

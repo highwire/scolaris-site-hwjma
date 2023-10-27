@@ -1,0 +1,26 @@
+uuid: df8844ab-b6dc-4d46-b696-a9eca85558cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.hwmd_contributors_guest_editor
+    - node.type.journal_article
+  module:
+    - highwire_markup_display
+third_party_settings:
+  highwire_markup_display:
+    markup_display_id: contributors_guest_editor
+_core:
+  default_config_hash: _y7yldJ6is2OqEsubcTIalzPnb7OwxF8qsHo_8WhKtk
+id: node.journal_article.hwmd_contributors_guest_editor
+field_name: hwmd_contributors_guest_editor
+entity_type: node
+bundle: journal_article
+label: 'HighWire Markup Display - Contributors (Guest editor)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: HWMarkupDisplay

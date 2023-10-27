@@ -1,0 +1,11 @@
+uuid: dd3dc431-c4f7-4f5e-bcca-77e8e896f272
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WPhMNLRFjwAoP4iNW4Q1YX5d0HkNzvIJCez69fQIwBU
+id: ios_access_icon
+label: 'ios access icon'
+access_control_rules:
+  - online_access
+config: {  }

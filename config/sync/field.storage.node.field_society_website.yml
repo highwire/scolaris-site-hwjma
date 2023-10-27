@@ -1,4 +1,4 @@
-uuid: 4b4d31cb-df94-41b8-a872-e9142a9658bf
+uuid: 9c712b2b-1552-4217-84f8-763e5230c1ea
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - link
     - node
 _core:
-  default_config_hash: yenghhTbWWYqqrZ6ruvb0WQzSgJEl-yubHCMkHxRyaQ
+  default_config_hash: ptrDPLLZPptvL0T3wRm9T2INOJglcF-8KvBo0Fy82Pc
 id: node.field_society_website
 field_name: field_society_website
 entity_type: node

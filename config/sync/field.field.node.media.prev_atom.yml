@@ -1,0 +1,23 @@
+uuid: f388906c-d4f6-409b-9998-d1a66dfe1f0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.prev_atom
+    - node.type.media
+_core:
+  default_config_hash: III3Rg-OSfG4kdz4gkVUCrsUYZWk5loOg630pKO92yQ
+id: node.media.prev_atom
+field_name: prev_atom
+entity_type: node
+bundle: media
+label: prev-atom
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

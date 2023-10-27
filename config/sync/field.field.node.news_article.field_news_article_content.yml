@@ -1,0 +1,32 @@
+uuid: 6977c013-a18e-467d-b815-176498401408
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_article_content
+    - node.type.journal
+    - node.type.journal_issue
+    - node.type.news_article
+_core:
+  default_config_hash: jp2nHemcTqkJ28cfVy3W-AErmuY3Wr_go3E2tjMbCiY
+id: node.news_article.field_news_article_content
+field_name: field_news_article_content
+entity_type: node
+bundle: news_article
+label: 'Attach to Journal or Issue Entity Ref'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'highwire:node'
+  handler_settings:
+    target_bundles:
+      journal: journal
+      journal_issue: journal_issue
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: journal
+field_type: entity_reference

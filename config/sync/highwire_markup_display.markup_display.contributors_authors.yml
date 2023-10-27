@@ -1,0 +1,20 @@
+uuid: 115057ca-48ce-49ac-9756-9bf18d03d1d0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: r8Ub0eSbOb91MAyHfMdmDidEkS3E9RlSleNj3OdktEw
+id: contributors_authors
+label: 'Contributors - authors'
+configurations:
+  -
+    markup_profile: contributors_authors
+    access_rule: ''
+    field_group_settings:
+      field_group_formatter: '0'
+    weight: '1'
+markup_field_enabled: true
+markup_field_content_types:
+  - journal_article
+log: false
+render_placeholder: false

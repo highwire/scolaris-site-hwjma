@@ -1,0 +1,23 @@
+uuid: dd5c6df0-5877-4760-bb3f-648549fd3be5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.subtype
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: i7XYN9MyAB0mtGI_nLfKFKqUqGa5sDY_QEdsnhVX9JM
+id: node.media.subtype
+field_name: subtype
+entity_type: node
+bundle: media
+label: subtype
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

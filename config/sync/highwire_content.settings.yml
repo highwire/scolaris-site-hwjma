@@ -2915,3 +2915,6 @@ highwire_content_type_policy_mapping:
     - scolaris-journal
   relationship:
     - scolaris-journal
+highwire_corpus_page_redirect:
+  scolaris-journal:
+    hwjma: ''

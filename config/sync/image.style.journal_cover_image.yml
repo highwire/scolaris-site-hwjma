@@ -1,0 +1,17 @@
+uuid: 050c4294-6505-420f-bbc0-e7366a80f09e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: JOFDqHQZ707uoGBZ5GSUTidg-Zf_Hk5OKv_oQYvRYQk
+name: journal_cover_image
+label: 'journal cover image'
+effects:
+  d33b36ad-0828-46c7-8a08-c5a6148e6c17:
+    uuid: d33b36ad-0828-46c7-8a08-c5a6148e6c17
+    id: image_scale
+    weight: 1
+    data:
+      width: 180
+      height: 240
+      upscale: false

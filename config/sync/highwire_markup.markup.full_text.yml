@@ -1,0 +1,60 @@
+uuid: 5e4f7187-a9db-42ae-8043-d9044eb2e757
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: XMZgAwAWh1u8ksYogP1ut61cnUtfNPu4JeL6oRBPBDo
+id: full_text
+label: 'Full text'
+profile_id: fulltext
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: binaryuri
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: mathml
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: nlmfigures
+      processor_config:
+        config:
+          size: variant_large_image
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: ioscontribsplain
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: ioscrosschapterlinks
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: ios_brightcove
+      processor_config:
+        config:
+          bc_video:
+            xpath: ''
+            width: '480'
+            height: '270'
+          bc_audio:
+            xpath: ''
+            width: '480'
+            height: '80'
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: openurl
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: replace_tag
+      processor_config:
+        config:
+          replace_tag: b|strong
+    weight: '1'
+dw_logging: null
+exists_field: ''

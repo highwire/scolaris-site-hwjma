@@ -1,0 +1,23 @@
+uuid: f1e49bd2-13b9-4c79-a39e-133d302d326c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.version_current
+    - node.type.media
+_core:
+  default_config_hash: PIbwgZ8ENuak9tAZcs57Vdz2Yi2TDuKRmC5r4nyBhUk
+id: node.media.version_current
+field_name: version_current
+entity_type: node
+bundle: media
+label: version-current
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

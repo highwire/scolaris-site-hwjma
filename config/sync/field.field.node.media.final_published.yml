@@ -1,0 +1,23 @@
+uuid: e675f36e-adf4-47c1-88f9-ed46cb0eb6ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.final_published
+    - node.type.media
+  module:
+    - datetime_range
+_core:
+  default_config_hash: bxBmCCHVlXD9-2WCVfy-cvBdSiN-3nTXnY3pM--IkCk
+id: node.media.final_published
+field_name: final_published
+entity_type: node
+bundle: media
+label: final-published
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

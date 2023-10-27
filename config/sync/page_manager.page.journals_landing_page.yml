@@ -1,0 +1,14 @@
+uuid: 7d6ccf77-4274-487b-8043-79dd00bbbc50
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: XLFHxLCDhg9iNbo9gzURv1glqYe6uvZp7iI2Mtq07po
+id: journals_landing_page
+label: 'journals landing page'
+description: ''
+use_admin_theme: false
+path: /journals
+access_logic: and
+access_conditions: {  }
+parameters: {  }

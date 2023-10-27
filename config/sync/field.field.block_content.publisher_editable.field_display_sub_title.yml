@@ -1,0 +1,23 @@
+uuid: b60a5886-b2af-4047-817f-232f6f7acd2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.publisher_editable
+    - field.storage.block_content.field_display_sub_title
+  module:
+    - text
+_core:
+  default_config_hash: I42ViADHf8cZU6tV-tT9mq-Tv_2Xe8hzJaZzfPyWgVs
+id: block_content.publisher_editable.field_display_sub_title
+field_name: field_display_sub_title
+entity_type: block_content
+bundle: publisher_editable
+label: 'Display Sub Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

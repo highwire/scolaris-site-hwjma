@@ -1,9 +1,9 @@
-uuid: c261168e-3323-4fe7-b721-730fb29c1f84
+uuid: 6f53de84-2624-4aed-8876-aecb1120792e
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: XqyRYHURl3YHkmR9lefWOZXE95KpNlM-vV8SFq-pZVU
+  default_config_hash: ru0coTBWfAUtVhnfAmVyFwSHMiHYaNUPzxv68Fz_FYY
 id: online_access
 label: 'Online access'
 description: 'AC3 rule to look for "online" scope.'

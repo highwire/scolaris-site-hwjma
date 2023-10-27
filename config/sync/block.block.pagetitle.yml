@@ -1,0 +1,27 @@
+uuid: 8abf712b-5ed3-4163-a702-722d9a5cf469
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - scolaris_ios
+_core:
+  default_config_hash: gDZZ17qG1IS8zEPjsV1fwdLZB3aKFIEg5qAadH6jLXI
+id: pagetitle
+theme: scolaris_ios
+region: page_title
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search*\r\n/books\r\n/journals\r\n/references\r\n/my-content"
+    negate: true
+    context_mapping: {  }

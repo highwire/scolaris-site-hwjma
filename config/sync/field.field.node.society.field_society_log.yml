@@ -1,4 +1,4 @@
-uuid: 5ddcd4f1-e979-437a-bddb-07f0aba52c1a
+uuid: 29de6e42-ac23-497d-853b-544f6c4649c9
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: j2Aa-BGF88Stp4I8iIkdQ9mvEWUg_GSsMl0pktFoquU
+  default_config_hash: Hos7Ohl7tyyMVHoQCFUiUhBc2lvOHHUHhu88STho4FQ
 id: node.society.field_society_log
 field_name: field_society_log
 entity_type: node
@@ -26,7 +26,7 @@ settings:
   max_resolution: ''
   min_resolution: ''
   alt_field: true
-  alt_field_required: true
+  alt_field_required: false
   title_field: false
   title_field_required: false
   default_image:

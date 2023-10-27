@@ -1,0 +1,21 @@
+uuid: daece9a3-e0cf-401b-bf08-b980155e2ebd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.taxonomy_pub_term_id
+    - taxonomy.vocabulary.ios_content_subject
+_core:
+  default_config_hash: mCInTe9EhHfS9w2hcwe1OZH2MT6WlHkZWoaG-_SmvGU
+id: taxonomy_term.ios_content_subject.taxonomy_pub_term_id
+field_name: taxonomy_pub_term_id
+entity_type: taxonomy_term
+bundle: ios_content_subject
+label: 'Publisher Term Id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

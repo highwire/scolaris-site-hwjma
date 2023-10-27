@@ -1,0 +1,21 @@
+uuid: 94e83ae9-3ffb-4f9e-a980-6f2e738adc42
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: YVzIGT2JlW8j1f0N8KiS7KLelM9WTtLe7-9w7QJ0nbs
+id: block_content.field_banner_heading
+field_name: field_banner_heading
+entity_type: block_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

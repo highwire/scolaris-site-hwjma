@@ -1,0 +1,56 @@
+uuid: 4cf85142-a3a5-4652-bb24-958a25f8f98a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.journal_browse_info.body
+    - field.field.node.journal_browse_info.field_attach_to
+    - field.field.node.journal_browse_info.field_image
+    - node.type.journal_browse_info
+  module:
+    - image
+    - text
+    - user
+_core:
+  default_config_hash: giFbpWeqdP1KkFVU1MekWbLaPQ0SyHLB664gHJdxLW8
+id: node.journal_browse_info.default
+targetEntityType: node
+bundle: journal_browse_info
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_attach_to:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  ccc_permissions_link: true
+  hwjma_focus_view: true
+  langcode: true
+  prev_next_pager: true
+  prevnext_toc_pager: true

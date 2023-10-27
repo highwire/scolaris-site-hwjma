@@ -1,0 +1,20 @@
+uuid: 75d27eba-48c9-4de7-ba87-937fdd588112
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7DLmUGv6UjZnFz2LT2wEEbspE6k5HJwISrpGXMeejP8
+id: contributors_guest_editor
+label: 'Contributors (Guest editor)'
+configurations:
+  -
+    markup_profile: contributors_guest_editor
+    access_rule: ''
+    field_group_settings:
+      field_group_formatter: '0'
+    weight: '1'
+markup_field_enabled: true
+markup_field_content_types:
+  - journal_article
+log: false
+render_placeholder: false

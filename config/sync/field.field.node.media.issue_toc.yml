@@ -1,0 +1,23 @@
+uuid: c3343c28-e351-4565-a7a5-a9ec66188289
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_toc
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: ngUYdevJAXcDt3-QoKsMX-c9WzKKhCAAfxNO79_oZOY
+id: node.media.issue_toc
+field_name: issue_toc
+entity_type: node
+bundle: media
+label: issue-toc
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

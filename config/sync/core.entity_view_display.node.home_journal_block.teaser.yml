@@ -1,0 +1,44 @@
+uuid: fe1cf4c7-1c3b-40a8-8b6d-571aaa81131c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.home_journal_block.body
+    - field.field.node.home_journal_block.field_image_journal_home_block
+    - field.field.node.home_journal_block.field_link_journal_block
+    - node.type.home_journal_block
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: gXRDjNzj2XgYL7PgYVBm5O4SeAex0BhyHw2Y8FvubVI
+id: node.home_journal_block.teaser
+targetEntityType: node
+bundle: home_journal_block
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  ccc_permissions_link: true
+  field_image_journal_home_block: true
+  field_link_journal_block: true
+  hwjma_focus_view: true
+  ios_focus_view: true
+  ios_toc_pager: true
+  langcode: true
+  prev_next_pager: true
+  prevnext_toc_pager: true

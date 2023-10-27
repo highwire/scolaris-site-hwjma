@@ -1,17 +1,17 @@
-uuid: 7fc3a864-8600-40ba-8856-2be4065dd5c1
+uuid: 8d5311cb-fc53-45ac-841c-dcddefff9e66
 langcode: en
 status: true
 dependencies:
   module:
     - node
 _core:
-  default_config_hash: r-dzD1a1gYqPnyHDg7_YHcBoUA0zuI3D9zj0ODnXuJg
+  default_config_hash: 4jOpnUon_pPTJ3uiPtbviXTJWAgMoFXk78lSBDkCW78
 id: hw_content
 label: 'hw content'
 type: 'canonical_entities:node'
 pattern: '[node:cpath_long]'
 selection_criteria:
-  0fbf9831-e617-4a1c-8ea5-624a3671fce6:
+  06aff29c-406c-4cb1-befc-8e074e84c32b:
     id: node_type
     bundles:
       journal: journal
@@ -19,10 +19,11 @@ selection_criteria:
       journal_fragment: journal_fragment
       journal_issue: journal_issue
       journal_volume: journal_volume
+      media: media
     negate: false
     context_mapping:
       node: node
-    uuid: 0fbf9831-e617-4a1c-8ea5-624a3671fce6
+    uuid: 06aff29c-406c-4cb1-befc-8e074e84c32b
 selection_logic: and
 weight: -5
 relationships: {  }

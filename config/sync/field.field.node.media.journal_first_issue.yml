@@ -1,0 +1,23 @@
+uuid: 1ad9dd08-1816-4f52-8071-97c607e336c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.journal_first_issue
+    - node.type.media
+_core:
+  default_config_hash: Aj8qgE5ZvMRe9j26vjd-mnXxkkBT1U-D2e4iRekLLU8
+id: node.media.journal_first_issue
+field_name: journal_first_issue
+entity_type: node
+bundle: media
+label: journal-first-issue
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

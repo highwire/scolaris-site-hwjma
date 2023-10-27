@@ -1,0 +1,17 @@
+uuid: 8358cc1f-2d10-466a-9985-89eaddaba765
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: IolPy8dQRuOxv4vj09CZta5EgrqwFIkWMe9UPVuubEk
+name: cover_results_item
+label: 'Cover: Results Item'
+effects:
+  3e87bab6-6f43-40fc-938d-33deb08ce0dd:
+    uuid: 3e87bab6-6f43-40fc-938d-33deb08ce0dd
+    id: image_scale
+    weight: 1
+    data:
+      width: 250
+      height: null
+      upscale: false

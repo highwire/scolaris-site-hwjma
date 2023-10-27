@@ -1,0 +1,28 @@
+uuid: d2e04b50-20d8-48fe-bcf7-4cba746581b5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I9S_eVu6iokN1ajjxeg-PV4eH1RCVL9zjsJl1TqL5FM
+id: full_text_search_index_
+label: 'Full text (search index)'
+profile_id: fulltext
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: delete
+      processor_config:
+        config:
+          xpath: ''
+          selector: ''
+          preserve_children: 0
+    weight: '1'
+  -
+    markup_processors_settings:
+      markup_processors: replace_tag
+      processor_config:
+        config:
+          replace_tag: b|strong
+    weight: '1'
+dw_logging: null
+exists_field: ''

@@ -1,9 +1,9 @@
-uuid: 037341d5-2b1b-4257-9270-ac3f6d0770c9
+uuid: 9359a4f7-9c3b-4179-b156-fb16dbdab424
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: X51g3yXV7QXlmXx-92-xr2WaNJmjeWbykrWaPoR80JU
+  default_config_hash: UlfC7s7mR9BuH-uAettl-tXjHD9ml80V_UG49eFsaE8
 id: figures_tables
 label: 'Figures & Tables'
 profile_id: figtable
@@ -11,21 +11,32 @@ configuration:
   -
     markup_processors_settings:
       markup_processors: binaryuri
-    weight: '1'
+    weight: '-10'
+  -
+    markup_processors_settings:
+      markup_processors: nlmfigures
+      processor_config:
+        config:
+          size: variant_small_image
+    weight: '-9'
   -
     markup_processors_settings:
       markup_processors: mathml
-    weight: '1'
+    weight: '-8'
   -
     markup_processors_settings:
       markup_processors: sassuri
-    weight: '1'
+    weight: '-7'
+  -
+    markup_processors_settings:
+      markup_processors: ios_fragments_in_context
+    weight: '-6'
   -
     markup_processors_settings:
       markup_processors: replace_tag
       processor_config:
         config:
-          replace_tag: ''
-    weight: '1'
+          replace_tag: b|strong
+    weight: '-5'
 dw_logging: null
 exists_field: ''

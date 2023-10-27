@@ -1,0 +1,31 @@
+uuid: 24629c9e-ab7f-4a8f-9883-8dd6c0809dc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject_browse_reference
+    - node.type.subject_browse_info
+    - taxonomy.vocabulary.ios_content_subject
+_core:
+  default_config_hash: SVXUQ7xqoICcSIiLzkp1UJsKcz2A6QKmNC5-3_QX68c
+id: node.subject_browse_info.field_subject_browse_reference
+field_name: field_subject_browse_reference
+entity_type: node
+bundle: subject_browse_info
+label: 'Subject Browse Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ios_content_subject: ios_content_subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

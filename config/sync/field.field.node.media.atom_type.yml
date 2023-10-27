@@ -1,0 +1,23 @@
+uuid: 52e7b1ab-c875-4d3a-8a4a-01692c892cc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.atom_type
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: RQMN1cEMVmIb79zYWKjWOWj3Qyr3LM9Xk2s2Pdx_Ygw
+id: node.media.atom_type
+field_name: atom_type
+entity_type: node
+bundle: media
+label: atom-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

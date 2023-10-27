@@ -1,4 +1,4 @@
-uuid: 467b9d93-147f-4b51-8bc2-51b219b2a403
+uuid: b131719c-c9f1-4ce1-9bf1-0b1c69cba67c
 langcode: en
 status: true
 dependencies:
@@ -10,11 +10,11 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: bhEgWw_PRJBQQI18VxtM0zP2tx2IUlBPjbSD3NhIX0E
+  default_config_hash: m3_CDkTvxfPY7p3usRcXbfefi-XBzlGl5wDBXOYPQHk
 name: Society
 type: society
 description: ''
 help: ''
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

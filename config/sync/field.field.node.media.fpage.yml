@@ -1,0 +1,23 @@
+uuid: e0656964-f1ed-4aa9-9d48-d9e431d0f23d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.fpage
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: Pe452xdWiU530H4dEaoRXNKLKbZIbgbbQlHLnkFa3t4
+id: node.media.fpage
+field_name: fpage
+entity_type: node
+bundle: media
+label: fpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

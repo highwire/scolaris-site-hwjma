@@ -1,0 +1,17 @@
+uuid: 0fa139e8-8b7c-4538-a077-9fc74b69e554
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Oq__umhsDn1g2Gk_37G5o5UJXekE3xyHjI4O8g2Fh_E
+name: homepage_highlights
+label: 'Homepage highlights'
+effects:
+  65e88c9e-441f-4d55-be54-6347869dda60:
+    uuid: 65e88c9e-441f-4d55-be54-6347869dda60
+    id: image_scale
+    weight: 1
+    data:
+      width: 250
+      height: null
+      upscale: false

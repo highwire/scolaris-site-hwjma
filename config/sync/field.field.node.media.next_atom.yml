@@ -1,0 +1,23 @@
+uuid: 2a846a31-9a0b-4774-af1e-758f9d6ddd3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.next_atom
+    - node.type.media
+_core:
+  default_config_hash: LUT_TzMs75zsWaIZQW9RdmIFUD-LEosTC9DGSw0-fYo
+id: node.media.next_atom
+field_name: next_atom
+entity_type: node
+bundle: media
+label: next-atom
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,10 @@
+uuid: b61892f1-f0c1-40d8-8fa3-173e8c1fc843
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: E_6VMWTbOJUA1zm1fG695na3kfNie3RNQDP0NcLGI2E
+name: ios-content-subject
+vid: ios_content_subject
+description: 'IOS Press Subjects Taxonomy'
+weight: 0

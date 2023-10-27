@@ -1,0 +1,23 @@
+uuid: 63bb18a9-1c08-4559-a69e-2fd65d2d12d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.contributors
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: fCM2eIaUTu34DPlJlVq_XDPYgppCmNK6Dltln3rYrB4
+id: node.media.contributors
+field_name: contributors
+entity_type: node
+bundle: media
+label: contributors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

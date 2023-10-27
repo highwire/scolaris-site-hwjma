@@ -1,0 +1,20 @@
+uuid: 055c6e4c-3470-40ae-a655-b8188659a26a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: K3GZUlvpQKgBCWq1NX7GcgGGfLErkjpzjHkFJuPYfnU
+id: node.field_priority_journal
+field_name: field_priority_journal
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

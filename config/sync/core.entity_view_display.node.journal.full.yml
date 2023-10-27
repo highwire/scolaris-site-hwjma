@@ -1,4 +1,4 @@
-uuid: 8d9ac4af-4818-4e09-9317-97d69d8bbd23
+uuid: 01a7b1ae-e521-4c94-b88b-6ade66ff5423
 langcode: en
 status: true
 dependencies:
@@ -48,8 +48,8 @@ dependencies:
     - field.field.node.journal.has_source
     - field.field.node.journal.has_tables
     - field.field.node.journal.has_videos
-    - field.field.node.journal.hwmd_abstract_search
     - field.field.node.journal.hwmd_abstract_search_index_
+    - field.field.node.journal.hwmd_full_text_search_index_
     - field.field.node.journal.issue
     - field.field.node.journal.issue_id
     - field.field.node.journal.issue_is_open
@@ -69,6 +69,7 @@ dependencies:
     - field.field.node.journal.journal_title
     - field.field.node.journal.keywords
     - field.field.node.journal.lpage
+    - field.field.node.journal.member_name
     - field.field.node.journal.member_network
     - field.field.node.journal.next_atom
     - field.field.node.journal.overline
@@ -115,75 +116,60 @@ third_party_settings:
     allow_custom: false
     enabled: false
   field_group:
-    group_search_within:
-      children: {  }
-      parent_name: ''
-      weight: 0
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: 'toc-head mainpane'
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: 'search within'
-      region: content
     group_journal_tabs:
       children:
         - group_latest_articles
         - group_all_issues
-        - group_submit_an_article
-        - group_about_this_periodical
+        - group_submit_article
+        - group_about_this_journal
         - group_editorial_board
         - group_most_read
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: highwire_tabs
       format_settings:
+        label: 'Journal tabs'
+        ajax_markup:
+          ajax_markup_enabled: '1'
+          active_tab_ajax_enabled: false
+        direction: vertical
         id: ''
         classes: ''
-        direction: vertical
-        ajax_markup:
-          ajax_markup_enabled: 1
-          active_tab_ajax_enabled: 0
       label: 'Journal tabs'
       region: content
     group_latest_articles:
       children:
         - latest_articles
       parent_name: group_journal_tabs
-      weight: 1
+      weight: 20
       format_type: highwire_tab
       format_settings:
+        label: 'Latest Articles'
+        description: ''
         id: ''
         classes: mainpanel
-        description: ''
-        active: 1
-        formatter: closed
+        active: 0
       label: 'Latest Articles'
       region: content
     group_all_issues:
       children:
         - all_issues
       parent_name: group_journal_tabs
-      weight: 2
+      weight: 21
       format_type: highwire_tab
       format_settings:
-        label: Archive
+        label: 'All issues'
         description: ''
         id: issues
         classes: mainpanel
         active: 0
-      label: Archive
+      label: 'All issues'
       region: content
-    group_submit_an_article:
+    group_submit_article:
       children:
         - submit_article
       parent_name: group_journal_tabs
-      weight: 3
+      weight: 22
       format_type: highwire_tab
       format_settings:
         id: submit-an-article
@@ -191,13 +177,13 @@ third_party_settings:
         description: ''
         active: 0
         formatter: closed
-      label: 'Submit an article'
+      label: 'Submit article'
       region: content
-    group_about_this_periodical:
+    group_about_this_journal:
       children:
         - about
       parent_name: group_journal_tabs
-      weight: 4
+      weight: 23
       format_type: highwire_tab
       format_settings:
         id: about
@@ -205,27 +191,26 @@ third_party_settings:
         description: ''
         active: 0
         formatter: closed
-      label: 'About this periodical'
+      label: 'About this journal'
       region: content
     group_editorial_board:
       children:
         - editorial_brd
       parent_name: group_journal_tabs
-      weight: 5
+      weight: 24
       format_type: highwire_tab
       format_settings:
         id: editorial-board
         classes: 'mainpanel book-content'
-        description: ''
-        active: 0
         formatter: closed
+        description: ''
       label: 'Editorial Board'
       region: content
     group_most_read:
       children:
         - most_read
       parent_name: group_journal_tabs
-      weight: 6
+      weight: 25
       format_type: highwire_tab
       format_settings:
         id: most-read
@@ -236,43 +221,49 @@ third_party_settings:
       label: 'Most Read'
       region: content
 _core:
-  default_config_hash: _dd8g1Hpnrdw15D-KQb3J8ORxyHAc982GOmPkk5wdCA
+  default_config_hash: Eokr9POXC2cx48ec_lIOGc-dGYolPaCTZx5yjquZCIU
 id: node.journal.full
 targetEntityType: node
 bundle: journal
 mode: full
 content:
   about:
-    weight: 2
+    weight: 42
     region: content
     settings: {  }
     third_party_settings: {  }
   all_issues:
-    weight: 39
+    weight: 37
     region: content
     settings: {  }
     third_party_settings: {  }
   editorial_brd:
-    weight: 3
+    weight: 39
     region: content
     settings: {  }
     third_party_settings: {  }
   latest_articles:
-    weight: 40
+    weight: 38
     region: content
     settings: {  }
     third_party_settings: {  }
-  most_read:
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  submit_article:
+  links:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
+  most_read:
+    weight: 36
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  submit_article:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  access_icon_ios_access_icon: true
   addtoany: true
   adjuncts: true
   apath: true
@@ -326,9 +317,10 @@ hidden:
   hw_marker_sign_up: true
   hw_tag_sign_up: true
   hwjma_focus_view: true
-  hwjma_toc_pager: true
-  hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
+  hwmd_full_text_search_index_: true
+  ios_focus_view: true
+  ios_toc_pager: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -348,8 +340,8 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
-  links: true
   lpage: true
+  member_name: true
   member_network: true
   next_atom: true
   overline: true

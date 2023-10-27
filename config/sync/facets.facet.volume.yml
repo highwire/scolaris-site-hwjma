@@ -1,24 +1,24 @@
-uuid: 0961fb00-fe2f-4e66-aeed-c8cf881e0f64
+uuid: c89c6b01-ec3a-4f09-b995-8f73e0b9561c
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.ios
     - views.view.search
   module:
     - search_api
 _core:
-  default_config_hash: ikFJFbY4XkKlDlMecOEEtp9OuX-HMOfAbiCkQ2gH5fA
+  default_config_hash: f59oLL0pI6tHmvi_jo7m3z3KGlGG6CnI5dDN0ASMk1Q
 id: volume
 name: volume
 url_alias: volume
 weight: 0
-min_count: 1
+min_count: 0
 show_only_one_result: false
 field_identifier: volume_facet
 facet_source_id: 'search_api:views_page__search__page_1'
 widget:
-  type: hwjma_include_all_checkbox_multiple
+  type: ios_include_all_checkbox_multiple
   config:
     show_numbers: true
     soft_limit: '0'
@@ -35,16 +35,10 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
-  count_widget_order:
-    processor_id: count_widget_order
+  display_value_widget_order:
+    processor_id: display_value_widget_order
     weights:
-      sort: 30
-    settings:
-      sort: DESC
-  hwjma_facet_result_count_alpha:
-    processor_id: hwjma_facet_result_count_alpha
-    weights:
-      sort: 50
+      sort: 40
     settings:
       sort: ASC
   insert_missing_active_results_processor:
@@ -52,6 +46,12 @@ processor_configs:
     weights:
       build: -25
     settings: {  }
+  ios_facet_result_count_alpha:
+    processor_id: ios_facet_result_count_alpha
+    weights:
+      sort: 50
+    settings:
+      sort: ASC
   last_result_clear_facet_processor:
     processor_id: last_result_clear_facet_processor
     weights:
@@ -65,4 +65,4 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
-show_title: true
+show_title: false

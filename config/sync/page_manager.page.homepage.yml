@@ -1,9 +1,9 @@
-uuid: ec7ee97e-e272-4cf3-b62d-ad228afeb935
+uuid: 6a817707-9a61-4884-a41a-95bb4cbd4b92
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: m-UiMLZKNs3auHgjc8a_WS4Wjg_CBLdDAXIAH9ypwKA
+  default_config_hash: 12yCwX0ThwfZCx6xG4JZ1srE3nkctlYrSFVhy56S19U
 id: homepage
 label: Homepage
 description: ''

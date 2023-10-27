@@ -1,0 +1,29 @@
+uuid: 47c69f2f-ec48-434b-a816-0d997ce7f03b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.variant_full_text_stamped_pdf
+    - node.type.media
+  module:
+    - file
+_core:
+  default_config_hash: h6YoX7r3eaSQLjwDZbLcl7eJErOskY0V3LcmLJfZzNI
+id: node.media.variant_full_text_stamped_pdf
+field_name: variant_full_text_stamped_pdf
+entity_type: node
+bundle: media
+label: variant-full-text-stamped-pdf
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  file_extensions: txt
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  description_field: false
+  handler_settings: {  }
+field_type: file

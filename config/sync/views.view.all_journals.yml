@@ -1,20 +1,20 @@
-uuid: 1f26e5d7-81bf-4348-ada5-4483a3540754
+uuid: 98c96244-17e9-4b13-992a-dff374115e72
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.corpus
-    - search_api.index.hwjma
+    - field.storage.node.apath
+    - search_api.index.ios
   module:
     - search_api
 _core:
-  default_config_hash: mjWnzNIFMqnr88ojK0Et_ELy8sC9P3_IlGqe--tjY1U
+  default_config_hash: 23LkMHv3mzoh4xXi5XQyjukKLiuLKOkuDUhC5Wfj4bQ
 id: all_journals
-label: 'All Journals'
+label: 'All journals'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_hwjma
+base_table: search_api_index_ios
 base_field: search_api_id
 display:
   default:
@@ -45,37 +45,18 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 20
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
       style:
-        type: grid
+        type: html_list
         options:
-          uses_fields: false
-          columns: 2
-          automatic_width: true
-          alignment: horizontal
-          col_class_default: true
-          col_class_custom: ''
-          row_class_default: true
-          row_class_custom: ''
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: search_api
         options:
@@ -84,14 +65,13 @@ display:
               journal: browse_list_item
               journal_article: default
               journal_fragment: default
-              journal_info: default
               journal_issue: default
               journal_volume: default
       fields:
-        corpus:
-          table: search_api_index_hwjma
-          field: corpus
-          id: corpus
+        apath:
+          table: search_api_index_ios
+          field: apath
+          id: apath
           entity_type: null
           entity_field: null
           plugin_id: search_api_field
@@ -162,7 +142,7 @@ display:
       filters:
         type:
           id: type
-          table: search_api_index_hwjma
+          table: search_api_index_ios
           field: type
           relationship: none
           group_type: group
@@ -203,7 +183,7 @@ display:
           plugin_id: search_api_options
         status:
           id: status
-          table: search_api_index_hwjma
+          table: search_api_index_ios
           field: status
           relationship: none
           group_type: group
@@ -239,36 +219,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_boolean
-      sorts: {  }
-      title: 'All Journals'
+      sorts:
+        title:
+          id: title
+          table: search_api_index_ios
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
+      title: 'All journals'
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
       tags:
-        - 'config:field.storage.node.corpus'
+        - 'config:field.storage.node.apath'
   block_1:
     display_plugin: block
     id: block_1
     display_title: Block
     position: 1
     display_options:
-      display_extenders:
-        simple_sitemap_display_extender: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
       tags:
-        - 'config:field.storage.node.corpus'
+        - 'config:field.storage.node.apath'

@@ -1,0 +1,21 @@
+uuid: 13b30349-9649-4a80-bf67-b4d50b8ede8f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: TPs0-CE-aJYOd3LkH0oDbv61CSnCgUJMayCivj4XDLo
+id: contributors_authors
+label: Contributors-authors
+profile_id: contribs
+configuration:
+  -
+    markup_processors_settings:
+      markup_processors: delete
+      processor_config:
+        config:
+          xpath: '//div[contains(@class, ''contrib-group-editors'')]'
+          selector: ''
+          preserve_children: 0
+    weight: '1'
+dw_logging: null
+exists_field: ''

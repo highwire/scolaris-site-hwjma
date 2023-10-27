@@ -1,0 +1,51 @@
+uuid: a0b2e41d-8670-4b7f-9eb3-41ec97a05900
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.carousel_item
+    - field.field.node.journal_issue_browse_info.body
+    - field.field.node.journal_issue_browse_info.field_attach_to
+    - field.field.node.journal_issue_browse_info.field_image
+    - node.type.journal_issue_browse_info
+  module:
+    - image
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+_core:
+  default_config_hash: aO8SOdRwtDlBbuA_pYR3fhbQB75T0bCw8w8R3Zd8ANY
+id: node.journal_issue_browse_info.carousel_item
+targetEntityType: node
+bundle: journal_issue_browse_info
+mode: carousel_item
+content:
+  field_attach_to:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  ccc_permissions_link: true
+  hwjma_focus_view: true
+  langcode: true
+  links: true
+  prev_next_pager: true
+  prevnext_toc_pager: true

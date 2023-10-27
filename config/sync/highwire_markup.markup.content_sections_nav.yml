@@ -1,9 +1,9 @@
-uuid: be17cc3c-e459-4aa1-ac3f-7f79364aac4b
+uuid: 9d4efe3c-c454-4172-b931-05ed8afc842b
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: O-8EJjeUGfqWgI__ZzJE64KFTVyLtaSAsxVN3AB_pSo
+  default_config_hash: kHZ5gqlbk5CX7UFqTNnd74JlbEKJwpaG6BDt0YrlJy0
 id: content_sections_nav
 label: 'Content Sections Nav'
 profile_id: fulltext

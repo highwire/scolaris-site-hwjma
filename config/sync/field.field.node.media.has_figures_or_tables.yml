@@ -1,0 +1,23 @@
+uuid: 015511c2-e6d5-49aa-9810-80e0f1febd99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_figures_or_tables
+    - node.type.media
+_core:
+  default_config_hash: XYWcJ-sLHsq9W-mK_tQBpZOuAmyho8aQXXaM_7l-xow
+id: node.media.has_figures_or_tables
+field_name: has_figures_or_tables
+entity_type: node
+bundle: media
+label: has-figures-or-tables
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

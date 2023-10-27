@@ -1,10 +1,10 @@
-uuid: 555ceff0-735d-41f8-9b4f-4398ea6f287b
+uuid: ec9cfcfc-6e90-4ec6-8749-53c773814e77
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: HttDKo9LWDxOCeXl0oEGYSIGr3IHZE1K4QMLSPUf5zU
+  default_config_hash: FQu5MP8myI4HC9LFpn7D_zu7xt1oIkDxA8mzZYl-3V0
 id: resources
-label: Resources
+label: 'Information for'
 description: ''
 locked: false

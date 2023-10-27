@@ -1,0 +1,17 @@
+uuid: ef102954-5d3e-4dae-91e4-b0154a1dd9ad
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: s0IkkGxX44uw24fpcUZSDHYnANp8joeTtlYxP6husT8
+name: news_block
+label: 'News block'
+effects:
+  89309c70-bb3e-47b3-b3b2-80d018dda4a3:
+    uuid: 89309c70-bb3e-47b3-b3b2-80d018dda4a3
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 98
+      height: 50
+      anchor: center-center

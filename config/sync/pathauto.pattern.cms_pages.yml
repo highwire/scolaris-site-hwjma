@@ -1,0 +1,24 @@
+uuid: 6bcdc347-4c68-4523-809d-3507bc83ac31
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 6avFk4C5VA0TqH1luCNTUb4MTdPVEATI91SbKrBWmi8
+id: cms_pages
+label: 'CMS pages'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  3ae4208e-bfc7-4ea1-994c-49481a7ca70d:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 3ae4208e-bfc7-4ea1-994c-49481a7ca70d
+selection_logic: and
+weight: -5
+relationships: {  }

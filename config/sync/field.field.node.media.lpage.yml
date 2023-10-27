@@ -1,0 +1,23 @@
+uuid: 0b0234a5-e6e0-4668-9f03-597d688208b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.lpage
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: iq7jZ36iCS33yYLsyGflflx0mkYbEB6T3iPn76jtuiM
+id: node.media.lpage
+field_name: lpage
+entity_type: node
+bundle: media
+label: lpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

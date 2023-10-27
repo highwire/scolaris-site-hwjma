@@ -1,0 +1,23 @@
+uuid: 131dc29d-99cf-481b-9fea-06c3277c384a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issue_id
+    - node.type.media
+  module:
+    - text
+_core:
+  default_config_hash: Jialcvzw-2NbycA6WXBBCwe3At1KUkgDO_WbN0wyqbg
+id: node.media.issue_id
+field_name: issue_id
+entity_type: node
+bundle: media
+label: issue-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

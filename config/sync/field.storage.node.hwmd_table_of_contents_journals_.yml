@@ -1,4 +1,4 @@
-uuid: 1ca41d78-1c66-43e3-b5ef-298ce7a11a72
+uuid: 2363846b-6f0b-48ec-b936-7377ec607279
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - highwire_markup_display
     - node
 _core:
-  default_config_hash: qXqTv3Ql1g3ITgBxCeUFZdJ4Gii1EQJbDSkE_kGQwC8
+  default_config_hash: 34q1sGekeo_bzfHlLMNrTGeA2zqAS3sL_EMSV1QJDes
 id: node.hwmd_table_of_contents_journals_
 field_name: hwmd_table_of_contents_journals_
 entity_type: node

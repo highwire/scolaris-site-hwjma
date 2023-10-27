@@ -1,0 +1,23 @@
+uuid: 541f0dd9-7d7a-4e7e-840b-3fe88d29e199
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_article_date
+    - node.type.news_article
+  module:
+    - datetime
+_core:
+  default_config_hash: zuNaM0u7myow430cti5Cea5vjYv1h9t8bTvDHDtgMiE
+id: node.news_article.field_news_article_date
+field_name: field_news_article_date
+entity_type: node
+bundle: news_article
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

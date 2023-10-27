@@ -1,0 +1,20 @@
+uuid: b7793b4a-21c7-4008-8643-97c284c6b42c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: fgKOBf3eCFVGAca7wEezmRbNlWmUMfCuGqNUknq3w3k
+name: 'Journal browse info'
+type: journal_browse_info
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

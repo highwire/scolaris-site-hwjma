@@ -1,0 +1,23 @@
+uuid: 9d64c203-403e-4e90-8f90-7a11791e064a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.secondary
+    - node.type.media
+_core:
+  default_config_hash: hhO_hdpEImKh2uvy-vvIB5y233EIK_N-gGV2-m1eFQM
+id: node.media.secondary
+field_name: secondary
+entity_type: node
+bundle: media
+label: secondary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

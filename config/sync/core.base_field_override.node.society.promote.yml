@@ -1,0 +1,24 @@
+uuid: e9259de4-9e04-479b-82b0-4e092dfa3cde
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.society
+_core:
+  default_config_hash: Ywdr3bFzH_xNt5v-Is32_rWZ4UeU-IwFSY3mSE6GcyA
+id: node.society.promote
+field_name: promote
+entity_type: node
+bundle: society
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

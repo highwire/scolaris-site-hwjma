@@ -1,0 +1,13 @@
+uuid: 7d3e9406-ae83-4ef7-a8d1-d6440e5557c3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Cnps2UupGeCn9ExaMaUZqgIemRQ1Jjcq0zIT1PqTJHM
+id: journals
+label: Journals
+weight: '-10'
+content_type: journal
+content_type_field: journal_eissn_compact
+sams_sigma_key: ISSN
+compact_long_ids: 1
