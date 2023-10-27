@@ -36,7 +36,7 @@
         $(".highwire-tabs-links.nav.nav-tabs #"+className).parent().siblings("li").children('a').removeClass(addRemoveClass);
         $(".highwire-tabs-links.nav.nav-tabs #"+className).addClass(addRemoveClass);
     });
-    $(".block-jump-to-section #jump-testdata-label").click(function() { 
+    $(".block-jump-to-section #jump-response-label").click(function() { 
         className = $(this).attr('class');
         $(".highwire-tabs-links.nav.nav-tabs #"+className).click();
         $(".highwire-tabs-links.nav.nav-tabs #"+className).parent().siblings("li").children('a').removeClass(addRemoveClass);

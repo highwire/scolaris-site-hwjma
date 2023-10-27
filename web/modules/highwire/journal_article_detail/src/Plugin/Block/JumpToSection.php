@@ -86,6 +86,14 @@ class JumpToSection extends Markup {
       "#url" => Url::fromUserInput('#edit-group-metrics-label'),
       "#attributes" => ['id'=> 'jump-metrics-label', 'data-jump-parent' => 'true', 'class' => 'edit-group-metrics-label'],
     ];
+
+    // Add response link in Jump to Section
+    $add_tab_items['response'] = [
+      "#type" => "link",
+      "#title" => "Response",
+      "#url" => Url::fromUserInput('#edit-group-response-label'),
+      "#attributes" => ['id'=> 'jump-response-label', 'data-jump-parent' => 'true', 'class' => 'edit-group-response-label'],
+    ];
     
     // Prepare Article abstract sub items.
     if (!empty($add_items) ) {
