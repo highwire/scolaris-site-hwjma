@@ -1,92 +1,83 @@
+_core:
+  default_config_hash: zjwHsUj2B7CZIsZ4z7tQrUhDJr8qxk2kBeMf-O3LyBI
 blocks:
   -
-    info: 'My Content page header'
+    info: 'IOS site branding'
     langcode: en
-    uuid: f519d572-ba1f-44e5-9218-28368434709f
-    bundle: landing_page_header
+    uuid: 055da060-ee86-4798-817f-f8a794001080
+    bundle: image_link
     revision_id: null
     rev_id_current: null
     fields:
-      body: {  }
-      field_background_image: {  }
-      field_landing_page_header_title:
+      field_image:
         -
-          value: 'My content'
+          target_id: '3'
+          alt: IOS-logo
+          title: ''
+          width: '949'
+          height: '231'
+      field_link:
+        -
+          uri: 'internal:/'
+          title: ''
+          options: {  }
   -
-    info: 'Collections Browse Header'
+    info: Copyright
     langcode: en
-    uuid: d56a59c1-afa8-49cb-8358-2daf0c597b52
-    bundle: publisher_editable
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Representing the most important and influential research on specific and timely subjects from across the PMR platform. Each article within our curated collections is deemed to be a <em>‘must-read’</em> for all investment professionals.</p>\r\n"
-          summary: ''
-          format: full_html
-      field_display_sub_title:
-        -
-          value: 'Subtitle Lorem Ipsum'
-          format: full_html
-      field_display_title:
-        -
-          value: Collections
-          format: full_html
-  -
-    info: 'Journal page side bar'
-    langcode: en
-    uuid: 9d24b6a8-ad49-498c-9f96-a0d9bdd6403a
+    uuid: 66b43517-f5a7-4d9f-840c-09f69f1732cc
     bundle: basic
     revision_id: null
     rev_id_current: null
     fields:
       body:
         -
-          value: "<p>What we publish</p>\r\n"
+          value: "<p>© Demo Physical Therapy Journal</p>\r\n"
           summary: ''
-          format: full_html
+          format: basic_html
   -
-    info: 'Journal Listing Page Header'
+    info: 'Footer Social icon'
     langcode: en
-    uuid: 50a1a683-1d46-4bc0-af19-355f6adbeb52
-    bundle: landing_page_header
-    revision_id: null
-    rev_id_current: null
-    fields:
-      body:
-        -
-          value: "<p>Nostra magna lacinia pretium efficitur sagittis mollis quam mi quis, ante purus hac sem urna nascetur ullamcorper interdum etiam netus, vitae vel dis ac lorem suspendisse a amet. Porta pellentesque faucibus sociosqu libero congue duis metus, in maecenas euismod felis sed.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n"
-          summary: ''
-          format: full_html
-      field_background_image: {  }
-      field_landing_page_header_title:
-        -
-          value: Journals
-  -
-    info: 'Static search within'
-    langcode: en
-    uuid: e50ba657-41c4-43d1-aa94-6d579f845a52
+    uuid: cf808190-20c6-4f27-be1f-36d1d5fb8be9
     bundle: basic
     revision_id: null
     rev_id_current: null
     fields:
       body:
         -
-          value: "<div class=\"journal-article__searchbox\">\r\n<form class=\"d-flex input-group   search-filter-right \" id=\"form-journal-search\">\r\n<div class=\"search__position \"><input class=\"form-control journal-article__searchbox__input\" id=\"id\" placeholder=\"Search within this journal\" required=\"\" type=\"text\" value=\"\" /></div>\r\n<button class=\"btn    btn-journal-article__searchbox-submit \" type=\"submit\">Search</button></form>\r\n</div>\r\n"
+          value: "<div class=\"flex flex-wrap\">\r\n<div class=\"flex-grow w-full social-share\"><a class=\"facebook\" href=\"#\" title=\"Follow us on Facebook\"><svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"> <g id=\"fb\"> <rect height=\"20.38\" id=\"Rectangle-Copy-6\" width=\"22\" x=\"0\" y=\"0\"></rect> <path d=\"M9.128,20.375 L9.128,11.081 L6,11.081 L6,7.459 L9.128,7.459 L9.128,4.788 C9.128,1.688 11.021,0 13.787,0 C15.112,0 16.25,0.099 16.582,0.143 L16.582,3.383 L14.664,3.384 C13.16,3.384 12.869,4.099 12.869,5.147 L12.869,7.46 L16.456,7.46 L15.989,11.082 L12.869,11.082 L12.869,20.375 L9.128,20.375 Z\" fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Path-Copy\"></path> </g> </g> </svg> </a> <a class=\"twitter\" href=\"#\" title=\"Follow us on Twitter\"><svg height=\"22\" version=\"1.1\" viewbox=\"0 0 24 24\" width=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\"></path></svg></a> <a class=\"linkedin\" href=\"#\" title=\"Follow us on LinkedIn\"> <svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"> <g id=\"li\"> <rect height=\"20.38\" id=\"Rectangle-Copy-7\" width=\"22\" x=\"0\" y=\"0\"></rect> <path d=\"M5.83606557,6.66085246 L5.83606557,19.644459 L2.29508197,19.644459 L2.29508197,6.66085246 L5.83606557,6.66085246 Z M11.7377049,6.66085246 L11.7377049,8.74413115 C13.3854426,5.69180328 20,5.46636066 20,11.666623 L20,19.644459 L16.4590164,19.644459 L16.4590164,13.0299016 C16.4590164,9.05455738 11.7377049,9.35554098 11.7377049,13.0299016 L11.7377049,19.644459 L8.19672131,19.644459 L8.19672131,6.66085246 L11.7377049,6.66085246 Z M4.06557377,1 C5.20577049,1 6.13114754,1.93245902 6.13114754,3.08209836 C6.13114754,4.2317377 5.20695082,5.16419672 4.06557377,5.16419672 C2.92537705,5.16419672 2,4.2317377 2,3.08209836 C2,1.93245902 2.92537705,1 4.06557377,1 Z\" fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Combined-Shape-Copy\"></path> </g> </g> </svg> </a></div>\r\n</div>\r\n"
           summary: ''
           format: full_html
   -
-    info: 'Search static'
+    info: 'Footer branding'
     langcode: en
-    uuid: 31551b70-6e51-4ea7-9f82-53ee8bd4c6b4
+    uuid: ad9605d0-4bd9-49b1-95d3-dbb25098f24e
+    bundle: image_link
+    revision_id: null
+    rev_id_current: null
+    fields:
+      field_image:
+        -
+          target_id: '4'
+          alt: ''
+          title: ''
+          width: '949'
+          height: '231'
+      field_link:
+        -
+          uri: 'internal:/'
+          title: ''
+          options: {  }
+  -
+    info: 'CMS navigation title'
+    langcode: en
+    uuid: 465c4b3e-e949-41ec-b192-ef03b38b801e
     bundle: basic
     revision_id: null
     rev_id_current: null
     fields:
       body:
         -
-          value: "<div class=\"search\">\r\n<div class=\"container\">\r\n<div class=\"search__row\">\r\n<div class=\"col-12 col-desktop-10\">\r\n<form class=\"d-flex input-group   search-filter-right \" id=\"form-search\">\r\n<div class=\"search__position search__icon\"><input class=\"form-control search__formcontrol\" id=\"id\" placeholder=\"Search within this journal\" required=\"\" type=\"text\" value=\"\" /></div>\r\n<button class=\"btn    btn-search \" type=\"submit\">Search</button></form>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n"
+          value: "<p>Information for</p>\r\n"
           summary: ''
           format: full_html
   -
@@ -117,111 +108,89 @@ blocks:
           title: 'Take me to IOS current site'
           options: {  }
   -
-    info: 'CMS navigation title'
+    info: 'Search static'
     langcode: en
-    uuid: 465c4b3e-e949-41ec-b192-ef03b38b801e
+    uuid: 31551b70-6e51-4ea7-9f82-53ee8bd4c6b4
     bundle: basic
     revision_id: null
     rev_id_current: null
     fields:
       body:
         -
-          value: "<p>Information for</p>\r\n"
+          value: "<div class=\"search\">\r\n<div class=\"container\">\r\n<div class=\"search__row\">\r\n<div class=\"col-12 col-desktop-10\">\r\n<form class=\"d-flex input-group   search-filter-right \" id=\"form-search\">\r\n<div class=\"search__position search__icon\"><input class=\"form-control search__formcontrol\" id=\"id\" placeholder=\"Search within this journal\" required=\"\" type=\"text\" value=\"\" /></div>\r\n<button class=\"btn    btn-search \" type=\"submit\">Search</button></form>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n"
           summary: ''
           format: full_html
   -
-    info: 'Footer branding'
+    info: 'Static search within'
     langcode: en
-    uuid: ad9605d0-4bd9-49b1-95d3-dbb25098f24e
-    bundle: image_link
-    revision_id: null
-    rev_id_current: null
-    fields:
-      field_image:
-        -
-          target_id: '4'
-          alt: ''
-          title: ''
-          width: '949'
-          height: '231'
-      field_link:
-        -
-          uri: 'internal:/'
-          title: ''
-          options: {  }
-  -
-    info: 'Footer Social icon'
-    langcode: en
-    uuid: cf808190-20c6-4f27-be1f-36d1d5fb8be9
+    uuid: e50ba657-41c4-43d1-aa94-6d579f845a52
     bundle: basic
     revision_id: null
     rev_id_current: null
     fields:
       body:
         -
-          value: "<div class=\"flex flex-wrap\">\r\n<div class=\"flex-grow w-full social-share\"><a class=\"facebook\" href=\"//www.facebook.com/publisheriospress\" title=\"Follow us on Facebook\"><svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"> <g id=\"fb\"> <rect height=\"20.38\" id=\"Rectangle-Copy-6\" width=\"22\" x=\"0\" y=\"0\"></rect> <path d=\"M9.128,20.375 L9.128,11.081 L6,11.081 L6,7.459 L9.128,7.459 L9.128,4.788 C9.128,1.688 11.021,0 13.787,0 C15.112,0 16.25,0.099 16.582,0.143 L16.582,3.383 L14.664,3.384 C13.16,3.384 12.869,4.099 12.869,5.147 L12.869,7.46 L16.456,7.46 L15.989,11.082 L12.869,11.082 L12.869,20.375 L9.128,20.375 Z\" fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Path-Copy\"></path> </g> </g> </svg> </a> <a class=\"twitter\" href=\"https://twitter.com/iospress_stm\" title=\"Follow us on Twitter\"><svg height=\"22\" version=\"1.1\" viewbox=\"0 0 24 24\" width=\"22\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z\"></path></svg></a> <a class=\"linkedin\" href=\"https://www.linkedin.com/company/iospress/\" title=\"Follow us on LinkedIn\"> <svg height=\"21px\" version=\"1.1\" viewbox=\"0 0 22 21\" width=\"22px\" xmlns=\"http://www.w3.org/2000/svg\">\r\n<title></title>\r\n<g fill=\"none\" fill-rule=\"evenodd\" id=\"Symbols\" stroke=\"none\" stroke-width=\"1\"> <g id=\"li\"> <rect height=\"20.38\" id=\"Rectangle-Copy-7\" width=\"22\" x=\"0\" y=\"0\"></rect> <path d=\"M5.83606557,6.66085246 L5.83606557,19.644459 L2.29508197,19.644459 L2.29508197,6.66085246 L5.83606557,6.66085246 Z M11.7377049,6.66085246 L11.7377049,8.74413115 C13.3854426,5.69180328 20,5.46636066 20,11.666623 L20,19.644459 L16.4590164,19.644459 L16.4590164,13.0299016 C16.4590164,9.05455738 11.7377049,9.35554098 11.7377049,13.0299016 L11.7377049,19.644459 L8.19672131,19.644459 L8.19672131,6.66085246 L11.7377049,6.66085246 Z M4.06557377,1 C5.20577049,1 6.13114754,1.93245902 6.13114754,3.08209836 C6.13114754,4.2317377 5.20695082,5.16419672 4.06557377,5.16419672 C2.92537705,5.16419672 2,4.2317377 2,3.08209836 C2,1.93245902 2.92537705,1 4.06557377,1 Z\" fill=\"#FFFFFF\" fill-rule=\"nonzero\" id=\"Combined-Shape-Copy\"></path> </g> </g> </svg> </a></div>\r\n</div>\r\n"
+          value: "<div class=\"journal-article__searchbox\">\r\n<form class=\"d-flex input-group   search-filter-right \" id=\"form-journal-search\">\r\n<div class=\"search__position \"><input class=\"form-control journal-article__searchbox__input\" id=\"id\" placeholder=\"Search within this journal\" required=\"\" type=\"text\" value=\"\" /></div>\r\n<button class=\"btn    btn-journal-article__searchbox-submit \" type=\"submit\">Search</button></form>\r\n</div>\r\n"
           summary: ''
           format: full_html
   -
-    info: Copyright
+    info: 'Journal Listing Page Header'
     langcode: en
-    uuid: 66b43517-f5a7-4d9f-840c-09f69f1732cc
+    uuid: 50a1a683-1d46-4bc0-af19-355f6adbeb52
+    bundle: landing_page_header
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: "<p>Nostra magna lacinia pretium efficitur sagittis mollis quam mi quis, ante purus hac sem urna nascetur ullamcorper interdum etiam netus, vitae vel dis ac lorem suspendisse a amet. Porta pellentesque faucibus sociosqu libero congue duis metus, in maecenas euismod felis sed.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+          summary: ''
+          format: full_html
+      field_background_image: {  }
+      field_landing_page_header_title:
+        -
+          value: Journals
+  -
+    info: 'Journal page side bar'
+    langcode: en
+    uuid: 9d24b6a8-ad49-498c-9f96-a0d9bdd6403a
     bundle: basic
     revision_id: null
     rev_id_current: null
     fields:
       body:
         -
-          value: "<p>© IOS Press 2023</p>\r\n"
+          value: "<p>What we publish</p>\r\n"
           summary: ''
-          format: basic_html
+          format: full_html
   -
-    info: 'IOS site branding'
+    info: 'My Content page header'
     langcode: en
-    uuid: 055da060-ee86-4798-817f-f8a794001080
-    bundle: image_link
+    uuid: f519d572-ba1f-44e5-9218-28368434709f
+    bundle: landing_page_header
     revision_id: null
     rev_id_current: null
     fields:
-      field_image:
+      body: {  }
+      field_background_image: {  }
+      field_landing_page_header_title:
         -
-          target_id: '3'
-          alt: IOS-logo
-          title: ''
-          width: '949'
-          height: '231'
-      field_link:
-        -
-          uri: 'internal:/'
-          title: ''
-          options: {  }
+          value: 'My content'
 menus:
   -
-    menu_name: account
-    title: 'My content'
-    parent: null
-    uri: 'internal:/my-content'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en
-    uuid: c6805dab-9b22-43bb-8889-f44ee5261466
-  -
-    menu_name: cms-navigation
+    menu_name: main
     title: About
     parent: null
     uri: 'internal:/about'
     link_title: ''
     description: null
     enabled: true
-    expanded: true
-    weight: 0
+    expanded: false
+    weight: -50
     langcode: en
-    uuid: e217b3de-6b51-4b35-b4ca-7af089bd07a3
+    uuid: 4dfd9d8e-e7e2-4662-a458-e3dc6368b7fa
   -
-    menu_name: cms-navigation
+    menu_name: main
     title: Help
     parent: null
     uri: 'internal:/help'
@@ -229,57 +198,81 @@ menus:
     description: null
     enabled: true
     expanded: false
-    weight: 0
+    weight: -48
     langcode: en
-    uuid: 45d7b21a-33e9-4c8e-bb38-2cbd1d377cce
+    uuid: 7a1f2ee9-2cd8-42e0-8081-0f19b7610f20
   -
-    menu_name: cms-navigation
-    title: 'Privacy policy'
+    menu_name: main
+    title: Content
     parent: null
-    uri: 'internal:/privacy-policy'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en
-    uuid: b8961c5e-ed23-4391-a5b1-942d0dcf4270
-  -
-    menu_name: cms-navigation
-    title: 'Terms of use'
-    parent: null
-    uri: 'internal:/terms-use'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en
-    uuid: aa02bc28-f542-4be1-82cc-53eec96a2bec
-  -
-    menu_name: cms-navigation
-    title: 'Sub page 1'
-    parent: 'menu_link_content:e217b3de-6b51-4b35-b4ca-7af089bd07a3'
     uri: 'internal:#'
     link_title: ''
     description: null
-    enabled: false
+    enabled: true
+    expanded: true
+    weight: -49
+    langcode: en
+    uuid: 32291fd3-1024-4829-adf2-47fd7570e8de
+  -
+    menu_name: main
+    title: Journals
+    parent: 'menu_link_content:32291fd3-1024-4829-adf2-47fd7570e8de'
+    uri: 'internal:/journals'
+    link_title: ''
+    description: null
+    enabled: true
     expanded: false
     weight: -50
     langcode: en
-    uuid: ca4093d9-74ed-450f-acbf-f93d03e8a239
+    uuid: 46d361a0-5c56-404f-8e88-ff106fc77145
   -
-    menu_name: cms-navigation
-    title: 'Sub page 2'
-    parent: 'menu_link_content:e217b3de-6b51-4b35-b4ca-7af089bd07a3'
-    uri: 'internal:#'
+    menu_name: content
+    title: Journals
+    parent: null
+    uri: 'internal:/journals'
     link_title: ''
     description: null
-    enabled: false
+    enabled: true
     expanded: false
-    weight: -49
+    weight: -50
     langcode: en
-    uuid: ff629e70-6da5-4cc9-b58c-9f618125d494
+    uuid: d64a76b8-e3f8-4d02-9b49-72d8a11514e7
+  -
+    menu_name: reference
+    title: Authors
+    parent: null
+    uri: 'internal:/authors'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: a62634ac-0738-4edd-a3da-bf720d7c758e
+  -
+    menu_name: reference
+    title: Librarians
+    parent: null
+    uri: 'internal:/librarians'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 1d873f33-1519-4d22-a215-8b4b15d8b00d
+  -
+    menu_name: reference
+    title: Reviewers
+    parent: null
+    uri: 'internal:/reviewers'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: f19836f9-606c-4524-9141-57f1ee4323b9
   -
     menu_name: resources
     title: About
@@ -365,151 +358,19 @@ menus:
     langcode: en
     uuid: 3b0ebf4a-73f6-409e-a6ab-c7815a04f93d
   -
-    menu_name: reference
-    title: Authors
-    parent: null
-    uri: 'internal:/authors'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en
-    uuid: a62634ac-0738-4edd-a3da-bf720d7c758e
-  -
-    menu_name: reference
-    title: Librarians
-    parent: null
-    uri: 'internal:/librarians'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en
-    uuid: 1d873f33-1519-4d22-a215-8b4b15d8b00d
-  -
-    menu_name: reference
-    title: Reviewers
-    parent: null
-    uri: 'internal:/reviewers'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: 0
-    langcode: en
-    uuid: f19836f9-606c-4524-9141-57f1ee4323b9
-  -
-    menu_name: content
-    title: Journals
-    parent: null
-    uri: 'internal:/journals'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: -50
-    langcode: en
-    uuid: d64a76b8-e3f8-4d02-9b49-72d8a11514e7
-  -
-    menu_name: content
-    title: Books
-    parent: null
-    uri: 'internal:/books'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: -49
-    langcode: en
-    uuid: f67f12df-4969-454f-8798-9f870bd9a7aa
-  -
-    menu_name: content
-    title: Reference
-    parent: null
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: false
-    expanded: false
-    weight: -48
-    langcode: en
-    uuid: 575fd287-4edb-47db-9950-24cb78394b4c
-  -
-    menu_name: main
-    title: Subjects
-    parent: null
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: true
-    weight: -50
-    langcode: en
-    uuid: 24c601dd-9211-46eb-857c-4e384efddc87
-  -
-    menu_name: main
-    title: Services
-    parent: null
-    uri: 'internal:#'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: true
-    weight: -47
-    langcode: en
-    uuid: 9c93b1a6-b69a-443b-828e-fa5213b9f874
-  -
-    menu_name: main
-    title: Authors
-    parent: 'menu_link_content:9c93b1a6-b69a-443b-828e-fa5213b9f874'
-    uri: 'internal:/authors'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: -50
-    langcode: en
-    uuid: ffc11adb-9dad-4025-a690-5174bdc46bea
-  -
-    menu_name: main
-    title: Librarians
-    parent: 'menu_link_content:9c93b1a6-b69a-443b-828e-fa5213b9f874'
-    uri: 'internal:/librarians'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: -49
-    langcode: en
-    uuid: 4fb89dda-8a3e-4702-b253-b8d6597e2ace
-  -
-    menu_name: main
-    title: Reviewers
-    parent: 'menu_link_content:9c93b1a6-b69a-443b-828e-fa5213b9f874'
-    uri: 'internal:/reviewers'
-    link_title: ''
-    description: null
-    enabled: true
-    expanded: false
-    weight: -48
-    langcode: en
-    uuid: 0f28f752-5bb0-4b7d-ad3e-53cc3a39764b
-  -
-    menu_name: main
+    menu_name: cms-navigation
     title: About
     parent: null
     uri: 'internal:/about'
     link_title: ''
     description: null
     enabled: true
-    expanded: false
-    weight: -46
+    expanded: true
+    weight: 0
     langcode: en
-    uuid: 4dfd9d8e-e7e2-4662-a458-e3dc6368b7fa
+    uuid: e217b3de-6b51-4b35-b4ca-7af089bd07a3
   -
-    menu_name: main
+    menu_name: cms-navigation
     title: Help
     parent: null
     uri: 'internal:/help'
@@ -517,56 +378,66 @@ menus:
     description: null
     enabled: true
     expanded: false
-    weight: -45
+    weight: 0
     langcode: en
-    uuid: 7a1f2ee9-2cd8-42e0-8081-0f19b7610f20
+    uuid: 45d7b21a-33e9-4c8e-bb38-2cbd1d377cce
   -
-    menu_name: main
-    title: Content
+    menu_name: cms-navigation
+    title: 'Privacy policy'
     parent: null
+    uri: 'internal:/privacy-policy'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: b8961c5e-ed23-4391-a5b1-942d0dcf4270
+  -
+    menu_name: cms-navigation
+    title: 'Terms of use'
+    parent: null
+    uri: 'internal:/terms-use'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: aa02bc28-f542-4be1-82cc-53eec96a2bec
+  -
+    menu_name: cms-navigation
+    title: 'Sub page 1'
+    parent: 'menu_link_content:e217b3de-6b51-4b35-b4ca-7af089bd07a3'
     uri: 'internal:#'
     link_title: ''
     description: null
-    enabled: true
-    expanded: true
-    weight: -49
-    langcode: en
-    uuid: 32291fd3-1024-4829-adf2-47fd7570e8de
-  -
-    menu_name: main
-    title: Journals
-    parent: 'menu_link_content:32291fd3-1024-4829-adf2-47fd7570e8de'
-    uri: 'internal:/journals'
-    link_title: ''
-    description: null
-    enabled: true
+    enabled: false
     expanded: false
     weight: -50
     langcode: en
-    uuid: 46d361a0-5c56-404f-8e88-ff106fc77145
+    uuid: ca4093d9-74ed-450f-acbf-f93d03e8a239
   -
-    menu_name: main
-    title: Books
-    parent: 'menu_link_content:32291fd3-1024-4829-adf2-47fd7570e8de'
-    uri: 'internal:/books'
+    menu_name: cms-navigation
+    title: 'Sub page 2'
+    parent: 'menu_link_content:e217b3de-6b51-4b35-b4ca-7af089bd07a3'
+    uri: 'internal:#'
     link_title: ''
     description: null
-    enabled: true
+    enabled: false
     expanded: false
     weight: -49
     langcode: en
-    uuid: 5fe1f408-b2e5-48f4-9307-c58b8023a6de
+    uuid: ff629e70-6da5-4cc9-b58c-9f618125d494
   -
-    menu_name: main
-    title: Collections
+    menu_name: account
+    title: 'My content'
     parent: null
-    uri: 'internal:/collections'
+    uri: 'internal:/my-content'
     link_title: ''
     description: null
     enabled: true
     expanded: false
-    weight: -48
+    weight: 0
     langcode: en
-    uuid: a3524c0a-63e9-4404-91a9-b960d2bc263d
-_core:
-  default_config_hash: zjwHsUj2B7CZIsZ4z7tQrUhDJr8qxk2kBeMf-O3LyBI
+    uuid: c6805dab-9b22-43bb-8889-f44ee5261466
