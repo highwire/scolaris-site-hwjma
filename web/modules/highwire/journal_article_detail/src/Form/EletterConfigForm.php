@@ -61,8 +61,6 @@ class EletterConfigForm extends ConfigFormBase {
     <p>Sincerely,<br />
     The Editorial staff of !journal_name</p>
     ----------------------------------------
-    <p>Article (citation):</p>
-    <p>!article_citation</p>
     <p>!article_link</p>
     <p>The eLetter <em>!eletter_title</em> was submitted on !submitted_date:</p>
     <p>!eletter_text</p>';
@@ -105,7 +103,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_site_feedback_email_list')) ? $config->get('moderator_site_feedback_email_list') : $moderator_site_feedback_email,
     );
 
-    $moderator_notification_from_address = 'CMAJ Response Notification <!site_feeback_email_address>';
+    $moderator_notification_from_address = 'HWJMA Response Notification <!site_feeback_email_address>';
     $form['moderator_notification']['moderator_notification_from_address'] = array(
       '#type' => 'textarea',
       '#title' => t('E-mail to send the emails from'),
@@ -114,7 +112,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_notification_from_address')) ? $config->get('moderator_notification_from_address') : $moderator_notification_from_address,
     );
 
-    $moderator_notification_to_address = 'CMAJ Response Moderator <!moderator_distribution_email_list>';
+    $moderator_notification_to_address = 'HWJMA Response Moderator <!moderator_distribution_email_list>';
     $form['moderator_notification']['moderator_notification_to_address'] = array(
       '#type' => 'textarea',
       '#title' => t('E-mail to send the emails to'),
@@ -123,7 +121,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_notification_to_address')) ? $config->get('moderator_notification_to_address') : $moderator_notification_to_address,
     );
 
-    $moderator_notification_email_subject = 'CMAJ response: "[node:title]"';
+    $moderator_notification_email_subject = 'HWJMA response: "[node:title]""';
     $form['moderator_notification']['moderator_notification_email_subject'] = array(
       '#type' => 'textarea',
       '#title' => t('Subject Line for the Moderator response emails'),
@@ -132,11 +130,9 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_notification_email_subject')) ? $config->get('moderator_notification_email_subject') : $moderator_notification_email_subject,
     );
 
-    $moderator_notification_response_text = '<p>A new eLetter has been submitted to [node:field-highwire-c-response-to:field-highwire-a-journal:title] and is awaiting moderation.</p>
-    <p>Article (citation):</p>
-    <p>!article_citation</p>
-    <p>[node:field-highwire-c-response-to:url:absolute]</p>
-    <p>The eLetter was submitted on [site:current-date:custom:d m Y]:</p>
+    $moderator_notification_response_text = '<p>A new eLetter has been submitted to !article_title and is awaiting moderation.</p>
+    <p>!article_link</p>
+    <p>The eLetter was submitted on [node:created:custom:d m Y]:</p>
     <p>eLetter copy: [site:url]!eLetter_link_copy</p>
     <p>!eletter_text</p>';
     $form['moderator_notification']['moderator_notification_response_text'] = array(

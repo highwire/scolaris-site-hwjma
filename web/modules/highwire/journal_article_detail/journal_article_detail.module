@@ -469,7 +469,7 @@ function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInte
   // Send a notification to moderator
   highwire_responses_moderation_notify_moderator($form_state, $journalArticleDetailConfig);
   // Redirect on home page
-  // $form_state->setRedirect('<front>');
+  $form_state->setRedirect('<front>');
   \Drupal::messenger()->deleteAll();
   \Drupal::messenger()->addMessage($eletter_frontend_submit_msg);  
 }
