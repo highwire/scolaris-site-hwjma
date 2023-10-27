@@ -41,11 +41,12 @@ class EletterConfigForm extends ConfigFormBase {
     $config = $this->config('journal_article_detail.settings');
 
     $form = array();
-
+    $site_mail = \Drupal::config('system.site')->get('mail');
+    $site_name = \Drupal::config('system.site')->get('name');
     $form['highwire_rr_email_sender'] = array(
       '#type' => 'textfield',
       '#title' => t('E-mail to send the emails from:'),
-      '#default_value' => !empty($config->get('highwire_rr_email_sender')) ? $config->get('highwire_rr_email_sender') : 'rajat.gupta@highwirepress.com',
+      '#default_value' => !empty($config->get('highwire_rr_email_sender')) ? $config->get('highwire_rr_email_sender') : $site_mail,
     );
 
     $form['highwire_rr_email_subject'] = array(
@@ -85,7 +86,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#type' => 'fieldset',
     );
 
-    $moderator_distribution_email_list = 'rajat.gupta@highwirepress.com';
+    $moderator_distribution_email_list = $site_mail;
     $form['moderator_notification']['moderator_distribution_email_list'] = array(
       '#type' => 'textarea',
       '#title' => t('Moderator Distribution Email'),
@@ -94,7 +95,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_distribution_email_list')) ? $config->get('moderator_distribution_email_list') : $moderator_distribution_email_list,
     );
 
-    $moderator_site_feedback_email = 'rajat.gupta@highwirepress.com';
+    $moderator_site_feedback_email = $site_mail;
     $form['moderator_notification']['moderator_site_feedback_email_list'] = array(
       '#type' => 'textarea',
       '#title' => t('Site Feedback Email Address'),
@@ -103,7 +104,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_site_feedback_email_list')) ? $config->get('moderator_site_feedback_email_list') : $moderator_site_feedback_email,
     );
 
-    $moderator_notification_from_address = 'HWJMA Response Notification <!site_feeback_email_address>';
+    $moderator_notification_from_address = $site_name . ' Response Notification <!site_feeback_email_address>';
     $form['moderator_notification']['moderator_notification_from_address'] = array(
       '#type' => 'textarea',
       '#title' => t('E-mail to send the emails from'),
@@ -112,7 +113,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_notification_from_address')) ? $config->get('moderator_notification_from_address') : $moderator_notification_from_address,
     );
 
-    $moderator_notification_to_address = 'HWJMA Response Moderator <!moderator_distribution_email_list>';
+    $moderator_notification_to_address = $site_name . ' Response Moderator <!moderator_distribution_email_list>';
     $form['moderator_notification']['moderator_notification_to_address'] = array(
       '#type' => 'textarea',
       '#title' => t('E-mail to send the emails to'),
@@ -121,7 +122,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('moderator_notification_to_address')) ? $config->get('moderator_notification_to_address') : $moderator_notification_to_address,
     );
 
-    $moderator_notification_email_subject = 'HWJMA response: "[node:title]""';
+    $moderator_notification_email_subject = $site_name . ' response: "[node:title]""';
     $form['moderator_notification']['moderator_notification_email_subject'] = array(
       '#type' => 'textarea',
       '#title' => t('Subject Line for the Moderator response emails'),
@@ -153,10 +154,10 @@ class EletterConfigForm extends ConfigFormBase {
       '#title' => t('Rule Action Status'),
       '#type' => 'checkbox',
       '#description' => t('If selected then rule action will be enabled for "Set eLetter to Release status" button, otherwise no'),
-      '#default_value' => !empty($config->get('eletter_rule_action_flag')) ? $config->get('eletter_rule_action_flag') : 1,
+      '#default_value' => !empty($config->get('eletter_rule_action_flag')) ? $config->get('eletter_rule_action_flag') : 0,
     );
 
-    $from_address_to_eletterauthor = 'rajat.gupta@highwirepress.com';
+    $from_address_to_eletterauthor = $site_mail;
     $form['eLetter_publication_notification']['eLetter_publication_notification_from_address_to_eletterauthor'] = array(
       '#type' => 'textarea',
       '#title' => t('E-mail to send the emails from to eLetter Author'),
@@ -193,7 +194,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('eLetter_publication_notification_eletterauthor_response_text')) ? $config->get('eLetter_publication_notification_eletterauthor_response_text') : $eletterauthor_response_text,
     );
 
-    $from_address_to_articleauthor = 'rajat.gupta@highwirepress.com';
+    $from_address_to_articleauthor = $site_mail;
     $form['eLetter_publication_notification']['eLetter_publication_notification_from_address_to_articleauthor'] = array(
       '#type' => 'textarea',
       '#title' => t('E-mail to send the emails from to Article Author'),
@@ -231,7 +232,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#default_value' => !empty($config->get('eLetter_publication_notification_articleauthor_response_text')) ? $config->get('eLetter_publication_notification_articleauthor_response_text') : $articleauthor_response_text,
     );
 
-    $distribution_email_list = 'rajat.gupta@highwirepress.com';
+    $distribution_email_list = $site_mail;
     $form['eLetter_publication_notification']['eLetter_publication_notification_distribution_email_list'] = array(
       '#type' => 'textarea',
       '#title' => t('Moderator Distribution Email'),
@@ -257,7 +258,7 @@ class EletterConfigForm extends ConfigFormBase {
       '#title' => t('E-mail address: From'),
       '#type' => 'textfield',
       '#required' => TRUE,
-      '#default_value' => !empty($config->get('hw_authors_email_from')) ? $config->get('hw_authors_email_from') : 'rajat.gupta@highwirepress.com',
+      '#default_value' => !empty($config->get('hw_authors_email_from')) ? $config->get('hw_authors_email_from') : $site_mail,
     );
 
     $email_subject = 'CMAJ response: "!eletter_title"';
