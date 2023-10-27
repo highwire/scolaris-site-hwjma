@@ -127,10 +127,11 @@
   color: red;
 }
 
+.paragraph-top .add-above-off {
+  display: none;
+}
+
 input[data-drupal-selector='edit-preview'] {
   display:none;
 }
 
-.paragraph-top {
-  display: none;
-}
