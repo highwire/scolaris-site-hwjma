@@ -4,3 +4,11 @@
  *
  * Perform actions for defaults hooks .
  */
+
+function highwire_site_style_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'feedbackcontact': 
+      $form['#attached']['library'][] = 'highwire_site_style/styles';
+      break;
+  }
+}
