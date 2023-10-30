@@ -27,7 +27,7 @@ class EletterHeldAction extends ViewsBulkOperationsActionBase {
     if (is_object($entity)) {
       $entity->set('field_workflow_state', 'H');
       $entity->save();
-      // highwire_responses_moderation_notify_author_and_eletter_author($entity->id());
+      // Use when author data get from content highwire_responses_moderation_notify_author_and_eletter_author($entity->id());
       return $this->t('Workflow status are updated');
     }
   }
@@ -66,13 +66,11 @@ function highwire_responses_moderation_notify_author_and_eletter_author($article
   
   if (isset($article_author_response_text) && isset($article_author_notify_from_address) && isset($article_author_msg_subject) && isset($eLetter_author_response_text) && isset($eLetter_author_notify_from_address) && isset($eLetter_author_msg_subject) && isset($publish_notify_moderator_dist_list)) {
     $publish_notify_moderator_dist_email_list_array = explode("\n", $publish_notify_moderator_dist_list);
-
     $publish_notify_moderator_dist_final_list = '';
-
+    // Check moderator email is empty or not
     if (!empty($publish_notify_moderator_dist_email_list_array)) {
       // Get the size of the array
       $pub_mod_array_size = count($publish_notify_moderator_dist_email_list_array);
-
       // Creating comma separated values from the array elements to set this for 'CC' header
       for ($k = 0; $k < $pub_mod_array_size; $k++) {
         if ($k == ($pub_mod_array_size - 1)) {
@@ -87,7 +85,6 @@ function highwire_responses_moderation_notify_author_and_eletter_author($article
     // Validating if article node id exists
     if (!empty($article_nid)) {
       $article_node = Node::load($article_nid);
-
       // Get the email address and names from authors/contributors.  $author_to_email_ids $author_to_names author detail not available 
       // Get the email address and names from eLetter authors. $eLetter_author_to_email_ids $eLetter_author_to_names 
       $token_conf = array('node' => $node);

@@ -7,7 +7,7 @@ use Drupal\Core\Url;
  * Rules action for notifying moderator.
  */
 function highwire_responses_moderation_notify_moderator($form_state, $journalArticleDetailConfig) {
-  // Get config values
+  // Get config values from eLetter configuration
   $site_mail = \Drupal::config('system.site')->get('mail');
   $moderator_dist_email_list_value = $journalArticleDetailConfig->get('moderator_distribution_email_list');
   $moderator_site_feedback_email_address = $journalArticleDetailConfig->get('moderator_site_feedback_email_list');
@@ -17,6 +17,7 @@ function highwire_responses_moderation_notify_moderator($form_state, $journalArt
   $moderator_notification_msg = $journalArticleDetailConfig->get('moderator_notification_response_text');
   $moderator_dist_email_list_array = explode("\n", $moderator_dist_email_list_value);
 
+  // Check all variables are set or not
   if (isset($moderator_dist_email_list_value)
     && isset($moderator_site_feedback_email_address)
     && isset($moderator_notification_from_address)
@@ -24,7 +25,7 @@ function highwire_responses_moderation_notify_moderator($form_state, $journalArt
     && isset($moderator_notification_email_subject)
     && isset($moderator_notification_msg)) {
 
-    // Retrieve article details.
+    // Retrieve article id from frontend form
     $article_nid = $form_state->getValue('field_highwire_comment_response')[0]['target_id'];
     if (!empty($article_nid)) {
       // Retrieve eLetter response text and title
@@ -107,4 +108,3 @@ function highwire_responses_moderation_notify_moderator($form_state, $journalArt
   }
   return true;
 }
-

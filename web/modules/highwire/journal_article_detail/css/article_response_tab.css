@@ -1,3 +1,4 @@
+/* ---------------- eLetter Response Tab : JCOREX-352 ---------------- */
 .node-eletters-form {
   border: 1px dotted;
   padding: 10px;
@@ -17,19 +18,19 @@
 }
 
 .node-eletters-form th.active {
-  background-color: #dadada
+  background-color: #dadada;
 }
 
 .node-eletters-form tr td,.node-eletters-form tr.even td,.node-eletters-form tr.odd td {
-  background: #fff
+  background: #fff;
 }
 
 .node-eletters-form tr.active td,.node-eletters-form tr.even td.active,.node-eletters-form tr.odd td.active {
-  background: #f0f0f0
+  background: #f0f0f0;
 }
 
 .node-eletters-form tr:hover td,.node-eletters-form tr.even:hover td.active,.node-eletters-form tr.odd:hover td.active {
-  background: #fffeee
+  background: #fffeee;
 }
 
 .node-eletters-form .tabledrag-toggle-weight-wrapper, .node-eletters-form .field-multiple-drag{
@@ -81,7 +82,7 @@
 }
 
 .node-eletters-form .paragraph-type {
-  margin: 12px;;
+  margin: 12px;
 }
 
 .node-eletters-form input[type="submit"] {
@@ -134,3 +135,5 @@
 input[data-drupal-selector='edit-preview'] {
   display:none;
 }
+
+/* ---------------- eLetter Response Tab : JCOREX-352 ---------------- */

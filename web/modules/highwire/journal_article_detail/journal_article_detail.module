@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Core HWJMA Site module
+ * Core Site module
  */
 use Drupal\node\Entity\NodeType;
 use Drupal\Core\Entity\EntityInterface;
@@ -187,6 +187,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
         '#type' => 'markup',
         '#markup' => $form_link,
       ];
+      // Create a node for content type eLetter and get form
       $node = \Drupal::entityTypeManager()->getStorage('node')->create(['type' => 'eletters']);
       $form = \Drupal::service('entity.form_builder')->getForm($node);
       $build['article_response_tab']['custom_form'] = $form;
