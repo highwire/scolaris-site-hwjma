@@ -1,7 +1,7 @@
 <div class="eletter-row">
-      <div class="eletter-title-list">
-        <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank">{{ node.title.value }}</a>
-      </div> 
+  <div class="eletter-title-list">
+    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" target="_blank">{{ node.title.value }}</a>
+  </div> 
   {% for key,item in node.field_contributors %}
     <div class="eletter-contributor-data">
     {% if key == 0 %}

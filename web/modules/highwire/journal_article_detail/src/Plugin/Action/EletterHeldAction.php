@@ -64,7 +64,7 @@ function highwire_responses_moderation_notify_author_and_eletter_author($article
   // Get the system configured moderator distribution list
   $publish_notify_moderator_dist_list = $journalArticleDetailConfig->get('eLetter_publication_notification_distribution_email_list');
   
-  if (isset($article_author_response_text) && isset($article_author_notify_from_address) && isset($article_author_msg_subject) && isset($eLetter_author_response_text) && isset($eLetter_author_notify_from_address) && isset($eLetter_author_msg_subject) && isset($publish_notify_moderator_dist_list)) {
+  if (isset($eLetter_author_msg_subject) && isset($publish_notify_moderator_dist_list)) {
     $publish_notify_moderator_dist_email_list_array = explode("\n", $publish_notify_moderator_dist_list);
     $publish_notify_moderator_dist_final_list = '';
     // Check moderator email is empty or not
