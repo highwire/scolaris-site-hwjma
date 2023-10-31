@@ -1,6 +1,15 @@
-<?php  
+<?php 
+use \Drupal\Core\Form\FormStateInterface; 
 /**
  *
  *
  * Perform actions for defaults hooks .
  */
+/* Hook to add styles.css file for webform*/
+function highwire_site_style_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'feedbackcontact': 
+      $form['#attached']['library'][] = 'highwire_site_style/styles';
+      break;
+  }
+}
