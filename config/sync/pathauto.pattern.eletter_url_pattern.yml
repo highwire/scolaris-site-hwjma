@@ -1,0 +1,22 @@
+uuid: 26ef60e4-58a8-464c-89b1-585a72618883
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: eletter_url_pattern
+label: 'eLetter URL Pattern'
+type: 'canonical_entities:node'
+pattern: 'content/[node:title]'
+selection_criteria:
+  6304fe96-520b-47fe-94b4-af5e923f98d7:
+    id: node_type
+    bundles:
+      eletters: eletters
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6304fe96-520b-47fe-94b4-af5e923f98d7
+selection_logic: and
+weight: -5
+relationships: {  }

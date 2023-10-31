@@ -28,14 +28,14 @@ message_subject_display: 1
 message_body_display: 1
 highwire_rr_email_sender: rajat.gupta@highwirepress.com
 highwire_rr_email_subject: 'Thank you for your response to'
-highwire_rr_email_response_sent: "<p>Thank you for your submission. Below is a copy of your eLetter as we received it. Your eLetter, if accepted, should be\r\n    viewable within a few days.</p>\r\n\r\n    <p>Sincerely,<br />\r\n    The Editorial staff of !journal_name</p>\r\n    ----------------------------------------\r\n    <p>Article (citation):</p>\r\n    <p>!article_citation</p>\r\n    <p>!article_link</p>\r\n    <p>The eLetter <em>!eletter_title</em> was submitted on !submitted_date:</p>\r\n    <p>!eletter_text</p>"
+highwire_rr_email_response_sent: "<p>Thank you for your submission. Below is a copy of your eLetter as we received it. Your eLetter, if accepted, should be\r\n    viewable within a few days.</p>\r\n\r\n    <p>Sincerely,<br />\r\n    The Editorial staff of !journal_name</p>\r\n    ----------------------------------------\r\n    <p>!article_link</p>\r\n    <p>The eLetter <em>!eletter_title</em> was submitted on !submitted_date:</p>\r\n    <p>!eletter_text</p>"
 highwire_e_letter_submission_message: 'Thank you for your response. We intend to publish as rapidly as possible all responses that contribute substantially to the topic under discussion.'
 moderator_distribution_email_list: rajat.gupta@highwirepress.com
 moderator_site_feedback_email_list: rajat.gupta@highwirepress.com
-moderator_notification_from_address: 'CMAJ Response Notification <!site_feeback_email_address>'
-moderator_notification_to_address: 'CMAJ Response Moderator <!moderator_distribution_email_list>'
-moderator_notification_email_subject: 'CMAJ response: "[node:title]"'
-moderator_notification_response_text: "<p>A new eLetter has been submitted to [node:field-highwire-c-response-to:field-highwire-a-journal:title] and is awaiting moderation.</p>\r\n    <p>Article (citation):</p>\r\n    <p>!article_citation</p>\r\n    <p>[node:field-highwire-c-response-to:url:absolute]</p>\r\n    <p>The eLetter was submitted on [site:current-date:custom:d m Y]:</p>\r\n    <p>eLetter copy: [site:url]!eLetter_link_copy</p>\r\n    <p>!eletter_text</p>"
+moderator_notification_from_address: 'HWJMA Response Notification <!site_feeback_email_address>'
+moderator_notification_to_address: 'HWJMA Response Moderator <!moderator_distribution_email_list>'
+moderator_notification_email_subject: 'HWJMA response: "[node:title]"'
+moderator_notification_response_text: "<p>A new eLetter has been submitted to !article_title and is awaiting moderation.</p>\r\n    <p>!article_link</p>\r\n    <p>The eLetter was submitted on [node:created:custom:d m Y]:</p>\r\n    <p>eLetter copy: [site:url]!eLetter_link_copy</p>\r\n    <p>!eletter_text</p>"
 eletter_rule_action_flag: 1
 eLetter_publication_notification_from_address_to_eletterauthor: rajat.gupta@highwirepress.com
 eLetter_publication_notification_subject_to_eletterauthor: 'Your Response has been published'
