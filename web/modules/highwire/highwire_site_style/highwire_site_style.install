@@ -5,9 +5,9 @@
  * Perform actions to update values to Monsido module.
  */
 function highwire_site_style_update_9001(){
-    /* For Monsido Module */
-  $monsido_enabled=\Drupal::service('module_installer')->install(['highwire_monsido'], TRUE);
-  if (!$monsido_enabled) {
+  /* For Monsido Module */
+  $monsido_enable=\Drupal::service('module_installer')->install(['highwire_monsido'], TRUE);
+  if (!$monsido_enable) {
     throw new DrupalUpdateException('Monsido module not enabled.');
   }  
   else {
@@ -51,9 +51,8 @@ function highwire_site_style_update_9002(){
  */
 function highwire_site_style_update_9003(){
   /* For trendmd*/
-  $trendmd_enabled = \Drupal::service('module_installer')->install(['highwire_trendmd'], TRUE); 
-  if (!$trendmd_enabled) {
-	throw new DrupalUpdateException('TrendMD module not enabled.');
-  }
-  
+  $trendmd_enable = \Drupal::service('module_installer')->install(['highwire_trendmd'], TRUE); 
+  if (!$trendmd_enable) {
+	  throw new DrupalUpdateException('TrendMD module not enabled.');
+  }  
 }
