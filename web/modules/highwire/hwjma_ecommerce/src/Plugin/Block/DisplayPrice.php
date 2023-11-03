@@ -1,4 +1,4 @@
-<?hwjma
+<?php
 
 namespace Drupal\hwjma_ecommerce\Plugin\Block;
 
@@ -23,17 +23,16 @@ use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 use HighWire\Utility\IntervalFormatter;
 use Drupal\highwire_content\Exception\ApathNotFoundException;
-use GuzzleHttp\Exception\ServerException;
 use HighWire\Clients\Atomx\Atomx;
 use Drupal\Core\Cache\CacheBackendInterface;
- 
+
 /**
  * Provides a block to display the price for an item.
  *
  * @Block(
  *   id = "hwjma_display_price",
- *   admin_label = @Translation("hwjma Display Price"),
- *   category = @Translation("hwjma"),
+ *   admin_label = @Translation("HWJMA Display Price"),
+ *   category = @Translation("HWJMA"),
  *   context = {
  *     "node" = @ContextDefinition(
  *       "entity:node",
@@ -130,7 +129,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
   protected $requestStack;
 
   /**
-   * The foxycart apikey. This needs to be set in settings.hwjma for the site.
+   * The foxycart apikey. This needs to be set in settings.php for the site.
    * (e.g. $config['highwire_ecommerce']['apikey'] = {apikey_value})
    *
    * @var string
@@ -203,6 +202,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     Atomx $atomx,
     CacheBackendInterface $default_cache
   ) {
+
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
     $this->moduleHandler = $module_handler;
@@ -231,20 +231,21 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       $container->get('entity_display.repository'),
       $container->get('highwire_ecommerce.add_to_cart_link'),
       $container->get('highwire_content.lookup'),
-      $container->get('highwire_client.factory')->get('hwhwjmaclient:catalog'),
+      $container->get('highwire_client.factory')->get('hwphpclient:catalog'),
       $container->get('request_stack'),
       $container->get('config.factory'),
       $container->get('logger.factory')->get('hwjma_ecommerce'),
-      $container->get('hwhwjma.atomx'),
+      $container->get('hwphp.atomx'),
       $container->get('cache.default')
     );
+
   }
 
   /**
    * {@inheritdoc}
    */
   public function build(): array {
-  
+
     // Create block render array.
     $build = ['#theme' => 'hwjma_access_panel', '#user_access' => FALSE];
 
@@ -253,12 +254,12 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
 
     // Check if user has full access to this content.
     if ($this->userHasAccess($this->contextNode)) {
-
-    // Return has access panel.
+      // return has access panel.
       $this->userAccess = TRUE;
       $build['#user_access'] = TRUE;
       return $build;
     }
+
     $this->checkAccessChildren();
     if ($this->userAccess) {
       $build['#user_access'] = TRUE;
@@ -278,8 +279,24 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       $build['#user_access'] = TRUE;
     }
 
-    // Get the catalog data for the context data.
-    $node_apath = isset($this->contextNode->apath) ? $this->contextNode->apath->value : '';
+    // Check if content is refworks book, refworks child and display not available for purchase.
+    if ($this->contextNode->getType() == HW_NODE_TYPE_REFERENCE) {
+      $build['#purchase_children']['title'] = 'Accessing individual reference entries';
+      $build['#purchase_children']['text'] = 'Individual reference entries are not currently available for purchase.';
+      $node_apath = isset($this->contextNode->apath) ? $this->contextNode->apath->value : '';
+    }
+    elseif (in_array($this->contextNode->getType(), HW_NODE_TYPE_REFERENCE_ENTRY)) {
+      $parent_book_ref = $this->contextNode->get('parent_book');
+      if (!empty($parent_book_ref) && $parent_book_ref->entity->getType() == 'item_reference_book') {
+        $build['#purchase_children']['title'] = 'Accessing individual reference entries';
+        $build['#purchase_children']['text'] = 'Individual reference entries are not currently available for purchase.';
+        $node_apath = $parent_book_ref->entity->get('apath')->getString();
+      }
+    }
+    else {
+      // Get the catalog data for the context data.
+      $node_apath = isset($this->contextNode->apath) ? $this->contextNode->apath->value : '';
+    }
     try {
       $offers_response = $this->catalog->getOffer([$node_apath], TRUE, TRUE);
       $offers = $offers_response->getData();
@@ -288,10 +305,11 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       $this->logger->error($ex->getMessage());
       return $build;
     }
+
     // Load all the nodes for apaths in the Catalog response.
     $apaths = $offers->getAllApaths();
     try {
-      if ($nids = $this->lookup->nidsFromApaths($apaths));
+      $nids = ($this->lookup->nidsFromApaths($apaths)) ?? null;
     }
     catch (ApathNotFoundException $ex) {
       if (empty($nids)) {
@@ -324,7 +342,6 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       $grouped_products = $this->groupProductsByType($pricing_item);
       $types = array_keys($grouped_products);
       $container_type = end($types);
-
       // Build pricing item list per type.
       $pricing_item_products = [];
       foreach ($grouped_products as $type => $products) {
@@ -341,12 +358,15 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       }
     }
 
+
     // Build child offers prompt text.
     $child_offers_prompt = $this->buildChildOffersPrompt();
     if (!empty($child_offers_prompt)) {
       $build['#purchase_children'] = $child_offers_prompt;
     }
-    $build['#cache']['contexts'][] = 'user'; 
+
+    $build['#cache']['contexts'][] = 'user';
+
     return $build;
   }
 
@@ -373,6 +393,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    */
   public function blockForm($form, FormStateInterface $form_state): array {
     $form = parent::blockForm($form, $form_state);
+
     $form['list_titles'] = [
       '#type' => 'container',
       '#tree' => TRUE,
@@ -448,7 +469,6 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       }
 
       if (!empty($page_variant_config)) {
-
         // Look for the node type selection criteria.
         foreach ($page_variant_config as $variant_config) {
           if (in_array($variant_config['id'], ['entity_bundle:node', 'node_type']) && !empty($variant_config['bundles'])) {
@@ -461,15 +481,9 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     // Only display types related to the node type selection criteria
     // (i.e. books + book chunks, journals + journal chunks, refbooks + refbook chunks).
     foreach ($node_types as $type) {
-      if (in_array($type, hwjma_core_get_book_chunk_types()) || $type == HW_NODE_TYPE_MONOGRAPH) {
+      if (in_array($type, hwjma_core_get_book_chunk_types()) || $type == HW_NODE_TYPE_BOOK) {
         $node_types = hwjma_core_get_book_chunk_types();
-        $node_types[] = HW_NODE_TYPE_MONOGRAPH;
-        break;
-      }
-
-      if (in_array($type, hwjma_core_get_book_chunk_types()) || $type == HW_NODE_TYPE_REPORT_GUIDELINE) {
-        $node_types = hwjma_core_get_book_chunk_types();
-        $node_types[] = HW_NODE_TYPE_REPORT_GUIDELINE;
+        $node_types[] = HW_NODE_TYPE_BOOK;
         break;
       }
 
@@ -479,8 +493,9 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         break;
       }
 
-      if ($type == HW_NODE_TYPE_TEST_REVIEW) {
-        $node_types[] = HW_NODE_TYPE_TEST_REVIEW;
+      if (in_array($type, hwjma_core_get_reference_chunk_types()) || $type == HW_NODE_TYPE_REFERENCE) {
+        $node_types = hwjma_core_get_reference_chunk_types();
+        $node_types[] = HW_NODE_TYPE_REFERENCE;
         break;
       }
     }
@@ -490,6 +505,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     if (empty($node_types)) {
       $node_types = $this->lookup->getHighWireContentTypes();
     }
+
     foreach ($node_types as $node_type) {
       $view_modes = ['' => t('None')];
       $view_modes += $this->entityDisplayRepository->getViewModeOptionsByBundle('node', $node_type);
@@ -512,6 +528,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
           $access_rule = $this->entityTypeManager->getStorage('access_control_rule')->load($entity_id);
           $access_options[$entity_id] = $access_rule->get('label');
         }
+
         $form['access_control_rule'] = [
           '#type' => 'select',
           '#title' => t('Access Control Rule'),
@@ -552,6 +569,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     if (!empty($this->configuration['view_modes']) && !empty($this->configuration['view_modes'][$node_type])) {
       $view_mode = $this->configuration['view_modes'][$node_type];
     }
+
     if (!empty($view_mode)) {
       $build = $view_builder->view($product_node, $view_mode);
     }
@@ -561,6 +579,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         $build = $product_link->toRenderable();
       }
     }
+
     return $build;
   }
 
@@ -612,10 +631,12 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     if (!$this->moduleHandler->moduleExists('highwire_access_control') || empty($this->configuration['access_control_rule'])) {
       return FALSE;
     }
+
     $access_rule = $this->entityTypeManager->getStorage('access_control_rule')->load($this->configuration['access_control_rule']);
     if (empty($node->apath) || empty($access_rule)) {
       return FALSE;
     }
+
     $apath = $node->apath->value;
 
     // Check user access.
@@ -630,7 +651,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    * Function to check user access for all children.
    */
   protected function checkAccessChildren() {
-     if (!$this->showChildren() || !$this->moduleHandler->moduleExists('highwire_access_control') || empty($this->configuration['access_control_rule'])) {
+    if (!$this->showChildren() || !$this->moduleHandler->moduleExists('highwire_access_control') || empty($this->configuration['access_control_rule'])) {
       return;
     }
     $access_rule = $this->entityTypeManager->getStorage('access_control_rule')->load($this->configuration['access_control_rule']);
@@ -640,10 +661,8 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
 
     // Get children of current node.
     $node = !empty($this->contextNode) ? $this->contextNode : $this->getContextValue('node');
-
     //$child_apaths = $this->getChildApaths($node);
     $apath = $node->get('apath')->value;
-
     // Check access and group apaths.
     $user_access_children = $user_noaccess_children = [];
     if (!empty($child_apaths)) {
@@ -658,15 +677,9 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         }
       }
     }
-
     // Store apaths for later.
-    $this->userAccessChildren = $user_access_children; 
+    $this->userAccessChildren = $user_access_children;
     $this->userNoAccessChildren = $user_noaccess_children;
-
-    // If the user has access to all the children, set access to true.
-    // if (count($child_apaths) !== 0 && count($child_apaths) == count($user_access_children)) {
-    //   $this->userAccess = TRUE;
-    // }
   }
 
   /**
@@ -677,9 +690,8 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    */
   protected function buildUserAccessChildren(): array {
     $build = [];
-
     // Check AC for items we have access for.
-    $user_access = $this->userAccessChildren; 
+    $user_access = $this->userAccessChildren;
     $children_users_have = $this->getChildrenUserHasAccessDisplay($user_access);
     if (!empty($children_users_have)) {
       $access_items = [];
@@ -687,7 +699,6 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       // Split children up by content type
       foreach ($children_users_have as $child) {
         if (isset($child['#node'])) {
-
           // Group book entry content types.
           if (in_array($child['#node']->getType(), ['item_front_matter', 'item_back_matter', 'item_chapter'])) {
             $access_items['book_entry'][] = $child;
@@ -697,8 +708,10 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
           }
         }
       }
+
       $build = [];
       $title_config = !empty($this->configuration['list_titles']) ? $this->configuration['list_titles'] : [];
+
       foreach (array_keys($access_items) as $item_section) {
         $title = '';
         if (!empty($title_config['user_access_already'])) {
@@ -732,7 +745,8 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     if (!empty($cache->data)) {
       return $cache->data;
     }
-    switch($node->getType()) {
+
+    switch($node->getType()) {                                                                                           
       case HW_NODE_TYPE_JOURNAL:
         try {
           $corpus = $node->get('corpus')->value;
@@ -750,6 +764,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
               }
             }
           ';
+
           $this->atomx->setIndexes([$policy . ":" . $corpus]);
           $results = array_keys($this->atomx->search($search_query));
           $this->defaultCache->set($cid, $results);
@@ -796,40 +811,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
 
       default:
         return [];
-        break;
     }
-
-    // $children = isset($node->children) && !$node->children->isEmpty() ? $node->children : [];
-    // if (!isset($node->children) || $node->children->isEmpty()) {
-    //   return;
-    // }
-    // foreach ($node->children as $child) {
-    //   $child_node = $child->entity;
-    //   $process_children = FALSE;
-
-    //   // Books
-    //   if ($child_node && isset($child_node->book_has_body) && !empty($child_node->book_has_body->value) && isset($child_node->apath)) {
-    //     $process_children = TRUE;
-    //   }
-
-    //   // Journal articles
-    //   if ($child_node && isset($child_node->has_full_text) && (!empty($child_node->has_full_text->value) || !empty($child_node->has_full_text_pdf->value)) && isset($child_node->apath)) {
-    //     $process_children = TRUE;
-    //   }
-
-    //   // Journal
-    //   if ($child_node->getType() == HW_NODE_TYPE_JOURNAL || $child_node->getType() == HW_NODE_TYPE_ISSUE) {
-    //     $process_children = TRUE;
-    //   }
-
-    //   if ($process_children) {
-    //     $child_apath = $child_node->apath->value;
-    //     if (!empty($child_apath) && !in_array($child_apath, $child_apaths)) {
-    //       $child_apaths[] = $child_node->apath->value;
-    //     }
-    //   }
-    //   $this->getChildApathsRecursive($child_node, $child_apaths);
-    // }
   }
 
   /**
@@ -840,16 +822,18 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    *
    * @return array
    *   Render array of node links.
-  */
+   */
   public function getChildrenUserHasAccessDisplay(array $user_access_apaths): array {
+
     $access_nids = $this->lookup->nidsFromApaths($user_access_apaths);
     $access_nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($access_nids);
     $view_builder = $this->entityTypeManager->getViewBuilder('node');
+
     $purchased_parents = [];
+
     $access_items = [];
     foreach ($access_nodes as $access_node) {
       $access_node_type = $access_node->getType();
-
       // Books
       if (in_array($access_node_type, hwjma_core_get_book_chunk_types())) {
         $access_items[] = $this->getProductDisplay($access_node);
@@ -857,7 +841,6 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
 
       // Journals
       if (in_array($access_node_type, hwjma_core_get_journal_chunk_types())) {
-        
         // Journals and Journal issues.
         if ($access_node_type == HW_NODE_TYPE_JOURNAL || $access_node_type == HW_NODE_TYPE_ISSUE) {
           $purchased_parents[] = $access_node->apath->value;
@@ -871,8 +854,9 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         }
       }
     }
+
     return $access_items;
-  } 
+  }
 
   /**
    * Get the display for a group of products.
@@ -887,7 +871,6 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    *   Render array.
    */
   public function buildPurchaseOffers(array $products, string $currency_code, string $title = ''): array {
-    
     // Build list item display.
     $items = [];
     foreach ($products as $product) {
@@ -896,6 +879,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         $items[] = $product_item;
       }
     }
+
     if (empty($items)) {
       return [];
     }
@@ -908,6 +892,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       '#attributes' => ['class' => ['list-unstyled']],
       '#context' => ['list_style' => 'ecommerce_purchase_offers'],
     ];
+
     return $build;
   }
 
@@ -924,6 +909,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    */
   public function buildPurchaseOffer(Product $product, string $currency_code): array {
     $build = [];
+
     $product_node = $this->getProductNode($product);
     $purchase_options = $product->getPurchaseOptions();
     if (empty($product_node) || empty($purchase_options)) {
@@ -946,6 +932,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       if (empty($purchase_option)) {
         continue;
       }
+
       foreach ($purchase_option as $interval => $prices) {
         $price = !empty($prices[$currency_code]) ? $prices[$currency_code] : [];
         if (empty($price)) {
@@ -955,10 +942,14 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         // Build purchase option.
         $purchase_link = $this->buildPurchaseLink($product, $product_node, $price, $product_node_vars);
         if (!empty($purchase_link)) {
+          $duration = $price->getInterval(IntervalFormatter::readable());
+          if ($duration == '11 months, 30 days') {
+            $duration = '1 Year';
+          }
           $purchase_options_build[] = [
             '#theme' => 'hwjma_purchase_offer_item',
             '#type' => $disposition,
-            '#duration' => $price->getInterval(IntervalFormatter::hours()) . ' hours',
+            '#duration' => $duration,
             '#purchase_link' => $purchase_link,
           ];
         }
@@ -971,7 +962,8 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         '#product' => $product_display,
         '#purchase_offers' => $purchase_options_build,
       ];
-    } 
+    }
+
     return $build;
   }
 
@@ -1013,6 +1005,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       else {
         $issue = '';
       }
+
       $product_node->setTitle($journal_title . $vol . ($vol && $issue ? ', ' : '') . $issue);
     }
 
@@ -1029,27 +1022,12 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     // Alter display of purchase link.
     $purchase_link['#attributes']['class'][] = 'btn';
     $purchase_link['#attributes']['class'][] = 'btn-primary';
-    $user_ip = $this->requestStack->getCurrentRequest()->getClientIp();
-    $user_currency = $this->catalog->getUserCurrency($user_ip)->getData();
-    $currencysymbol = $this->getCurrencySymbol($user_currency);
 
-    //Check for dicount given
-    $discountdata = $this->addToCartLink->getDiscountFlag();
+    // Alter link text.
     $display_price = $price->getDisplayPrice();
+
     if (!empty($display_price)) {
-      if (!empty($discountdata)) {
-        $purchase_link['#title'] = $this->t('Add to cart <del>(:symbol:discount)</del> (:price)',
-                                             [':symbol' => $currencysymbol,
-                                              ':price' => $display_price,
-                                              ':discount' => $discountdata
-                                             ]
-                                            );
-        $purchase_link['#attributes']['data-original-price'] = '<del>(' . $currencysymbol . $discountdata . ')</del>';
-        $purchase_link['#attributes']['data-discounted-price'] = '(' . $display_price . ')';
-      }
-      else {
-        $purchase_link['#title'] = $this->t('Add to cart (:price)', [':price' => $display_price]);
-      }
+      $purchase_link['#title'] = $this->t('Add to cart (:price)', [':price' => $display_price]);
       $purchase_link['#attributes']['data-purchase-text'] = $purchase_link['#title'];
     }
 
@@ -1057,15 +1035,18 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     if (!empty($add_query_params)) {
       $purchase_link_query = $purchase_link['#url']->getOption('query');
       $sku = $product->getSku();
+
       foreach ($add_query_params as $k => $v) {
         if (empty($v)) {
           continue;
         }
         $purchase_link_query[$this->addToCartLink->getHmac($k, $v, $sku, $this->apikey)] = $v;
       }
+
       $purchase_link['#url']->setOption('query', $purchase_link_query);
       $purchase_link['#attributes']['data-purchase-url'] = $purchase_link['#url']->toString();
     }
+
     return $purchase_link;
   }
 
@@ -1081,28 +1062,18 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
   public function getProductImage(Node $product_node): string {
     $type = $product_node->getType();
     $img_url = '';
+
     if (in_array($type, hwjma_core_get_book_chunk_types())) {
       $img_url = Url::fromUserInput('/themes/scolaris_hwjma/images/icon-chapter.png', ['absolute' => TRUE])->toString();
     }
     elseif ($type == HW_NODE_TYPE_ARTICLE) {
-      // Get Parent Issue to fetch its image as article dont have its own
-      $parent_issue_id = $product_node->get('parent_issue')->getString();
-      if (!empty($parent_issue_id)) {
-        $parent_issue_data = Node::load($parent_issue_id);
-        if (!empty($parent_issue_data) && $parent_issue_data->hasField('variant_cover_image') && !$parent_issue_data->get('variant_cover_image')->isEmpty()) {
-          $img_field = $parent_issue_data->variant_cover_image->first()->getValue();
-          if (!empty($img_field['uri'])) {
-            $img_url = ImageStyle::load('cover_results_item')->buildUrl($img_field['uri']);
-          }
-        }
-      }
+      $img_url = Url::fromUserInput('/themes/scolaris_hwjma/images/icon-article.png', ['absolute' => TRUE])->toString();
     }
     else {
       $img_field = [];
       switch ($type) {
-        case HW_NODE_TYPE_MONOGRAPH:
-        case HW_NODE_TYPE_REPORT_GUIDELINE:
-        case HW_NODE_TYPE_TEST_REVIEW:
+        case HW_NODE_TYPE_BOOK:
+        case HW_NODE_TYPE_REFERENCE:
           if (!empty($product_node) && $product_node->hasField('cover_image') && !$product_node->get('cover_image')->isEmpty()) {
             $img_field = $product_node->cover_image->first()->getValue();
           }
@@ -1110,11 +1081,11 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
 
         case HW_NODE_TYPE_JOURNAL:
         case HW_NODE_TYPE_ISSUE:
+        case HW_NODE_TYPE_ARTICLE:
           if (!empty($product_node) && $product_node->hasField('variant_cover_image') && !$product_node->get('variant_cover_image')->isEmpty()) {
             $img_field = $product_node->variant_cover_image->first()->getValue();
           }
           break;
-
       }
       if (!empty($img_field['uri'])) {
         $img_url = ImageStyle::load('cover_results_item')->buildUrl($img_field['uri']);
@@ -1135,9 +1106,11 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
   public function getProductSource(Node $product_node): string {
     $type = $product_node->getType();
     $source = '';
-    if ($type == HW_NODE_TYPE_MONOGRAPH || $type == HW_NODE_TYPE_REPORT_GUIDELINE || $type == HW_NODE_TYPE_JOURNAL || $type == HW_NODE_TYPE_TEST_REVIEW) {
+
+    if ($type == HW_NODE_TYPE_BOOK || $type == HW_NODE_TYPE_JOURNAL || $type == HW_NODE_TYPE_REFERENCE) {
       return $source;
     }
+
     if (in_array($type, hwjma_core_get_book_chunk_types())) {
       if ($product_node->hasField('parent_book') && !$product_node->get('parent_book')->isEmpty()) {
         $source_node_data = $product_node->parent_book->first()->getValue();
@@ -1151,7 +1124,6 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         }
       }
     }
-
     // todo: refactor book and journal sources code.
     if (in_array($type, hwjma_core_get_journal_chunk_types())) {
       if ($product_node->hasField('parent-journal') && !$product_node->get('parent-journal')->isEmpty()) {
@@ -1168,6 +1140,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     }
 
     // @TODO: Add support for issue & article types.
+
     return $source;
   }
 
@@ -1184,8 +1157,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     $type = $product_node->getType();
     $title_suffix = '';
     switch ($type) {
-      case HW_NODE_TYPE_MONOGRAPH:
-      case HW_NODE_TYPE_REPORT_GUIDELINE:
+      case HW_NODE_TYPE_BOOK:
         if ($product_node->hasField('edition') && !$product_node->get('edition')->isEmpty()) {
           $edition = $product_node->get('edition')->getString();
           if (is_numeric($edition) && intval($edition) > 1) {
@@ -1196,6 +1168,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
         }
         break;
     }
+
     return $title_suffix;
   }
 
@@ -1203,7 +1176,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    * Get product list title based on type and container type.
    *
    * @param string $type
-   *   The type of product. 
+   *   The type of product.
    * @param string $container_type
    *   The product's root container product type.
    *
@@ -1216,29 +1189,29 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     $product_node_types = $this->getProductNodeTypes($type);
     $title_config = !empty($this->configuration['list_titles']) ? $this->configuration['list_titles'] : [];
     $node_type = !empty($this->contextNode) ? $this->contextNode->getType() : $this->getContextValue('node')->getType();
+
     if (in_array($node_type, $product_node_types)) {
-   
       // Label for this content type.
       $display_node_type = $node_type;
       $title = !empty($title_config['purchase_offers_current']) ? $title_config['purchase_offers_current'] : '';
-    } 
+    }
     else {
       $display_node_type = reset($product_node_types);
       if ($type == $container_type) {
-      
         // Label for container type.
         $title = !empty($title_config['purchase_offers_container']) ? $title_config['purchase_offers_container'] : '';
       }
       else {
-    
-      // Label for parent type that is not the root container.
+        // Label for parent type that is not the root container.
         $title = !empty($title_config['purchase_offers_default']) ? $title_config['purchase_offers_default'] : '';
       }
     }
+
     $t_values = !empty($display_node_type) ? [':type' => $this->getTypeLabel($display_node_type), ':types' => $this->getTypeLabelPlural($display_node_type)] : [];
     if (!empty($title)) {
       $title = $this->t($title, $t_values);
     }
+
     return $title;
   }
 
@@ -1248,11 +1221,14 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
   public function buildChildOffersPrompt(): array {
     $build = [];
     $child_prompt_config = !empty($this->configuration['child_offers_prompt']) ? $this->configuration['child_offers_prompt'] : [];
+
     if (empty($child_prompt_config) || (empty($child_prompt_config['title']) && empty($child_prompt_config['text']))) {
       return $build;
     }
+
     $node_type = !empty($this->contextNode) ? $this->contextNode->getType() : $this->getContextValue('node')->getType();
     $child_types = $this->getChildTypes($node_type);
+
     if (empty($child_types) || empty($this->userNoAccessChildren)) {
       return $build;
     }
@@ -1307,8 +1283,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
   public function showChildren(): bool {
     $node_type = !empty($this->contextNode) ? $this->contextNode->getType() : $this->getContextValue('node')->getType();
     switch ($node_type) {
-      case HW_NODE_TYPE_MONOGRAPH:
-      case HW_NODE_TYPE_REPORT_GUIDELINE:
+      case HW_NODE_TYPE_BOOK:
       case HW_NODE_TYPE_JOURNAL:
       case HW_NODE_TYPE_ISSUE:
         return TRUE;
@@ -1328,8 +1303,7 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    */
   public function getChildTypes(string $node_type): array {
     switch ($node_type) {
-      case HW_NODE_TYPE_MONOGRAPH:
-      case HW_NODE_TYPE_REPORT_GUIDELINE:
+      case HW_NODE_TYPE_BOOK:
         $chapter_types = hwjma_core_get_book_chunk_types();
         $types = [reset($chapter_types)];
         break;
@@ -1345,8 +1319,8 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
       default:
         $types = [];
         break;
-
     }
+
     return $types;
   }
 
@@ -1366,16 +1340,12 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     }
     else {
       switch ($node_type) {
-        case HW_NODE_TYPE_MONOGRAPH:
-          $label = 'monograph';
-          break;
-
-        case HW_NODE_TYPE_REPORT_GUIDELINE:
-          $label = 'report-guideline';
+        case HW_NODE_TYPE_BOOK:
+          $label = 'book';
           break;
 
         case HW_NODE_TYPE_ISSUE:
-          $label = 'whole issue';
+          $label = 'particular issue';
           break;
 
         case HW_NODE_TYPE_ARTICLE:
@@ -1386,8 +1356,8 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
           $label = 'journal';
           break;
 
-        case HW_NODE_TYPE_TEST_REVIEW:
-          $label = 'test-review';
+        case HW_NODE_TYPE_REFERENCE:
+          $label = 'reference work';
           break;
       }
     }
@@ -1410,12 +1380,8 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
     }
     else {
       switch ($node_type) {
-        case HW_NODE_TYPE_MONOGRAPH:
-          $label = 'monographs';
-          break;
-
-        case HW_NODE_TYPE_REPORT_GUIDELINE:
-          $label = 'report-guidelines';
+        case HW_NODE_TYPE_BOOK:
+          $label = 'books';
           break;
 
         case HW_NODE_TYPE_ISSUE:
@@ -1430,10 +1396,9 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
           $label = 'journals';
           break;
 
-        case HW_NODE_TYPE_TEST_REVIEW:
-          $label = 'test-reviews';
+        case HW_NODE_TYPE_REFERENCE:
+          $label = 'reference works';
           break;
-
       }
     }
     return $label;
@@ -1450,15 +1415,14 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    */
   public function getProductNodeTypes(string $product_type): array {
     $type_map = [
-      'monograph' => [HW_NODE_TYPE_MONOGRAPH],
-      'report-guideline' => [HW_NODE_TYPE_REPORT_GUIDELINE],
-      'monograph-chapter' => hwjma_core_get_book_chunk_types(),
-      'report-guideline-chapter' => hwjma_core_get_book_chunk_types(),
+      'ebook' => [HW_NODE_TYPE_BOOK],
+      'chapter' => hwjma_core_get_book_chunk_types(),
       'journal' => [HW_NODE_TYPE_JOURNAL],
       'issue' => [HW_NODE_TYPE_ISSUE],
       'article' => [HW_NODE_TYPE_ARTICLE],
-      'test-review' => [HW_NODE_TYPE_TEST_REVIEW],
+      'refwork' => [HW_NODE_TYPE_REFERENCE],
     ];
+
     if (!empty($type_map[$product_type])) {
       return $type_map[$product_type];
     }
@@ -1477,21 +1441,17 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
    */
   protected function groupProductsByType(PricingItem $pricing_item): array {
     $node_type = $this->contextNode->getType();
-    $chapter_type = $this->contextNode->get('chapter_type')->getString();
-    $chapter_type_order = ($chapter_type == 'monograph-item-chapter') ? 'monograph' : 'report-guideline';
-    $type_order_unit = ($chapter_type == 'monograph-item-chapter') ? 'monograph-chapter' : 'report-guideline-chapter';
     $type_order = [];
     if (in_array($node_type, hwjma_core_get_book_chunk_types())) {
-      $type_order = [$type_order_unit, $chapter_type_order];
+      $type_order = ['chapter', 'ebook'];
+    }
+    elseif (in_array($node_type, hwjma_core_get_reference_chunk_types())) {
+      $type_order = ['refwork'];
     }
     else {
       switch ($node_type) {
-        case HW_NODE_TYPE_MONOGRAPH:
-          $type_order = ['monograph'];
-          break;
-
-        case HW_NODE_TYPE_REPORT_GUIDELINE:
-          $type_order = ['report-guideline'];
+        case HW_NODE_TYPE_BOOK:
+          $type_order = ['ebook'];
           break;
 
         case HW_NODE_TYPE_JOURNAL:
@@ -1506,45 +1466,22 @@ class DisplayPrice extends BlockBase implements ContainerFactoryPluginInterface 
           $type_order = ['article', 'issue', 'journal'];
           break;
 
-        case HW_NODE_TYPE_TEST_REVIEW:
-          $type_order = ['test-review'];
+        case HW_NODE_TYPE_REFERENCE:
+          $type_order = ['refwork'];
           break;
       }
     }
+
     if (empty($type_order)) {
       return [];
     }
+
     $products = [];
     foreach ($type_order as $type) {
       $products[$type] = $pricing_item->getProductByType($type);
     }
+
     return $products;
   }
 
-  /**
-   *  Get products currency symbol.
-   * 
-   */
-  public function getCurrencySymbol($cur) {
-    if (!$cur) {
-      return false;
-    }
-    $currencies = array(
-      'USD' => '$', // US Dollar
-      'EUR' => '€', // Euro
-      'CRC' => '₡', // Costa Rican Colón
-      'GBP' => '£', // British Pound Sterling
-      'ILS' => '₪', // Israeli New Sheqel
-      'INR' => '₹', // Indian Rupee
-      'JPY' => '¥', // Japanese Yen
-      'KRW' => '₩', // South Korean Won
-      'NGN' => '₦', // Nigerian Naira
-    );
-    if (array_key_exists($cur, $currencies)) {
-      return $currencies[$cur];
-    } 
-    else {
-      return $cur;
-    }
-  }
 }
