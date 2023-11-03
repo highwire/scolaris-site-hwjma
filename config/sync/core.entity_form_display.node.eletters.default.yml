@@ -31,12 +31,12 @@ third_party_settings:
       weight: 0
       format_type: tab
       format_settings:
-        id: ''
-        classes: ''
+        label: 'COMPOSE RESPONSE'
+        formatter: open
         description: ''
         required_fields: true
-        active: 0
-        formatter: closed
+        id: ''
+        classes: ''
       label: 'COMPOSE RESPONSE'
       region: content
     group_references:
@@ -46,12 +46,12 @@ third_party_settings:
       weight: 1
       format_type: tab
       format_settings:
-        id: ''
-        classes: ''
+        label: REFERENCES
+        formatter: open
         description: ''
         required_fields: true
-        active: 0
-        formatter: closed
+        id: ''
+        classes: ''
       label: REFERENCES
       region: content
     group_author_information:
@@ -61,12 +61,12 @@ third_party_settings:
       weight: 2
       format_type: tab
       format_settings:
-        id: ''
-        classes: ''
+        label: 'AUTHOR INFORMATION'
+        formatter: open
         description: ''
         required_fields: true
-        active: 0
-        formatter: closed
+        id: ''
+        classes: ''
       label: 'AUTHOR INFORMATION'
       region: content
     group_statement_of_competing_int:
@@ -77,12 +77,12 @@ third_party_settings:
       weight: 3
       format_type: tab
       format_settings:
-        id: ''
-        classes: ''
+        label: 'STATEMENT OF COMPETING INTERESTS'
+        formatter: open
         description: ''
         required_fields: true
-        active: 0
-        formatter: closed
+        id: ''
+        classes: ''
       label: 'STATEMENT OF COMPETING INTERESTS'
       region: content
 id: node.eletters.default
