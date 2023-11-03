@@ -231,8 +231,8 @@ function hwjma_preprocess_region(&$variables) {
           $variables['content']['menu'] = $menu;
         }
 
-       // Add blocks. and  Add shopping cart.
-     /*   $block_manager = \Drupal::service('plugin.manager.block');
+        // Add blocks. and  Add shopping cart.
+        $block_manager = \Drupal::service('plugin.manager.block');
         $current_user = \Drupal::currentUser();
         $cart_block = $block_manager->createInstance('highwire_ecommerce_shopping_cart', []);
         $cart_access = $cart_block->access($current_user);
@@ -242,7 +242,7 @@ function hwjma_preprocess_region(&$variables) {
           if (!empty($shopping_cart)) {
             $variables['shopping_cart'] = $shopping_cart;
           }
-        }  */
+        }  
       }
     break;
   }
