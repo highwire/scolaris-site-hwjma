@@ -6,6 +6,7 @@ dependencies:
     - page_manager.page.node_view
   module:
     - ctools
+    - hwjma_ecommerce
     - journal_article_detail
     - node
     - panels
@@ -68,6 +69,32 @@ variant_settings:
         id: ''
       context_mapping:
         node: node
+    8d7c4b01-d1e2-4bc7-b3a6-1d0657969660:
+      id: hwjma_display_price
+      label: 'HWJMA Display Price'
+      provider: hwjma_ecommerce
+      label_display: '0'
+      list_titles:
+        user_access_already: 'You already have access to these :types:'
+        purchase_offers_current: 'Get access to this :type:'
+        purchase_offers_container: 'Get access to the entire :type:'
+        purchase_offers_default: 'Get access to the :type:'
+      child_offers_prompt:
+        title: 'Get access to individual :types:'
+        text: 'Open :a :type to see its purchasing options.'
+      region: top
+      weight: 0
+      uuid: 8d7c4b01-d1e2-4bc7-b3a6-1d0657969660
+      context_mapping:
+        node: node
+      view_modes:
+        journal: default
+        journal_article: default
+        journal_fragment: ''
+        journal_issue: default
+        journal_volume: ''
+        relationship: ''
+      access_control_rule: online_access
   id: panels_variant
   uuid: 913cdc11-eec4-463b-af89-51b8f40e5a98
   label: null
