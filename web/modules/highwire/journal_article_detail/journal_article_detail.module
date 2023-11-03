@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Core HWJMA Site module
+ * Core Site module
  */
 use Drupal\node\Entity\NodeType;
 use Drupal\Core\Entity\EntityInterface;
@@ -18,6 +18,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 
+require_once __DIR__.'/includes/functions.inc';
 
 define('HW_NODE_TYPE_JOURNAL_ARTICLE', 'journal_article');
 
@@ -186,6 +187,7 @@ function journal_article_detail_node_view(array &$build, EntityInterface $entity
         '#type' => 'markup',
         '#markup' => $form_link,
       ];
+      // Create a node for content type eLetter and get form
       $node = \Drupal::entityTypeManager()->getStorage('node')->create(['type' => 'eletters']);
       $form = \Drupal::service('entity.form_builder')->getForm($node);
       $build['article_response_tab']['custom_form'] = $form;
@@ -260,6 +262,11 @@ function journal_article_detail_mail($key, &$message, $params) {
       $message['body'][] = Html::escape($params['message']);
       break;
     case 'eletter_front_email':
+      $message['from'] = $params['from'];
+      $message['subject'] = t('@title', array('@title' => $params['subject']), $options);
+      $message['body'][] = Html::escape($params['body']);
+      break;
+    case 'highwire_responses_moderation':
       $message['from'] = $params['from'];
       $message['subject'] = t('@title', array('@title' => $params['subject']), $options);
       $message['body'][] = Html::escape($params['body']);
@@ -364,6 +371,14 @@ function journal_article_detail_form_alter(&$form, \Drupal\Core\Form\FormStateIn
   }
 
   if ($form_id == 'node_eletters_form') {
+    $alias = \Drupal::service('path.alias_manager')->getPathByAlias($_SERVER['SCRIPT_URL']);
+    $params = Url::fromUri("internal:" . $alias)->getRouteParameters();
+    $article_id = $params['entity_id'];
+    if (!empty($article_id)) {
+      $article_node_load = Node::load($article_id);
+      $form['field_highwire_comment_subject']['widget'][0]['target_id']['#default_value'] = $article_node_load;
+      $form['field_highwire_comment_response']['widget'][0]['target_id']['#default_value'] = $article_node_load;
+    }
     $form['#action'] = '/node/add/eletters';
     $form['actions']['submit']['#submit'][] = 'eletter_module_form_submit';
   }
@@ -418,13 +433,14 @@ function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInte
   $sender_email = $journalArticleDetailConfig->get('highwire_rr_email_sender');
   $sender_msg = $journalArticleDetailConfig->get('highwire_rr_email_response_sent');
   $email_subject = $journalArticleDetailConfig->get('highwire_rr_email_subject');
-  
+  $eletter_frontend_submit_msg = $journalArticleDetailConfig->get('highwire_e_letter_submission_message');
+  $from_sender_email = $journalArticleDetailConfig->get('highwire_rr_email_sender');
   // Retrieve article details.
   if (!empty($form_state->getValue('field_highwire_comment_response'))) {
     $article_nid = $form_state->getValue('field_highwire_comment_response')[0]['target_id'];
   }
   $params = [];
-  $created = time();
+  $params['from'] = $from_sender_email;
   $params['body'] = $sender_msg;
   $params['subject'] = $email_subject;
   // Get a drupal mail service
@@ -451,7 +467,10 @@ function eletter_module_form_submit(array $form, \Drupal\Core\Form\FormStateInte
       }
     }
   }
+  // Send a notification to moderator
+  highwire_responses_moderation_notify_moderator($form_state, $journalArticleDetailConfig);
+  // Redirect on home page
   $form_state->setRedirect('<front>');
   \Drupal::messenger()->deleteAll();
-  \Drupal::messenger()->addMessage('Thank you for your response. We intend to publish as rapidly as possible all responses that contribute substantially to the topic under discussion.' );  
+  \Drupal::messenger()->addMessage($eletter_frontend_submit_msg);  
 }

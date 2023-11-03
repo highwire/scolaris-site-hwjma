@@ -1,0 +1,55 @@
+<div class="eletter-created"> Posted on: {{ node.created.value | date('F j, Y') }} </div>
+<div class="eletter-title">
+  <h3> {{ node.title.value }} </h3>
+</div>
+{% for key,item in node.field_contributors %}
+  <div class="highwire-cite-authors">
+    <div class="item-list">
+      <ul class="highwire-comment-authors">
+        {% if key == 0 %}
+        <li class="first">
+          <a href="mailto:"{{ item.entity.field_email_address.value }}  class="" data-icon-position="" data-hide-link-title="0">
+            <span class="given-names">{{ item.entity.field_first_name_middle_initial.value }}</span> 
+            <span class="surname">{{ item.entity.field_last_name.value }}</span> [<span class="degrees">{{ item.entity.field_degrees.value }}</span>]
+          </a>
+          <span class="highwire-citation-author" data-delta="0">, 
+            <span class="role">{{ item.entity.field_occupation.value }}</span>, 
+            <span class="aff">{{ item.entity.field_affiliation.value }}</span>
+          </span>
+        </li>
+        {% endif %}
+        {% if key != 0 %}
+        <li class="last">Other Contributors:
+          <div class="item-list">
+            <ul>
+              <li class="first last">
+                <span class="given-names">{{ item.entity.field_first_name_middle_initial.value }}</span> 
+                <span class="surname">{{ item.entity.field_last_name.value }}</span>, 
+                <span class="role">{{ item.entity.field_occupation.value }}</span>
+              </li>
+            </ul>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+{% endfor %}
+<div>{{ node.body.value | raw}}</div>
+<div class="highwire-comment-competing-interest">
+  <span class="label">
+    <h3>Competing Interests:</h3>
+  </span> 
+  <span class="content"> {{ node.field_please_describe_the_compet.value | raw }} </span>
+</div>
+<div class="item-references-list">
+  <h3>References</h3>
+  <ul class="eletter-references">
+  {% for key,item in node.field_references %}
+      <li> {{ item.value }} </li>
+  {% endfor %}
+  </ul>
+</div>
+<div>
+  <button class="btn btn-outline-primary" onclick="window.close();">Close</button>
+</div>
