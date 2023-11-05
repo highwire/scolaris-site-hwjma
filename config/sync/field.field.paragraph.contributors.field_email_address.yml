@@ -1,0 +1,19 @@
+uuid: 2779868c-a0f8-4a25-8ccb-4e240eaadd7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_email_address
+    - paragraphs.paragraphs_type.contributors
+id: paragraph.contributors.field_email_address
+field_name: field_email_address
+entity_type: paragraph
+bundle: contributors
+label: 'Email Address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 3467d5d2-6e8a-4ece-a6cd-42e628fae631
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_references
+    - node.type.eletters
+id: node.eletters.field_references
+field_name: field_references
+entity_type: node
+bundle: eletters
+label: References
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

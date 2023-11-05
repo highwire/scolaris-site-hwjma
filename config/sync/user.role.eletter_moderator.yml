@@ -1,26 +1,28 @@
-uuid: 662ef477-325d-4810-b2a2-ab24140112ad
+uuid: e93de1db-a77e-459a-a7c1-c68345272427
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
-id: anonymous
-label: 'Anonymous user'
-weight: 0
-is_admin: false
+id: eletter_moderator
+label: 'eletter moderator'
+weight: 3
+is_admin: null
 permissions:
-  - 'access comments'
-  - 'access content'
-  - 'access site-wide contact form'
+  - 'create field_electronic_publication_dat'
   - 'create field_highwire_comment_response'
   - 'create field_highwire_comment_subject'
+  - 'create field_workflow_state'
+  - 'edit field_electronic_publication_dat'
   - 'edit field_highwire_comment_response'
   - 'edit field_highwire_comment_subject'
+  - 'edit field_workflow_state'
+  - 'edit own field_electronic_publication_dat'
   - 'edit own field_highwire_comment_response'
   - 'edit own field_highwire_comment_subject'
-  - 'search content'
-  - 'use text format restricted_html'
+  - 'edit own field_workflow_state'
   - 'view field_highwire_comment_response'
   - 'view field_highwire_comment_subject'
+  - 'view field_workflow_state'
+  - 'view own field_electronic_publication_dat'
   - 'view own field_highwire_comment_response'
   - 'view own field_highwire_comment_subject'
+  - 'view own field_workflow_state'

@@ -1,0 +1,58 @@
+uuid: fce3325a-2d5d-4962-863d-3be93cffa8cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.eletters.body
+    - field.field.node.eletters.field_contributors
+    - field.field.node.eletters.field_electronic_publication_dat
+    - field.field.node.eletters.field_field_attachments
+    - field.field.node.eletters.field_highwire_comment_response
+    - field.field.node.eletters.field_highwire_comment_subject
+    - field.field.node.eletters.field_highwire_comment_subject_a
+    - field.field.node.eletters.field_no_competing_interests
+    - field.field.node.eletters.field_please_describe_the_compet
+    - field.field.node.eletters.field_print_publication_date
+    - field.field.node.eletters.field_references
+    - field.field.node.eletters.field_workflow_state
+    - node.type.eletters
+  module:
+    - text
+    - user
+id: node.eletters.teaser
+targetEntityType: node
+bundle: eletters
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  ccc_permissions_link: true
+  field_contributors: true
+  field_electronic_publication_dat: true
+  field_field_attachments: true
+  field_highwire_comment_response: true
+  field_highwire_comment_subject: true
+  field_highwire_comment_subject_a: true
+  field_no_competing_interests: true
+  field_please_describe_the_compet: true
+  field_print_publication_date: true
+  field_references: true
+  field_workflow_state: true
+  hwjma_focus_view: true
+  langcode: true
+  prev_next_pager: true
+  prevnext_toc_pager: true

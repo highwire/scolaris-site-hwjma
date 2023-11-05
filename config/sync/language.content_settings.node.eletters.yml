@@ -1,0 +1,11 @@
+uuid: 1d964855-de4b-48ac-9776-a3393f159c60
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.eletters
+id: node.eletters
+target_entity_type_id: node
+target_bundle: eletters
+default_langcode: site_default
+language_alterable: false

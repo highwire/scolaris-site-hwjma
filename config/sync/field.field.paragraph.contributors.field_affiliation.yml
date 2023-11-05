@@ -1,0 +1,19 @@
+uuid: 6653cdee-1fe8-4b9a-81aa-40e28a2cbc7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_affiliation
+    - paragraphs.paragraphs_type.contributors
+id: paragraph.contributors.field_affiliation
+field_name: field_affiliation
+entity_type: paragraph
+bundle: contributors
+label: Affiliation
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

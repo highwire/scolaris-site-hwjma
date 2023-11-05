@@ -1,0 +1,23 @@
+uuid: 0d3730f8-e235-46ba-be12-ed28ae48c7e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_please_describe_the_compet
+field_name: field_please_describe_the_compet
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

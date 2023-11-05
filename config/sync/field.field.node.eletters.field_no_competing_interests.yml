@@ -1,0 +1,23 @@
+uuid: 2fb2ff81-8cfb-46b4-9c38-209185d84871
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_no_competing_interests
+    - node.type.eletters
+id: node.eletters.field_no_competing_interests
+field_name: field_no_competing_interests
+entity_type: node
+bundle: eletters
+label: 'No competing Interests'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
