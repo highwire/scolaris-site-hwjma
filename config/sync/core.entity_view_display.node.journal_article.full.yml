@@ -141,7 +141,6 @@ third_party_settings:
     group_content_actions:
       children:
         - hwjma_focus_view
-        - hwjma_toc_pager
       parent_name: group_outer
       weight: 114
       format_type: html_element
@@ -161,6 +160,7 @@ third_party_settings:
         - group_article
         - group_figures_tables
         - group_metrics
+        - group_response
       parent_name: group_outer
       weight: 115
       format_type: highwire_tabs
@@ -235,6 +235,20 @@ third_party_settings:
         formatter: closed
       label: Metrics
       region: content
+    group_response:
+      children:
+        - article_response_tab
+      parent_name: group_article_tabs
+      weight: 119
+      format_type: highwire_tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        active: 0
+        formatter: closed
+      label: Response
+      region: content
 _core:
   default_config_hash: iXP4ydXAmKRlPafOC8b_XiVINX92jIpwmT3lhu9Ub0M
 id: node.journal_article.full
@@ -242,6 +256,11 @@ targetEntityType: node
 bundle: journal_article
 mode: full
 content:
+  article_response_tab:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   hwjma_altmetrics:
     weight: 1
     region: content
