@@ -1,0 +1,70 @@
+/* Website Feedback webform style JCOREX-359 */
+#webform-submission-feedbackcontact-form-ajax .form-item {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+#webform-submission-feedbackcontact-form-ajax .form-item input[type="text"],
+#webform-submission-feedbackcontact-form-ajax .form-item .form-item input[type="email"] {
+  border: 1px solid #acacac;
+  color: #000;
+  font-size: .92em;
+  font-weight: 400;
+  height: 2.33em;
+}
+#webform-submission-feedbackcontact-form-ajax .form-item textarea {
+  border: 1px solid #acacac;
+  color: #000;
+  font-size: .92em;
+  font-weight: 400;
+  width: 100%;
+}
+#webform-submission-feedbackcontact-form-ajax .form-item-row>label {
+  font-weight: 700;
+  width: 25%;
+  max-width: 160px;
+}
+#webform-submission-feedbackcontact-form-ajax .form-item-row>input[type] {
+  max-width: 75%;
+}
+#webform-submission-feedbackcontact-form-ajax .recipient-row {
+  border: 1px solid #333;
+  padding: 20px 10px;
+}
+#webform-submission-feedbackcontact-form-ajax .recipient-row .form-item {
+  margin-left:20px;
+  margin-top: 0; 
+  margin-bottom: 10px;
+}
+#webform-submission-feedbackcontact-form-ajax legend {
+  font-size: 1rem;
+  font-weight: 700;
+}
+#webform-submission-feedbackcontact-form-ajax .form-item-grant .js-webform-radios {display: flex;}
+#webform-submission-feedbackcontact-form-ajax .form-item-grant .form-item {
+  margin-left: 20px;
+  margin-top:0;
+}
+#webform-submission-feedbackcontact-form-ajax .feeback-form-title {padding-bottom: 20px;}
+#webform-submission-feedbackcontact-form-ajax .btn.btn-submit {
+  background: #2a7da7;
+  color: #fff;
+  padding: 8px 20px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+#webform-submission-feedbackcontact-form-ajax .form-item-row span.form-required {
+  color: #e00;
+}
+#webform-submission-feedbackcontact-form-ajax .feedback-ip { 
+  font-weight: 700;
+}
+#webform-submission-feedbackcontact-form-ajax .alert-dismissible {
+  padding-right: 3rem;
+  text-align: center;
+  font-size: 22px;
+  color: green;
+  background: #f7f7f7;
+  border: 1px solid #eee;
+}
+#webform-submission-feedbackcontact-form-ajax .fieldset-wrapper label.option{ font-weight:normal }
+#webform-submission-feedbackcontact-form-ajax .captcha-label{ font-weight: 700; }
