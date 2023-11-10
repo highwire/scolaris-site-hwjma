@@ -1,14 +1,12 @@
-uuid: 92016059-fdd1-415b-b949-b9b9ac98b682
+uuid: ed0f5351-d631-4826-8d05-8fe59e1b1dcc
 langcode: en
 status: true
 dependencies:
   module:
-    - hwjma_basic_config
+    - jnl_basic_config
   theme:
     - jcorex_base
-_core:
-  default_config_hash: v2iJETFERcAWS83sd7wwML9EWMmxIYUr-V8qEDRMGZI
-id: jcorex_base_socialmediablock
+id: socialmediablock
 theme: jcorex_base
 region: footer_1
 weight: 0
@@ -17,6 +15,6 @@ plugin: social_media_block
 settings:
   id: social_media_block
   label: 'Social Media block'
-  provider: hwjma_basic_config
+  provider: jnl_basic_config
   label_display: '0'
 visibility: {  }

@@ -1,0 +1,20 @@
+uuid: aad118ab-aede-4cc3-9bdd-4c89d550a7b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - jnl_basic_config
+  theme:
+    - jcorex_base
+id: headerleftlogo
+theme: jcorex_base
+region: header_branding_1
+weight: 0
+provider: null
+plugin: header_left_logo
+settings:
+  id: header_left_logo
+  label: 'Header Left Logo'
+  provider: jnl_basic_config
+  label_display: '0'
+visibility: {  }
