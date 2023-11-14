@@ -58,7 +58,7 @@ display:
           items_per_page: 9
           offset: 0
       style:
-        type: scolaris_hwjma_views_carousel
+        type: scolaris_jnl_views_carousel
         options:
           row_class: ''
           default_row_class: true
