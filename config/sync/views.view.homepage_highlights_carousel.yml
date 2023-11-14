@@ -8,7 +8,7 @@ dependencies:
     - node.type.journal_issue
   module:
     - entityqueue
-    - hwjma_content_display
+    - jnl_content_display
     - node
     - user
 _core:
