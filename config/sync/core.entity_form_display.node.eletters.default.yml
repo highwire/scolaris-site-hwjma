@@ -142,10 +142,9 @@ content:
     region: content
   field_no_competing_interests:
     weight: 4
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
-    type: boolean_checkbox
+    type: options_buttons
     region: content
   field_please_describe_the_compet:
     weight: 5
