@@ -6,7 +6,7 @@ dependencies:
     - page_manager.page.node_view
   module:
     - ctools
-    - hwjma_search
+    - jnl_search
     - journal_article_detail
     - panels
 _core:
@@ -41,7 +41,7 @@ variant_settings:
     b88b5f0a-9387-42e2-b95a-5505c1703af8:
       id: searchBrowse
       label: 'Search browse block'
-      provider: hwjma_search
+      provider: jnl_search
       label_display: '0'
       region: left
       weight: -1
