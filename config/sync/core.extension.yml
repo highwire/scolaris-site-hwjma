@@ -58,7 +58,7 @@ module:
   hwjma_basic_config: 0
   jnl_content_display: 0
   jnl_core: 0
-  hwjma_search: 0
+  jnl_search: 0
   image: 0
   image_captcha: 0
   imce: 0
