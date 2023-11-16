@@ -1,6 +1,6 @@
 <?php
 
-use Drupal\Core\Url;
+use Drupal\Core\Render\BubbleableMetadata;
 
 /**
  * Implements hook_theme().
@@ -44,22 +44,16 @@ function template_preprocess_hwjma_purchase_offer(&$variables) {
 function template_preprocess_hwjma_purchase_offer_item(&$variables) {
   // Add access label & info text based on type.
   if (!empty($variables['type'])) {
-    switch($variables['type']) {
+    switch ($variables['type']) {
       case 'perpetual':
         $variables['label'] = t('Perpetual access');
         $variables['info'] = t('You will have access to this version of the content. Future versions may not be covered.');
         break;
-  
       case 'rental':
         $variables['label'] = !empty($variables['duration']) ? $variables['duration'] : t('Rental access');
-        $variables['info'] = !empty($variables['duration']) ? t('You will have online access to this content for @duration. You should download the PDF for perpetual usage.', ['@duration' => $variables['duration']]) : t('You will have access to this content for the specified period, including any updates during that period.');
+        $variables['info'] = t('You will have access to this content for the specified period, including any updates during that period.');
         break;
     }
-  }
-  if ($variables['logged_in'] == FALSE) {
-    $current_path = \Drupal::service('path.current')->getPath();
-    $target_path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-    $variables['purchase_link']["#url"] = Url::fromRoute('openid_connect_sams_sigma.wayfless-url', ['target' => $target_path]);
   }
 }
 
@@ -93,5 +87,58 @@ function hwjma_ecommerce_js_alter(&$javascript, $assets) {
   // Set weight of hwjma_ecommerce/hwjma_ecommerce to just higher than highwire_ecommerce/highwire_ecommerce_foxycart
   if (!empty($javascript[$hw_ecom_foxycart_js]) && !empty($javascript[$hwjma_ecom_js])) {
     $javascript[$hwjma_ecom_js]['weight'] = $javascript[$hw_ecom_foxycart_js]['weight'] + 0.001;
+    
   }
+}
+
+/**
+* Helper function to get book chunk content types for the MHE site.
+*
+* @return array
+*   Array of book chunk node types
+*/
+function hwjma_core_get_book_chunk_types() {
+  return ['item_chapter', 'item_section','item_front_matter', 'item_back_matter'];
+}
+
+/**
+* Helper function to get journal chunk content types for the bps site.
+*
+* @return array
+*   journal chunk node types
+*/
+function hwjma_core_get_journal_chunk_types() {
+  return ['journal_article', 'journal_issue', 'journal_volume', 'journal_fragment'];
+}
+
+/**
+* Implements hook_tokens().
+*/
+function hwjma_core_tokens($type, array $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+  if ($type == 'node' && !empty($data['node']) && $data['node'] instanceof Node) {
+    $node = $data['node'];
+    foreach ($tokens as $name => $original) {
+      if ($name == 'type_display') {
+        $type = $node->getType();
+        if (!in_array($type, hwjma_core_get_hw_content_types())) {
+          $replacements[$original] = $type;
+        }
+        elseif (in_array($type, hwjma_core_get_book_chunk_types())) {
+          $replacements[$original] = t('chapter');
+        }
+        else {
+          switch ($type) {
+            case HW_NODE_TYPE_ARTICLE:
+              $replacements[$original] = t('article');
+            break;
+            case HW_NODE_TYPE_JOURNAL:
+              $replacements[$original] = t('journal');
+            break;
+          }
+        }
+      }
+    }
+  }
+  return $replacements;
 }

@@ -233,7 +233,7 @@ picture img {
     border: 1px solid $secondary;
 }
 .login-accordion {
-    display: none;
+    display: block;
     .right-toggle-icon {
         @extend .d-block;
         @extend .float-medium-tablet-end;
@@ -652,7 +652,7 @@ input[list]+ul[list] {
                 border-bottom: 1px solid $secondary;
                 margin-bottom: 20px;
             }
-            .bps-purchase-offer {
+            .hwjma-purchase-offer {
                 display: flex;
                 justify-content: space-between;
                 width: 100%;

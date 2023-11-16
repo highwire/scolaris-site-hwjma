@@ -12,16 +12,6 @@ var FC = FC || {};
           collapseAccessPanel($(params.element).closest('.access-panel'));
         });
 
-       /*
-        * Update add to cart link display when item is removed from cart.
-       */
-        FC.client.wrap("highwire-ecommerce-cart-item-removed", function (params) {
-          // Replace purchase links for items removed from the cart.
-          if (params.apath && params.interval) {
-             itemRemovedFromCart(context, params.apath, params.interval);
-          }
-        });
-
         /**
          * Customize display of list items in message.
          */
@@ -49,41 +39,11 @@ var FC = FC || {};
        *   The access panel to collapse.
        */
       function collapseAccessPanel($panel) {
-        //var $panel = $link.closest('.access-panel');
         if ($panel.length > 0 && $panel.hasClass('in')) {
           var $trigger = $('[data-target="#' + $panel.attr('id') + '"].btn--access-expander', context).first();
           $trigger.trigger('click');
         }
       }
-
-       /**
-       * Update add to cart link when item is removed from cart.
-      *
-      * @param context
-      *   A jquery object to use as context.
-      * @param apath
-      *   Apath of removed item
-      * @param interval
-      *   Interval of removed item
-      */
-      function itemRemovedFromCart(context, apath, interval) {
-        var $links = $('a.highwire-ecommerce-item-in-cart[data-apath="' + apath + '"][data-interval="' + interval + '"]', context);
-          if ($links.length <= 0) {
-            return;
-          }
-        $links.each(function () {
-        var $link = $(this);
-        var url = $link.attr('data-purchase-url');
-        var text = $link.attr('data-purchase-text');
-        if ($link.attr('data-discounted-price'))
-        {
-          var discountprice = $link.attr('data-discounted-price');
-          var originalprice = $link.attr('data-original-price');
-          text = 'Add to cart' + ' ' + originalprice + ' ' + discountprice;
-        }
-        $link.removeClass('highwire-ecommerce-item-in-cart').attr('href', url).html(text);
-       });
-     }
 
       /**
        * Build a list of cart item links.

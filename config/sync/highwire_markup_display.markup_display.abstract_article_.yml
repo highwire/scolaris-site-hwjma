@@ -7,10 +7,10 @@ label: 'Abstract (Article)'
 configurations:
   -
     markup_profile: journal_full_text_abstract
+    access_rule: ''
     field_group_settings:
       field_group_formatter: '0'
     weight: '1'
-    access_rule: ''
 markup_field_enabled: true
 markup_field_content_types:
   - journal_article
