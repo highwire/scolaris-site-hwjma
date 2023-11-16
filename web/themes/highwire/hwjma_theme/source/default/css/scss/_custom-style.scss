@@ -233,7 +233,7 @@ picture img {
     border: 1px solid $secondary;
 }
 .login-accordion {
-    display: none;
+    display: block;
     .right-toggle-icon {
         @extend .d-block;
         @extend .float-medium-tablet-end;

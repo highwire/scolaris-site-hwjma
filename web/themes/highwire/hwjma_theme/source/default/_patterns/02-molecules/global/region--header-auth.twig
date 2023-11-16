@@ -1,12 +1,7 @@
 {% set content = content ? content : true %}
 {% embed "@molecules/global/region.twig" %}
   {% block content %}
-    {# {% if not logged_in %}
-      {% include "@molecules/global/login-prompt.twig" %}
-    {% else %}
-    {% include "@molecules/global/login.twig" %} #}
     {{ content }}
-    {# {% endif %} #}
     {{ shopping_cart }}
   {% endblock %}
 {% endembed %}
