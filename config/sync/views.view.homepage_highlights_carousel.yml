@@ -8,7 +8,7 @@ dependencies:
     - node.type.journal_issue
   module:
     - entityqueue
-    - jnl_content_display
+    - hwjma_content_display
     - node
     - user
 _core:
@@ -58,7 +58,7 @@ display:
           items_per_page: 9
           offset: 0
       style:
-        type: scolaris_jnl_views_carousel
+        type: scolaris_hwjma_views_carousel
         options:
           row_class: ''
           default_row_class: true
