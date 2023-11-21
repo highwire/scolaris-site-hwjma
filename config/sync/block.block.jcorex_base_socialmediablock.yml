@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - hwjma_basic_config
+    - jnl_basic_config
   theme:
     - jcorex_base
 _core:
