@@ -56,3 +56,16 @@ function highwire_site_style_update_9003(){
 	  throw new DrupalUpdateException('TrendMD module not enabled.');
   }  
 }
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Eletter module.
+ */
+function highwire_site_style_update_9004(){
+  /* For trendmd*/
+  $Eletter_enable = \Drupal::service('module_installer')->install(['highwire_eletter'], TRUE); 
+  if (!$Eletter_enable) {
+	  throw new DrupalUpdateException('Eletter module not enabled.');
+  }  
+}
