@@ -52,12 +52,13 @@ module:
   highwire_taxonomy: 0
   highwire_user: 0
   history: 0
-  jnl_content_display: 0
-  jnl_core: 0
   image: 0
   image_captcha: 0
   imce: 0
   jnl_basic_config: 0
+  jnl_content_display: 0
+  jnl_core: 0
+  jnl_search: 0
   journal_article_detail: 0
   language: 0
   layout_builder: 0

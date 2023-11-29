@@ -1,14 +1,14 @@
-uuid: d3db743e-43b9-4210-917a-d1a6d4a51484
+uuid: 29353935-cf15-47f1-9a63-9e00acc3bf84
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.jnl
     - views.view.search
   module:
     - search_api
 _core:
-  default_config_hash: IlNvfSsjVr7rf3IW6cbf-LuYbgtejHtgaZmNPo_Ah1U
+  default_config_hash: X9g-DwubQm1wIfvsUqpubKac8lOEbjrNpGgFXBEnLtM
 id: keywords
 name: keywords
 url_alias: keywords
@@ -18,7 +18,7 @@ show_only_one_result: false
 field_identifier: first
 facet_source_id: 'search_api:views_page__search__page_1'
 widget:
-  type: hwjma_include_all_checkbox_multiple
+  type: jnl_include_all_checkbox_multiple
   config:
     show_numbers: true
     soft_limit: '0'
@@ -41,8 +41,8 @@ processor_configs:
       sort: 30
     settings:
       sort: DESC
-  hwjma_facet_result_count_alpha:
-    processor_id: hwjma_facet_result_count_alpha
+  jnl_facet_result_count_alpha:
+    processor_id: jnl_facet_result_count_alpha
     weights:
       sort: 50
     settings:

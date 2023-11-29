@@ -1,18 +1,16 @@
-uuid: 48095e15-54d0-4006-b8c3-c9aad098586b
+uuid: 17afae71-408f-4d52-b97f-6942976b18a7
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.jnl
     - views.view.search
   module:
     - views
     - search_api_autocomplete
-_core:
-  default_config_hash: BqONphqiKLqz3usyP1vxG0I_-XfW63CL2KVO0BvSyt0
 id: search
 label: Search
-index_id: hwjma
+index_id: jnl
 suggester_settings:
   live_results:
     fields: {  }

@@ -1,4 +1,4 @@
-uuid: 9627d997-bb5d-4932-a000-a5dcb46bf9c2
+uuid: c57573d0-d93c-4e34-8f0e-559d10af19cb
 langcode: en
 status: true
 dependencies:
@@ -7,9 +7,9 @@ dependencies:
   module:
     - search_api_solr
 _core:
-  default_config_hash: mKd4ETex88SNeQNzmUpAuxbqpcKnQkSA9qSfe10piyM
-id: hwjma_solr
-name: 'HWJMA Solr'
+  default_config_hash: qol0xNHjbJ706QeqvaKlBKqPGBpEs7Co29tBS-GrFhc
+id: jnl_solr
+name: 'jnl Solr'
 description: ''
 backend: search_api_solr
 backend_config:
@@ -19,7 +19,7 @@ backend_config:
     host: fr-freebird-solr-dev-01.highwire.org
     port: '8983'
     path: /solr
-    core: scolaris-hwjma_final
+    core: scolaris-hwjma_jcorex_364_searchmod2
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10

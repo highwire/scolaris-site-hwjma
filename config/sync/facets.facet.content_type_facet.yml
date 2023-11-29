@@ -1,14 +1,14 @@
-uuid: 54d10128-b252-405c-89d0-9128bc10e8ad
+uuid: 0c5f5913-c6ba-490a-8339-808e3ff7f0ea
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.jnl
     - views.view.search
   module:
     - search_api
 _core:
-  default_config_hash: NOKGk7IXe6g16_haxNwQD42ozSw5gIsNKas0L-XaPMc
+  default_config_hash: AMKkunnvi9sJHSXygM7wz9-COjMf6fM08v_o3gnbwos
 id: content_type_facet
 name: 'Content type facet'
 url_alias: content_type_facet
@@ -18,7 +18,7 @@ show_only_one_result: false
 field_identifier: type
 facet_source_id: 'search_api:views_page__search__page_1'
 widget:
-  type: hwjmacheckbox_content_type
+  type: jnlcheckbox_content_type
   config:
     show_numbers: true
     soft_limit: '0'
