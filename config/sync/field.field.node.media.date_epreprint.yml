@@ -1,0 +1,21 @@
+uuid: e8a9e109-2f15-4215-9798-206c59f9e18b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_epreprint
+    - node.type.media
+  module:
+    - datetime_range
+id: node.media.date_epreprint
+field_name: date_epreprint
+entity_type: node
+bundle: media
+label: date-epreprint
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

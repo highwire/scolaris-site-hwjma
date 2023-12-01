@@ -1,0 +1,21 @@
+uuid: 9d96ff1b-e4b8-4dd5-a24a-e178b614f326
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.subtitle
+    - node.type.media
+  module:
+    - text
+id: node.media.subtitle
+field_name: subtitle
+entity_type: node
+bundle: media
+label: subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

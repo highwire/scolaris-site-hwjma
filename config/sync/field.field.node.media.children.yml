@@ -1,0 +1,21 @@
+uuid: b169b143-825d-421f-9700-38a1b4a4bbad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.children
+    - node.type.media
+id: node.media.children
+field_name: children
+entity_type: node
+bundle: media
+label: children
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

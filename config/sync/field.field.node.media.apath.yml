@@ -1,0 +1,19 @@
+uuid: 8899381f-0915-49b0-92a8-51bf5612e102
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.apath
+    - node.type.media
+id: node.media.apath
+field_name: apath
+entity_type: node
+bundle: media
+label: Apath
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

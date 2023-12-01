@@ -1,0 +1,21 @@
+uuid: cc674bd4-44d7-42a1-9e3b-7e0d08ab484a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.contributors
+    - node.type.media
+  module:
+    - text
+id: node.media.contributors
+field_name: contributors
+entity_type: node
+bundle: media
+label: contributors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

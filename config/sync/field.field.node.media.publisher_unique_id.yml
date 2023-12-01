@@ -1,0 +1,21 @@
+uuid: 6a3b0f25-68d1-4c0e-97c9-0477b24eca8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.publisher_unique_id
+    - node.type.media
+  module:
+    - text
+id: node.media.publisher_unique_id
+field_name: publisher_unique_id
+entity_type: node
+bundle: media
+label: publisher-unique-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

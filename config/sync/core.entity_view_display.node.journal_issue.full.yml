@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.journal_issue.article_type
     - field.field.node.journal_issue.atom_type
     - field.field.node.journal_issue.authors_full_name
+    - field.field.node.journal_issue.authors_only_full_name
+    - field.field.node.journal_issue.bookvault_skuid
     - field.field.node.journal_issue.chapter_type
     - field.field.node.journal_issue.children
     - field.field.node.journal_issue.col_url
@@ -37,6 +39,7 @@ dependencies:
     - field.field.node.journal_issue.final_published
     - field.field.node.journal_issue.fpage
     - field.field.node.journal_issue.georef_id
+    - field.field.node.journal_issue.guest_editors
     - field.field.node.journal_issue.has_abstract
     - field.field.node.journal_issue.has_early_release
     - field.field.node.journal_issue.has_figures
@@ -162,6 +165,8 @@ hidden:
   article_type: true
   atom_type: true
   authors_full_name: true
+  authors_only_full_name: true
+  bookvault_skuid: true
   ccc_permissions_link: true
   chapter_type: true
   children: true
@@ -189,6 +194,7 @@ hidden:
   final_published: true
   fpage: true
   georef_id: true
+  guest_editors: true
   has_abstract: true
   has_early_release: true
   has_figures: true
@@ -212,6 +218,7 @@ hidden:
   issue_supplemental: true
   issue_title: true
   issue_toc: true
+  jnl_focus_view: true
   journal_abbrv_title: true
   journal_current_issue: true
   journal_eissn: true
