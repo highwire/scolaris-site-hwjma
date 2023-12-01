@@ -1,0 +1,21 @@
+uuid: f5230d3a-3ce1-4101-aa01-aa9b3cd0d50d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.guest_editors
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.guest_editors
+field_name: guest_editors
+entity_type: node
+bundle: relationship
+label: guest-editors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

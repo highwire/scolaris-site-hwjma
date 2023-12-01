@@ -1,0 +1,21 @@
+uuid: 9ff349b6-0988-46ec-911d-b4d8697ac0d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.date_received
+    - node.type.media
+  module:
+    - datetime_range
+id: node.media.date_received
+field_name: date_received
+entity_type: node
+bundle: media
+label: date-received
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

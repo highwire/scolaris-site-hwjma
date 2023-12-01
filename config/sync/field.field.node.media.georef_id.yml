@@ -1,0 +1,21 @@
+uuid: 9d4b988b-0d17-43f3-a9bd-3d7e5f51cbcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.georef_id
+    - node.type.media
+  module:
+    - text
+id: node.media.georef_id
+field_name: georef_id
+entity_type: node
+bundle: media
+label: georef-id
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
