@@ -1,0 +1,21 @@
+uuid: 39b18592-9fd1-4711-aa4b-fa48ad9d9a7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.authors_only_full_name
+    - node.type.media
+  module:
+    - text
+id: node.media.authors_only_full_name
+field_name: authors_only_full_name
+entity_type: node
+bundle: media
+label: authors-only-full-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

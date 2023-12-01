@@ -1,0 +1,19 @@
+uuid: 510201c7-67f9-4ac5-ba9f-ab924de7f1b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.bookvault_skuid
+field_name: bookvault_skuid
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

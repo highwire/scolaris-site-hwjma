@@ -1,0 +1,21 @@
+uuid: cdd1729b-b766-47d1-ac93-c65c3710bba4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.fpage
+    - node.type.media
+  module:
+    - text
+id: node.media.fpage
+field_name: fpage
+entity_type: node
+bundle: media
+label: fpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

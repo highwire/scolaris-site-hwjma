@@ -1,0 +1,21 @@
+uuid: bf257652-e3af-4e49-978a-759bddfc5335
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.authors_full_name
+    - node.type.media
+  module:
+    - text
+id: node.media.authors_full_name
+field_name: authors_full_name
+entity_type: node
+bundle: media
+label: authors-full-name
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

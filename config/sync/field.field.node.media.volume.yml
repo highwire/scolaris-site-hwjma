@@ -1,0 +1,21 @@
+uuid: 455a3db4-43b5-4753-8c72-9c73c107ebd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.volume
+    - node.type.media
+  module:
+    - text
+id: node.media.volume
+field_name: volume
+entity_type: node
+bundle: media
+label: volume
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 106e5dbb-de46-415f-9a19-84d2523632a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_source
+    - node.type.media
+id: node.media.has_source
+field_name: has_source
+entity_type: node
+bundle: media
+label: has-source
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
