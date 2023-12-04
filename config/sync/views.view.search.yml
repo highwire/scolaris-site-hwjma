@@ -1,4 +1,4 @@
-uuid: ffc691e5-7959-4273-80c6-9f9595022d4f
+uuid: 166243cd-5daf-4edd-8746-c0567924ca83
 langcode: en
 status: true
 dependencies:
@@ -312,7 +312,6 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -342,23 +341,6 @@ display:
         type: none
       defaults:
         cache: false
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
-      tags: {  }
-  page_2:
-    display_plugin: page
-    id: page_2
-    display_title: 'Page 2'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      path: abcd
     cache_metadata:
       max-age: -1
       contexts:
