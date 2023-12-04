@@ -141,9 +141,7 @@ third_party_settings:
       label: Outer
       region: content
     group_content_actions:
-      children:
-        - hwjma_focus_view
-        - hwjma_toc_pager
+      children: {  }
       parent_name: group_outer
       weight: 114
       format_type: html_element
@@ -223,9 +221,9 @@ third_party_settings:
       region: content
     group_metrics:
       children:
-        - hwjma_info_metrics_tab
-        - hwjma_altmetrics
-        - hwjma_usage_stats
+        - jnl_info_metrics_tab
+        - jnl_altmetrics
+        - jnl_usage_stats
       parent_name: group_article_tabs
       weight: 118
       format_type: highwire_tab
@@ -288,6 +286,21 @@ content:
     weight: 2
     region: content
     label: above
+    settings: {  }
+    third_party_settings: {  }
+  jnl_altmetrics:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  jnl_info_metrics_tab:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  jnl_usage_stats:
+    weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
@@ -360,10 +373,14 @@ hidden:
   issue_supplemental: true
   issue_title: true
   issue_toc: true
+<<<<<<< HEAD
   jnl_altmetrics: true
   jnl_focus_view: true
   jnl_info_metrics_tab: true
   jnl_usage_stats: true
+=======
+  jnl_focus_view: true
+>>>>>>> 9e2692464bb8bd8d3af7f9be3b167636ecebf55d
   journal_abbrv_title: true
   journal_current_issue: true
   journal_eissn: true

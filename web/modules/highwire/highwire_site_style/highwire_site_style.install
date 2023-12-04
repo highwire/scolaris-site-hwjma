@@ -9,10 +9,10 @@ function highwire_site_style_update_9001(){
   $monsido_enable=\Drupal::service('module_installer')->install(['highwire_monsido'], TRUE);
   if (!$monsido_enable) {
     throw new DrupalUpdateException('Monsido module not enabled.');
-  }  
+  }
   else {
     $config = \Drupal::service('config.factory')->getEditable('highwire_monsido.settings');
-    $config->set('monsido_token', 'HBktah_nQR6S6dpnyfGZow')->save(); 
+    $config->set('monsido_token', 'HBktah_nQR6S6dpnyfGZow')->save();
   }
 }
 
@@ -24,21 +24,21 @@ function highwire_site_style_update_9001(){
  */
 function highwire_site_style_update_9002(){
   /* For Google Analytics */
-  $ga_enabled = \Drupal::service('module_installer')->install(['google_analytics'], TRUE); 
+  $ga_enabled = \Drupal::service('module_installer')->install(['google_analytics'], TRUE);
   if (!$ga_enabled) {
 	  throw new DrupalUpdateException('Google Analytics module not enabled.');
   }
-  else { 
+  else {
 	$config = \Drupal::service('config.factory')->getEditable('google_analytics.settings');
     $config->set('account', 'UA-10876-8')->save();
-  } 
-  
+  }
+
   /* For Google Tag Manager */
   $gtm_enabled = \Drupal::service('module_installer')->install(['google_tag'], TRUE);
   if (!$gtm_enabled) {
 	  throw new DrupalUpdateException('Google Tag Manager module not enabled.');
   }
-  else { 
+  else {
 	  $config = \Drupal::service('config.factory')->getEditable('google_tag.settings');
     $config->set('_default_container.container_id', 'GTM-TQBHHX8')->save();
   }
@@ -51,8 +51,21 @@ function highwire_site_style_update_9002(){
  */
 function highwire_site_style_update_9003(){
   /* For trendmd*/
-  $trendmd_enable = \Drupal::service('module_installer')->install(['highwire_trendmd'], TRUE); 
+  $trendmd_enable = \Drupal::service('module_installer')->install(['highwire_trendmd'], TRUE);
   if (!$trendmd_enable) {
 	  throw new DrupalUpdateException('TrendMD module not enabled.');
-  }  
+  }
+}
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Eletter module.
+ */
+function highwire_site_style_update_9004(){
+  /* For Eletter module*/
+  $Eletter_enable = \Drupal::service('module_installer')->install(['highwire_eletter'], TRUE);
+  if (!$Eletter_enable) {
+	  throw new DrupalUpdateException('Eletter module are not enabled.');
+  }
 }
