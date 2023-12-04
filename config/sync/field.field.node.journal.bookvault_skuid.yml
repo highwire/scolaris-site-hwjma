@@ -1,0 +1,21 @@
+uuid: 4b982a99-5a53-4e9b-9cd6-7c974403796a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.bookvault_skuid
+    - node.type.journal
+  module:
+    - text
+id: node.journal.bookvault_skuid
+field_name: bookvault_skuid
+entity_type: node
+bundle: journal
+label: bookvault-skuid
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

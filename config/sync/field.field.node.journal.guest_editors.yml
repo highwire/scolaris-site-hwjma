@@ -1,0 +1,21 @@
+uuid: 6728529b-2441-45dc-a243-ff97a236e416
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.guest_editors
+    - node.type.journal
+  module:
+    - text
+id: node.journal.guest_editors
+field_name: guest_editors
+entity_type: node
+bundle: journal
+label: guest-editors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

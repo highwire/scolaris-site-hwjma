@@ -47,14 +47,14 @@ variant_settings:
       weight: -1
       uuid: b88b5f0a-9387-42e2-b95a-5505c1703af8
       context_mapping: {  }
-    2c4d7a89-ec58-4152-81dc-ebaa741fcfa3:
-      id: hwjma_altmetrics_data
+    3f2f45c4-97cd-4fe1-a8a7-2f4569cba499:
+      id: jnl_altmetrics_data
       label: 'Altmetrics Data'
       provider: journal_article_detail
       label_display: visible
       region: right
       weight: 0
-      uuid: 2c4d7a89-ec58-4152-81dc-ebaa741fcfa3
+      uuid: 3f2f45c4-97cd-4fe1-a8a7-2f4569cba499
       description: 'Altmetric tracks attention and engagement of scholarly articles.'
       month: 3m
       issns: 1488-2329
@@ -63,7 +63,6 @@ variant_settings:
       show_pager: 0
       more_link: 1
       more_link_label: 'See more'
-      more_link_url: ''
       msg_no_data: 'No Altmetric data available.'
       context_mapping: {  }
   id: panels_variant

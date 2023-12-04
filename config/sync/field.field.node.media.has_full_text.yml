@@ -1,0 +1,21 @@
+uuid: dbc2b50e-a7ab-4096-b9eb-cea0d84735a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.has_full_text
+    - node.type.media
+id: node.media.has_full_text
+field_name: has_full_text
+entity_type: node
+bundle: media
+label: has-full-text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

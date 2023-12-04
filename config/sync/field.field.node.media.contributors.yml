@@ -1,0 +1,21 @@
+uuid: fdd03ae6-c780-4515-97db-519f1d46188c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.contributors
+    - node.type.media
+  module:
+    - text
+id: node.media.contributors
+field_name: contributors
+entity_type: node
+bundle: media
+label: contributors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

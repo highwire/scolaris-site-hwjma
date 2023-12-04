@@ -1,0 +1,21 @@
+uuid: d00d9fcc-5805-4099-9749-8712b13598db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.overline
+    - node.type.media
+  module:
+    - text
+id: node.media.overline
+field_name: overline
+entity_type: node
+bundle: media
+label: overline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

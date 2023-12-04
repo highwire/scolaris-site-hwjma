@@ -1,0 +1,21 @@
+uuid: bb305a0a-cbab-493c-b0ff-d0f2afe31e06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.guest_editors
+    - node.type.journal_volume
+  module:
+    - text
+id: node.journal_volume.guest_editors
+field_name: guest_editors
+entity_type: node
+bundle: journal_volume
+label: guest-editors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

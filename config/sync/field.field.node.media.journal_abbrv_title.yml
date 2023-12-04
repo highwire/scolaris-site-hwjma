@@ -1,0 +1,21 @@
+uuid: a92b3cb9-9773-4a31-bd87-f49893c6b3d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.journal_abbrv_title
+    - node.type.media
+  module:
+    - text
+id: node.media.journal_abbrv_title
+field_name: journal_abbrv_title
+entity_type: node
+bundle: media
+label: journal-abbrv-title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

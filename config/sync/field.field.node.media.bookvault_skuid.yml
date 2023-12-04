@@ -1,0 +1,21 @@
+uuid: d2589229-3ffd-4f36-8967-c4966dbe8e95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.bookvault_skuid
+    - node.type.media
+  module:
+    - text
+id: node.media.bookvault_skuid
+field_name: bookvault_skuid
+entity_type: node
+bundle: media
+label: bookvault-skuid
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 14c73063-4a4f-493e-b38c-ff09a9bc45aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.final_published
+    - node.type.media
+  module:
+    - datetime_range
+id: node.media.final_published
+field_name: final_published
+entity_type: node
+bundle: media
+label: final-published
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

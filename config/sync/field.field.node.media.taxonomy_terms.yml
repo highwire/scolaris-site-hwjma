@@ -1,0 +1,21 @@
+uuid: fac45678-b313-4793-9166-edf065b855df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.taxonomy_terms
+    - node.type.media
+id: node.media.taxonomy_terms
+field_name: taxonomy_terms
+entity_type: node
+bundle: media
+label: taxonomy-terms
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference
