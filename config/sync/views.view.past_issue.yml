@@ -4,18 +4,18 @@ status: true
 dependencies:
   config:
     - field.storage.node.date_ppub
-    - search_api.index.hwjma
+    - search_api.index.jnl
   module:
     - datetime_range
     - search_api
 _core:
-  default_config_hash: cR7TvEGqb2AIzi_6h-tAEiJsigkkt4MIl8VOFLG70Qs
+  default_config_hash: QTPano27eIBAQl_FWSprc1YfMi9XkhgWAsrVk6P7j8o
 id: past_issue
 label: 'Past Issue'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_hwjma
+base_table: search_api_index_jnl
 base_field: search_api_id
 display:
   default:
@@ -74,7 +74,7 @@ display:
       fields:
         date_ppub:
           id: date_ppub
-          table: search_api_datasource_hwjma_entity_node
+          table: search_api_datasource_jnl_entity_node
           field: date_ppub
           relationship: none
           group_type: group
@@ -148,7 +148,7 @@ display:
       filters:
         type:
           id: type
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: type
           relationship: none
           group_type: group
@@ -189,7 +189,7 @@ display:
           plugin_id: search_api_options
         status:
           id: status
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: status
           relationship: none
           group_type: group
@@ -227,7 +227,7 @@ display:
           plugin_id: search_api_boolean
         volume_int:
           id: volume_int
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: volume_int
           relationship: none
           group_type: group
@@ -273,7 +273,7 @@ display:
           plugin_id: search_api_numeric
         date_ppub_year:
           id: date_ppub_year
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: date_ppub_year
           relationship: none
           group_type: group
@@ -320,7 +320,7 @@ display:
       sorts:
         date_ppub:
           id: date_ppub
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: date_ppub
           relationship: none
           group_type: group
@@ -351,7 +351,7 @@ display:
       arguments:
         corpus:
           id: corpus
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: corpus
           relationship: none
           group_type: group

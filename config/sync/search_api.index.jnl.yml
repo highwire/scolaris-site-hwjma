@@ -1,4 +1,4 @@
-uuid: 49eafaf8-4477-488f-9e9f-ea1e2c36c0d6
+uuid: d3f1a97c-1516-4f67-ae1d-2f887a37ad56
 langcode: en
 status: true
 dependencies:
@@ -23,7 +23,7 @@ dependencies:
     - field.storage.node.title_plain
     - field.storage.node.version_current
     - field.storage.node.volume
-    - search_api.server.hwjma_solr
+    - search_api.server.jnl_solr
     - core.entity_view_mode.node.full_text_markup
 third_party_settings:
   search_api_solr:
@@ -48,9 +48,9 @@ third_party_settings:
     advanced:
       index_prefix: ''
 _core:
-  default_config_hash: 5Me5tznSRA2-tXfGyztQso4pRH0EIeDjsZN-7g0kNCI
-id: hwjma
-name: HWJMA
+  default_config_hash: aUDJmwmJvab1FGCAa5dzPdRDqU5GwB9KBxtGGzKU0nI
+id: jnl
+name: jnl
 description: ''
 read_only: false
 field_settings:
@@ -308,4 +308,4 @@ tracker_settings:
 options:
   index_directly: true
   cron_limit: 50
-server: hwjma_solr
+server: jnl_solr

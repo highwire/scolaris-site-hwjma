@@ -1,14 +1,14 @@
-uuid: 7d174a5d-c509-4f4f-8f0f-235879041d80
+uuid: 7aff9635-0f21-4e73-99c1-b2becd8a6e5d
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.jnl
     - views.view.search
   module:
     - search_api
 _core:
-  default_config_hash: oQAPQjKdFc2F6EhxWbHFSh_Vsk9mW3A1xYdAjwSJD3I
+  default_config_hash: 5a0lJ6bov1A838Fs7yLT0ia0CxadLj2F9MqT26KTEoE
 id: author
 name: Author
 url_alias: author
@@ -18,7 +18,7 @@ show_only_one_result: false
 field_identifier: authors_full_name
 facet_source_id: 'search_api:views_page__search__page_1'
 widget:
-  type: hwjma_include_all_checkbox_multiple
+  type: jnl_include_all_checkbox_multiple
   config:
     show_numbers: true
     soft_limit: '0'
