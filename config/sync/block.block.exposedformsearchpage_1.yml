@@ -1,0 +1,23 @@
+uuid: 07cb6025-97bb-47d8-9587-da15c37ffc44
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - views
+  theme:
+    - jcorex_base
+id: exposedformsearchpage_1
+theme: jcorex_base
+region: search
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search-page_1'
+settings:
+  id: 'views_exposed_filter_block:search-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }
