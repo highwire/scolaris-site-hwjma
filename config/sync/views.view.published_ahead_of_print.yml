@@ -3,17 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.jnl
   module:
     - search_api
 _core:
-  default_config_hash: 0PzFoiQle72vvdgXcGaHvj_FFEVbV4SrMTv2f4ANJj8
+  default_config_hash: _LdCReiwx0OrOGpExyIu77nZvhYAnilrRPuehZtXvZQ
 id: published_ahead_of_print
 label: 'Published Ahead of Print'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_hwjma
+base_table: search_api_index_jnl
 base_field: search_api_id
 display:
   default:
@@ -88,7 +88,7 @@ display:
       filters:
         type:
           id: type
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: type
           relationship: none
           group_type: group
@@ -129,7 +129,7 @@ display:
           plugin_id: search_api_options
         status:
           id: status
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: status
           relationship: none
           group_type: group
@@ -167,7 +167,7 @@ display:
           plugin_id: search_api_boolean
         early_release:
           id: early_release
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: early_release
           relationship: none
           group_type: group
@@ -212,7 +212,7 @@ display:
       arguments:
         corpus:
           id: corpus
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: corpus
           relationship: none
           group_type: group

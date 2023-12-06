@@ -1,17 +1,15 @@
-uuid: 48095e15-54d0-4006-b8c3-c9aad098586b
+uuid: 12d0ceae-53cf-4818-b42b-44fbf03a350f
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.jnl
-    - views.view.search
+    - views.view.all_issues
   module:
     - views
     - search_api_autocomplete
-_core:
-  default_config_hash: YbB7Z6dtXiD9qT8UuWVpkdtH4qXqCUIjuNhl-pY6RAI
-id: search
-label: Search
+id: all_issues
+label: 'All Issues'
 index_id: jnl
 suggester_settings:
   live_results:
@@ -20,7 +18,7 @@ suggester_settings:
 suggester_weights: {  }
 suggester_limits: {  }
 search_settings:
-  'views:search':
+  'views:all_issues':
     displays:
       default: true
       selected: {  }

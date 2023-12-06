@@ -1,17 +1,15 @@
-uuid: 48095e15-54d0-4006-b8c3-c9aad098586b
+uuid: 1ff354ad-5dd2-4a61-8832-571e0a1c504a
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.jnl
-    - views.view.search
+    - views.view.past_issue
   module:
     - views
     - search_api_autocomplete
-_core:
-  default_config_hash: YbB7Z6dtXiD9qT8UuWVpkdtH4qXqCUIjuNhl-pY6RAI
-id: search
-label: Search
+id: past_issue
+label: 'Past Issue'
 index_id: jnl
 suggester_settings:
   live_results:
@@ -20,7 +18,7 @@ suggester_settings:
 suggester_weights: {  }
 suggester_limits: {  }
 search_settings:
-  'views:search':
+  'views:past_issue':
     displays:
       default: true
       selected: {  }
