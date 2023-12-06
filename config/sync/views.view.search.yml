@@ -1,20 +1,20 @@
-uuid: b1cc4a0c-c0e4-42b3-a473-c8d6df441bbe
+uuid: ed5b31dc-4c04-4e85-937f-9b8d610d01ab
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.hwjma
+    - search_api.index.jnl
   module:
     - highwire_personalization
     - search_api
 _core:
-  default_config_hash: WAqmrb8bNLNmO839mSHbUhnnbkzNaSlQDTla2fBthpY
+  default_config_hash: i6yZE-Ew9905KCYTvMiy8NTmpQxvNh4Hwi30QmT2R28
 id: search
 label: Search
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_hwjma
+base_table: search_api_index_jnl
 base_field: search_api_id
 display:
   default:
@@ -84,7 +84,7 @@ display:
               journal_volume: default
       fields:
         search_api_id:
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: search_api_id
           id: search_api_id
           entity_type: null
@@ -137,7 +137,7 @@ display:
       filters:
         search_api_fulltext:
           id: search_api_fulltext
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: search_api_fulltext
           relationship: none
           group_type: group
@@ -162,7 +162,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            placeholder: 'Search HWJMA'
+            placeholder: 'Search jnl'
           is_grouped: false
           group_info:
             label: ''
@@ -181,7 +181,7 @@ display:
           plugin_id: search_api_fulltext
         type:
           id: type
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: type
           relationship: none
           group_type: group
@@ -223,7 +223,7 @@ display:
           plugin_id: search_api_options
         status:
           id: status
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: status
           relationship: none
           group_type: group
@@ -262,7 +262,7 @@ display:
       sorts:
         search_api_relevance:
           id: search_api_relevance
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: search_api_relevance
           relationship: none
           group_type: group
@@ -274,7 +274,7 @@ display:
           plugin_id: search_api
         title_plain:
           id: title_plain
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: title_plain
           relationship: none
           group_type: group
@@ -286,7 +286,7 @@ display:
           plugin_id: search_api
         date_ppub_facet:
           id: date_ppub_facet
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: date_ppub_facet
           relationship: none
           group_type: group

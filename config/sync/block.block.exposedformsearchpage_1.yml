@@ -1,4 +1,4 @@
-uuid: 0a24b860-b217-467e-a2c0-c8d99e9c621c
+uuid: 07cb6025-97bb-47d8-9587-da15c37ffc44
 langcode: en
 status: true
 dependencies:
@@ -8,8 +8,6 @@ dependencies:
     - views
   theme:
     - jcorex_base
-_core:
-  default_config_hash: HrJ3MaiETbM-ag0bnicS_U3PbN_lVMZwsXn04s4mvlE
 id: exposedformsearchpage_1
 theme: jcorex_base
 region: search

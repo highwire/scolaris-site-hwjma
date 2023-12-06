@@ -1,17 +1,15 @@
-uuid: 48095e15-54d0-4006-b8c3-c9aad098586b
+uuid: 1304feff-0535-4924-86af-f32e7dc0d799
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.jnl
-    - views.view.search
+    - views.view.all_journals
   module:
     - views
     - search_api_autocomplete
-_core:
-  default_config_hash: YbB7Z6dtXiD9qT8UuWVpkdtH4qXqCUIjuNhl-pY6RAI
-id: search
-label: Search
+id: all_journals
+label: 'All Journals'
 index_id: jnl
 suggester_settings:
   live_results:
@@ -20,7 +18,7 @@ suggester_settings:
 suggester_weights: {  }
 suggester_limits: {  }
 search_settings:
-  'views:search':
+  'views:all_journals':
     displays:
       default: true
       selected: {  }

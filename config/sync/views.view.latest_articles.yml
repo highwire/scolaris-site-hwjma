@@ -5,19 +5,19 @@ dependencies:
   config:
     - field.storage.node.article_type
     - field.storage.node.date_ppub
-    - search_api.index.hwjma
+    - search_api.index.jnl
   module:
     - datetime_range
     - search_api
     - text
 _core:
-  default_config_hash: jAoalgCkbbY5PHX-WV1mn-VdLMPivRMB8iElVNStvos
+  default_config_hash: 3pDWLpJwKen105znK9gqxKGD2XFMvvPblGcmSOXhPSU
 id: latest_articles
 label: 'Latest articles'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_hwjma
+base_table: search_api_index_jnl
 base_field: search_api_id
 display:
   default:
@@ -79,7 +79,7 @@ display:
               journal_volume: default
       fields:
         search_api_id:
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: search_api_id
           id: search_api_id
           entity_type: null
@@ -131,13 +131,13 @@ display:
           hide_alter_empty: true
         date_ppub:
           id: date_ppub
-          table: search_api_datasource_hwjma_entity_node
+          table: search_api_datasource_jnl_entity_node
           field: date_ppub
           entity_type: node
           plugin_id: search_api_field
         article_type:
           id: article_type
-          table: search_api_datasource_hwjma_entity_node
+          table: search_api_datasource_jnl_entity_node
           field: article_type
           relationship: none
           group_type: group
@@ -208,7 +208,7 @@ display:
       filters:
         type:
           id: type
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: type
           relationship: none
           group_type: group
@@ -249,7 +249,7 @@ display:
           plugin_id: search_api_options
         status:
           id: status
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: status
           relationship: none
           group_type: group
@@ -294,7 +294,7 @@ display:
       arguments:
         corpus:
           id: corpus
-          table: search_api_index_hwjma
+          table: search_api_index_jnl
           field: corpus
           relationship: none
           group_type: group

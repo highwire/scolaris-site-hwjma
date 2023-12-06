@@ -1,17 +1,15 @@
-uuid: 48095e15-54d0-4006-b8c3-c9aad098586b
+uuid: 5ea28b59-9638-4fcd-a489-8d6040dce783
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.jnl
-    - views.view.search
+    - views.view.latest_articles
   module:
     - views
     - search_api_autocomplete
-_core:
-  default_config_hash: YbB7Z6dtXiD9qT8UuWVpkdtH4qXqCUIjuNhl-pY6RAI
-id: search
-label: Search
+id: latest_articles
+label: 'Latest articles'
 index_id: jnl
 suggester_settings:
   live_results:
@@ -20,7 +18,7 @@ suggester_settings:
 suggester_weights: {  }
 suggester_limits: {  }
 search_settings:
-  'views:search':
+  'views:latest_articles':
     displays:
       default: true
       selected: {  }
