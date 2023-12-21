@@ -12,7 +12,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: m8AIY5sVrH2wwAIdt8oHWxINYMg6LnX7P4gClfibci4
+  default_config_hash: rBpoQxSbq4fu2DtKNCGq3oPs8MKG8rS3oBvI6z_dUDo
 id: homepage_highlights_carousel
 label: 'Homepage highlights Carousel'
 module: views

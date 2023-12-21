@@ -120,6 +120,7 @@ hidden:
   ccc_permissions_link: true
   hwjma_focus_view: true
   hwjma_toc_pager: true
+  jnl_focus_view: true
   langcode: true
   prev_next_pager: true
   prevnext_toc_pager: true

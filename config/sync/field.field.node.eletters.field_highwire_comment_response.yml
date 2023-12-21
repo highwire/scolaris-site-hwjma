@@ -1,0 +1,31 @@
+uuid: b6733f7d-10e0-46d0-bc4b-1e508f0f1fdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highwire_comment_response
+    - node.type.eletters
+    - node.type.journal_article
+_core:
+  default_config_hash: GO7Ky6QEKpKOunApXvjFa502oWQmRSFQCRoIPgOUW7I
+id: node.eletters.field_highwire_comment_response
+field_name: field_highwire_comment_response
+entity_type: node
+bundle: eletters
+label: 'Highwire Comment Response to'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'highwire:node'
+  handler_settings:
+    target_bundles:
+      eletters: eletters
+      journal_article: journal_article
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: eletters
+field_type: entity_reference

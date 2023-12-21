@@ -121,7 +121,7 @@ third_party_settings:
     group_articles_in_this_issue:
       children:
         - hwmd_table_of_contents_journals_
-        - hwjma_toc_pager
+        - prevnext_toc_pager
       parent_name: ''
       weight: 0
       format_type: html_element
@@ -138,22 +138,22 @@ third_party_settings:
       label: 'Table of Contents'
       region: content
 _core:
-  default_config_hash: ADy0_wjVK8BYI0fagluuLihAu3vVz3BvHT8eHz3U1PE
+  default_config_hash: Sn780xusG5J5MmJJzjYtuaELuvYqsmN4jt36OjrUT24
 id: node.journal_issue.full
 targetEntityType: node
 bundle: journal_issue
 mode: full
 content:
-  hwjma_toc_pager:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   hwmd_table_of_contents_journals_:
     type: hwmarkup_display_formatter
     weight: 0
     region: content
     label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  prevnext_toc_pager:
+    weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
@@ -210,7 +210,6 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
-  hwjma_focus_view: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -245,7 +244,6 @@ hidden:
   pisa_version: true
   prev_atom: true
   prev_next_pager: true
-  prevnext_toc_pager: true
   publisher_id: true
   publisher_unique_id: true
   pubmed_id: true

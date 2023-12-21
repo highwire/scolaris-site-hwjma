@@ -1,4 +1,4 @@
-uuid: 7a693ee6-b6ee-440a-a811-f79aa10cbea5
+uuid: 2d511ecb-ed4b-4258-b7b9-3e59ff3d028f
 langcode: en
 status: true
 dependencies:
@@ -19,7 +19,7 @@ backend_config:
     host: fr-freebird-solr-dev-01.highwire.org
     port: '8983'
     path: /solr
-    core: search_testing1
+    core: scolaris-jcorex_8_paren
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10

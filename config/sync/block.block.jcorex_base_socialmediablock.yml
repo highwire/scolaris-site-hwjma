@@ -7,7 +7,7 @@ dependencies:
   theme:
     - jcorex_base
 _core:
-  default_config_hash: v2iJETFERcAWS83sd7wwML9EWMmxIYUr-V8qEDRMGZI
+  default_config_hash: 9WWbv7gtVnvw-F7fIpbVuvBAXr93xs-uVM7PYgFg2sI
 id: jcorex_base_socialmediablock
 theme: jcorex_base
 region: footer_1

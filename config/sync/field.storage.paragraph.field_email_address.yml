@@ -1,0 +1,27 @@
+uuid: 5592b903-9660-4521-ada9-dbc86e1c04d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: qSY57dOyvTa3AY3owc6WyD3cRvX_e5sjpB86qqDUwxI
+id: paragraph.field_email_address
+field_name: field_email_address
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

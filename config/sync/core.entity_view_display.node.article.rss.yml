@@ -1,4 +1,4 @@
-uuid: 0332fb3e-8974-4410-b319-69e61492e564
+uuid: 4b756879-461e-4450-b15f-1e21f6fd116f
 langcode: en
 status: true
 dependencies:
@@ -24,11 +24,10 @@ content:
 hidden:
   addtoany: true
   body: true
-  ccc_permissions_link: true
   comment: true
   field_image: true
   field_tags: true
-  hwjma_focus_view: true
+  jnl_focus_view: true
   langcode: true
   prev_next_pager: true
   prevnext_toc_pager: true

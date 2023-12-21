@@ -1,0 +1,21 @@
+uuid: 13b9819f-2775-425d-8237-d28640d2e1d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_references
+    - node.type.eletters
+_core:
+  default_config_hash: rbF1QwUPsX3_3MYOOMP_YGqAMMRq0Kg5tn_NMYCVsHs
+id: node.eletters.field_references
+field_name: field_references
+entity_type: node
+bundle: eletters
+label: References
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

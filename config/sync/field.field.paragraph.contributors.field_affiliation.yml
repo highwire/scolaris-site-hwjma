@@ -1,0 +1,21 @@
+uuid: 5700d9e9-0728-4b7c-ac16-95e83f03a042
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_affiliation
+    - paragraphs.paragraphs_type.contributors
+_core:
+  default_config_hash: 4c90-cQKFwdn1Rs63vxlf7YVWz3aPaGRM8EbJ15y6Ko
+id: paragraph.contributors.field_affiliation
+field_name: field_affiliation
+entity_type: paragraph
+bundle: contributors
+label: Affiliation
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

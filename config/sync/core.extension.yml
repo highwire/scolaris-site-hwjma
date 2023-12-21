@@ -24,10 +24,12 @@ module:
   dynamic_page_cache: 0
   editor: 0
   elasticentityquery: 0
+  entity_reference_revisions: 0
   entityqueue: 0
   facets: 0
   field: 0
   field_group: 0
+  field_permissions: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -40,6 +42,7 @@ module:
   highwire_core: 0
   highwire_counter: 0
   highwire_display: 0
+  highwire_eletter: 0
   highwire_hwphp: 0
   highwire_kafka: 0
   highwire_markup: 0
@@ -47,9 +50,11 @@ module:
   highwire_metatag: 0
   highwire_monsido: 0
   highwire_openurl: 0
+  highwire_pap: 0
   highwire_personalization: 0
   highwire_sams_sigma: 0
   highwire_search: 0
+  highwire_site_style: 0
   highwire_taxonomy: 0
   highwire_user: 0
   history: 0
@@ -93,10 +98,13 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  update: 0
   user: 0
+  views_bulk_operations: 0
   views_ui: 0
   pathauto: 1
   views: 10
+  paragraphs: 11
   freebird: 1000
 theme:
   stable: 0
