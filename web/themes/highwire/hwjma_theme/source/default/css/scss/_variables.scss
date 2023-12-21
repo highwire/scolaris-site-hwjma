@@ -33,7 +33,7 @@ $colors: (
 $theme-colors: (
   "primary-dark":   $primary-dark,
   "primary":        $primary,
-  "secondary":      $secondary,  
+  "secondary":      $secondary,
   "info":           $info,
   "danger":         $danger,
   "light-blue":     $light-blue,
@@ -240,7 +240,13 @@ $aspect-ratios: (
   "21x9": calc(9 / 21 * 100%)
 );
 // scss-docs-end aspect-ratios
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 
@@ -425,7 +431,7 @@ $input-btn-padding-y-small-tablet:      .25rem;
 $input-btn-padding-x-small-tablet:      1rem;
 $input-btn-font-size-small-tablet:      $font-size-small-tablet;
 
-$input-btn-padding-y-large-tablet:      0.828rem; 
+$input-btn-padding-y-large-tablet:      0.828rem;
 $input-btn-padding-x-large-tablet:      1.5rem;
 $input-btn-font-size-large-tablet:      $font-size-large-tablet;
 

@@ -32,6 +32,12 @@
   width: 100%;
   overflow: hidden;
   @include clearfix();
+  @include media-breakpoint-up(medium-tablet) {
+    height: 310px;
+  }
+  @include media-breakpoint-up(desktop) {
+    height: 390px;
+  }
 }
 .carousel-item {
   position: relative;
