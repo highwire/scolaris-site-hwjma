@@ -55,8 +55,7 @@ content:
     region: content
 hidden:
   addtoany: true
-  ccc_permissions_link: true
-  hwjma_focus_view: true
+  jnl_focus_view: true
   langcode: true
   prev_next_pager: true
   prevnext_toc_pager: true

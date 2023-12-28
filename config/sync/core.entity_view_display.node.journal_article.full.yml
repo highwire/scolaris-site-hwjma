@@ -141,7 +141,9 @@ third_party_settings:
       label: Outer
       region: content
     group_content_actions:
-      children: {  }
+      children:
+        - jnl_focus_view
+        - prevnext_toc_pager
       parent_name: group_outer
       weight: 114
       format_type: html_element
@@ -161,6 +163,7 @@ third_party_settings:
         - group_article
         - group_figures_tables
         - group_metrics
+        - group_response
       parent_name: group_outer
       weight: 115
       format_type: highwire_tabs
@@ -235,35 +238,28 @@ third_party_settings:
         formatter: closed
       label: Metrics
       region: content
+    group_response:
+      children:
+        - article_response_tab
+      parent_name: group_article_tabs
+      weight: 119
+      format_type: highwire_tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Response
+      region: content
 _core:
-  default_config_hash: iXP4ydXAmKRlPafOC8b_XiVINX92jIpwmT3lhu9Ub0M
+  default_config_hash: XpbM3qiRCgehTXqnCKQjlmWC2z-c6UgGHmExcJxt1RI
 id: node.journal_article.full
 targetEntityType: node
 bundle: journal_article
 mode: full
 content:
-  hwjma_altmetrics:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hwjma_focus_view:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hwjma_info_metrics_tab:
+  article_response_tab:
     weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hwjma_toc_pager:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  hwjma_usage_stats:
-    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -293,6 +289,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  jnl_focus_view:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   jnl_info_metrics_tab:
     weight: 0
     region: content
@@ -303,12 +304,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  prevnext_toc_pager:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   addtoany: true
   adjuncts: true
   apath: true
   article_open_access: true
-  article_response_tab: true
   article_series_title: true
   article_type: true
   atom_type: true
@@ -373,7 +378,6 @@ hidden:
   issue_supplemental: true
   issue_title: true
   issue_toc: true
-  jnl_focus_view: true
   journal_abbrv_title: true
   journal_current_issue: true
   journal_eissn: true
@@ -400,7 +404,6 @@ hidden:
   pisa_version: true
   prev_atom: true
   prev_next_pager: true
-  prevnext_toc_pager: true
   publisher_id: true
   publisher_unique_id: true
   pubmed_id: true
