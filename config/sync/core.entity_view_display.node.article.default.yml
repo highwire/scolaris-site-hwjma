@@ -1,4 +1,4 @@
-uuid: be783f16-d79d-4e48-8633-8141a4e35b86
+uuid: 7ed37e6b-3acb-4a75-bf67-11d3dd08c90e
 langcode: en
 status: true
 dependencies:
@@ -62,8 +62,7 @@ content:
     third_party_settings: {  }
 hidden:
   addtoany: true
-  ccc_permissions_link: true
-  hwjma_focus_view: true
+  jnl_focus_view: true
   langcode: true
   prev_next_pager: true
   prevnext_toc_pager: true

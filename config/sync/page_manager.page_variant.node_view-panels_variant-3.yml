@@ -9,7 +9,7 @@ dependencies:
     - jnl_search
     - panels
 _core:
-  default_config_hash: lgzgfu8TZ-O-kRsMEjipxooTgsMbT34QxKpDpshtF4Q
+  default_config_hash: Wu7gJ9SUr-FSi5W0Z98nbJnTp5UB9WV8NvqziIUuze0
 id: node_view-panels_variant-3
 label: issue
 variant: panels_variant

@@ -8,14 +8,14 @@ dependencies:
     - journal_article_detail
     - panels
 _core:
-  default_config_hash: h6lbpQZfNVf2TcQJf16DW9fiubRN9Zvv9S5WGfJ4hR8
+  default_config_hash: TVZCbSWNg_hEjT8AmXvPUqZZz8lWnc16sA-taOj4e1Q
 id: altmetric_most_shared-panels_variant-0
 label: Panels
 variant: panels_variant
 variant_settings:
   blocks:
     b3745632-67a9-4bd7-9305-8f18e0b247ad:
-      id: hwjma_altmetrics_data
+      id: jnl_altmetrics_data
       label: 'Altmetrics Data'
       provider: journal_article_detail
       label_display: visible

@@ -3,6 +3,9 @@ highwire_content_configuration:
     scolaris-journal:
       - hwjma
       - hwjms
+  taxonomy:
+    - hwjma/content/subject
+    - hwjms/content/subject
 highwire_content_content_sync_enabled: 0
 highwire_content_content_environment: development
 highwire_content_content_updates_enabled: 0
@@ -3497,7 +3500,3 @@ highwire_content_type_policy_mapping:
     - scolaris-journal
   relationship:
     - scolaris-journal
-highwire_corpus_page_redirect:
-  scolaris-journal:
-    hwjma: ''
-    hwjms: ''

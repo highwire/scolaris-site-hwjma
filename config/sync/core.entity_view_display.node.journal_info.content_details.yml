@@ -85,6 +85,7 @@ hidden:
   field_journal_sample_issue: true
   hwjma_focus_view: true
   hwjma_toc_pager: true
+  jnl_focus_view: true
   langcode: true
   links: true
   prev_next_pager: true

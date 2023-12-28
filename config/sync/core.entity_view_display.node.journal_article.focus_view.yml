@@ -213,9 +213,6 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
-  hwjma_altmetrics: true
-  hwjma_info_metrics_tab: true
-  hwjma_usage_stats: true
   hwmd_abstract_article_: true
   hwmd_abstract_article_toc_: true
   hwmd_abstract_search: true

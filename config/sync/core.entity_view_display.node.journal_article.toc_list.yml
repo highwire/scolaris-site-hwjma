@@ -137,7 +137,7 @@ third_party_settings:
       label: 'Action Tools'
       region: content
 _core:
-  default_config_hash: 8v22XJLIFVhMcuh_a9vK0Vw7G6SBM8qHN595fTvkZcA
+  default_config_hash: uJ3T0wdTruQeOJ4_Bhk40LVdvbMmQDFJ5rwt0-rio_0
 id: node.journal_article.toc_list
 targetEntityType: node
 bundle: journal_article
@@ -281,11 +281,6 @@ hidden:
   hw_alerts_sign_up: true
   hw_marker_sign_up: true
   hw_tag_sign_up: true
-  hwjma_altmetrics: true
-  hwjma_focus_view: true
-  hwjma_info_metrics_tab: true
-  hwjma_toc_pager: true
-  hwjma_usage_stats: true
   hwmd_abstract_article_: true
   hwmd_abstract_search: true
   hwmd_abstract_search_index_: true
