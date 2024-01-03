@@ -19,14 +19,8 @@
         }
     },
     "require": {
-        "highwire/freebird": "dev-10.x-1.x-stable",
-        "highwire/freebird-scaffold": "dev-10.x-1.x-dev",
-        "drupal/view_unpublished": "1.1.0",
-        "drupal/profile_switcher": "1.0.0-alpha6",
-        "composer/installers": "^2.0",
-        "drupal/core-composer-scaffold": "^10.1",
-        "drupal/core-recommended": "^10.1",
-        "drupal/advagg": "6.0.0-alpha1"
+        "highwire/freebird": "dev-JCOREX-380",
+        "highwire/freebird-scaffold": "dev-10.x-1.x-dev"
     },
     "extra": {
         "drupal-scaffold": {
