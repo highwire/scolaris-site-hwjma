@@ -1,0 +1,21 @@
+uuid: ce064060-197a-474d-89a9-6aa504a36dff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highwire_comment_subject_a
+    - node.type.eletters
+_core:
+  default_config_hash: zP8gu6WPYRXxZ1FF3yFweVs6UWTdcUkXIraytSlK6wM
+id: node.eletters.field_highwire_comment_subject_a
+field_name: field_highwire_comment_subject_a
+entity_type: node
+bundle: eletters
+label: 'Highwire Comment Subject Apath'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

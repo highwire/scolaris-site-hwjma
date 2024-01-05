@@ -1,0 +1,27 @@
+uuid: d48df93c-1756-40c8-bc8d-1ed6c08e2108
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: U4KQS45Q-2PlAvLn3gJHWq8DxO1myalYeAipW8LvYSw
+id: paragraph.field_degrees
+field_name: field_degrees
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

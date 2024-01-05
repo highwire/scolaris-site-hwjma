@@ -1,0 +1,27 @@
+uuid: ae974cb9-f2ca-43cd-a234-2427354b3bc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: roWSR5g7xbUmfoXR-Hw1BZuoWglJS6-fAWEMGbj1HjU
+id: node.field_print_publication_date
+field_name: field_print_publication_date
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

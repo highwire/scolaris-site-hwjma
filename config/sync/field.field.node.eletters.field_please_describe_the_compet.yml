@@ -1,0 +1,21 @@
+uuid: 4c413d5b-d972-4aa1-8fb9-1ce844b13d58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_please_describe_the_compet
+    - node.type.eletters
+_core:
+  default_config_hash: M9s-wqm8BWwrSdrwbGiPxKd3A9j521U0qqoM1a5DUGw
+id: node.eletters.field_please_describe_the_compet
+field_name: field_please_describe_the_compet
+entity_type: node
+bundle: eletters
+label: 'Please describe the competing interests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

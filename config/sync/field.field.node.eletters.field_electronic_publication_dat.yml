@@ -1,0 +1,23 @@
+uuid: c2c11b11-9089-4031-bbdd-8b82a457c3f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_electronic_publication_dat
+    - node.type.eletters
+  module:
+    - datetime_range
+_core:
+  default_config_hash: 9zcjY-OKdfbV38XnT9Fe45pCBta1IPSMJ-HDfW66hYs
+id: node.eletters.field_electronic_publication_dat
+field_name: field_electronic_publication_dat
+entity_type: node
+bundle: eletters
+label: 'Electronic Publication Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange
