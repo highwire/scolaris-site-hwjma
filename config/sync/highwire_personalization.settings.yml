@@ -1,12 +1,17 @@
-context: hwjma
+context: djmaworks
 saved_search_api_base_path: ''
 alert_type_config: null
 markers_content_type_filters:
   journal: 1
+  journal_article: 1
+  journal_issue: 1
 markers_admin_citations_view_mode:
   journal: search_result
   journal_article: search_result
+  journal_fragment: search_result
   journal_issue: search_result
+  journal_volume: search_result
+  media: search_result
 profile_and_privacy_form_class: ''
 profile_and_privacy_pop_welcome_message: 'You are registered for a personal account.'
 tags_admin_citations_view_mode:
@@ -18,5 +23,5 @@ reports_enabled:
   captures: 1
   preferences: 1
 remove_alert_tab_title: 'Saved searches'
-default_empty_alert_message: ''
+default_empty_alert_message: 'No alerts found.'
 empty_alert_message: ''

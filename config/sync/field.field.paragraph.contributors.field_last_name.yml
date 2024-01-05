@@ -1,0 +1,21 @@
+uuid: fc071cd1-920b-42cc-833a-ee29a35e7e54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_last_name
+    - paragraphs.paragraphs_type.contributors
+_core:
+  default_config_hash: '-2Tb4nYSBYjtPAv8KzRpN-VNDNX79A8m95hrKZi4rlo'
+id: paragraph.contributors.field_last_name
+field_name: field_last_name
+entity_type: paragraph
+bundle: contributors
+label: 'Last Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

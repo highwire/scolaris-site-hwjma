@@ -42,6 +42,7 @@ module:
   highwire_core: 0
   highwire_counter: 0
   highwire_display: 0
+  highwire_eletter: 0
   highwire_hwphp: 0
   highwire_kafka: 0
   highwire_markup: 0

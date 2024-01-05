@@ -1,0 +1,21 @@
+uuid: 99ccbf28-3fa3-412e-8e21-a618b106b78f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_occupation
+    - paragraphs.paragraphs_type.contributors
+_core:
+  default_config_hash: yYgKmr_lLaEkN51d788-v1So_KEjER2L5T9Gx9zUbAY
+id: paragraph.contributors.field_occupation
+field_name: field_occupation
+entity_type: paragraph
+bundle: contributors
+label: Occupation
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
