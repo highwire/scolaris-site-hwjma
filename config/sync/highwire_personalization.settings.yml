@@ -24,4 +24,4 @@ reports_enabled:
   preferences: 1
 remove_alert_tab_title: 'Saved searches'
 default_empty_alert_message: 'No alerts found.'
-empty_alert_message: 'Click <a href="/books">here </a> to create alerts for when new books are added to the site.'
+empty_alert_message: ''
