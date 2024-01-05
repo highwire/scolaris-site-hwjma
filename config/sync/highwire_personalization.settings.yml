@@ -1,13 +1,18 @@
 _core:
   default_config_hash: Pxth7sNsS5mshjiXLFyUNe2Ky1kkQd6BqF23xLmp9rI
-context: hwjma
+context: djmaworks
 saved_search_api_base_path: ''
 markers_content_type_filters:
   journal: 1
+  journal_article: 1
+  journal_issue: 1
 markers_admin_citations_view_mode:
   journal: search_result
   journal_article: search_result
+  journal_fragment: search_result
   journal_issue: search_result
+  journal_volume: search_result
+  media: search_result
 tags_admin_citations_view_mode:
   journal_article: content_details
 profile_and_privacy_form_class: ''
@@ -18,5 +23,5 @@ reports_enabled:
   captures: 1
   preferences: 1
 remove_alert_tab_title: 'Saved searches'
-default_empty_alert_message: ''
-empty_alert_message: ''
+default_empty_alert_message: 'No alerts found.'
+empty_alert_message: 'Click <a href="/books">here </a> to create alerts for when new books are added to the site.'
