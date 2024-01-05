@@ -1,0 +1,33 @@
+uuid: 2de4451e-dff2-4e9a-9ac1-bbb1776580e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributors
+    - node.type.eletters
+    - paragraphs.paragraphs_type.contributors
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: Ni1md0VfWWH9vyoaOpqah8u02rSmsaX1NSF3--ILkdg
+id: node.eletters.field_contributors
+field_name: field_contributors
+entity_type: node
+bundle: eletters
+label: Contributors
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      contributors: contributors
+    target_bundles_drag_drop:
+      contributors:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

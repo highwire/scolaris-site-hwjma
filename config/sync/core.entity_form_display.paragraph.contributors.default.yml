@@ -1,0 +1,79 @@
+uuid: 71f9ab25-79a2-487e-a52b-b47dea1d124f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contributors.field_address
+    - field.field.paragraph.contributors.field_affiliation
+    - field.field.paragraph.contributors.field_degrees
+    - field.field.paragraph.contributors.field_email_address
+    - field.field.paragraph.contributors.field_first_name_middle_initial
+    - field.field.paragraph.contributors.field_last_name
+    - field.field.paragraph.contributors.field_occupation
+    - paragraphs.paragraphs_type.contributors
+_core:
+  default_config_hash: bu9erpkCMLXNvTzmQXzbp7PBsFx4NvvLH7VTmlmf9LM
+id: paragraph.contributors.default
+targetEntityType: paragraph
+bundle: contributors
+mode: default
+content:
+  field_address:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_affiliation:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_degrees:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_email_address:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_first_name_middle_initial:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_last_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_occupation:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

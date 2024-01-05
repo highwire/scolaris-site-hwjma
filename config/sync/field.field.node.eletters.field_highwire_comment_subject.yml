@@ -1,0 +1,31 @@
+uuid: cae21dde-b725-4f98-a86e-a1fa10aad66f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highwire_comment_subject
+    - node.type.eletters
+    - node.type.journal_article
+_core:
+  default_config_hash: YGBcAXVggTE2ImMLEltVN2Y1mu1Uq6gcJPcspoVUSw0
+id: node.eletters.field_highwire_comment_subject
+field_name: field_highwire_comment_subject
+entity_type: node
+bundle: eletters
+label: 'Highwire Comment Subject'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'highwire:node'
+  handler_settings:
+    target_bundles:
+      eletters: eletters
+      journal_article: journal_article
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: eletters
+field_type: entity_reference

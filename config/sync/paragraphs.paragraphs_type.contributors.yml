@@ -1,0 +1,12 @@
+uuid: 549b092f-ee9c-4524-89c8-43b3298907ef
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: c_L8c-QelQ07DfZMEUobnr5r09uPPu3b31NRCqT7auE
+id: contributors
+label: Contributors
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,27 @@
+uuid: 469ed147-a4ee-4609-90a1-1bc1dda4c20c
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: Ge7P8fMWSrL4M1kzoRfrYFyyAkWvZlNaI8AyCOSzntM
+id: paragraph.field_first_name_middle_initial
+field_name: field_first_name_middle_initial
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

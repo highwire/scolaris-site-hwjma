@@ -1,0 +1,29 @@
+uuid: a1785819-da78-48e6-9da4-b900d86c3c7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - node.type.eletters
+  module:
+    - file
+_core:
+  default_config_hash: uIhTzqzzI2tF_HUzWB9hVNnMBwFFnZBeduoDD2dcBO8
+id: node.eletters.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: eletters
+label: 'Tables and figures (if not submitted as HTML)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
