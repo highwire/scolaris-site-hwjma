@@ -31,7 +31,7 @@
         "drupal/webform": "^5.9",
         "drupal/paragraphs": "^1.13",
         "drupal/field_permissions": "^1.2",
-        "drupal/views_bulk_operations": "^4.1"
+        "drupal/views_bulk_operations": "^3.8.0"
     },
     "require-dev": {
         "behat/behat": "^3.2",
@@ -50,7 +50,7 @@
             "drupal/search_api_solr": {
                 "Unable to uninstall base theme and subtheme at the same time.": "https://www.drupal.org/files/issues/2020-10-28/3001430-5.patch"
             }
-        },        
+        },
         "composer-exit-on-patch-failure": true,
         "enable-patching": true,
         "installer-paths": {
