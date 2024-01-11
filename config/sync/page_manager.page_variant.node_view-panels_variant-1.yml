@@ -13,8 +13,13 @@ _core:
   default_config_hash: zeLVuzJxMwcVY5SQM1u6Lgegovqgq6PNaNDrdWwktDA
 id: node_view-panels_variant-1
 label: Article
+weight: 0
 variant: panels_variant
 variant_settings:
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: 913cdc11-eec4-463b-af89-51b8f40e5a98
   blocks:
     cdfed180-ace1-4911-8443-79a331d46177:
       id: 'entity_view:node'
@@ -22,43 +27,45 @@ variant_settings:
       label_display: '0'
       provider: ctools
       view_mode: content_details
+      context_mapping:
+        entity: node
       region: top
       weight: 0
       uuid: cdfed180-ace1-4911-8443-79a331d46177
-      context_mapping:
-        entity: node
     8aebb1b3-a3f7-46fe-9a99-0c47375e5a33:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       label_display: '0'
       provider: ctools
       view_mode: full
+      context_mapping:
+        entity: node
       region: bottom_left
       weight: 0
       uuid: 8aebb1b3-a3f7-46fe-9a99-0c47375e5a33
-      context_mapping:
-        entity: node
     60499b3b-a317-4a2a-bc0e-0795495b43f8:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       label_display: '0'
       provider: ctools
       view_mode: focus_view
+      context_mapping:
+        entity: node
       region: bottom_left
       weight: 0
       uuid: 60499b3b-a317-4a2a-bc0e-0795495b43f8
-      context_mapping:
-        entity: node
     9ff1ea9a-2136-477e-b469-c26513339ddb:
       id: jump_to_section
       label: 'Jump to Section'
       label_display: visible
       provider: journal_article_detail
-      markup: content_sections_nav
-      access_control_rule: ''
+      context_mapping:
+        node: node
       region: bottom_right
       weight: 0
       uuid: 9ff1ea9a-2136-477e-b469-c26513339ddb
+      markup: content_sections_nav
+      access_control_rule: ''
       include_abstract: 1
       include_content_top: 0
       abstract_settings:
@@ -68,12 +75,7 @@ variant_settings:
       content_top_settings:
         title: ''
         id: ''
-      context_mapping:
-        node: node
-  id: panels_variant
-  uuid: 913cdc11-eec4-463b-af89-51b8f40e5a98
-  label: null
-  weight: 0
+  page_title: ''
   layout: bs_2col_bricked
   layout_settings:
     label: ''
@@ -126,19 +128,17 @@ variant_settings:
           col-sm-12: col-sm-12
         add_region_classes: 1
         attributes: ''
-  page_title: ''
+  builder: standard
   storage_type: page_manager
   storage_id: node_view-panels_variant-1
-  builder: standard
 page: node_view
-weight: 0
 selection_criteria:
   -
     id: 'entity_bundle:node'
-    bundles:
-      journal_article: journal_article
     negate: false
     context_mapping:
       node: node
+    bundles:
+      journal_article: journal_article
 selection_logic: and
 static_context: {  }

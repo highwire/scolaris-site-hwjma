@@ -13,8 +13,13 @@ _core:
   default_config_hash: Q3dpmjjdt_s7JJiDYyn_cvf2krF2s9Zk6Tqa5-_jxIc
 id: node_view-panels_variant-3
 label: issue
+weight: 0
 variant: panels_variant
 variant_settings:
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: be92a481-5963-4572-a1eb-e8eaad43084c
   blocks:
     c01f57f9-bcc3-4d83-8610-dd23776fcdc5:
       id: 'entity_view:node'
@@ -22,35 +27,32 @@ variant_settings:
       label_display: '0'
       provider: ctools
       view_mode: content_details
+      context_mapping:
+        entity: node
       region: top
       weight: 0
       uuid: c01f57f9-bcc3-4d83-8610-dd23776fcdc5
-      context_mapping:
-        entity: node
     f1ce0ee6-b53c-4028-85af-3f0cafaca211:
       id: searchBrowse
       label: 'Search browse block'
       label_display: '0'
       provider: hwjma_search
+      context_mapping: {  }
       region: left
       weight: -1
       uuid: f1ce0ee6-b53c-4028-85af-3f0cafaca211
-      context_mapping: {  }
     1b634706-f02f-4ad1-b03e-6fdc7d9c3409:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       label_display: '0'
       provider: ctools
       view_mode: full
+      context_mapping:
+        entity: node
       region: left
       weight: 0
       uuid: 1b634706-f02f-4ad1-b03e-6fdc7d9c3409
-      context_mapping:
-        entity: node
-  id: panels_variant
-  uuid: be92a481-5963-4572-a1eb-e8eaad43084c
-  label: null
-  weight: 0
+  page_title: '[node:journal_title] [node:title]'
   layout: bs_2col_stacked
   layout_settings:
     label: ''
@@ -85,19 +87,17 @@ variant_settings:
           col-md-12: col-md-12
         add_region_classes: 1
         attributes: ''
-  page_title: '[node:journal_title] [node:title]'
+  builder: standard
   storage_type: page_manager
   storage_id: node_view-panels_variant-3
-  builder: standard
 page: node_view
-weight: 0
 selection_criteria:
   -
     id: 'entity_bundle:node'
-    bundles:
-      journal_issue: journal_issue
     negate: false
     context_mapping:
       node: node
+    bundles:
+      journal_issue: journal_issue
 selection_logic: and
 static_context: {  }

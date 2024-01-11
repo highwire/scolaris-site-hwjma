@@ -14,8 +14,13 @@ _core:
   default_config_hash: POPr_F21FI3GSuQyrv7Uwwivb5pRupEgb-SD20hSU9I
 id: node_view-panels_variant-2
 label: Journal
+weight: 0
 variant: panels_variant
 variant_settings:
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: 9959ed8c-0ea0-4063-8de1-e06f7b1a5780
   blocks:
     a7abfc2e-30ff-44da-9866-315be43d858c:
       id: 'entity_view:node'
@@ -23,36 +28,37 @@ variant_settings:
       label_display: '0'
       provider: ctools
       view_mode: content_details
+      context_mapping:
+        entity: node
       region: top
       weight: 0
       uuid: a7abfc2e-30ff-44da-9866-315be43d858c
-      context_mapping:
-        entity: node
     57ddebac-28b4-4a83-b296-4ba88914dfdc:
       id: 'entity_view:node'
       label: 'Entity view (Content)'
       label_display: '0'
       provider: ctools
       view_mode: full
+      context_mapping:
+        entity: node
       region: left
       weight: 0
       uuid: 57ddebac-28b4-4a83-b296-4ba88914dfdc
-      context_mapping:
-        entity: node
     b88b5f0a-9387-42e2-b95a-5505c1703af8:
       id: searchBrowse
       label: 'Search browse block'
       label_display: '0'
       provider: hwjma_search
+      context_mapping: {  }
       region: left
       weight: -1
       uuid: b88b5f0a-9387-42e2-b95a-5505c1703af8
-      context_mapping: {  }
     2c4d7a89-ec58-4152-81dc-ebaa741fcfa3:
       id: jnl_altmetrics_data
       label: 'Altmetrics Data'
       label_display: visible
       provider: journal_article_detail
+      context_mapping: {  }
       region: right
       weight: 0
       uuid: 2c4d7a89-ec58-4152-81dc-ebaa741fcfa3
@@ -66,11 +72,7 @@ variant_settings:
       more_link_label: 'See more'
       more_link_url: ''
       msg_no_data: 'No Altmetric data available.'
-      context_mapping: {  }
-  id: panels_variant
-  uuid: 9959ed8c-0ea0-4063-8de1-e06f7b1a5780
-  label: null
-  weight: 0
+  page_title: '[node:title]'
   layout: bs_2col_stacked
   layout_settings:
     label: ''
@@ -102,19 +104,17 @@ variant_settings:
           col-sm-12: col-sm-12
         add_region_classes: 1
         attributes: ''
-  page_title: '[node:title]'
+  builder: standard
   storage_type: page_manager
   storage_id: node_view-panels_variant-2
-  builder: standard
 page: node_view
-weight: 0
 selection_criteria:
   -
     id: 'entity_bundle:node'
-    bundles:
-      journal: journal
     negate: false
     context_mapping:
       node: node
+    bundles:
+      journal: journal
 selection_logic: and
 static_context: {  }
