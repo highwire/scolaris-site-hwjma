@@ -31,7 +31,7 @@
     "extra": {
         "patches": {
             "drupal/page_manager": {
-              "Page manager query issue on menu.(https://www.drupal.org/project/page_manager/issues/3362561)": "https://www.drupal.org/files/issues/2023-11-29/page_manager-unnecessary_query-3362561-48.patch"
+              "Page manager query issue on menu bar.(https://www.drupal.org/project/page_manager/issues/3362561)": "https://www.drupal.org/files/issues/2023-11-29/page_manager-unnecessary_query-3362561-48.patch"
             }
           },
         "drupal-scaffold": {
