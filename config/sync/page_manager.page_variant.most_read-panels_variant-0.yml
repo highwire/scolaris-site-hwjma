@@ -1,0 +1,48 @@
+uuid: 80f02a68-f830-4173-8a7d-98124c2d7fa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.most_read
+  module:
+    - highwire_display
+    - panels
+  enforced:
+    module:
+      - highwire_top_topics
+_core:
+  default_config_hash: q83vFV2W_7hYyj-Ge584FSLaXBNldmUdd8UF00np_MU
+id: most_read-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    d01ecb71-ffe8-47ed-8bb1-865ff0703869:
+      id: most_read_cited_block
+      label: 'Most Read'
+      label_display: visible
+      provider: highwire_display
+      view_mode: toc_list
+      context_mapping: {  }
+      region: main
+      weight: 0
+      uuid: d01ecb71-ffe8-47ed-8bb1-865ff0703869
+      read_cited: most-read
+      limit: '10'
+      corpus: ''
+      show_pager: 1
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: ae2983a0-7376-4617-9a06-ebf12f30e573
+  page_title: 'Most Read'
+  layout: bs_1col
+  layout_settings: {  }
+  builder: standard
+  storage_type: page_manager
+  storage_id: most_read-panels_variant-0
+page: most_read
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

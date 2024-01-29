@@ -58,6 +58,7 @@ module:
   highwire_search: 0
   highwire_site_style: 0
   highwire_taxonomy: 0
+  highwire_top_topics: 0
   highwire_user: 0
   history: 0
   image: 0

@@ -6,6 +6,7 @@ dependencies:
     - page_manager.page.node_view
   module:
     - ctools
+    - highwire_top_topics
     - jnl_search
     - journal_article_detail
     - node
@@ -31,7 +32,7 @@ variant_settings:
       context_mapping:
         entity: node
       region: top
-      weight: 0
+      weight: -10
       uuid: a7abfc2e-30ff-44da-9866-315be43d858c
     57ddebac-28b4-4a83-b296-4ba88914dfdc:
       id: 'entity_view:node'
@@ -60,7 +61,7 @@ variant_settings:
       provider: journal_article_detail
       context_mapping: {  }
       region: right
-      weight: 0
+      weight: -2
       uuid: 2c4d7a89-ec58-4152-81dc-ebaa741fcfa3
       description: 'Altmetric tracks attention and engagement of scholarly articles.'
       month: 3m
@@ -72,6 +73,24 @@ variant_settings:
       more_link_label: 'See more'
       more_link_url: ''
       msg_no_data: 'No Altmetric data available.'
+    464c7898-824f-4914-8962-b5813613ba7a:
+      id: most_read_cited_topics
+      label: 'Most Read, Cited, Topics'
+      label_display: '0'
+      provider: highwire_top_topics
+      context_mapping: {  }
+      region: right
+      weight: -1
+      uuid: 464c7898-824f-4914-8962-b5813613ba7a
+      top_topics: 1
+      top_topics_title: ''
+      most_read: 1
+      most_read_title: ''
+      most_cited: 1
+      most_cited_title: Cited
+      limit: '5'
+      corpus: ''
+      read_more: 1
   page_title: '[node:title]'
   layout: bs_2col_stacked
   layout_settings:

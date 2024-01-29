@@ -1,0 +1,48 @@
+uuid: 24fa6f79-ef78-4d68-803c-a7278ba48b10
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.most_cited
+  module:
+    - highwire_display
+    - panels
+  enforced:
+    module:
+      - highwire_top_topics
+_core:
+  default_config_hash: jgaqBX0outeo2ShrDCpxltK0ZzqS4RKcF1VPvSsG_-8
+id: most_cited-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    ee282109-a32e-480d-bca2-601685b4f69b:
+      id: most_read_cited_block
+      label: 'Most Cited'
+      label_display: visible
+      provider: highwire_display
+      view_mode: toc_list
+      context_mapping: {  }
+      region: main
+      weight: 0
+      uuid: ee282109-a32e-480d-bca2-601685b4f69b
+      read_cited: most-cited
+      limit: '10'
+      corpus: ''
+      show_pager: 1
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: a286dbad-aa1e-4b9f-8d04-e44974d552eb
+  page_title: 'Most Cited'
+  layout: bs_1col
+  layout_settings: {  }
+  builder: standard
+  storage_type: page_manager
+  storage_id: most_cited-panels_variant-0
+page: most_cited
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

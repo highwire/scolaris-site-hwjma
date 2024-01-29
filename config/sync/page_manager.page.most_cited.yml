@@ -1,0 +1,17 @@
+uuid: aa53511a-b970-49f8-b6fb-bc61fc58a37d
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - highwire_top_topics
+_core:
+  default_config_hash: L_pfa36SeMRbmqWWx_jzUm0f-mkQDvxGH22mD2j0sWs
+id: most_cited
+label: 'Most Cited'
+description: ''
+use_admin_theme: false
+path: '/content/{corpus}/most-cited'
+access_logic: and
+access_conditions: {  }
+parameters: {  }
