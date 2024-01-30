@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_foxycart_customer_id
     - field.field.user.user.field_hw_preferences_captured
     - field.field.user.user.field_organization_logo
     - field.field.user.user.field_sigma_license_data
@@ -23,14 +24,15 @@ mode: compact
 content:
   user_picture:
     type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: thumbnail
+    third_party_settings: {  }
     weight: 0
     region: content
-    settings:
-      image_style: thumbnail
-      image_link: content
-    third_party_settings: {  }
-    label: hidden
 hidden:
+  field_foxycart_customer_id: true
   field_hw_preferences_captured: true
   field_organization_logo: true
   field_sigma_license_data: true

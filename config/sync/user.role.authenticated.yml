@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.eletters
   module:
     - comment
     - contact
     - filter
+    - node
     - search
     - shortcut
     - system

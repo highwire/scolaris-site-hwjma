@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - node.type.eletters
   module:
     - comment
     - contact
+    - field_permissions
     - filter
+    - node
     - search
     - system
 _core:
