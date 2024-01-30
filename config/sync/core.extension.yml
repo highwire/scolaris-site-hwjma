@@ -44,6 +44,7 @@ module:
   highwire_core: 0
   highwire_counter: 0
   highwire_display: 0
+  highwire_ecommerce: 0
   highwire_eletter: 0
   highwire_hwphp: 0
   highwire_kafka: 0
@@ -66,6 +67,7 @@ module:
   jnl_basic_config: 0
   jnl_content_display: 0
   jnl_core: 0
+  jnl_ecommerce: 0
   jnl_search: 0
   journal_article_detail: 0
   language: 0
