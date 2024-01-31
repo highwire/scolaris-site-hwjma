@@ -124,13 +124,13 @@
             "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
             "FreebirdComposer\\CommandHandler::provisionSettings",
             "HighWireSite\\composer\\FreebirdHandler::setupFreebirdCode",
-            "HighWireSite\\composer\\FreebirdHandler::overridePatternLabConfig"
+            "FreebirdComposer\\CommandHandler::compileThemes"
         ],
         "post-update-cmd": [
             "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
             "FreebirdComposer\\CommandHandler::provisionSettings",
             "HighWireSite\\composer\\FreebirdHandler::setupFreebirdCode",
-            "HighWireSite\\composer\\FreebirdHandler::overridePatternLabConfig"
+            "FreebirdComposer\\CommandHandler::compileThemes"
         ]
     }
 }
