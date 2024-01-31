@@ -8,7 +8,7 @@
         "discard-changes": true,
         "process-timeout": 0,
         "theme-directories": [
-            "web/modules/freebird/themes/highwire"
+            "web/modules/freebird/themes/highwire/jcorex_base_theme"
         ],
         "allow-plugins": {
             "cweagans/composer-patches": true,
