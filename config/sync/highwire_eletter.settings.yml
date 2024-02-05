@@ -8,25 +8,13 @@ thanks_msg_display: 1
 email_article_note_display: 1
 message_subject_display: 1
 message_body_display: 1
-highwire_rr_email_sender: no-reply@highwirepress.com
-highwire_rr_email_response_sent: "<p>Thank you for your submission. Below is a copy of your eLetter as we received it. Your eLetter, if accepted, should be\r\n    viewable within a few days.</p>\r\n\r\n    <p>Sincerely,<br />\r\n    The Editorial staff of !journal_name</p>\r\n    ----------------------------------------\r\n    <p>!article_link</p>\r\n    <p>The eLetter <em>!eletter_title</em> was submitted on !submitted_date:</p>\r\n    <p>!eletter_text</p>"
+highwire_rr_email_sender: ''
+highwire_rr_email_response_sent: ''
 highwire_rr_email_subject: 'Thank you for your response to'
 highwire_e_letter_submission_message: 'Thank you for your response. We intend to publish as rapidly as possible all responses that contribute substantially to the topic under discussion.'
-moderator_distribution_email_list: no-reply@highwirepress.com
-moderator_site_feedback_email_list: no-reply@highwirepress.com
-moderator_notification_from_address: 'Demo Journal of Medical Association Response Notification <!site_feeback_email_address>'
-moderator_notification_to_address: 'Demo Journal of Medical Association Response Moderator <!moderator_distribution_email_list>'
-moderator_notification_email_subject: 'Demo Journal of Medical Association response: "[node:title]""'
-moderator_notification_response_text: "<p>A new eLetter has been submitted to !article_title and is awaiting moderation.</p>\r\n    <p>!article_link </p>\r\n    <p>The eLetter was submitted on [node:created:custom:d m Y]:</p>\r\n    <p>eLetter copy: [site:url]!eLetter_link_copy </p>\r\n    <p>!eletter_text</p>"
-eletter_rule_action_flag: 0
-eLetter_publication_notification_from_address_to_eletterauthor: no-reply@highwirepress.com
-eLetter_publication_notification_subject_to_eletterauthor: 'Your Response has been published'
-eLetter_publication_notification_eletterauthor_response_text: "<p>Dear !article_author_firstname_lastname,</p>\r\n\r\n    <p>An eLetter has been published on [node:field-highwire-c-response-to:field-highwire-a-journal:title]'s web site. To view it, navigate to your article and click on \"eLetter\" tab or click the link below. </p>\r\n\r\n    <p>eLetter: \"[node:title]\"</p>\r\n\r\n    <p>eLetter URL: [node:field-highwire-c-response-to:url:absolute] </p>\r\n\r\n    <p>Sincerely,</p>\r\n    <p>The Editorial Staff of [node:field-highwire-c-response-to:field-highwire-a-journal:title]</p>"
-eLetter_publication_notification_from_address_to_articleauthor: no-reply@highwirepress.com
-eLetter_publication_notification_subject_to_articleauthor: 'A Response regarding your article has been published'
-eLetter_publication_notification_articleauthor_response_text: "<p>Dear !article_author_firstname_lastname,</p>\r\n\r\n    <p>An eLetter has been published on [node:field-highwire-c-response-to:field-highwire-a-journal:title]'s web site. To view it, navigate to your article and click on \"eLetter\" tab or click the link below. </p>\r\n\r\n    <p>eLetter: \"[node:title]\"</p>\r\n\r\n    <p>eLetter URL: [node:field-highwire-c-response-to:url:absolute] </p>\r\n\r\n    <p>Sincerely,</p>\r\n    <p>The Editorial Staff of [node:field-highwire-c-response-to:field-highwire-a-journal:title]</p>"
-eLetter_publication_notification_distribution_email_list: no-reply@highwirepress.com
-show_set_to_wait_status: 0
-hw_authors_email_from: no-reply@highwirepress.com
-author_notification_email_subject: 'CMAJ response: "!eletter_title"'
-author_notification_email_body: "<p>Dear Author,</p>\r\n    <p>An eLetter was submitted to !journal_name for your article. It is our intention to post this letter on<br />\r\n      the web site and we would like to invite your feedback on the eLetter.</p>\r\n    <p>Your article (citation):</p>\r\n    <p>!article_citation</p>\r\n    <p>!article_link</p>\r\n    <p>The eLetter was submitted on !submitted_date:</p>\r\n    <p>!eletter_citation</p>\r\n    <p>&nbsp;</p>\r\n    <p>If you would like to submit a response to this eLetter, please click on the &quot;Submit a Response to This Article&quot; link in the eLetter tab of your article.<br />\r\n      Please let us know if you have any other questions or reactions to this process.</p>\r\n    <p>Sincerely,<br />\r\n      The Editorial staff of !journal_name</p>"
+moderator_distribution_email_list: ''
+moderator_site_feedback_email_list: ''
+moderator_notification_from_address: ''
+moderator_notification_to_address: ''
+moderator_notification_email_subject: ''
+moderator_notification_response_text: ''

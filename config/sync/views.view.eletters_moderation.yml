@@ -16,7 +16,7 @@ dependencies:
     - user
     - views_bulk_operations
 _core:
-  default_config_hash: qf0uYfBGMT5gYmOp7D5vduMzkOznxoD_q1YoW3U2i5Y
+  default_config_hash: rAzMQOWI9lRUoz3YxYfSJwEe0yVB9DdFahDrhUnHVaY
 id: eletters_moderation
 label: 'eLetters moderation'
 module: views
@@ -884,7 +884,7 @@ display:
             operator_list: {  }
         title_1:
           id: title_1
-          table: node_field_data
+          table: node_field_revision
           field: title
           relationship: field_highwire_comment_subject
           group_type: group
@@ -892,7 +892,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: string
-          operator: word
+          operator: contains
           value: ''
           group: 1
           exposed: true
