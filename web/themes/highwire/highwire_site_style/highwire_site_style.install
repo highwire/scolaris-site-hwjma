@@ -48,7 +48,7 @@ function highwire_site_style_update_9004(){
  *
  * Perform actions to update values to Google translate Feature.
  */
-function highwire_site_style_update_9005(&$blocks, $theme, $code_blocks){
+/*function highwire_site_style_update_9005(&$blocks, $theme, $code_blocks){
   // Load the custom block entity storage.
   $block = \Drupal::entityTypeManager()->getStorage('block')->load('jcorex_base_gtranslate');
   // Check if the block exists and is disabled.
@@ -57,4 +57,4 @@ function highwire_site_style_update_9005(&$blocks, $theme, $code_blocks){
     $block->set('status', TRUE);
     $block->save();
   }
-}
+}*/
