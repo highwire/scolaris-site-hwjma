@@ -2,6 +2,10 @@ uuid: 683289fb-1176-49e9-a5cc-5251700cd849
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'block_content:basic:12ba5af4-b66d-433f-a62e-6188e249aaa4'
+  module:
+    - block_content
   theme:
     - jcorex_base
 _core:

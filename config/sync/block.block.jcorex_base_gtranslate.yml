@@ -1,0 +1,20 @@
+uuid: 4de08584-946a-4889-ae94-342618bce1a6
+langcode: en
+status: false
+dependencies:
+  module:
+    - gtranslate
+  theme:
+    - jcorex_base
+id: jcorex_base_gtranslate
+theme: jcorex_base
+region: header_branding_2
+weight: 0
+provider: null
+plugin: gtranslate_block
+settings:
+  id: gtranslate_block
+  label: GTranslate
+  label_display: '0'
+  provider: gtranslate
+visibility: {  }
