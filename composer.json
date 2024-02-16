@@ -19,7 +19,7 @@
         }
     },
     "require": {
-        "highwire/freebird": "dev-10.x-1.x-stable",
+        "highwire/freebird": "dev-10.x-1.1-dev",
         "highwire/freebird-scaffold": "dev-10.x-1.x-dev",
         "drupal/view_unpublished": "1.1.0",
         "drupal/profile_switcher": "1.0.0-alpha6",
