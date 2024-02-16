@@ -1,0 +1,60 @@
+<?php
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Monsido module.
+ */
+function highwire_site_style_update_9001(){
+  /* For Monsido Module */
+  $monsido_enable=\Drupal::service('module_installer')->install(['highwire_monsido'], TRUE);
+  if (!$monsido_enable) {
+    throw new DrupalUpdateException('Monsido module not enabled.');
+  }
+  else {
+    $config = \Drupal::service('config.factory')->getEditable('highwire_monsido.settings');
+    $config->set('monsido_token', 'HBktah_nQR6S6dpnyfGZow')->save();
+  }
+}
+
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to TrendMD module.
+ */
+function highwire_site_style_update_9003(){
+  /* For trendmd */
+  $trendmd_enable = \Drupal::service('module_installer')->install(['highwire_trendmd'], TRUE);
+  if (!$trendmd_enable) {
+	  throw new DrupalUpdateException('TrendMD module not enabled.');
+  }
+}
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Eletter module.
+ */
+function highwire_site_style_update_9004(){
+  /* For Eletter module */
+  $Eletter_enable = \Drupal::service('module_installer')->install(['highwire_eletter'], TRUE);
+  if (!$Eletter_enable) {
+	  throw new DrupalUpdateException('Eletter module are not enabled.');
+  }
+}
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Google translate Feature.
+ */
+function highwire_site_style_update_9005(&$blocks, $theme, $code_blocks){
+  // Load the custom block entity storage.
+  $block = \Drupal::entityTypeManager()->getStorage('block')->load('jcorex_base_gtranslate');
+  // Check if the block exists and is disabled.
+  if ($block && !$block->status()) {
+    // Enable the block.
+    $block->set('status', TRUE);
+    $block->save();
+  }
+}
