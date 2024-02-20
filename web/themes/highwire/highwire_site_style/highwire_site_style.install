@@ -87,7 +87,7 @@ function highwire_site_style_update_9006()
     } else {
         $config = \Drupal::service("config.factory")->getEditable("gtranslate.settings");
         $config->set("custom_css", ".gt_switcher_wrapper{\r\npositionw: unset !important;\r\n}")->save();
-	      $config->set("widget_look", "dropdown")->save();
         $config->set("position", "top-right")->save();
+        $config->set("widget_look", "dropdown")->save();
     }
 }
