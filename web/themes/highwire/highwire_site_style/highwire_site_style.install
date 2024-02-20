@@ -78,7 +78,7 @@ function highwire_site_style_update_9004()
  *
  * Perform actions to update values to Google Translate module.
  */
-function highwire_site_style_update_9006()
+function highwire_site_style_update_9005()
 {
     /* For enable Google Translate Module */
     $gtranslate_enable = \Drupal::service("module_installer")->install(["gtranslate"],true);
@@ -86,8 +86,16 @@ function highwire_site_style_update_9006()
         throw new DrupalUpdateException("Google Translate Module are not enabled.");
     } else {
         $config = \Drupal::service("config.factory")->getEditable("gtranslate.settings");
-        $config->set("custom_css", ".gt_switcher_wrapper{\r\npositionw: unset !important;\r\n}")->save();
+        /* for custom css in Google Translate form */
+        $config->set("custom_css", ".gt_switcher_wrapper{\r\nposition: unset !important;\r\n}")->save();
         $config->set("position", "top-right")->save();
+        /* To set Dropdown in Google Translate form */
         $config->set("widget_look", "dropdown")->save();
+        /* for enable language in Google Translate form */
+        $langs = $config->get("languages");
+        foreach ($langs as $lang_name => $lang) {
+            $langs[$lang_name] = $lang_name;
+        }
+        $config->set("languages", $langs)->save();
     }
 }
