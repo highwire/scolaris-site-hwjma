@@ -16,7 +16,6 @@ function highwire_site_style_update_9001(){
   }
 }
 
-
 /**
  * Implements hook_update()
  *
@@ -71,5 +70,24 @@ function highwire_site_style_update_9004()
             }
             $config->set("crazyegg_roles_excluded", $roles_excluded)->save();
         }
+    }
+}
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Google Translate module.
+ */
+function highwire_site_style_update_9006()
+{
+    /* For enable Google Translate Module */
+    $gtranslate_enable = \Drupal::service("module_installer")->install(["gtranslate"],true);
+    if (!$gtranslate_enable) {
+        throw new DrupalUpdateException("Google Translate Module are not enabled.");
+    } else {
+        $config = \Drupal::service("config.factory")->getEditable("gtranslate.settings");
+        $config->set("custom_css", ".gt_switcher_wrapper{\r\npositionw: unset !important;\r\n}")->save();
+	      $config->set("widget_look", "dropdown")->save();
+        $config->set("position", "top-right")->save();
     }
 }
