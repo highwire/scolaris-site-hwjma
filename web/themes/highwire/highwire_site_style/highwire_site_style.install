@@ -99,3 +99,32 @@ function highwire_site_style_update_9005()
         $config->set("languages", $langs)->save();
     }
 }
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Disqus module.
+ */
+function highwire_site_style_update_9006()
+{
+    /* For enable Google Translate Module */
+    $disqus_enable = \Drupal::service("module_installer")->install(["disqus"],true);
+    if (!$disqus_enable) {
+        throw new DrupalUpdateException("Disqus Module are not enabled.");
+    } else {
+        $config_factory = \Drupal::service('config.factory');
+        $config = $config_factory->getEditable('disqus.settings');
+        /* To set the Disqus ID */
+        $config->set("disqus_domain", "hwjma")->save();
+        /* To set permission for anonymous role */
+        $anonymous_var = \Drupal::configFactory()->getEditable('user.role.anonymous');
+        $anonymous=$anonymous_var->get('permissions');
+        array_push($anonymous,"view disqus comments");
+        $anonymous_var->set('permissions', $anonymous)->save();
+        /* To set permission for authenticated role */
+        $auth_var = \Drupal::configFactory()->getEditable('user.role.authenticated');
+        $auth=$auth_var->get('permissions');
+        array_push($auth,"view disqus comments");
+        $auth_var->set('permissions', $auth)->save();
+    }
+}
