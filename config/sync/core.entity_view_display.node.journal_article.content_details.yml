@@ -36,6 +36,7 @@ dependencies:
     - field.field.node.journal_article.elocation_id
     - field.field.node.journal_article.enclosures
     - field.field.node.journal_article.extract_policy
+    - field.field.node.journal_article.field_disqus_comment
     - field.field.node.journal_article.final_published
     - field.field.node.journal_article.fpage
     - field.field.node.journal_article.georef_id
@@ -262,6 +263,7 @@ hidden:
   elocation_id: true
   enclosures: true
   extract_policy: true
+  field_disqus_comment: true
   final_published: true
   fpage: true
   georef_id: true

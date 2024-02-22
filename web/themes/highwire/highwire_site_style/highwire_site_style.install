@@ -99,3 +99,22 @@ function highwire_site_style_update_9005()
         $config->set("languages", $langs)->save();
     }
 }
+
+
+/**
+ * Implements hook_update()
+ *
+ * Perform actions to update values to Disqus module.
+ */
+function highwire_site_style_update_9006()
+{
+    /* For enable Google Translate Module */
+    $disqus_enable = \Drupal::service("module_installer")->install(["disqus"],true);
+    if (!$disqus_enable) {
+        throw new DrupalUpdateException("Disqus Module are not enabled.");
+    } else {
+        $config_factory = \Drupal::service('config.factory');
+        $config = $config_factory->getEditable('disqus.settings');
+        $config->set("disqus_domain", "hwjma")->save();
+    }
+}
