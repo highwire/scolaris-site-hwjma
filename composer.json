@@ -27,13 +27,17 @@
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/gtranslate": "3.0.1",
-        "drupal/advagg": "6.0.0-alpha1"
+        "drupal/advagg": "6.0.0-alpha1",
+        "drupal/disqus": "2.0.1-alpha6"
     },
     "extra": {
                 "patches": {
             "drupal/page_manager": {
               "Page manager query issue on menu bar.(https://www.drupal.org/project/page_manager/issues/3362561)": "https://www.drupal.org/files/issues/2023-11-29/page_manager-unnecessary_query-3362561-48.patch"
-            }
+            },
+            "drupal/disqus": {
+                "Disqus comment box Jquery issue.(https://www.drupal.org/project/disqus/issues/3359581)": "https://www.drupal.org/files/issues/2023-11-21/uncaught-typeerror-once-is-not-a-function-3359581.patch"
+              }
           },
         "drupal-scaffold": {
             "locations": {
