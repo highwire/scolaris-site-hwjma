@@ -28,7 +28,9 @@
         "drupal/core-recommended": "^10.1",
         "drupal/gtranslate": "3.0.1",
         "drupal/advagg": "6.0.0-alpha1",
-        "drupal/disqus": "2.0.1-alpha6"
+        "drupal/disqus": "2.0.1-alpha6",
+        "drupal/webform": "6.2.2",
+        "drupal/recaptcha": "8.x-3.2"
     },
     "extra": {
                 "patches": {

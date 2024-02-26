@@ -1,0 +1,12 @@
+uuid: cdc82c19-cb4b-4f62-884d-1f343020f5de
+langcode: en
+status: true
+dependencies: {  }
+id: demo_region_us_midwest_manager
+label: 'United States: Midwest: Manager'
+description: null
+type: demo_region_manager
+permissions:
+  - administer
+emails:
+  - demo_region_manager@test.com
