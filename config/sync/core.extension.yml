@@ -111,15 +111,12 @@ module:
   webform: 0
   webform_access: 0
   webform_attachment: 0
-  webform_demo_region_contact: 0
   webform_devel: 0
-  webform_example_custom_form: 0
   webform_example_element: 0
   webform_example_handler: 0
   webform_example_variant: 0
   webform_examples_accessibility: 0
   webform_node: 0
-  webform_options_custom: 0
   webform_options_limit: 0
   webform_scheduled_email: 0
   webform_shortcuts: 0
