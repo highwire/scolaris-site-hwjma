@@ -18,23 +18,23 @@ bundle: webform_demo_region
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
     region: content
   links:
-    weight: 4
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 4
+    region: content
   webform:
-    weight: 3
+    type: webform_entity_reference_entity_view
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: webform_entity_reference_entity_view
+    weight: 3
     region: content
 hidden:
   addtoany: true

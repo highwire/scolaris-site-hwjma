@@ -14,8 +14,13 @@ _core:
   default_config_hash: jgaqBX0outeo2ShrDCpxltK0ZzqS4RKcF1VPvSsG_-8
 id: most_cited-panels_variant-0
 label: Panels
+weight: 0
 variant: panels_variant
 variant_settings:
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: a286dbad-aa1e-4b9f-8d04-e44974d552eb
   blocks:
     ee282109-a32e-480d-bca2-601685b4f69b:
       id: most_read_cited_block
@@ -31,10 +36,6 @@ variant_settings:
       limit: '10'
       corpus: ''
       show_pager: 1
-  id: panels_variant
-  label: null
-  weight: 0
-  uuid: a286dbad-aa1e-4b9f-8d04-e44974d552eb
   page_title: 'Most Cited'
   layout: bs_1col
   layout_settings: {  }
@@ -42,7 +43,6 @@ variant_settings:
   storage_type: page_manager
   storage_id: most_cited-panels_variant-0
 page: most_cited
-weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }
