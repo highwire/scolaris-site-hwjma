@@ -5,7 +5,7 @@ use \Drupal\Core\Form\FormStateInterface;
  *
  * Perform actions for defaults hooks .
  */
-/* Hook to add styles.css file for webform*/
+/* Hook to add styles.css file for webform JCOREX-412 */
 function highwire_site_style_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   switch ($form_id) {
     case 'webform_submission_feedback_add_form':
