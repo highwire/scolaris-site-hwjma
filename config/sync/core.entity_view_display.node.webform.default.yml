@@ -1,0 +1,45 @@
+uuid: e4a68f88-2ef5-4e07-80e5-24ea1441ab98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.webform.body
+    - field.field.node.webform.webform
+    - node.type.webform
+  module:
+    - text
+    - user
+    - webform
+_core:
+  default_config_hash: 3r1i0UMUbeNHhvmiqHDYznoS4G9XR1jq6lQ49r80lDE
+id: node.webform.default
+targetEntityType: node
+bundle: webform
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  webform:
+    weight: 102
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+hidden:
+  addtoany: true
+  jnl_focus_view: true
+  langcode: true
+  prev_next_pager: true
+  prevnext_toc_pager: true
+  search_api_excerpt: true

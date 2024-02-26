@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - filter.format.webform_default
     - node.type.eletters
   module:
     - comment
@@ -30,4 +31,5 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
+  - 'use text format webform_default'
   - 'view disqus comments'
