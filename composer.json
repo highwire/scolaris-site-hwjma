@@ -30,7 +30,8 @@
         "drupal/advagg": "6.0.0-alpha1",
         "drupal/disqus": "2.0.1-alpha6",
         "drupal/webform": "6.2.2",
-        "drupal/recaptcha": "^3.2"
+        "drupal/recaptcha": "^3.2",
+        "drupal/devel_php": "^1.6"
     },
     "extra": {
                 "patches": {
