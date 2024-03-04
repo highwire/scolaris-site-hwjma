@@ -22,6 +22,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/search*\r\n/books\r\n/journals\r\n/references\r\n/my-content"
     negate: true
     context_mapping: {  }
+    pages: "/search*\r\n/books\r\n/journals\r\n/references\r\n/my-content"
