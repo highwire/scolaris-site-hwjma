@@ -21,27 +21,11 @@
     "require": {
         "highwire/freebird": "dev-10.x-1.x-stable",
         "highwire/freebird-scaffold": "dev-10.x-1.x-dev",
-        "drupal/view_unpublished": "1.1.0",
-        "drupal/profile_switcher": "1.0.0-alpha6",
         "composer/installers": "^2.0",
         "drupal/core-composer-scaffold": "^10.1",
-        "drupal/core-recommended": "^10.1",
-        "drupal/gtranslate": "3.0.1",
-        "drupal/advagg": "6.0.0-alpha1",
-        "drupal/disqus": "2.0.1-alpha6",
-        "drupal/webform": "6.2.2",
-        "drupal/recaptcha": "^3.2",
-        "drupal/devel_php": "^1.6"
+        "drupal/core-recommended": "^10.1"
     },
     "extra": {
-                "patches": {
-            "drupal/page_manager": {
-              "Page manager query issue on menu bar.(https://www.drupal.org/project/page_manager/issues/3362561)": "https://www.drupal.org/files/issues/2023-11-29/page_manager-unnecessary_query-3362561-48.patch"
-            },
-            "drupal/disqus": {
-                "Disqus comment box Jquery issue.(https://www.drupal.org/project/disqus/issues/3359581)": "https://www.drupal.org/files/issues/2023-11-21/uncaught-typeerror-once-is-not-a-function-3359581.patch"
-              }
-          },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
