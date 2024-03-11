@@ -1,7 +1,12 @@
 uuid: 871c2f8d-b7ce-4c44-8d83-54c08af14ce4
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - highwire_top_topics
+_core:
+  default_config_hash: tBTRDRg8PhFNBc_tz0EqN7IUKf0LkaS4qiGR3eZIOHo
 id: response
 label: Response
 description: ''

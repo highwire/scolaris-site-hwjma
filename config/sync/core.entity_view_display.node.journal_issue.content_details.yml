@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.content_details
+    - field.field.node.journal_issue.abstract_type
     - field.field.node.journal_issue.adjuncts
     - field.field.node.journal_issue.apath
     - field.field.node.journal_issue.article_open_access
@@ -16,7 +17,9 @@ dependencies:
     - field.field.node.journal_issue.chapter_type
     - field.field.node.journal_issue.children
     - field.field.node.journal_issue.col_url
+    - field.field.node.journal_issue.content_type
     - field.field.node.journal_issue.contributors
+    - field.field.node.journal_issue.copyright_info
     - field.field.node.journal_issue.corpus
     - field.field.node.journal_issue.cover_date
     - field.field.node.journal_issue.custom_meta
@@ -33,13 +36,14 @@ dependencies:
     - field.field.node.journal_issue.date_revision
     - field.field.node.journal_issue.doi
     - field.field.node.journal_issue.early_release
+    - field.field.node.journal_issue.ec_role
     - field.field.node.journal_issue.elocation_id
     - field.field.node.journal_issue.enclosures
     - field.field.node.journal_issue.extract_policy
     - field.field.node.journal_issue.final_published
     - field.field.node.journal_issue.fpage
+    - field.field.node.journal_issue.free_to_read
     - field.field.node.journal_issue.georef_id
-    - field.field.node.journal_issue.guest_editors
     - field.field.node.journal_issue.has_abstract
     - field.field.node.journal_issue.has_early_release
     - field.field.node.journal_issue.has_figures
@@ -52,6 +56,8 @@ dependencies:
     - field.field.node.journal_issue.has_tables
     - field.field.node.journal_issue.has_videos
     - field.field.node.journal_issue.hwmd_table_of_contents_journals_
+    - field.field.node.journal_issue.issn_epub
+    - field.field.node.journal_issue.issn_ppub
     - field.field.node.journal_issue.issue
     - field.field.node.journal_issue.issue_id
     - field.field.node.journal_issue.issue_is_open
@@ -70,6 +76,7 @@ dependencies:
     - field.field.node.journal_issue.journal_publisher_id
     - field.field.node.journal_issue.journal_title
     - field.field.node.journal_issue.keywords
+    - field.field.node.journal_issue.license_info
     - field.field.node.journal_issue.lpage
     - field.field.node.journal_issue.member_network
     - field.field.node.journal_issue.next_atom
@@ -87,6 +94,7 @@ dependencies:
     - field.field.node.journal_issue.pubmed_id
     - field.field.node.journal_issue.related
     - field.field.node.journal_issue.secondary
+    - field.field.node.journal_issue.sections
     - field.field.node.journal_issue.sibling_order
     - field.field.node.journal_issue.slug
     - field.field.node.journal_issue.subtitle
@@ -118,29 +126,27 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    enabled: false
     allow_custom: false
+    enabled: false
   field_group:
     group_action_tools:
       children:
         - hw_marker_sign_up
         - group_share_popup
         - hw_alerts_sign_up
-      label: 'Action Tools'
       parent_name: ''
-      region: content
       weight: 13
       format_type: highwire_html_list
       format_settings:
         id: ''
         classes: ''
         list_type: ul
+      label: 'Action Tools'
+      region: content
     group_share_popup:
       children:
         - addtoany
-      label: 'share popup'
       parent_name: group_action_tools
-      region: content
       weight: 4
       format_type: highwire_bootstrap_modal_popup
       format_settings:
@@ -161,6 +167,8 @@ third_party_settings:
         separate_toggle_button_settings:
           button_weight: ''
           button_parent: default
+      label: 'share popup'
+      region: content
 _core:
   default_config_hash: 9nK1S0L7PssNYLvd5ajp_Ka7g8s1gZVqvv4wWEyzhzI
 id: node.journal_issue.content_details
@@ -169,29 +177,31 @@ bundle: journal_issue
 mode: content_details
 content:
   addtoany:
-    settings: {  }
-    third_party_settings: {  }
     weight: 14
     region: content
+    settings: {  }
+    third_party_settings: {  }
   date_ppub:
     type: daterange_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-      separator: '-'
-    third_party_settings: {  }
     weight: 8
     region: content
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
   doi:
     type: text_default
+    weight: 11
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 11
-    region: content
   enclosures:
     type: access_aware_file_url_plain
+    weight: 12
+    region: content
     label: above
     settings:
       access_rules:
@@ -201,94 +211,93 @@ content:
       access_denied_html: 'Log-in to access free PDF or view purchase options'
       access_link_hide: false
     third_party_settings: {  }
-    weight: 12
-    region: content
   fpage:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 6
     region: content
-  hw_alerts_sign_up:
+    label: above
     settings: {  }
     third_party_settings: {  }
+  hw_alerts_sign_up:
     weight: 5
     region: content
-  hw_marker_sign_up:
     settings: {  }
     third_party_settings: {  }
+  hw_marker_sign_up:
     weight: 3
     region: content
+    settings: {  }
+    third_party_settings: {  }
   issue:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 5
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   issue_title:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 3
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   journal_eissn:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 9
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   journal_pissn:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 10
     region: content
-  lpage:
-    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
+  lpage:
+    type: text_default
     weight: 7
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   parent_journal:
     type: entity_reference_label
+    weight: 2
+    region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
-    region: content
   variant_cover_image:
     type: image
-    label: hidden
-    settings:
-      image_link: ''
-      image_style: ''
-    third_party_settings: {  }
     weight: 1
     region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
   variant_cover_source_image:
     type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-    third_party_settings: {  }
     weight: 0
     region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
   volume:
     type: text_default
+    weight: 4
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 4
-    region: content
 hidden:
+  abstract_type: true
   adjuncts: true
   apath: true
   article_open_access: true
@@ -302,7 +311,9 @@ hidden:
   chapter_type: true
   children: true
   col_url: true
+  content_type: true
   contributors: true
+  copyright_info: true
   corpus: true
   cover_date: true
   custom_meta: true
@@ -317,11 +328,12 @@ hidden:
   date_released: true
   date_revision: true
   early_release: true
+  ec_role: true
   elocation_id: true
   extract_policy: true
   final_published: true
+  free_to_read: true
   georef_id: true
-  guest_editors: true
   has_abstract: true
   has_early_release: true
   has_figures: true
@@ -338,6 +350,8 @@ hidden:
   hwjma_focus_view: true
   hwjma_toc_pager: true
   hwmd_table_of_contents_journals_: true
+  issn_epub: true
+  issn_ppub: true
   issue_id: true
   issue_is_open: true
   issue_page_range: true
@@ -354,6 +368,7 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
+  license_info: true
   links: true
   member_network: true
   next_atom: true
@@ -373,6 +388,7 @@ hidden:
   related: true
   search_api_excerpt: true
   secondary: true
+  sections: true
   sibling_order: true
   slug: true
   subtitle: true

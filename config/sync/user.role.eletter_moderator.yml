@@ -5,7 +5,7 @@ dependencies:
   module:
     - field_permissions
 _core:
-  default_config_hash: FWtMs0Oh2xy7XJehl29aQUNeyvHrliQZluPiGXZSKvw
+  default_config_hash: 79ICLzQO8xTCcsaF4nneI8iyufLtbL3Z8ep1WE-QVpE
 id: eletter_moderator
 label: 'eletter moderator'
 weight: 3

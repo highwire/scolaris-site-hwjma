@@ -1,4 +1,4 @@
-uuid: 45847f82-0c12-4ed3-98cc-02236c85ff08
+uuid: c9da9a88-9ea7-4824-84fc-c4f00a78264d
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.journal
   module:
     - text
+_core:
+  default_config_hash: ZOiNpPV0pHehkhI5HWGZmvw-U5Mz5ddaOiwXOwgL5ks
 id: node.journal.member_network
 field_name: member_network
 entity_type: node

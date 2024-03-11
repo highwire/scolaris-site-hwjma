@@ -9,6 +9,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: custom
+_core:
+  default_config_hash: zSID3asvlBAUuFOYiGbyxRsYy6m4CGypwVI2FV9FChU
 id: node.field_electronic_publication
 field_name: field_electronic_publication
 entity_type: node

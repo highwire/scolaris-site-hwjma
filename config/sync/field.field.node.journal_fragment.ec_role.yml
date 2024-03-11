@@ -1,0 +1,22 @@
+uuid: 34dd6d7d-ea62-4b63-950e-13739d3e15db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.ec_role
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.ec_role
+field_name: ec_role
+entity_type: node
+bundle: journal_fragment
+label: ec-role
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

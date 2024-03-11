@@ -26,7 +26,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: tNXY0N8nXkoCaoZEoIEOEY_9Rr9FYzXNjU6Uqidv5UU
+  default_config_hash: _wn2cA31KTHuE-5SnSi1H2JtTFbC7LAEEjq0f57M88Y
 id: node.eletters.default
 targetEntityType: node
 bundle: eletters

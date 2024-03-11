@@ -1,0 +1,21 @@
+uuid: 73fb12cb-7df3-4344-8d71-965684a662d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.free_to_read
+    - node.type.journal_fragment
+id: node.journal_fragment.free_to_read
+field_name: free_to_read
+entity_type: node
+bundle: journal_fragment
+label: free-to-read
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -12,16 +12,11 @@ dependencies:
     - panels
     - system
 _core:
-  default_config_hash: aQveksXe2zwEJ8fPPke4KPj0CBoxCjDdLy6C9zhzND8
+  default_config_hash: qjca2iv0t8xGkIZhU925QXr3wdN_YMevps3L1P2jwt0
 id: node_view-panels_variant-0
 label: 'CMS Pages'
-weight: 0
 variant: panels_variant
 variant_settings:
-  id: panels_variant
-  label: null
-  weight: 0
-  uuid: dfc6a04c-e8c9-43d0-ad91-10e59534bae9
   blocks:
     a64945fa-e5ff-463d-aa00-38853984bd5a:
       id: 'entity_view:node'
@@ -39,10 +34,10 @@ variant_settings:
       label: Information
       label_display: visible
       provider: system
-      context_mapping: {  }
       level: 1
       depth: 0
       expand_all_items: false
+      context_mapping: {  }
       region: left
       weight: 0
       uuid: 0dc4d3b6-d56f-425b-92ff-14dd17007a61
@@ -51,13 +46,17 @@ variant_settings:
       label: Resources
       label_display: visible
       provider: system
-      context_mapping: {  }
       level: 1
       depth: 0
       expand_all_items: false
+      context_mapping: {  }
       region: left
       weight: 0
       uuid: f1f45e1f-eaa3-4067-af53-11892c975f4d
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: dfc6a04c-e8c9-43d0-ad91-10e59534bae9
   page_title: 'CMS Pages'
   layout: bs_2col
   layout_settings:
@@ -85,6 +84,7 @@ variant_settings:
   storage_type: page_manager
   storage_id: node_view-panels_variant-0
 page: node_view
+weight: 0
 selection_criteria:
   -
     id: 'entity_bundle:node'

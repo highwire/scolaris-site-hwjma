@@ -1,0 +1,22 @@
+uuid: f142b0f6-aa85-4255-9f38-ed656524ecd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issn_epub
+    - node.type.journal_issue
+  module:
+    - text
+id: node.journal_issue.issn_epub
+field_name: issn_epub
+entity_type: node
+bundle: journal_issue
+label: issn-epub
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

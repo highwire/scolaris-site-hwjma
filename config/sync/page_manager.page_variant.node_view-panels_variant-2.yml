@@ -12,16 +12,11 @@ dependencies:
     - node
     - panels
 _core:
-  default_config_hash: POPr_F21FI3GSuQyrv7Uwwivb5pRupEgb-SD20hSU9I
+  default_config_hash: kPZrn1w2w-_qWGFMBF8WR7Zd2RfS4VmajLvtSKaEfyk
 id: node_view-panels_variant-2
 label: Journal
-weight: 0
 variant: panels_variant
 variant_settings:
-  id: panels_variant
-  label: null
-  weight: 0
-  uuid: 9959ed8c-0ea0-4063-8de1-e06f7b1a5780
   blocks:
     a7abfc2e-30ff-44da-9866-315be43d858c:
       id: 'entity_view:node'
@@ -49,7 +44,7 @@ variant_settings:
       id: searchBrowse
       label: 'Search browse block'
       label_display: '0'
-      provider: hwjma_search
+      provider: jnl_search
       context_mapping: {  }
       region: left
       weight: -1
@@ -61,7 +56,7 @@ variant_settings:
       provider: journal_article_detail
       context_mapping: {  }
       region: right
-      weight: 0
+      weight: -2
       uuid: 2c4d7a89-ec58-4152-81dc-ebaa741fcfa3
       description: 'Altmetric tracks attention and engagement of scholarly articles.'
       month: 3m
@@ -73,24 +68,28 @@ variant_settings:
       more_link_label: 'See more'
       more_link_url: ''
       msg_no_data: 'No Altmetric data available.'
-    64dbffeb-2482-4a25-990d-5897c8665854:
+    9ac86ec5-ca2a-4434-8b7d-385461ba2831:
       id: most_read_cited_topics
       label: 'Most Read, Cited, Topics'
-      label_display: visible
+      label_display: '0'
       provider: highwire_top_topics
       context_mapping: {  }
       region: right
       weight: 0
-      uuid: 64dbffeb-2482-4a25-990d-5897c8665854
+      uuid: 9ac86ec5-ca2a-4434-8b7d-385461ba2831
       top_topics: 1
       top_topics_title: ''
       most_read: 1
       most_read_title: ''
       most_cited: 1
-      most_cited_title: ''
+      most_cited_title: Cited
       limit: '5'
       corpus: ''
       read_more: 1
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: 9959ed8c-0ea0-4063-8de1-e06f7b1a5780
   page_title: '[node:title]'
   layout: bs_2col_stacked
   layout_settings:
@@ -127,6 +126,7 @@ variant_settings:
   storage_type: page_manager
   storage_id: node_view-panels_variant-2
 page: node_view
+weight: 0
 selection_criteria:
   -
     id: 'entity_bundle:node'

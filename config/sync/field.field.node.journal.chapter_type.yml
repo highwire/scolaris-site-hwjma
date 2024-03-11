@@ -1,4 +1,4 @@
-uuid: 5f736ffd-fe93-45c6-af21-6a682d080cb2
+uuid: 47b6ebda-f21b-46a8-a51e-d7a090c1e33d
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.journal
   module:
     - text
+_core:
+  default_config_hash: iClWIIOJFEyKuNhAbPNmoR6cZIce0hE86dABOuukmi0
 id: node.journal.chapter_type
 field_name: chapter_type
 entity_type: node

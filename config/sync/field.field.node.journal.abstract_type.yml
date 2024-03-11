@@ -1,0 +1,22 @@
+uuid: 7eda9fee-9000-455c-8eea-10bc35a956b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.abstract_type
+    - node.type.journal
+  module:
+    - text
+id: node.journal.abstract_type
+field_name: abstract_type
+entity_type: node
+bundle: journal
+label: abstract-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

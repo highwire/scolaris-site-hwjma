@@ -1,0 +1,18 @@
+uuid: a479d86b-4d59-4be4-b754-b5f2f8f53d02
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.free_to_read
+field_name: free_to_read
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: true

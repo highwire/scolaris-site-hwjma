@@ -1,0 +1,22 @@
+uuid: 4fdaa7f1-bc49-4fbc-9299-7c41d02f80b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issn_ppub
+    - node.type.journal_issue
+  module:
+    - text
+id: node.journal_issue.issn_ppub
+field_name: issn_ppub
+entity_type: node
+bundle: journal_issue
+label: issn-ppub
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

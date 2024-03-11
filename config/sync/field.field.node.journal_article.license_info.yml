@@ -1,0 +1,22 @@
+uuid: 463a9e91-3440-4e9d-830c-5d136d71c36e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.license_info
+    - node.type.journal_article
+  module:
+    - text
+id: node.journal_article.license_info
+field_name: license_info
+entity_type: node
+bundle: journal_article
+label: license-info
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

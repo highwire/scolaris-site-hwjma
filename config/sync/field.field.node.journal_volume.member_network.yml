@@ -1,4 +1,4 @@
-uuid: ba457e23-a133-4eca-863c-de6ec530c5c9
+uuid: b1525576-a358-4a55-8250-b68df1818a36
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.journal_volume
   module:
     - text
+_core:
+  default_config_hash: nPrPoUC_9FAL--Raiwbr69SHtZL_hVVIwaeNg3QRuAI
 id: node.journal_volume.member_network
 field_name: member_network
 entity_type: node
