@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.issue_list_item
+    - field.field.node.journal_issue.abstract_type
     - field.field.node.journal_issue.adjuncts
     - field.field.node.journal_issue.apath
     - field.field.node.journal_issue.article_open_access
@@ -16,7 +17,9 @@ dependencies:
     - field.field.node.journal_issue.chapter_type
     - field.field.node.journal_issue.children
     - field.field.node.journal_issue.col_url
+    - field.field.node.journal_issue.content_type
     - field.field.node.journal_issue.contributors
+    - field.field.node.journal_issue.copyright_info
     - field.field.node.journal_issue.corpus
     - field.field.node.journal_issue.cover_date
     - field.field.node.journal_issue.custom_meta
@@ -33,13 +36,14 @@ dependencies:
     - field.field.node.journal_issue.date_revision
     - field.field.node.journal_issue.doi
     - field.field.node.journal_issue.early_release
+    - field.field.node.journal_issue.ec_role
     - field.field.node.journal_issue.elocation_id
     - field.field.node.journal_issue.enclosures
     - field.field.node.journal_issue.extract_policy
     - field.field.node.journal_issue.final_published
     - field.field.node.journal_issue.fpage
+    - field.field.node.journal_issue.free_to_read
     - field.field.node.journal_issue.georef_id
-    - field.field.node.journal_issue.guest_editors
     - field.field.node.journal_issue.has_abstract
     - field.field.node.journal_issue.has_early_release
     - field.field.node.journal_issue.has_figures
@@ -52,6 +56,8 @@ dependencies:
     - field.field.node.journal_issue.has_tables
     - field.field.node.journal_issue.has_videos
     - field.field.node.journal_issue.hwmd_table_of_contents_journals_
+    - field.field.node.journal_issue.issn_epub
+    - field.field.node.journal_issue.issn_ppub
     - field.field.node.journal_issue.issue
     - field.field.node.journal_issue.issue_id
     - field.field.node.journal_issue.issue_is_open
@@ -70,6 +76,7 @@ dependencies:
     - field.field.node.journal_issue.journal_publisher_id
     - field.field.node.journal_issue.journal_title
     - field.field.node.journal_issue.keywords
+    - field.field.node.journal_issue.license_info
     - field.field.node.journal_issue.lpage
     - field.field.node.journal_issue.member_network
     - field.field.node.journal_issue.next_atom
@@ -87,6 +94,7 @@ dependencies:
     - field.field.node.journal_issue.pubmed_id
     - field.field.node.journal_issue.related
     - field.field.node.journal_issue.secondary
+    - field.field.node.journal_issue.sections
     - field.field.node.journal_issue.sibling_order
     - field.field.node.journal_issue.slug
     - field.field.node.journal_issue.subtitle
@@ -115,8 +123,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    enabled: false
     allow_custom: false
+    enabled: false
 _core:
   default_config_hash: sXUklQXmgWa_ZiS3kiWtGmM7eKksifTLoUz-ShxfYpc
 id: node.journal_issue.issue_list_item
@@ -126,22 +134,23 @@ mode: issue_list_item
 content:
   date_ppub:
     type: daterange_default
+    weight: 1
+    region: content
     label: hidden
     settings:
       timezone_override: ''
       format_type: html_year
       separator: '-'
     third_party_settings: {  }
-    weight: 1
-    region: content
   issue:
     type: text_default
+    weight: 0
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
-    region: content
 hidden:
+  abstract_type: true
   addtoany: true
   adjuncts: true
   apath: true
@@ -156,7 +165,9 @@ hidden:
   chapter_type: true
   children: true
   col_url: true
+  content_type: true
   contributors: true
+  copyright_info: true
   corpus: true
   cover_date: true
   custom_meta: true
@@ -172,13 +183,14 @@ hidden:
   date_revision: true
   doi: true
   early_release: true
+  ec_role: true
   elocation_id: true
   enclosures: true
   extract_policy: true
   final_published: true
   fpage: true
+  free_to_read: true
   georef_id: true
-  guest_editors: true
   has_abstract: true
   has_early_release: true
   has_figures: true
@@ -197,6 +209,8 @@ hidden:
   hwjma_focus_view: true
   hwjma_toc_pager: true
   hwmd_table_of_contents_journals_: true
+  issn_epub: true
+  issn_ppub: true
   issue_id: true
   issue_is_open: true
   issue_page_range: true
@@ -216,6 +230,7 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
+  license_info: true
   links: true
   lpage: true
   member_network: true
@@ -237,6 +252,7 @@ hidden:
   related: true
   search_api_excerpt: true
   secondary: true
+  sections: true
   sibling_order: true
   slug: true
   subtitle: true

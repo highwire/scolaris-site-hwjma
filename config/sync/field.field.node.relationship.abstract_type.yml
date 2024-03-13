@@ -1,0 +1,22 @@
+uuid: ba9d94b6-e62b-4e0c-9f86-b0677243b7f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.abstract_type
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.abstract_type
+field_name: abstract_type
+entity_type: node
+bundle: relationship
+label: abstract-type
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

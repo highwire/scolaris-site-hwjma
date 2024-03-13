@@ -10,7 +10,7 @@ dependencies:
     - options
     - user
 _core:
-  default_config_hash: jvqm3xWyhbD21vZ0Pe04oLt4gUnVS0HA6Oq97XwThy8
+  default_config_hash: R6FdqUdx-zTN0GCaHzeqHIB3SSw1Qo4JO_iJVtP2luA
 id: eletters
 label: eLetters
 module: views

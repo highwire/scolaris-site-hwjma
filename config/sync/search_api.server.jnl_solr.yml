@@ -1,4 +1,4 @@
-uuid: 9a7f9f3f-a061-435e-9d9d-d26868873432
+uuid: cccc1f21-84b2-4ea6-8567-9220c61efc6d
 langcode: en
 status: true
 dependencies:
@@ -46,7 +46,7 @@ backend_config:
     host: fa-jcore-solr-dev-02.highwire.org
     port: 8983
     path: /
-    core: scolaris-jcorex_parent_d10
+    core: scolaris-jcorex_parent_instance
     timeout: 5
     index_timeout: 5
     optimize_timeout: 10

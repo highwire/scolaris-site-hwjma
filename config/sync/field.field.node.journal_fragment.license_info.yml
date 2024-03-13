@@ -1,0 +1,22 @@
+uuid: cb57d322-6578-4bdc-b3d1-fc47e7cf39d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.license_info
+    - node.type.journal_fragment
+  module:
+    - text
+id: node.journal_fragment.license_info
+field_name: license_info
+entity_type: node
+bundle: journal_fragment
+label: license-info
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

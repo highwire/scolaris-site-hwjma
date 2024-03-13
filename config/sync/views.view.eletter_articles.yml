@@ -8,6 +8,11 @@ dependencies:
   module:
     - node
     - user
+  enforced:
+    module:
+      - highwire_top_topics
+_core:
+  default_config_hash: uYkpmQ13cpXSmNuiXKGg_TJ_EA3ed85rrCfOhIKQzSI
 id: eletter_articles
 label: 'Eletter Articles'
 module: views

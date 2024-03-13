@@ -1,10 +1,12 @@
-uuid: e54dbf15-d5e5-4f38-bce5-7e477f86a7f7
+uuid: 1a87cc12-da9f-4d48-b41a-97b2d10d1de4
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: ytrEN8qDkVjRbLZxjPqIcBOhy2E9ghSzBhK3YiRP5o4
 id: node.chapter_type
 field_name: chapter_type
 entity_type: node

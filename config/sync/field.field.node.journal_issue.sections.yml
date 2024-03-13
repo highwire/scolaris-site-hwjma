@@ -1,0 +1,39 @@
+uuid: 3559ceaf-dfde-43d8-a738-843e040a5b8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sections
+    - node.type.journal_issue
+  module:
+    - double_field
+id: node.journal_issue.sections
+field_name: sections
+entity_type: node
+bundle: journal_issue
+label: sections
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

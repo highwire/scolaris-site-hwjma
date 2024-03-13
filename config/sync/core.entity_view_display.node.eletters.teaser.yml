@@ -23,7 +23,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: uig-1p4QoIDVnWe2LbpQ8bnEn-2H6neNqstvVa62zGs
+  default_config_hash: UYPJc53-5XJp_Vtb_tKfsKDYbAEDj0M8ZUAE4X6Ou_U
 id: node.eletters.teaser
 targetEntityType: node
 bundle: eletters

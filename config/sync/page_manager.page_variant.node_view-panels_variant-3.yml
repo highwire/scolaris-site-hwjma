@@ -10,16 +10,11 @@ dependencies:
     - node
     - panels
 _core:
-  default_config_hash: Q3dpmjjdt_s7JJiDYyn_cvf2krF2s9Zk6Tqa5-_jxIc
+  default_config_hash: 6AQI02_1ngHxm5c0XIbRULWvxU8ktZZqaEQXwEw78Dw
 id: node_view-panels_variant-3
 label: issue
-weight: 0
 variant: panels_variant
 variant_settings:
-  id: panels_variant
-  label: null
-  weight: 0
-  uuid: be92a481-5963-4572-a1eb-e8eaad43084c
   blocks:
     c01f57f9-bcc3-4d83-8610-dd23776fcdc5:
       id: 'entity_view:node'
@@ -52,6 +47,10 @@ variant_settings:
       region: left
       weight: 0
       uuid: 1b634706-f02f-4ad1-b03e-6fdc7d9c3409
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: be92a481-5963-4572-a1eb-e8eaad43084c
   page_title: '[node:journal_title] [node:title]'
   layout: bs_2col_stacked
   layout_settings:
@@ -91,6 +90,7 @@ variant_settings:
   storage_type: page_manager
   storage_id: node_view-panels_variant-3
 page: node_view
+weight: 0
 selection_criteria:
   -
     id: 'entity_bundle:node'

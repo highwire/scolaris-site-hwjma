@@ -1,4 +1,4 @@
-uuid: e99e0b35-8fd7-46e2-90b7-ca791cd60c14
+uuid: 4fc701d9-d063-4cca-860b-aee641fca042
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.relationship
   module:
     - text
+_core:
+  default_config_hash: nMlG-0kK3C4d7cuy6FcXPc0Y6cqLPNh0s8-6Mt_YqcE
 id: node.relationship.member_network
 field_name: member_network
 entity_type: node

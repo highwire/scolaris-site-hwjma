@@ -1,4 +1,4 @@
-uuid: 2b7b2b09-7288-40c7-a3b2-f2a1eba4dd0d
+uuid: a96e3bd8-9e85-49e0-b264-0a0a99e76d90
 langcode: en
 status: true
 dependencies:
@@ -19,11 +19,11 @@ required: false
 translatable: false
 default_value:
   -
-    target_uuid: ''
     default_data: ''
     status: open
     open: ''
     close: ''
+    target_uuid: ''
 default_value_callback: ''
 settings:
   handler: 'default:webform'

@@ -1,4 +1,4 @@
-uuid: 2cbe2d72-7010-4507-bd61-c8752757cc87
+uuid: b5a43ad5-6189-4e95-9e2c-e517f029cb61
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.journal_fragment
   module:
     - text
+_core:
+  default_config_hash: nquQ3F1YcDp_dY_hbZKP7eT_byU8iqHy57bM1IyG8LA
 id: node.journal_fragment.member_network
 field_name: member_network
 entity_type: node

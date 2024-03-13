@@ -4,9 +4,9 @@ highwire_content_site_data:
     publisher-id: djma
     status: development
     type: journal
-    name: 'Demo Journal of Medical Association'
+    name: 'Demo Journal of Medical Association-HWJMA'
     abbrev:
-      publisher: hwjma
+      publisher: hwjma-abbr
     url:
       ac_service: 'http://hwjma-ac.highwire.org'
       ac_service_development: 'http://hwjma-ac-dev.highwire.org'

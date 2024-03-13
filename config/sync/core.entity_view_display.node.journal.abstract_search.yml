@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.abstract_search
+    - field.field.node.journal.abstract_type
     - field.field.node.journal.adjuncts
     - field.field.node.journal.apath
     - field.field.node.journal.article_open_access
@@ -16,7 +17,9 @@ dependencies:
     - field.field.node.journal.chapter_type
     - field.field.node.journal.children
     - field.field.node.journal.col_url
+    - field.field.node.journal.content_type
     - field.field.node.journal.contributors
+    - field.field.node.journal.copyright_info
     - field.field.node.journal.corpus
     - field.field.node.journal.cover_date
     - field.field.node.journal.custom_meta
@@ -33,13 +36,14 @@ dependencies:
     - field.field.node.journal.date_revision
     - field.field.node.journal.doi
     - field.field.node.journal.early_release
+    - field.field.node.journal.ec_role
     - field.field.node.journal.elocation_id
     - field.field.node.journal.enclosures
     - field.field.node.journal.extract_policy
     - field.field.node.journal.final_published
     - field.field.node.journal.fpage
+    - field.field.node.journal.free_to_read
     - field.field.node.journal.georef_id
-    - field.field.node.journal.guest_editors
     - field.field.node.journal.has_abstract
     - field.field.node.journal.has_early_release
     - field.field.node.journal.has_figures
@@ -53,6 +57,8 @@ dependencies:
     - field.field.node.journal.has_videos
     - field.field.node.journal.hwmd_abstract_search
     - field.field.node.journal.hwmd_abstract_search_index_
+    - field.field.node.journal.issn_epub
+    - field.field.node.journal.issn_ppub
     - field.field.node.journal.issue
     - field.field.node.journal.issue_id
     - field.field.node.journal.issue_is_open
@@ -71,6 +77,7 @@ dependencies:
     - field.field.node.journal.journal_publisher_id
     - field.field.node.journal.journal_title
     - field.field.node.journal.keywords
+    - field.field.node.journal.license_info
     - field.field.node.journal.lpage
     - field.field.node.journal.member_network
     - field.field.node.journal.next_atom
@@ -88,6 +95,7 @@ dependencies:
     - field.field.node.journal.pubmed_id
     - field.field.node.journal.related
     - field.field.node.journal.secondary
+    - field.field.node.journal.sections
     - field.field.node.journal.sibling_order
     - field.field.node.journal.slug
     - field.field.node.journal.subtitle
@@ -115,8 +123,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    enabled: false
     allow_custom: false
+    enabled: false
 _core:
   default_config_hash: GTNsgHIFOqgbutW-oT2B0D4mgq3rXBaEDZQ6cA3ih-s
 id: node.journal.abstract_search
@@ -126,13 +134,14 @@ mode: abstract_search
 content:
   hwmd_abstract_search:
     type: hwmarkup_display_formatter
+    weight: 0
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 0
-    region: content
 hidden:
   about: true
+  abstract_type: true
   addtoany: true
   adjuncts: true
   all_issues: true
@@ -148,7 +157,9 @@ hidden:
   chapter_type: true
   children: true
   col_url: true
+  content_type: true
   contributors: true
+  copyright_info: true
   corpus: true
   cover_date: true
   cover_image: true
@@ -167,14 +178,15 @@ hidden:
   date_revision: true
   doi: true
   early_release: true
+  ec_role: true
   editorial_brd: true
   elocation_id: true
   enclosures: true
   extract_policy: true
   final_published: true
   fpage: true
+  free_to_read: true
   georef_id: true
-  guest_editors: true
   has_abstract: true
   has_early_release: true
   has_figures: true
@@ -193,6 +205,8 @@ hidden:
   hwjma_focus_view: true
   hwjma_toc_pager: true
   hwmd_abstract_search_index_: true
+  issn_epub: true
+  issn_ppub: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -214,6 +228,7 @@ hidden:
   keywords: true
   langcode: true
   latest_articles: true
+  license_info: true
   links: true
   lpage: true
   member_network: true
@@ -221,10 +236,6 @@ hidden:
   next_atom: true
   overline: true
   page_count: true
-  pap_alias: true
-  pap_article_view: true
-  pap_landing_page_text: true
-  pap_page_link: true
   parent: true
   parent_issue: true
   parent_journal: true
@@ -240,6 +251,7 @@ hidden:
   related: true
   search_api_excerpt: true
   secondary: true
+  sections: true
   sibling_order: true
   slug: true
   submit_article: true

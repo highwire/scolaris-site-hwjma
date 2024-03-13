@@ -1,0 +1,39 @@
+uuid: 5c2ec077-d6b8-449f-9d54-41f5240ecb39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sections
+    - node.type.relationship
+  module:
+    - double_field
+id: node.relationship.sections
+field_name: sections
+entity_type: node
+bundle: relationship
+label: sections
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field
