@@ -1,10 +1,12 @@
-uuid: e803b90f-fb79-459c-aad0-aa27040b791a
+uuid: cad14242-42d4-461c-8d93-51f6249aa7be
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: 1PypmtQmI3m0gBhcIq4kXFZfAZVtJltSAiRUiqy32qM
 id: node.member_network
 field_name: member_network
 entity_type: node

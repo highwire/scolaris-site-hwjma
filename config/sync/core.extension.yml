@@ -17,6 +17,7 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  crazyegg: 0
   ctools: 0
   datetime: 0
   datetime_range: 0
@@ -37,6 +38,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  gtranslate: 0
   help: 0
   highwire_access_control: 0
   highwire_binary: 0
@@ -61,6 +63,7 @@ module:
   highwire_site_style: 0
   highwire_taxonomy: 0
   highwire_top_topics: 0
+  highwire_trendmd: 0
   highwire_user: 0
   history: 0
   image: 0
@@ -106,6 +109,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  update: 0
   user: 0
   views_bulk_operations: 0
   views_ui: 0
@@ -127,7 +131,6 @@ module:
   webform_ui: 0
   pathauto: 1
   webform_bootstrap: 1
-  externalauth: 10
   views: 10
   paragraphs: 11
   freebird: 1000

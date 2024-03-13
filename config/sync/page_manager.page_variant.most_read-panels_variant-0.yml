@@ -14,13 +14,8 @@ _core:
   default_config_hash: q83vFV2W_7hYyj-Ge584FSLaXBNldmUdd8UF00np_MU
 id: most_read-panels_variant-0
 label: Panels
-weight: 0
 variant: panels_variant
 variant_settings:
-  id: panels_variant
-  label: null
-  weight: 0
-  uuid: ae2983a0-7376-4617-9a06-ebf12f30e573
   blocks:
     d01ecb71-ffe8-47ed-8bb1-865ff0703869:
       id: most_read_cited_block
@@ -36,6 +31,10 @@ variant_settings:
       limit: '10'
       corpus: ''
       show_pager: 1
+  id: panels_variant
+  label: null
+  weight: 0
+  uuid: ae2983a0-7376-4617-9a06-ebf12f30e573
   page_title: 'Most Read'
   layout: bs_1col
   layout_settings: {  }
@@ -43,6 +42,7 @@ variant_settings:
   storage_type: page_manager
   storage_id: most_read-panels_variant-0
 page: most_read
+weight: 0
 selection_criteria: {  }
 selection_logic: and
 static_context: {  }

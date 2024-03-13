@@ -12,7 +12,6 @@ markers_admin_citations_view_mode:
   journal_fragment: search_result
   journal_issue: search_result
   journal_volume: search_result
-  media: search_result
 tags_admin_citations_view_mode:
   journal_article: content_details
 profile_and_privacy_form_class: ''

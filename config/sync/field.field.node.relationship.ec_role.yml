@@ -1,0 +1,22 @@
+uuid: 94a1fa4c-7c88-49ca-850e-e38194477376
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.ec_role
+    - node.type.relationship
+  module:
+    - text
+id: node.relationship.ec_role
+field_name: ec_role
+entity_type: node
+bundle: relationship
+label: ec-role
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

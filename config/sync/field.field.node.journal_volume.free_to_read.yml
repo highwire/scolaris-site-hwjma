@@ -1,0 +1,21 @@
+uuid: 0eba01c6-2bbe-4875-b16c-939faa756baf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.free_to_read
+    - node.type.journal_volume
+id: node.journal_volume.free_to_read
+field_name: free_to_read
+entity_type: node
+bundle: journal_volume
+label: free-to-read
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,4 +1,4 @@
-uuid: 155d7d57-c28e-4036-b59c-bdeba566fe27
+uuid: 2107aad5-dd45-4edf-859b-b71f78855522
 langcode: en
 status: true
 dependencies:
@@ -18,17 +18,17 @@ bundle: webform
 mode: teaser
 content:
   body:
-    type: text_summary_or_trimmed
     label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
     region: content
   links:
+    weight: 100
     settings: {  }
     third_party_settings: {  }
-    weight: 100
     region: content
 hidden:
   addtoany: true

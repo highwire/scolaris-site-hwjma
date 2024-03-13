@@ -7,6 +7,8 @@ dependencies:
     - node.type.eletters
   module:
     - options
+_core:
+  default_config_hash: 1DhFWcRTICtfRHY9Kt4qnDEKXksMFnc0wC4bnCh8Xn4
 id: node.eletters.field_electronic_publication
 field_name: field_electronic_publication
 entity_type: node

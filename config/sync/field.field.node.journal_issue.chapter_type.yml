@@ -1,4 +1,4 @@
-uuid: bd3fa020-7edf-4847-a3af-e1e50275c77f
+uuid: 508c906f-5678-4c51-99c2-36fbe48fcfe3
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - node.type.journal_issue
   module:
     - text
+_core:
+  default_config_hash: vsvNPdFfgADaL-ColfH0_aehTS7TGUdXFyqkR8i8Lug
 id: node.journal_issue.chapter_type
 field_name: chapter_type
 entity_type: node

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_result
+    - field.field.node.journal_article.abstract_type
     - field.field.node.journal_article.adjuncts
     - field.field.node.journal_article.apath
     - field.field.node.journal_article.article_open_access
@@ -16,7 +17,9 @@ dependencies:
     - field.field.node.journal_article.chapter_type
     - field.field.node.journal_article.children
     - field.field.node.journal_article.col_url
+    - field.field.node.journal_article.content_type
     - field.field.node.journal_article.contributors
+    - field.field.node.journal_article.copyright_info
     - field.field.node.journal_article.corpus
     - field.field.node.journal_article.cover_date
     - field.field.node.journal_article.custom_meta
@@ -33,14 +36,15 @@ dependencies:
     - field.field.node.journal_article.date_revision
     - field.field.node.journal_article.doi
     - field.field.node.journal_article.early_release
+    - field.field.node.journal_article.ec_role
     - field.field.node.journal_article.elocation_id
     - field.field.node.journal_article.enclosures
     - field.field.node.journal_article.extract_policy
-    - field.field.node.journal_article.field_disqus_comment
+    - field.field.node.journal_article.field_comments
     - field.field.node.journal_article.final_published
     - field.field.node.journal_article.fpage
+    - field.field.node.journal_article.free_to_read
     - field.field.node.journal_article.georef_id
-    - field.field.node.journal_article.guest_editors
     - field.field.node.journal_article.has_abstract
     - field.field.node.journal_article.has_early_release
     - field.field.node.journal_article.has_figures
@@ -61,6 +65,8 @@ dependencies:
     - field.field.node.journal_article.hwmd_contributors_plain_
     - field.field.node.journal_article.hwmd_figures_tables_article_
     - field.field.node.journal_article.hwmd_long_article_
+    - field.field.node.journal_article.issn_epub
+    - field.field.node.journal_article.issn_ppub
     - field.field.node.journal_article.issue
     - field.field.node.journal_article.issue_id
     - field.field.node.journal_article.issue_is_open
@@ -79,6 +85,7 @@ dependencies:
     - field.field.node.journal_article.journal_publisher_id
     - field.field.node.journal_article.journal_title
     - field.field.node.journal_article.keywords
+    - field.field.node.journal_article.license_info
     - field.field.node.journal_article.lpage
     - field.field.node.journal_article.member_network
     - field.field.node.journal_article.next_atom
@@ -96,6 +103,7 @@ dependencies:
     - field.field.node.journal_article.pubmed_id
     - field.field.node.journal_article.related
     - field.field.node.journal_article.secondary
+    - field.field.node.journal_article.sections
     - field.field.node.journal_article.sibling_order
     - field.field.node.journal_article.slug
     - field.field.node.journal_article.subtitle
@@ -150,6 +158,7 @@ content:
     weight: 2
     region: content
 hidden:
+  abstract_type: true
   addtoany: true
   adjuncts: true
   apath: true
@@ -166,7 +175,9 @@ hidden:
   children: true
   cited_by_block: true
   col_url: true
+  content_type: true
   contributors: true
+  copyright_info: true
   corpus: true
   cover_date: true
   custom_meta: true
@@ -183,15 +194,16 @@ hidden:
   date_revision: true
   doi: true
   early_release: true
+  ec_role: true
   elocation_id: true
   email_article: true
   enclosures: true
   extract_policy: true
-  field_disqus_comment: true
+  field_comments: true
   final_published: true
   fpage: true
+  free_to_read: true
   georef_id: true
-  guest_editors: true
   has_abstract: true
   has_early_release: true
   has_figures: true
@@ -218,6 +230,8 @@ hidden:
   hwmd_contributors_plain_: true
   hwmd_figures_tables_article_: true
   hwmd_long_article_: true
+  issn_epub: true
+  issn_ppub: true
   issue: true
   issue_id: true
   issue_is_open: true
@@ -241,6 +255,7 @@ hidden:
   journal_title: true
   keywords: true
   langcode: true
+  license_info: true
   lpage: true
   member_network: true
   next_atom: true
@@ -261,6 +276,7 @@ hidden:
   related: true
   search_api_excerpt: true
   secondary: true
+  sections: true
   sibling_order: true
   slug: true
   subtitle: true
