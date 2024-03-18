@@ -1,5 +1,5 @@
 palette:
-  body_bg: '#ffffff'
+  body_bg: '#ceb46c'
   header_bg: '#ffffff'
   footer_bg: '#000000'
   page_title: '#131313'
@@ -22,6 +22,6 @@ palette:
   button_bg: '#235e7b'
   button_border: '#37718d'
   button_text: '#fefefe'
-logo: 'public://color/jcorex_base-00a3d300/logo.svg'
+logo: 'public://color/jcorex_base-0d62e063/logo.svg'
 stylesheets: {  }
 files: {  }
