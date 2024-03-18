@@ -1,8 +1,8 @@
 palette:
-  body_bg: '#ce6c83'
-  header_bg: '#ffffff'
+  body_bg: '#cdce6c'
+  header_bg: '#9b1e1e'
   footer_bg: '#000000'
-  page_title: '#bc1b1b'
+  page_title: '#27bc1b'
   text: '#000000'
   footer_title: '#ffffff'
   footer_text: '#fdfdfd'
@@ -22,6 +22,6 @@ palette:
   button_bg: '#235e7b'
   button_border: '#37718d'
   button_text: '#fefefe'
-logo: 'public://color/jcorex_base-b7c61e4d/logo.svg'
+logo: 'public://color/jcorex_base-03a89ccc/logo.svg'
 stylesheets: {  }
 files: {  }
