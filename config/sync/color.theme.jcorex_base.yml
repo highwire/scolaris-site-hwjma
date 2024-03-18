@@ -21,7 +21,7 @@ palette:
   button_bg: '#3d6d7d'
   button_border: '#3d6d7d'
   button_text: '#ffffff'
-  body_bg_color: '#e6e6df'
-logo: 'public://color/jcorex_base-a92ccea2/logo.svg'
+  body_bg_color: '#ffffff'
+logo: 'public://color/jcorex_base-11bf273c/logo.svg'
 stylesheets: {  }
 files: {  }
