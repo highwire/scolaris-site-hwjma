@@ -419,3 +419,12 @@ menus:
     weight: 0
     langcode: en
     uuid: c20357b9-20ab-4411-bbd2-07b28d84d077
+features:
+  node_user_picture: 1
+  comment_user_picture: 1
+  comment_user_verification: 1
+  favicon: 1
+logo:
+  use_default: 1
+favicon:
+  use_default: 1
