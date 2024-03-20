@@ -8,9 +8,10 @@ description: ''
 weight: 0
 stackable: false
 no_patching: false
-storage: folder
+storage: collection
 folder: ../config/hwjms
-module: {  }
+module:
+  highwire_content: 0
 theme: {  }
 complete_list: {  }
 partial_list: {  }
