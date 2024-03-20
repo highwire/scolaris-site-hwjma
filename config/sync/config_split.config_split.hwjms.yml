@@ -1,17 +1,16 @@
-uuid: dafb3b8e-1140-4055-b8da-b0650760d92e
+uuid: f20a9ea7-e36f-4b18-8248-a8fcfbbcf5db
 langcode: en
 status: true
 dependencies: {  }
-id: hwjma
-label: Hwjma
+id: hwjms
+label: Hwjms
 description: ''
 weight: 0
 stackable: false
 no_patching: false
-storage: collection
-folder: ../config/hwjma
-module:
-  highwire_content: 0
+storage: folder
+folder: ../config/hwjms
+module: {  }
 theme: {  }
 complete_list: {  }
 partial_list: {  }
