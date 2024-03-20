@@ -3,6 +3,7 @@ highwire_content_configuration:
     jcorex-journal:
       - hwjma
       - hwjms
+      - hwjmm
 highwire_content_type_policy_field_mapping:
   journal:
     -
@@ -3161,6 +3162,10 @@ highwire_content_type_policy_field_mapping:
       freebird-type: text
       policy: jcorex-journal
 highwire_content_content_type_labels: {  }
+highwire_corpus_page_redirect:
+  jcorex-journal:
+    hwjma: ''
+    hwjms: ''
 highwire_content_content_type_groupings: {  }
 highwire_content_content_sync_enabled: 0
 highwire_content_content_environment: development
