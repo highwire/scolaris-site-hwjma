@@ -1,0 +1,22 @@
+uuid: 92016059-fdd1-415b-b949-b9b9ac98b682
+langcode: en
+status: true
+dependencies:
+  module:
+    - jnl_basic_config
+  theme:
+    - jcorex_base
+_core:
+  default_config_hash: 9WWbv7gtVnvw-F7fIpbVuvBAXr93xs-uVM7PYgFg2sI
+id: jcorex_base_socialmediablock
+theme: jcorex_base
+region: footer_1
+weight: 0
+provider: null
+plugin: social_media_block
+settings:
+  id: social_media_block
+  label: 'Social Media block'
+  label_display: '0'
+  provider: hwjma_basic_config
+visibility: {  }

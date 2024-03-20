@@ -46,6 +46,7 @@ module:
   highwire_binary: 0
   highwire_citations: 0
   highwire_client: 0
+  highwire_content: 0
   highwire_core: 0
   highwire_counter: 0
   highwire_display: 0
@@ -70,7 +71,6 @@ module:
   image: 0
   image_captcha: 0
   imce: 0
-  jnl_basic_config: 0
   jnl_content_display: 0
   jnl_core: 0
   jnl_search: 0

@@ -11,7 +11,7 @@ no_patching: false
 storage: collection
 folder: ''
 module:
-  highwire_content: 0
+  jnl_basic_config: 0
 theme: {  }
 complete_list: {  }
 partial_list: {  }

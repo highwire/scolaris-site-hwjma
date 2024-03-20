@@ -1,0 +1,20 @@
+uuid: 0d697274-19f8-4fe9-9a11-8466d74f8161
+langcode: en
+status: true
+dependencies:
+  module:
+    - jnl_basic_config
+  theme:
+    - jcorex_base
+id: jcorex_base_footerleftlogo
+theme: jcorex_base
+region: footer_1
+weight: 0
+provider: null
+plugin: Footer_left_logo
+settings:
+  id: Footer_left_logo
+  label: 'Footer Left Logo'
+  label_display: '0'
+  provider: jnl_basic_config
+visibility: {  }
