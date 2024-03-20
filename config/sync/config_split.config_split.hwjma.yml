@@ -1,0 +1,16 @@
+uuid: dafb3b8e-1140-4055-b8da-b0650760d92e
+langcode: en
+status: true
+dependencies: {  }
+id: hwjma
+label: Hwjma
+description: ''
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../config/hwjma
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }
