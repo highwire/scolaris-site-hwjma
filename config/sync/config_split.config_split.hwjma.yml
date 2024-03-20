@@ -1,0 +1,17 @@
+uuid: a5e06af6-f49e-4ac5-a605-1c3843ad1f8b
+langcode: en
+status: true
+dependencies: {  }
+id: hwjma
+label: Hwjma
+description: ''
+weight: 0
+stackable: false
+no_patching: false
+storage: collection
+folder: ''
+module:
+  highwire_content: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }
