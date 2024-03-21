@@ -13,6 +13,5 @@ folder: ''
 module:
   jnl_basic_config: 0
 theme: {  }
-complete_list:
-  - highwire_eletter.settings
+complete_list: {  }
 partial_list: {  }
