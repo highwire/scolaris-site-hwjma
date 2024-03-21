@@ -1,6 +1,8 @@
 adding:
+  manual_startup: 1
   hide_accept: 1
   rjct_option: 1
 removing:
+  manual_startup: 0
   hide_accept: 0
   rjct_option: 0
