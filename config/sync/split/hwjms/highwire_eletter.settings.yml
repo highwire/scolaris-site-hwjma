@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: Z2OyUZC3UwYcqFRBnhYSHGa-wkaK1x70Ebmbb5kth8w
+thanks_msg: '<p>Thank you for your interest in spreading the word on HWJMA.</p>'
+email_article_note: '<p>NOTE: We only request your email address so that the person you are recommending the page to knows that you wanted them to see it, and that it is not junk mail. We do not capture any email address.</p>'
+message_subject: '(Your Name) has sent you a message from HWJMA'
+message_body: '(Your Name) thought you would like to see the HWJMA web site.'
+thanks_msg_display: 1
+email_article_note_display: 1
+message_subject_display: 1
+message_body_display: 1
+highwire_rr_email_sender: ''
+highwire_rr_email_response_sent: ''
+highwire_rr_email_subject: 'Thank you for your response to'
+highwire_e_letter_submission_message: 'Thank you for your response. We intend to publish as rapidly as possible all responses that contribute substantially to the topic under discussion.'
+moderator_distribution_email_list: ''
+moderator_site_feedback_email_list: ''
+moderator_notification_from_address: ''
+moderator_notification_to_address: ''
+moderator_notification_email_subject: ''
+moderator_notification_response_text: ''
