@@ -15,4 +15,5 @@ module:
 theme: {  }
 complete_list:
   - highwire_eletter.settings
-partial_list: {  }
+partial_list:
+  - highwire_monsido.settings
