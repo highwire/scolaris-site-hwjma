@@ -1,4 +1,6 @@
 adding:
   hide_accept: 1
+  rjct_option: 1
 removing:
   hide_accept: 0
+  rjct_option: 0
