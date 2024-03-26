@@ -1,0 +1,22 @@
+uuid: 8ffa04ac-07d2-45b1-9ef8-1288c3adbf4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.copyright_info
+    - node.type.media
+  module:
+    - text
+id: node.media.copyright_info
+field_name: copyright_info
+entity_type: node
+bundle: media
+label: copyright-info
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

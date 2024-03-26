@@ -1,0 +1,24 @@
+uuid: 84191c24-3d52-436c-8135-e92bd3687e25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disqus_comments
+    - node.type.journal_article
+  module:
+    - disqus
+id: node.journal_article.field_disqus_comments
+field_name: field_disqus_comments
+entity_type: node
+bundle: journal_article
+label: 'Disqus comments'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: true
+    identifier: ''
+default_value_callback: ''
+settings: {  }
+field_type: disqus_comment

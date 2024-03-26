@@ -1,0 +1,21 @@
+uuid: eca43094-082b-41f4-a1f0-8951cfcb3f6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.parent_volume
+    - node.type.media
+id: node.media.parent_volume
+field_name: parent_volume
+entity_type: node
+bundle: media
+label: parent-volume
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

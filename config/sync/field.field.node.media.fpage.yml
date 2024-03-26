@@ -1,0 +1,22 @@
+uuid: 2523b18b-3577-44a6-8914-457020b6e6ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.fpage
+    - node.type.media
+  module:
+    - text
+id: node.media.fpage
+field_name: fpage
+entity_type: node
+bundle: media
+label: fpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long
