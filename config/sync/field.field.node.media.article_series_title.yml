@@ -1,0 +1,22 @@
+uuid: 90e56259-7ba6-4418-84d7-2a78e4e696da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.article_series_title
+    - node.type.media
+  module:
+    - text
+id: node.media.article_series_title
+field_name: article_series_title
+entity_type: node
+bundle: media
+label: article-series-title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

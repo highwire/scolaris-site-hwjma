@@ -1,0 +1,22 @@
+uuid: eba94192-7e26-48e5-b6c9-0d3c3e8f2ae5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.col_url
+    - node.type.media
+  module:
+    - text
+id: node.media.col_url
+field_name: col_url
+entity_type: node
+bundle: media
+label: col-url
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

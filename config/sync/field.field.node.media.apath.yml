@@ -1,0 +1,19 @@
+uuid: 42faeafa-5524-426e-815a-536d73135b5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.apath
+    - node.type.media
+id: node.media.apath
+field_name: apath
+entity_type: node
+bundle: media
+label: Apath
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

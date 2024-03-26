@@ -1,10 +1,9 @@
-uuid: 6b87ebd7-47b4-4610-bd1c-ebc28fa46b38
+uuid: 459f547a-05d0-4aa7-99d6-fc3504b5df1e
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.basic_html
-    - filter.format.webform_default
     - node.type.eletters
   module:
     - comment
@@ -31,5 +30,4 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
-  - 'use text format webform_default'
   - 'view disqus comments'
