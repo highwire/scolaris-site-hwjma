@@ -1,0 +1,16 @@
+adding:
+  variant_settings:
+    blocks:
+      0cc071b0-f63a-4465-8b23-b88c273b1cfd:
+        region: top
+      471e12e4-ae64-463a-9533-e0608fbb29ab:
+        region: top
+    layout: bs_3col_stacked
+removing:
+  variant_settings:
+    blocks:
+      0cc071b0-f63a-4465-8b23-b88c273b1cfd:
+        region: main
+      471e12e4-ae64-463a-9533-e0608fbb29ab:
+        region: main
+    layout: bs_1col

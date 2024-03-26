@@ -17,3 +17,4 @@ partial_list:
   - highwire_content.settings
   - highwire_content.site_data
   - jnl_basic_config.settings
+  - page_manager.page_variant.homepage-panels_variant-0
