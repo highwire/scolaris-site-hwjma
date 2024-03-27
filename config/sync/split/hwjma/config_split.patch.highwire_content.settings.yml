@@ -1,0 +1,10 @@
+adding:
+  highwire_corpus_page_redirect:
+    jcorex-journal:
+      hwjma: ''
+      hwjms: ''
+removing:
+  highwire_content_configuration:
+    content:
+      jcorex-journal:
+        - hwjms
