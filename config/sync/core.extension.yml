@@ -24,8 +24,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
-  devel_php: 0
   disqus: 0
   double_field: 0
   dynamic_page_cache: 0
@@ -118,7 +116,6 @@ module:
   webform: 0
   webform_access: 0
   webform_attachment: 0
-  webform_devel: 0
   webform_example_element: 0
   webform_example_handler: 0
   webform_example_variant: 0
