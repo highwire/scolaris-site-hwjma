@@ -2,8 +2,10 @@ adding:
   dependencies:
     config:
       - views.view.home_page_hero_banner
+      - views.view.latest_articles
     module:
       - highwire_top_topics
+      - journal_article_detail
   variant_settings:
     blocks:
       0cc071b0-f63a-4465-8b23-b88c273b1cfd:
@@ -28,7 +30,7 @@ adding:
         provider: highwire_top_topics
         context_mapping: {  }
         region: bottom_right
-        weight: 0
+        weight: -2
         uuid: 165e5d67-ccc9-4f56-8428-850930b076b1
         top_topics: 1
         top_topics_title: ''
@@ -41,6 +43,35 @@ adding:
         limit: '5'
         corpus: hwjms
         read_more: 0
+      5a530259-e48b-43ca-828c-71c8d33f58b2:
+        id: jnl_altmetrics_data
+        label: Altmetrics
+        label_display: visible
+        provider: journal_article_detail
+        context_mapping: {  }
+        region: bottom_right
+        weight: -1
+        uuid: 5a530259-e48b-43ca-828c-71c8d33f58b2
+        description: ''
+        month: 6m
+        issns: 1488-2329
+        number_per_page: '5'
+        api_url: 'https://api.altmetric.com/v1/citations/'
+        show_pager: 0
+        more_link: 0
+        more_link_label: 'See more'
+        msg_no_data: 'No Altmetric data available.'
+      ed75a79f-2511-49bc-abfc-a65a4f5cdee8:
+        id: 'views_block:latest_articles-block_1'
+        label: ''
+        label_display: visible
+        provider: views
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        region: bottom_left
+        weight: 0
+        uuid: ed75a79f-2511-49bc-abfc-a65a4f5cdee8
     layout: bs_2col_bricked
     layout_settings:
       label: ''
