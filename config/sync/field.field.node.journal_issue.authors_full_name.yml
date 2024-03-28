@@ -1,4 +1,4 @@
-uuid: 2ca6270b-3179-4959-bc8f-f0297a76df39
+uuid: e909043a-5614-4b0f-8022-43445b3f396b
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.authors_full_name
     - node.type.journal_issue
   module:
-    - text
+    - double_field
 id: node.journal_issue.authors_full_name
 field_name: authors_full_name
 entity_type: node
@@ -18,5 +18,22 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
-field_type: text_long
+  first:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

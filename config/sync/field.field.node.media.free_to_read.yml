@@ -1,0 +1,21 @@
+uuid: eb702ff7-9da8-4aa9-9cae-afd8bcbf8adb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.free_to_read
+    - node.type.media
+id: node.media.free_to_read
+field_name: free_to_read
+entity_type: node
+bundle: media
+label: free-to-read
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

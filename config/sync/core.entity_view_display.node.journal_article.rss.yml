@@ -40,7 +40,6 @@ dependencies:
     - field.field.node.journal_article.elocation_id
     - field.field.node.journal_article.enclosures
     - field.field.node.journal_article.extract_policy
-    - field.field.node.journal_article.field_comments
     - field.field.node.journal_article.final_published
     - field.field.node.journal_article.fpage
     - field.field.node.journal_article.free_to_read
@@ -135,9 +134,9 @@ bundle: journal_article
 mode: rss
 content:
   links:
+    weight: 100
     settings: {  }
     third_party_settings: {  }
-    weight: 100
     region: content
 hidden:
   abstract_type: true
@@ -181,7 +180,6 @@ hidden:
   email_article: true
   enclosures: true
   extract_policy: true
-  field_comments: true
   final_published: true
   fpage: true
   free_to_read: true

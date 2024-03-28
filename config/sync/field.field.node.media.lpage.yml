@@ -1,0 +1,22 @@
+uuid: a7001052-0aed-452d-900e-e490c307c88e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.lpage
+    - node.type.media
+  module:
+    - text
+id: node.media.lpage
+field_name: lpage
+entity_type: node
+bundle: media
+label: lpage
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

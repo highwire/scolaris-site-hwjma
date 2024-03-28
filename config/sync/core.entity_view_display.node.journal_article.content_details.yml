@@ -40,7 +40,6 @@ dependencies:
     - field.field.node.journal_article.elocation_id
     - field.field.node.journal_article.enclosures
     - field.field.node.journal_article.extract_policy
-    - field.field.node.journal_article.field_comments
     - field.field.node.journal_article.final_published
     - field.field.node.journal_article.fpage
     - field.field.node.journal_article.free_to_read
@@ -142,11 +141,10 @@ third_party_settings:
         - hw_marker_sign_up
         - hw_alerts_sign_up
         - hw_tag_sign_up
-        - ccc_permissions_link
       label: 'Action Tools'
       parent_name: ''
       region: content
-      weight: 8
+      weight: 7
       format_type: highwire_html_list
       format_settings:
         id: ''
@@ -162,7 +160,7 @@ content:
   addtoany:
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   article_type:
     type: text_default
@@ -170,13 +168,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
-    region: content
-  authors_full_name:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
     region: content
   ccc_permissions_link:
     settings: {  }
@@ -188,12 +179,12 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   email_article:
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   highwire_citations_download:
     settings: {  }
@@ -226,7 +217,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   variant_full_text_pdf:
     type: access_aware_file_url_plain
@@ -237,7 +228,7 @@ content:
       access_denied_html: ''
       access_link_hide: false
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
 hidden:
   abstract_type: true
@@ -247,6 +238,7 @@ hidden:
   article_response_tab: true
   article_series_title: true
   atom_type: true
+  authors_full_name: true
   authors_only_full_name: true
   bookvault_skuid: true
   chapter_type: true
@@ -275,7 +267,6 @@ hidden:
   elocation_id: true
   enclosures: true
   extract_policy: true
-  field_comments: true
   final_published: true
   fpage: true
   free_to_read: true

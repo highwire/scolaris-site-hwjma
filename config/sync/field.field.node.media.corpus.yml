@@ -1,0 +1,19 @@
+uuid: 8875d1ed-0deb-478f-9adf-4044cd154138
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.corpus
+    - node.type.media
+id: node.media.corpus
+field_name: corpus
+entity_type: node
+bundle: media
+label: Corpus
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

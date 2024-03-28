@@ -40,7 +40,6 @@ dependencies:
     - field.field.node.journal_article.elocation_id
     - field.field.node.journal_article.enclosures
     - field.field.node.journal_article.extract_policy
-    - field.field.node.journal_article.field_comments
     - field.field.node.journal_article.final_published
     - field.field.node.journal_article.fpage
     - field.field.node.journal_article.free_to_read
@@ -136,15 +135,15 @@ third_party_settings:
   field_group:
     group_abstract:
       children: {  }
-      label: 'Action Tools'
       parent_name: ''
-      region: content
       weight: 11
       format_type: highwire_html_list
       format_settings:
         id: ''
         classes: ''
         list_type: ul
+      label: 'Action Tools'
+      region: content
 _core:
   default_config_hash: 8v22XJLIFVhMcuh_a9vK0Vw7G6SBM8qHN595fTvkZcA
 id: node.journal_article.toc_list
@@ -154,73 +153,75 @@ mode: toc_list
 content:
   article_open_access:
     type: boolean
+    weight: 1
+    region: content
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 1
-    region: content
   article_type:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 4
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   date_ppub:
     type: daterange_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-      separator: '-'
-    third_party_settings: {  }
     weight: 5
     region: content
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
   fpage:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 7
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   hwmd_abstract_article_toc_:
     type: hwmarkup_display_formatter
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 10
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   hwmd_contributors_plain_:
     type: hwmarkup_display_formatter
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 9
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   journal_title:
     type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
     weight: 3
     region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  overline:
-    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  overline:
+    type: text_default
     weight: 2
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   variant_full_text_pdf:
     type: access_aware_file_url_plain
+    weight: 8
+    region: content
     label: above
     settings:
       access_rules: {  }
@@ -228,15 +229,13 @@ content:
       access_denied_html: ''
       access_link_hide: false
     third_party_settings: {  }
-    weight: 8
-    region: content
   volume:
     type: text_default
+    weight: 6
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 6
-    region: content
 hidden:
   abstract_type: true
   addtoany: true
@@ -276,7 +275,6 @@ hidden:
   email_article: true
   enclosures: true
   extract_policy: true
-  field_comments: true
   final_published: true
   free_to_read: true
   georef_id: true

@@ -1,0 +1,21 @@
+uuid: b957e510-6f46-48af-9cbc-95da527291e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.adjuncts
+    - node.type.media
+id: node.media.adjuncts
+field_name: adjuncts
+entity_type: node
+bundle: media
+label: adjuncts
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference
