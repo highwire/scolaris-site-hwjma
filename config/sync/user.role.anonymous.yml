@@ -1,17 +1,13 @@
-uuid: 65587bb9-e476-4b76-9ad5-ab2f127dceeb
+uuid: 2bcf828b-25d7-46df-bc93-12db93bdf809
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.restricted_html
-    - node.type.eletters
   module:
     - comment
     - contact
-    - disqus
-    - field_permissions
     - filter
-    - node
     - search
     - system
 _core:
@@ -33,7 +29,6 @@ permissions:
   - 'edit own field_highwire_comment_subject'
   - 'search content'
   - 'use text format restricted_html'
-  - 'view disqus comments'
   - 'view field_highwire_comment_response'
   - 'view field_highwire_comment_subject'
   - 'view own field_highwire_comment_response'

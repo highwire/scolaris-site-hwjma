@@ -1,0 +1,22 @@
+uuid: e156c74c-f18d-4920-9d8e-8f138a4bec53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.issn_ppub
+    - node.type.media
+  module:
+    - text
+id: node.media.issn_ppub
+field_name: issn_ppub
+entity_type: node
+bundle: media
+label: issn-ppub
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

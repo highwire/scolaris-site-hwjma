@@ -40,7 +40,6 @@ dependencies:
     - field.field.node.journal_article.elocation_id
     - field.field.node.journal_article.enclosures
     - field.field.node.journal_article.extract_policy
-    - field.field.node.journal_article.field_comments
     - field.field.node.journal_article.final_published
     - field.field.node.journal_article.fpage
     - field.field.node.journal_article.free_to_read
@@ -130,8 +129,8 @@ dependencies:
     - user
 third_party_settings:
   layout_builder:
-    enabled: false
     allow_custom: false
+    enabled: false
 _core:
   default_config_hash: Ea3RDv7B6yAE5RV6DR-kQA3uvolCHuaXHbWW1gn4SJ0
 id: node.journal_article.full_text_markup
@@ -140,10 +139,10 @@ bundle: journal_article
 mode: full_text_markup
 content:
   links:
-    settings: {  }
-    third_party_settings: {  }
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   abstract_type: true
   addtoany: true
@@ -186,7 +185,6 @@ hidden:
   email_article: true
   enclosures: true
   extract_policy: true
-  field_comments: true
   final_published: true
   fpage: true
   free_to_read: true
