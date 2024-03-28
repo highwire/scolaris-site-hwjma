@@ -29,6 +29,7 @@ permissions:
   - 'edit own field_highwire_comment_subject'
   - 'search content'
   - 'use text format restricted_html'
+  - 'view disqus comments'
   - 'view field_highwire_comment_response'
   - 'view field_highwire_comment_subject'
   - 'view own field_highwire_comment_response'

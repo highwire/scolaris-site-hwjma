@@ -17,11 +17,14 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  crazyegg: 0
   ctools: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
   devel: 0
+  devel_php: 0
+  disqus: 0
   double_field: 0
   dynamic_page_cache: 0
   editor: 0
@@ -35,6 +38,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  gtranslate: 0
   help: 0
   highwire_access_control: 0
   highwire_binary: 0
@@ -50,6 +54,7 @@ module:
   highwire_markup: 0
   highwire_markup_display: 0
   highwire_metatag: 0
+  highwire_monsido: 0
   highwire_openurl: 0
   highwire_pap: 0
   highwire_personalization: 0
@@ -58,6 +63,7 @@ module:
   highwire_site_style: 0
   highwire_taxonomy: 0
   highwire_top_topics: 0
+  highwire_trendmd: 0
   highwire_user: 0
   history: 0
   image: 0

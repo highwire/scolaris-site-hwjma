@@ -19,7 +19,7 @@
         }
     },
     "require": {
-        "highwire/freebird": "dev-JCOREX-437",
+        "highwire/freebird": "dev-10.x-1.x-stable",
         "highwire/freebird-scaffold": "dev-10.x-1.x-dev",
         "composer/installers": "^2.0",
         "drupal/core-composer-scaffold": "^10.1",
@@ -126,5 +126,3 @@
         ]
     }
 }
-
-
