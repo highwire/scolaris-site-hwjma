@@ -1,4 +1,4 @@
-uuid: 773b2f5d-a1d3-4910-a881-121a268c8cfa
+uuid: bc30ba69-b97e-488d-b368-a62a23d1702c
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.authors_full_name
     - node.type.relationship
   module:
-    - text
+    - double_field
 id: node.relationship.authors_full_name
 field_name: authors_full_name
 entity_type: node
@@ -18,5 +18,22 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
-field_type: text_long
+  first:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    label: ''
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

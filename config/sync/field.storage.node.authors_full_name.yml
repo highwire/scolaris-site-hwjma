@@ -1,16 +1,29 @@
-uuid: 03a9ce3f-78c5-4010-8088-22f26fc57ef5
+uuid: 8b15b21f-a3c8-4338-9a20-191066db051d
 langcode: en
 status: true
 dependencies:
   module:
+    - double_field
     - node
-    - text
 id: node.authors_full_name
 field_name: authors_full_name
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: double_field
+settings:
+  storage:
+    first:
+      type: string
+      maxlength: 255
+      precision: 10
+      scale: 2
+      datetime_type: datetime
+    second:
+      type: string
+      maxlength: 255
+      precision: 10
+      scale: 2
+      datetime_type: datetime
+module: double_field
 locked: false
 cardinality: -1
 translatable: true

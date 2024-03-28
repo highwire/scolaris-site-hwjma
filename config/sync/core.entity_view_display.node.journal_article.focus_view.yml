@@ -40,7 +40,6 @@ dependencies:
     - field.field.node.journal_article.elocation_id
     - field.field.node.journal_article.enclosures
     - field.field.node.journal_article.extract_policy
-    - field.field.node.journal_article.field_comments
     - field.field.node.journal_article.final_published
     - field.field.node.journal_article.fpage
     - field.field.node.journal_article.free_to_read
@@ -134,20 +133,20 @@ third_party_settings:
       children:
         - hwjma_focus_view
         - hwjma_toc_pager
-      label: 'Content actions'
       parent_name: ''
-      region: content
       weight: 0
       format_type: html_element
       format_settings:
-        classes: journals-step
         id: ''
+        classes: journals-step
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+      label: 'Content actions'
+      region: content
 _core:
   default_config_hash: ECcYRBLHSn5w4FhB8G76V_Y6JPssU3-0IhgyVN08M60
 id: node.journal_article.focus_view
@@ -156,15 +155,15 @@ bundle: journal_article
 mode: focus_view
 content:
   hwjma_focus_view:
-    settings: {  }
-    third_party_settings: {  }
     weight: 37
     region: content
-  hwjma_toc_pager:
     settings: {  }
     third_party_settings: {  }
+  hwjma_toc_pager:
     weight: 38
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   abstract_type: true
   addtoany: true
@@ -207,7 +206,6 @@ hidden:
   email_article: true
   enclosures: true
   extract_policy: true
-  field_comments: true
   final_published: true
   fpage: true
   free_to_read: true
